@@ -1,125 +1,247 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThunderDex Test Builds</title>
+    <title>ThunderDex Test APKs</title>
     <style>
         @font-face {
-            font-family: 'UberMoveBold'; /* Define UberMoveBold font */
-            src: url('fonts/UberMove-Bold.otf') format('opentype'); /* Path to your UberMoveBold font file */
+            font-family: 'UberMoveBold'; 
+            src: url('fonts/cashsans_black.otf') format('opentype');
         }
-
+        
         @font-face {
-            font-family: 'CustomFont'; /* Define the second font */
-            src: url('fonts/Google_Sans-500-100_0-0_0.ttf') format('truetype'); /* Path to your second font file */
+            font-family: 'categories'; 
+            src: url('fonts/GoogleSansText-Regular.ttf') format('truetype');
         }
-
+        
         @font-face {
-            font-family: 'ProductSansPlay'; /* Define the ProductSans-Play font */
-            src: url('fonts/ProductSans-Play.otf') format('opentype'); /* Path to your ProductSans-Play font file */
+            font-family: 'LyftProBold'; 
+            src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+        }
+        
+        @font-face {
+            font-family: 'CustomFont'; 
+            src: url('fonts/ProductSans-Play.otf') format('opentype');
         }
 
         /* Material Design 3 Colors */
         :root {
-            --primary-color: #B0E0E6; /* Primary color */
-            --on-primary-color: #ffffff; /* Text color on primary color */
-            --background-color: #25252f; /* Dark background color */
-            --surface-color: #1f2125; /* Dark surface color for list items (20% darker than #25252f) */
-            --on-surface-color: #ffffff; /* Text color on surface (white for readability) */
-            --hover-text-color: rgba(255, 255, 255, 0.85); /* Slightly darker text color on hover */
-            --link-color: #B4CBCE; /* Set link color to #B4CBCE */
-            --error-color: #b00020; /* Error color */
-            --on-error-color: #ffffff; /* Text color on error color */
-            --thunderdex-title-color: #c0d3d6; /* Custom color for ThunderDex title */
-            --card-shadow: rgba(0, 0, 0, 0.2); /* Shadow color for card */
+            --primary-color: #2F303B; 
+            --on-primary-color: #f9f9f9; 
+            --background-color: #2F303B;
+            --surface-color: #2F303B; 
+            --on-surface-color: #2F303B; 
+            --hover-text-color: #f9f9f9; 
+            --link-color: #4285F4; 
+            --error-color: #b00020;
+            --on-error-color: #ffffff;
+            --thunderdex-title-color: #f6f6f6; 
+            --card-shadow: #4285f4; 
+            --important-note-color: #ff6f61; /* Slight red color for important notes */
+            --changelog-border-color: rgba(255, 255, 255, 0.35); /* Light border for changelog */
         }
 
         body {
-            font-family: 'CustomFont', sans-serif; /* Use CustomFont for the body */
-            margin: 20px; /* Keep the outer margin */
-            background-color: var(--background-color); /* Dark background color */
-            color: var(--on-surface-color); /* White text color */
-            padding-left: 10px; /* Add left padding to the body for uniformity */
+            font-family: 'CustomFont', sans-serif;
+            margin: 20px;
+            text-align: left;
+            background-color: var(--background-color);
+            color: var(--on-primary-color);
         }
 
         h1 {
-            font-family: 'UberMoveBold', sans-serif; /* Use UberMoveBold for the heading */
-            color: var(--thunderdex-title-color); /* Set the title color */
-            font-size: 48px; /* Increased heading size */
-            margin: 32px 0 16px 0; /* Consistent spacing: top, bottom, left, right */
-            line-height: 1.2; /* Adjusted line height for better spacing */
+            font-family: 'UberMoveBold', sans-serif;
+            color: var(--thunderdex-title-color);
+            font-size: 36px;
+            margin: 24px 0 16px;
+            text-align: center;
         }
 
-        .date {
-            font-family: 'ProductSansPlay', sans-serif; /* Use ProductSans-Play for the date */
-            color: var(--on-surface-color); /* White text color */
-            font-size: 24px; /* Reduced size for better fit */
-            margin-bottom: 16px; /* Increased margin below the date text */
-            line-height: 1.5; /* Improved line height for better readability */
+        /* Important Notes styling */
+        .important-notes {
+            font-family: 'LyftProBold', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--important-note-color);
+            background-color: rgba(255, 111, 97, 0.1);
+            border: 2px solid var(--important-note-color);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.3;
+            max-width: 95%; /* Ensure the notes section can expand fully */
         }
 
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0;
+        /* Remove bullets */
+        .important-notes ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .important-notes li {
+            margin-bottom: 10px;
+        }
+
+        /* Flexbox container for centering the download button */
+        .download-container {
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+             margin-top: 30px;
+        }
+
+        /* Styling the download button */
+        .download-list a {
+            text-decoration: none;
+            background-color: #262730;
+            font-weight: 600;
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            color: #d5d5d5;
+            box-shadow: inset 0 8px 10px rgba(0, 0, 0, 0.52); 
+            height: 60px;
+            line-height: 60px; 
+            transition: all 0.2s ease-in-out;
+        }
+
+        .download-list a:hover {
+            background-color: #1e1e25;
+            box-shadow: inset 0 8px 10px rgba(0, 0, 0, 0.45); 
+        }
+
+        /* Changelog section */
+        .important-updates {
+            font-family: 'LyftProBold', sans-serif;
+            font-size: 38px;
+            text-align: center;
+            margin-top: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Changelog box with subtle border */
+        .changelog-box {
+            width: 60%; /* Adjusted width */
+			font-family: 'categories', sans-serif;
+            max-height: 500px; /* Set max height for scrolling */
+            border: 2px solid var(--changelog-border-color); /* Light, subtle border */
+            border-radius: 12px; /* Rounded corners for the border */
+            padding: 20px; /* Add some padding inside the box */
+            overflow-y: auto; /* Enable scrolling */
+            margin: 0 auto; /* Center the box */
+			margin-top: 30px; 
+        }
+
+        .changelog-list {
+		font-family: 'categories', sans-serif;
+            padding-left: 0;
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the list items */
         }
 
         li {
-            margin: 15px 0; /* Increased vertical margin for list items */
-            padding: 20px; /* Adjusted padding for better text spacing */
-            border: 1px solid #e0e0e0; /* Light border for surface */
-            border-radius: 12px; /* Rounded corners for list items */
-            background-color: var(--surface-color); /* Dark surface color for list items */
-            color: var(--on-surface-color); /* White text color for list items */
-            font-family: 'CustomFont', sans-serif; /* Use CustomFont for list items */
-            font-size: 20px; /* Increased size for list items */
-            line-height: 1.5; /* Improved line height for better readability */
-            transition: background-color 0.3s, box-shadow 0.3s, color 0.3s; /* Smooth transitions */
-            box-shadow: 0 2px 5px var(--card-shadow); /* Shadow effect */
-            position: relative; /* Position for pseudo-element */
-            overflow: hidden; /* Clip overflow */
+		font-family: 'categories', sans-serif;
+            margin: 15px 0;
+            background-color: var(--surface-color);
+            font-size: 20px;
+            padding: 15px;
         }
 
         li:hover {
-            background-color: rgba(107, 173, 182, 0.3); /* Light hover effect on list items */
-            box-shadow: 0 4px 10px var(--card-shadow); /* Enhanced shadow on hover */
-            color: var(--hover-text-color); /* Darken text color on hover */
+            background-color: #2F303B;
         }
 
-        a {
-            text-decoration: none;
-            color: var(--link-color); /* Use link color from variables */
-            font-weight: 600; /* Increased font weight for emphasis */
-            font-size: 20px; /* Match the list item font size */
-            display: inline-block; /* Make the link a block to allow padding */
-            padding: 10px; /* Add padding for a better clickable area */
-            border-radius: 4px; /* Rounded corners for the clickable area */
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        /* Apply Google Sans Display to category headings */
+        .category-heading {
+            font-family: 'categories', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-top: 16px;
+            font-weight: bold;
+            color: var(--on-primary-color);
         }
 
-        a:hover {
-            text-decoration: underline;
-            color: #9DD8E0; /* Slightly lighter hint color on hover */
-            cursor: pointer; /* Change cursor to pointer on hover */
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            /* Center the important notes section on mobile */
+            .important-notes {
+                display: block;
+                max-width: 90%; /* Limit width on smaller screens */
+                margin: 0 auto; /* Center the block element */
+            }
+        }
+
+        /* Hide scrollbars */
+        .changelog-box::-webkit-scrollbar {
+            display: none;
+			margin-top: 16px;
         }
     </style>
 </head>
 <body>
 
-<h1>ThunderDex Test Builds</h1>
+<h1>Thunderdex Tests</h1>
 
-<!-- Date display -->
-<div class="date">
-    <!-- Display fixed date -->
-    October 5th, 2024
+<!-- Important Notes section placed to the left -->
+<div class="important-notes">
+    <strong>Important Notes:</strong>
+    <ul>
+        <li>Please send me screenshots of the vehicle groups (planes, helis, tanks, ships). I made some changes on my end and want to see if theyre too small.</li>
+        <li>Please click the vehicle info section & report back if the app crashes.</li>
+        <li>The radar section is doing a large amount of work setting UI elements programmatically. please report any bugs/crashes</li>
+    </ul>
 </div>
 
-<ul>
-    <li>
-        <a href="https://drive.google.com/file/d/1FyPj37jcd-QOwjYbnLVu5c1XKXKDCLYh/view?usp=drive_link" download>ThunderDex 5.2.0 Test #4</a>
-    </li>
-    <!-- Add more APKs here -->
-</ul>
+<!-- Download section centered below the Important Notes -->
+<div class="download-container">
+    <div class="download-list">
+        <a href="http://example.com">Download ThunderDex 5.6.0 APK</a>
+    </div>
+</div>
+
+<!-- Changelog section with subtle border -->
+<div class="changelog-box">
+    <div class="changelog-list">
+        <li class="category-heading"><strong>Visual & Design Improvements:</strong></li>
+        <li>Streamlined radar tab card design to match vehicle groups, with adjusted margins, shadow, and elevation.</li>
+        <li>Streamlined vehicle weaponry tab card design to match vehicle groups, with adjusted margins, shadow, and elevation.</li>
+        <li>Adjusted vehicle group cards design for a cleaner look and better alignment.</li>
+        <li>Adjusted news and updates card image design, now featuring a slight texture and updated gradient for a refined look.</li>
+        <li>Updated Golden Eagles, RP, and Silver Lion icons from Wiki 3.0 for a more consistent visual experience.</li>
+        <li>Vehicle info background now animates slower and darkens, enhancing visual appeal.</li>
+        <li>Many improvements to the vehicle info section:
+            <ul>
+                <li>The research amount and SL amount are now centered beneath the titles.</li>
+                <li>The expanding app bar now darkens as you scroll, based on the current theme background.</li>
+                <li>Adjusted miscellaneous height and text values for the app bar; the vehicle name now has a slight shadow.</li>
+            </ul>
+        </li>
+        
+        <li class="category-heading"><strong>General Fixes:</strong></li>
+        <li>Finished the airborne radar section.</li>
+        <li>Fixed the language chooser needing to be touched twice.</li>
+        <li>New dynamic fluid gradient theme for the airborne radar section.</li>
+        <li>Added a New Year's theme with a fireworks display in the header 🎉.</li>
+        <li>Fixed the About section force closing, ensuring stability.</li>
+        <li>Fixed theme chooser dialog color issue for the Monet theme (previously showed "classic purple (app default)" color).</li>
+        <li>Implemented programmatic height adjustment for grouped vehicle CardViews based on user screen height, accounting for the bottom navigation view height to prevent scrolling for vehicle selection.</li>
+        <li>Removed the Ballistic Computers section to simplify the app.</li>
+
+        <li class="category-heading"><strong>Theming & User Interface:</strong></li>
+        <li>New random gradient theme when opening the About section.</li>
+        <li>There are about 60 themes so far, randomly chosen, and you are informed of the current theme name.</li>
+        <li>Removed the textured header for the Lyft Grey theme, as it looks better without it.</li>
+        <li>Adjusted the top margin for the Settings header to improve visual hierarchy.</li>
+
+        <li class="category-heading"><strong>Icon Updates:</strong></li>
+        <li>New SL, RP, and GE icons from the new wiki.</li>
+    </div>
+</div>
 
 </body>
 </html>
