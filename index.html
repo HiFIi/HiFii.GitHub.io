@@ -26,6 +26,7 @@
          --background-color: #2F303B;
          --card-background: #1e1e25;
          --important-note-color: #ff6f61;
+         --build-date-color: #f5f5f5; /* Optional for custom color */
          }
          body {
          font-family: 'CustomFont', sans-serif;
@@ -148,6 +149,19 @@
          list-style-type: none;
          text-align: left;
          }
+         /* Build Date Styling */
+         .build-date {
+         font-size: 32px; /* Increased font size */
+         text-align: center; /* Center the text */
+         margin-bottom: 10px;
+         color: var(--build-date-color); /* Optional, use for custom color */
+         }
+         .build-date-time {
+         font-size: 28px;
+         text-align: center;
+         margin-top: 10px;
+         color: var(--build-date-color);
+         }
          @media (max-width: 768px) {
          h1 {
          font-size: 28px;
@@ -163,6 +177,12 @@
          .category-heading {
          font-size: 18px;
          }
+         .build-date {
+         font-size: 20px; /* Adjust for smaller screens */
+         }
+         .build-date-time {
+         font-size: 18px;
+         }
          }
       </style>
    </head>
@@ -176,45 +196,44 @@
             <li>The radar section is doing a large amount of work setting UI elements programmatically. Please report any bugs/crashes.</li>
          </ul>
       </div>
+      <!-- Build Date Section -->
+      <div class="build-date">
+         <strong>Build Date:</strong>
+      </div>
+      <div class="build-date-time">
+         January 2nd, 2025, 04:25AM
+      </div>
       <div class="download-container">
          <div class="download-list">
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/12-31/5.6.0-test/arm64/ThunderDex-12-31-2024_1147-arm64-v8a-debug.apk">Download ThunderDex 5.6.0 test [ARM64 APK]</a>
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/12-31/5.6.0-test/universal/ThunderDex-12-31-2024_1147-debug.apk">Download ThunderDex 5.6.0 test [Universal APK]</a>
+            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/01-02-2025/5.6.0-beta2/arm64/ThunderDex-01-02-2025_0418-arm64-v8a-debug.apk">Download ThunderDex 5.6.0 Beta 2 [ARM64 APK]</a>
+            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/01-02-2025/5.6.0-beta2/universal/ThunderDex-01-02-2025_0418-universal-debug.apk">Download ThunderDex 5.6.0 Beta 2 [Universal APK]</a>
          </div>
       </div>
       <div class="changelog-container">
          <div class="changelog-box">
             <div class="changelog-list">
                <li class="category-heading"><strong>Newest & Exciting Changes</strong></li>
-               <li>Introduced a random and unique animated fluid gradient theme for the About section with over 60 different color themes!!</li>
-               <li>You can now hide the UI for 1 minute in the about section by pressing the "hide UI" button in case youd like to observe the unique theme move around</li>
-               <li>It will also display the name of the color theme for a very short duration. let me know which ones are your favorites!</li>
-               <li>Added a unique dynamic fluid gradient animation to the radar card.</li>
-               <li>The radar card now has an animated radar. it was done with code, it is not a gif</li>
-               <li>Fixed an issue where the language chooser required two taps to function correctly. now just tap it once!</li>
-               <li>🎉 Introducing a NEW YEARS THEME! there is no better way to kick off 2025 with a celebratory fireworks display in the header 🎉</li>
-               <li>Improved the design of the about section</li>
-               <li>Completed the airborne radar section, includes a beautiful design and animations</li>
-               <li>Icons for Golden Eagles (GE), Research Points (RP), and Silver Lions (SL) have been replaced with higher quality images</li>
-               <li class="category-heading-medium"><strong>Many improvements to the vehicle info section:</strong></li>
-               <li>The research amount and SL amount are now centered beneath their titles for improved clarity.</li>
-               <li>The expanding app bar darkens as you scroll, blending seamlessly with the theme background.</li>
-               <li>Height and text styles for the app bar were adjusted, and the vehicle name now features a subtle shadow.</li>
-               <li class="category-heading"><strong>Visual & Design Improvements:</strong></li>
-               <li>Radar tab card designs now match vehicle groups with better spacing, shadows, and consistent style.</li>
-               <li>Vehicle weaponry tab cards have been updated to align with the style of vehicle group cards, enhancing visual consistency.</li>
-               <li>Vehicle group cards were redesigned for improved alignment and a cleaner look.</li>
-               <li>News and updates card images now include a subtle texture and an updated gradient for a more refined appearance.</li>
-               <li>The vehicle info expanding appbar now animates slower and darkens slightly for better visual appeal</li>
-               <li class="category-heading"><strong>General Fixes:</strong></li>
-               <li>Resolved a crash in the About section to improve stability.</li>
-               <li>Fixed a theme chooser dialog color issue for the Monet theme (previously showing an incorrect color).</li>
-               <li>Implemented programmatic height adjustments for grouped vehicle CardViews to optimize their display based on the user's screen height.</li>
-               <li>Removed the Ballistic Computer section to simplify the app's features.</li>
-               <li class="category-heading"><strong>Theming & User Interface:</strong></li>
-               <li>Removed the textured header for the Lyft Grey theme, resulting in a cleaner look.</li>
-               <li>Adjusted the top margin of the Settings header for better visual hierarchy.</li>
-               <li>Updated SL, RP, and GE icons with the latest designs from Wiki 3.0 for a more modern appearance.</li>
+               <li>Option to view my GitHub commits from GitHub in real-time</li>
+               <li>Date of most recent GitHub code push now displayed in the About section</li>
+               <li>Replaced all gradient fluid themes for the About section. There are now over 100 themes!</li>
+               <li>EARLY WORK IN PROGRESS NEW FEATURE: When a "major update" news article gets clicked, it will now parse the HTML code into a layout instead of opening the website.<
+                  li>
+               <li class="category-heading-medium"><strong>** Note **</strong></li>
+               <li>Work has begun on bringing ThunderDex up-to-date with using the current war thunder wiki site instead of the old one</li>
+               <li class="category-heading-medium"><strong>Improvements</strong></li>
+               <li>Darkened colors for nearly all the themes in the About section</li>
+               <li>Greater array of colors for the radar gradient card</li>
+               <li>Fluid Gradient Animation has been optimized and quality increased</li>
+               <li>The About section now has a smoother shared transition animation</li>
+               <li>Radar group: Improved and tweaked the Radar card design</li>
+               <li>Fluid Gradient animation in the About section has been tweaked and improved</li>
+               <li class="category-heading-medium"><strong>Removed</strong></li>
+               <li>Removed the "About" title and description in the About fragment</li>
+               <li class="category-heading-medium"><strong>Bug Fixes</strong></li>
+               <li>Fixed the Easter Egg game being laggy. It is now much smoother</li>
+               <li class="category-heading-medium"><strong>New Features</strong></li>
+               <li>Added new scenarios for the Easter Egg (dusk, dawn, stormy, etc.)</li>
+               <li>Lots and lots of tweaks and improvements behind-the-scenes</li>
             </div>
          </div>
       </div>
