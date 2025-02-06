@@ -6,219 +6,205 @@
       <title>ThunderDex Test APKs</title>
       <style>
          @font-face {
-            font-family: 'UberMoveBold';
-            src: url('fonts/cashsans_black.otf') format('opentype');
+         font-family: 'UberMoveBold';
+         src: url('fonts/cashsans_black.otf') format('opentype');
          }
          @font-face {
-            font-family: 'categories';
-            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+         font-family: 'categories';
+         src: url('fonts/ProductSans-Regular.ttf') format('truetype');
          }
          @font-face {
-            font-family: 'LyftProBold';
-            src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+         font-family: 'LyftProBold';
+         src: url('fonts/LyftPro-Bold.ttf') format('truetype');
          }
          @font-face {
-            font-family: 'CustomFont';
-            src: url('fonts/ProductSans-Play.otf') format('opentype');
+         font-family: 'CustomFont';
+         src: url('fonts/ProductSans-Play.otf') format('opentype');
          }
          @font-face {
-            font-family: 'HeaderFontStyle';
-            src: url('fonts/laca_blackitalic.otf') format('opentype');
+         font-family: 'HeaderFontStyle';
+         src: url('fonts/laca_blackitalic.otf') format('opentype');
          }
          @font-face {
-            font-family: 'ImportantNotes';
-            src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
-         }
-
+         font-family: 'ImportantNotes';
+         src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
+         }         
          :root {
-            --primary-color: #181820;
-            --on-primary-color: #ffffff;
-            --background-color: #121218;
-            --card-background: #1A1A26;
-            --important-note-color: #0FD98C;
-            --important-note-background: #101417;
-            --build-date-color: #EAEAEA;
-            --link-hover-bg: #067547;
-            --link-bg: #3A3B47;
-            --link-color: #F0F0F0;
-            --ripple-color: rgba(255, 255, 255, 0.2);
+         --primary-color: #181820;
+         --on-primary-color: #ffffff;
+         --background-color: #121218;
+         --card-background: #1A1A26;
+         --important-note-color: #0FD98C;
+         --important-note-background: #101417;
+         --build-date-color: #EAEAEA;
+         --link-hover-bg: #067547;
+         --link-bg: #3A3B47;
+         --link-color: #F0F0F0;
+         --ripple-color: rgba(255, 255, 255, 0.2);
          }
-
+         /* Animated gradient background */
+         @keyframes gradientAnimation {
+         0% {
+         background: linear-gradient(75deg, #4285f4, #222426, #181820);
+         }
+         }
          body {
-            font-family: 'CustomFont', sans-serif;
-            font-size: 18px;
-            line-height: 1.8;
-            margin: 0;
-            padding: 25px;
-            background: linear-gradient(95deg, #091313, #091313, #4285f4, #181820);
-            color: var(--on-primary-color);
+         font-family: 'CustomFont', sans-serif;
+         font-size: 18px;
+         line-height: 1.8;
+         margin: 0;
+         padding: 25px;
+         background: linear-gradient(75deg, #4285f4, #222426, #181820);
+         color: var(--on-primary-color);
          }
-
          h1 {
-            font-family: 'HeaderFontStyle', sans-serif;
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-align: center;
+         font-family: 'HeaderFontStyle', sans-serif;
+         font-size: 48px;
+         margin-bottom: 20px;
+         text-align: center;
          }
-
          .important-notes-section {
-            font-family: 'ImportantNotes', sans-serif;
-            font-size: 16px;
-            background-color: var(--important-note-background);
-            color: var(--important-note-color);
-            border: 2px solid var(--important-note-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            list-style-type: none;
-            box-shadow: 0 14px 16px rgba(0, 0, 0, 0.5);
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
+         font-family: 'ImportantNotes', sans-serif;
+         font-size: 16px;
+         background-color: var(--important-note-background);
+         color: var(--important-note-color);
+         border: 2px solid var(--important-note-color);
+         border-radius: 12px;
+         padding: 25px;
+         margin-bottom: 30px;
+         list-style-type: none;
+         box-shadow: 0 14px 16px rgba(0, 0, 0, 0.5);
+         text-align: left;
+         max-width: 800px;
+         margin: 0 auto;
          }
-
          .important-notes-section strong {
-            font-family: 'UberMoveBold', sans-serif;
-            font-size: 22px;
-            display: block;
-            list-style-type: none;
-            margin-bottom: 12px;
+         font-family: 'UberMoveBold', sans-serif;
+         font-size: 22px;
+         display: block;
+         list-style-type: none;
+         margin-bottom: 12px;
          }
-
          .important-notes-section hr.divider {
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.4);
-            margin: 18px 0;
+         border: 0;
+         border-top: 1px solid rgba(255, 255, 255, 0.4);
+         margin: 18px 0;
          }
-
          .download-section {
-            text-align: center;
-            margin: 25px 0;
+         text-align: center;
+         margin: 25px 0;
          }
-
          .download-links a {
-            text-decoration: none;
-            background-color: var(--link-bg);
-            font-weight: 600;
-            font-size: 26px;
-            padding: 25px 50px;
-            border-radius: 12px;
-            color: var(--link-color);
-            display: inline-block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-            position: relative;
+         text-decoration: none;
+         background-color: var(--link-bg);
+         font-weight: 600;
+         font-size: 26px; /* Increased font size */
+         padding: 25px 50px; /* Increased padding */
+         border-radius: 12px;
+         color: var(--link-color);
+         display: inline-block;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+         transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+         position: relative;
          }
-
          .download-links a::before {
-            content: '';
-            position: absolute;
-            background: var(--ripple-color);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
+         content: '';
+         position: absolute;
+         background: var(--ripple-color);
+         border-radius: 50%;
+         transform: scale(0);
+         animation: ripple 0.6s linear;
+         pointer-events: none;
          }
-
          .download-links a:hover {
-            background-color: var(--link-hover-bg);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transform: scale(1.05);
+         background-color: var(--link-hover-bg);
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+         transform: scale(1.05);
          }
-
          .download-links a:active::before {
-            transform: scale(4);
-            opacity: 0;
+         transform: scale(4);
+         opacity: 0;
          }
-
          @keyframes ripple {
-            0% {
-               transform: scale(0);
-               opacity: 1;
-            }
-            100% {
-               transform: scale(3);
-               opacity: 0;
-            }
+         0% {
+         transform: scale(0);
+         opacity: 1;
          }
-
+         100% {
+         transform: scale(3);
+         opacity: 0;
+         }
+         }
          .changelog-section {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+         margin: 20px auto;
+         max-width: 800px;
+         text-align: center;
          }
-
          .changelog-box {
-            background-color: var(--card-background);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-            font-size: 24px;
-            line-height: 1.8;
-            color: var(--on-primary-color);
-            max-width: 100%;
-            text-align: left;
+         background-color: var(--card-background);
+         border-radius: 12px;
+         padding: 25px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+         font-size: 24px;
+         line-height: 1.8;
+         color: var(--on-primary-color);
+         max-width: 100%;
+         text-align: left;
          }
-
          .changelog-title {
-            font-family: 'UberMoveBold', sans-serif;
-            font-size: 44px;
-            list-style: none;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            text-align: left;
+         font-family: 'UberMoveBold', sans-serif;
+         font-size: 44px;
+         list-style: none;
+         margin-top: 15px;
+         margin-bottom: 15px;
+         text-align: left;
          }
-
          .test-heading,
          .medium-heading {
-            font-family: 'UberMoveBold', sans-serif;
-            font-size: 22px;
-            margin-top: 20px;
-            margin-bottom: 12px;
-            text-align: left;
-            list-style: none;
-         }
-
+         font-family: 'UberMoveBold', sans-serif;
+         font-size: 22px;
+         margin-top: 20px;
+         margin-bottom: 12px;
+         text-align: left;
+         list-style: none;
+         }         
          .build-info {
-            font-size: 32px;
-            text-align: center;
-            margin: 15px 0;
-            color: var(--build-date-color);
+         font-size: 32px;
+         text-align: center;
+         margin: 15px 0;
+         color: var(--build-date-color);
          }
-
          .changelog-section ul {
-            list-style-type: none;
-            padding-left: 0;
+         list-style-type: none;
+         padding-left: 0;
          }
-
          .changelog-section ul li {
-            margin-bottom: 12px;
+         margin-bottom: 12px;
          }
-
          @media (max-width: 768px) {
-            h1 {
-               font-size: 30px;
-            }
-            .important-notes-section {
-               font-size: 15px;
-               padding: 18px;
-            }
-            .important-notes-section-two {
-               font-size: 18px;
-               padding: 12px;
-            }
-            .download-links a {
-               font-size: 22px;
-            }
-            .changelog-box {
-               padding: 20px;
-            }
-            .divider {
-               border: 1px solid rgba(255, 255, 255, 0.3);
-            }
+         h1 {
+         font-size: 30px;
+         }
+         .important-notes-section {
+         font-size: 15px;
+         padding: 18px;
+         }
+         .important-notes-section-two {
+         font-size: 18px;
+         padding: 12px;
+         }
+         .download-links a {
+         font-size: 26px;
+         }
+         .changelog-box {
+         padding: 20px;
+         }
+         .divider {
+         border: 1px solid rgba(255, 255, 255, 0.3);
+         }
          }
       </style>
    </head>
@@ -226,7 +212,7 @@
       <h1>ThunderDex 6.0.0 (Beta 2)<br>February 6th, 2025</h1>
       <div class="download-section">
          <div class="download-links">
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta1/ARM64/ThunderDex-01-28-2025_2311-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 2)</a>
+            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta1/ARM64/ThunderDex-01-28-2025_2311-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 1)</a>
          </div>
       </div>
       <div class="important-notes-section">
@@ -256,7 +242,7 @@
          <br>
          <li class="medium-heading"><strong>You're now all caught up on all the major changes the app has had these last few months since the Play Store update in Late November of 2024</strong></li>
          <br>
-         <li class="medium-heading"><strong>Now check out the 6.0.0 Beta Changelogs below. :)</strong></li>
+         <li class="medium-heading"><strong>Now check out the 6.0.0 Beta 1 Changelog below. :)</strong></li>
       </div>
       <div class="changelog-section">
       <div class="changelog-box">
