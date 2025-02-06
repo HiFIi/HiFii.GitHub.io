@@ -42,13 +42,19 @@
          --link-color: #F0F0F0;
          --ripple-color: rgba(255, 255, 255, 0.2);
          }
+         /* Animated gradient background */
+         @keyframes gradientAnimation {
+         0% {
+         background: linear-gradient(75deg, #4285f4, #222426, #181820);
+         }
+         }
          body {
          font-family: 'CustomFont', sans-serif;
          font-size: 18px;
          line-height: 1.8;
          margin: 0;
          padding: 25px;
-         background-color: var(--background-color);
+         background: linear-gradient(75deg, #4285f4, #222426, #181820);
          color: var(--on-primary-color);
          }
          h1 {
