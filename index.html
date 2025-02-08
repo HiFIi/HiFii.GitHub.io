@@ -203,40 +203,11 @@
       </style>
    </head>
    <body>
-      <h1>ThunderDex 6.0.0 (Beta 2)<br>February 6th, 2025</h1>
+      <h1>ThunderDex 6.0.0 (Beta 2)<br>February 8th, 2025</h1>
       <div class="download-section">
          <div class="download-links">
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta1/ARM64/ThunderDex-01-28-2025_2311-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 2)</a>
+            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta2/ARM64/ThunderDex-02-08-2025_1450-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 2)</a>
          </div>
-      </div>
-      <div class="important-notes-section">
-         <strong>ThunderDex has been bumped to 6.0.0!</strong>
-         <hr class="divider">
-         <ul>
-            <li>After 3 months of consistent updates and feature additions, this version brings significant improvements.</li>
-            <li>I've worked tirelessly to add new themes, new features, fixed bugs, added a language chooser, + a brand new and fully updated radar section from the updated war thunder wiki website, and continue preparing to integrate the HTML code from the Wiki 3.0 into the app. Multiple parts of the app that relied on the HTML of the older wiki is being rewritten from the ground up</li>
-            <br>
-         </ul>
-         <div class="important-notes-section-two">
-            <strong>Some of the cool things I have been working on</strong>
-            <hr class="divider">
-            <ul>
-               <li>Integrating the Airborne Radar section from the updated Wiki! The entirety of the article is done programmatically in the app, including layout, text, and images.</li>
-               <li>Adding animated themes (the Snow for the Christmas theme is done with code, as well as the fireworks for the New Years theme)</li>
-               <li>An "app language" section was finally added! I opted not to use AI translations, so I rely on those who can contribute language translations through both a crowd-sourced translation website called Crowdin, or on GitHub through the ThunderDex Translations repository</li>
-               <li>I spent many hours writing code and added a section in the app through the settings that allow you to either learn, or become informed on how to contribute to the app! (you will also get a spot in the Contributors spot found in the About section)</li>
-               <li>Drastically improved the UI. The vehicle cards are now measured programmatically using math. This was mostly done so users with smaller screens have a better experience</li>
-               <li>More UI improvements: Vehicle cards now have an ambient shadow to give them a sort of "glowing" effect</li>
-               <li>Animations! The vehicle info zoom animation has been improved since the last update, as well as the about section getting a cool new "Fluid Gradient" animation with over 100 themes consisting of 2 groups x 3 colors each</li>
-               <li>Even more Animations! The Radar card now has a pulsing radar that occasionally displays dots upon sweeping (like a real radar does), as well as adding and improving the expanded animations for certain scrolling in the app (found in the airborne radar section as well as the vehicle info section)</li>
-            </ul>
-         </div>
-         <br>
-         <li class="medium-heading"><strong>Alright, that's it!<br>If you made it to the end, I appreciate you reading it <3 </strong></li>
-         <br>
-         <li class="medium-heading"><strong>You're now all caught up on all the major changes the app has had these last few months since the Play Store update in Late November of 2024</strong></li>
-         <br>
-         <li class="medium-heading"><strong>Now check out the 6.0.0 Beta Changelogs below. :)</strong></li>
       </div>
       <div class="changelog-section">
       <div class="changelog-box">
@@ -244,7 +215,16 @@
          <div class="changelog-list">
             <li class="changelog-title"><strong>6.0.0 Beta 2:</strong></li>
             <ul>
+               <li>Replaced the dropdown language chooser with a Bottom Sheet + made sure translations work throughout the whole app</li>
+               <li>Note: I tested the translations on an emulated Pixel 4 XL running Android 10 and it did work</li>
+               <li>The Language Chooser has a background based on the current theme for Android 9-11 + a Dynamic color theme for Android 12+</li>
+               <li>Greatly (seriously it's fast af now) improve the loading performance, and reduced the loading time in the Wiki 3.0 test</li>
                <li>Fixed Bottom Navigation not showing when navigating up from the Contribute Translations section</li>
+               <li>Fixed a force close when selecting the "About" section in the Settings for Android 9-11n</li>
+               <li>Reduced Radar sweep speed on the cardview</li>
+               <li>Improved Sparkle animation (add image with 0.7 alpha so a fluid gradient animates underneath it, launch 12 sparkle animations from different x and y values)</li>               
+
+
             </ul>
             <li class="changelog-title"><strong>6.0.0 Beta 1:</strong></li>
             <ul>
@@ -310,6 +290,35 @@
                <li>Updated AGP and libraries for better compatibility</li>
             </ul>
          </div>
+      </div>
+      <div class="important-notes-section">
+         <strong>ThunderDex has been bumped to 6.0.0!</strong>
+         <hr class="divider">
+         <ul>
+            <li>After 3 months of consistent updates and feature additions, this version brings significant improvements.</li>
+            <li>I've worked tirelessly to add new themes, new features, fixed bugs, added a language chooser, + a brand new and fully updated radar section from the updated war thunder wiki website, and continue preparing to integrate the HTML code from the Wiki 3.0 into the app. Multiple parts of the app that relied on the HTML of the older wiki is being rewritten from the ground up</li>
+            <br>
+         </ul>
+         <div class="important-notes-section-two">
+            <strong>Some of the cool things I have been working on</strong>
+            <hr class="divider">
+            <ul>
+               <li>Integrating the Airborne Radar section from the updated Wiki! The entirety of the article is done programmatically in the app, including layout, text, and images.</li>
+               <li>Adding animated themes (the Snow for the Christmas theme is done with code, as well as the fireworks for the New Years theme)</li>
+               <li>An "app language" section was finally added! I opted not to use AI translations, so I rely on those who can contribute language translations through both a crowd-sourced translation website called Crowdin, or on GitHub through the ThunderDex Translations repository</li>
+               <li>I spent many hours writing code and added a section in the app through the settings that allow you to either learn, or become informed on how to contribute to the app! (you will also get a spot in the Contributors spot found in the About section)</li>
+               <li>Drastically improved the UI. The vehicle cards are now measured programmatically using math. This was mostly done so users with smaller screens have a better experience</li>
+               <li>More UI improvements: Vehicle cards now have an ambient shadow to give them a sort of "glowing" effect</li>
+               <li>Animations! The vehicle info zoom animation has been improved since the last update, as well as the about section getting a cool new "Fluid Gradient" animation with over 100 themes consisting of 2 groups x 3 colors each</li>
+               <li>Even more Animations! The Radar card now has a pulsing radar that occasionally displays dots upon sweeping (like a real radar does), as well as adding and improving the expanded animations for certain scrolling in the app (found in the airborne radar section as well as the vehicle info section)</li>
+            </ul>
+         </div>
+         <br>
+         <li class="medium-heading"><strong>Alright, that's it!<br>If you made it to the end, I appreciate you reading it <3 </strong></li>
+         <br>
+         <li class="medium-heading"><strong>You're now all caught up on all the major changes the app has had these last few months since the Play Store update in Late November of 2024</strong></li>
+         <br>
+         <li class="medium-heading"><strong>Now check out the 6.0.0 Beta Changelogs below. :)</strong></li>
       </div>
    </body>
 </html>
