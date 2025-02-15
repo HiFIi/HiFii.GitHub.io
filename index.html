@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex Test APKs</title>
+      <title>ThunderDex Test / Beta APKs</title>
       <style>
          @font-face {
          font-family: 'UberMoveBold';
@@ -199,25 +199,846 @@
          .divider {
          border: 1px solid rgba(255, 255, 255, 0.3);
          }
+         .commit-log {
+         background-color: var(--card-background); /* Use your existing theme */
+         border-radius: 8px;
+         padding: 15px;
+         margin-bottom: 15px;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+         font-family: 'CustomFont', sans-serif;
+         color: var(--on-primary-color);
+         }
+         .commit-hash {
+         font-size: 16px;
+         font-weight: bold;
+         }
+         .commit-author {
+         font-size: 14px;
+         color: #aaa; /* Or your preferred muted color */
+         }
+         .commit-date {
+         font-size: 12px;
+         color: #bbb; /* Or your preferred muted color */
+         }
+         .commit-message {
+         font-size: 16px;
+         margin-top: 5px;
+         }
          }
       </style>
    </head>
    <body>
-      <h1>ThunderDex 6.0.0 (Beta 3)<br>February 8th, 2025</h1>
+      <h1>ThunderDex 6.0.0 (Beta 4)<br>February 15th, 2025</h1>
       <div class="download-section">
          <div class="download-links">
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta3/ARM64/ThunderDex-02-08-2025_1620-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 3)</a>
+            <a href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/6.0.0-beta4/ARM64/ThunderDex-02-15-2025_0754-arm64-v8a-debug.apk">Download ThunderDex 6.0.0 (Beta 4)</a>
          </div>
       </div>
       <div class="changelog-section">
       <div class="changelog-box">
-      <div class="changelog-list">
          <div class="changelog-list">
+            <div class="changelog-list">
+               <li class="changelog-title"><strong>6.0.0 Beta 4:<br>(Full GitHub changelog can be found under these notes)</strong></li>
+               <ul>
+                  <li>• Added a pulsing color gradient on the splash screen. Now it's less boring!</li>
+                  <li>• Finally fixed the "-90" bug, vehicles will show up properly now. In the code, it was being filtered so please check for issues</li>
+                  <li>• Finally fixed the "Favorite" icon bug. It now shows a filled heart upon favoriting a vehicle, also ensuring a streamlined icon across the UI</li>
+                  <li>• Vehicle info: fixed long-time bug that caused a weird space between "pros and cons"</li>
+                  <li>• Added the Beta 4 changelog inside the app</li>
+                  <li>• Settings: New icons, changed a few titles</li>
+                  <li>• Added more items to the War Thunder Wiki 3.0 test in the Settings (switch from a constraintlayout to a scrollview/more typical layout structure, redesign and improve the ui, new additions: vehicle rank, vehicle role, and research cost (has formatting error where the div from parsing shows up), code improvements)</li>
+                  <li>• Removed GitHub Commits section in Settings for now</li>
+                  <li>• Removed "Contribute Translations" section in the Settings</li>
+                  <li>• Improved app header (removed +15% transparent white foreground -- makes the background darker + improved the text shadow and made it darker)</li>
+                  <li>• Add a clickable link to the Translations GitHub website in Language Chooser bottom sheet</li>
+                  <li>• Added a warning that the language chooser may not work on Android 9-11</li>
+                  <li>• Improved Fireworks animation (Implemented Fade-Out Effect, No Particle Removal, Reduced Gravity & Speeds, Centralized ColorMatrix)</li>
+                  <li>• Updated AGP, Libraries and Gradle</li>
+                  <li>• Added some experimental gradle.properties flags to boost app launch time, improve app performance and improve app loading times</li>
+                  <li>• Upcoming Features: removed outdated features and ones I already added, needs new strings translations from contributors in the XML files</li>
+                  <li>• Slightly tweak Settings design (make header texture larger in height, increase texture, change look of "Language Chooser" option)</li>
+                  <li>• Improve gradient showcase UI (better buttons, fullscreen animation, added back navigation</li>
+               </ul>
+               <div class="changelog-section">
+                  <li class="changelog-title"><strong>Full GitHub Changelog</strong></li>
+                  <div class="changelog-box">
+                     <ul>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">96324b869d4a117a7d52d35b7c4f821874e024a6</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 22:31:38 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">update a few libraries</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">ce20809ba3f37701ff438d551b26d2dd2a4db74c</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 22:31:50 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">update gradle</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">733dfd74793487c6607656d10e269cb5b831e600</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 22:39:30 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">remove commit history again for now :(</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">9c3073b70b3f014847653bc8edf077553c74e0ac</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 22:40:23 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">boost settings BG texture</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">ae3abbc60c29a1259a98576a4304357e76046e99</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 22:56:00 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update strings.xml</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">90f3e9ce8d17693e9622dfa59ba4390a6f59440f</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:00:59 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">format code</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">3a78b67c74d7c818eb30056b780329cb42bae52e</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:33:06 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">remove contribute translations section in the settings, add a clickable link in the
+                                 translations bottom sheet
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">33082b30b3a922e89fbf00d32b9e493d8be001ef</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:34:09 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">part 2 of previous commit</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">886baced50975ae76b6302c15f0c6faf1ac473bd</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:38:19 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update LanguagesBottomSheetDialogFragment.java</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">526883c6de58a9c054b1bfa3e6f20610c0609885</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:40:19 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">increase header height in settings</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">9cc6acf02127bdfdb6f0c8e823356598049dcfbc</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:42:32 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Added a warning that the language chooser may not work on Android 9-11</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">8469a097e3552da050d92c1d90720f9cbf254d68</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Fri Feb 14 23:49:22 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">organize all sections in languages for easier readability</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">8f4a6d4a22babbb20bdb3fa5e6b71f5f260c2725</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 00:04:34 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Upcoming Features: removed outdated/added features, adjust formatting, needs new translations
+                                 from contributors
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">5993299c6d343c89097a1c03f4b9b43d874d6f05</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 00:29:21 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">fix build error</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">d81fa36c2ee68cd705c3af0a8f156d1974c8ac7b</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 01:18:52 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">improve the splash screen:
+                                 - animated custom gradient
+                                 - adjust logo size
+                                 - add app name
+                                 - new SpinKit animation
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">f574e7825cc365ae08787cca6008211c731b3ada</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 01:23:59 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">improve fireworks animation:
+                                 Implemented Fade-Out Effect: Added a fade-out animation at the end of the firework display to gradually fade out the
+                                 particles.
+                                 No Particle Removal: Disabled the removal of particles after their lifetime, allowing them to remain on screen
+                                 indefinitely.
+                                 Reduced Gravity & Speeds: Lowered the gravity and particle speeds to create a slower, more graceful animation.
+                                 Increased Animation Duration: Increased animation speed.
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">b43bf2132a6adfefbb2fbc69dc2b785829df3cc0</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 01:39:31 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">fix heart icon switching to star when making a vehicle a favorite</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">933bebcf94104c42b40c0662f216cc6487fbaa18</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 01:51:15 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">improve app header:
+                                 - remove 15% white foreground
+                                 - improve text shadow
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">b51b35b3260cfd453504ed7df7604819e4b33f8e</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 01:57:32 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update CustomizableFluidGradient.java</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">fc3265f7689d8f7630b30d968211b1dfb92ef7ab</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 02:40:30 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">move bottom sheet to "views" folder</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">8182fdbeb890c9551ae2c354f79c434081f53ab5</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 02:50:50 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">vehicle info: fix longtime bug that caused spacing between pros and cons</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">5443ace20e1eec31c31b9869cc23cf30e8e16dce</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 04:24:47 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">
+                                 vehicle info (wiki 3.0) improvements:
+                                 - switch from a constraintlayout to a scrollview/more typical layout structure
+                                 - redesign and improve the ui
+                                 - new additions: vehicle rank, vehicle role, and research cost (has formatting error where 
+                                 <div>####</div>
+                                 shows up)
+                                 - code improvements
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">8c805b509285ba8287fb893024f6dbe2317e8fe2</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 04:31:16 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">format code</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">e55f1462d0b54fc8465ac5b3c5fe11a60e53c53b</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:02:02 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">add some new experimental gradle properties</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">0e00f5c05cfce76e1ed1599135c9cac115e4baf3</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:02:39 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">improve settings:
+                                 - adjust header height
+                                 - new icons
+                                 - update wording for donations
+                                 - etc
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">9f96fba3c1ef19040a8684093976ab602d8813d3</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:03:29 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update strings.xml</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">c16ed60dbe53ee115962c5a955928dff15ac5abb</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:14:24 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">fix build error</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">b4feff61e76dd24886aeaf036a749b951cd7de45</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:16:12 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update build.gradle</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">384521d5e80a5dd4870bcfa7a80701ad69a73768</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 05:16:15 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update strings.xml</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">362d113728a3bf0f52dad09a9c55fcce6dac6ed4</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 06:54:45 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">add custom properties to make the ZOOM_ROTATION more interesting in the showcase</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">c4a893ed089e696e78420f24d6d2ce692dc5b728</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 06:55:36 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">improve gradient showcase ui:
+                                 - larger marginHorizontal
+                                 - make buttons rounder
+                                 - change background to semi transparent black
+                                 - make gradient height match_parent
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">d2207b5f74083dd17627fc2f441e2270ac4683a5</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 06:56:29 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update fragment_settings.xml</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">a3d4016f8543b6e53c8a1d597452df1cbc482e21</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:02:28 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">reduce search blur</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">46c02aed4d7cf74f8d7f68735d7e02a247ae9171</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:10:08 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Fix bug that causes vehicles to display as "-90" instead of "T-90", etc:
+                                 Causes a bug where some vehicles full names dont show up
+                                 for example:
+                                 in Tanks > USSR, the T-90 shows up as "-90"
+                                 TODO: Figure out how to fix but also filter
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">1eff162c17d8c087c6018810ac7bf2c655352dfa</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:12:36 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update strings.xml</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">92494843fa81649532c73500686800484cc22e28</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:23:11 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">gradient showcase improvements:
+                                 - back navigation
+                                 - adjusted colors for better experience
+                                 - tweaked animation params
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">74713447c6f7b8116594ecfa670e935d2f31091f</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:28:25 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update CustomizableFluidGradient.java</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">1e31d709f5696208f613cd49c41693b88010a2ee</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:30:00 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">vehicle info (wiki 3.0): fix force close + move to settings > tests</div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="commit-log">
+                              <div class="commit-header">
+                                 <div class="commit-hash">40345f8c19dc8313f522523fec28392b03a1e36a</div>
+                                 <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                                 <div class="commit-date">Date: Sat Feb 15 07:30:47 2025 -0700</div>
+                              </div>
+                              <div class="commit-message">Update FluidGradientShowcaseFragment.java</div>
+                           </div>
+                        </li>
+                  </div>
+                  </section>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">96324b869d4a117a7d52d35b7c4f821874e024a6</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 22:31:38 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">update a few libraries</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">ce20809ba3f37701ff438d551b26d2dd2a4db74c</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 22:31:50 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">update gradle</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">733dfd74793487c6607656d10e269cb5b831e600</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 22:39:30 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">remove commit history again for now :(</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">9c3073b70b3f014847653bc8edf077553c74e0ac</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 22:40:23 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">boost settings BG texture</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">ae3abbc60c29a1259a98576a4304357e76046e99</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 22:56:00 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">Update strings.xml</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">90f3e9ce8d17693e9622dfa59ba4390a6f59440f</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:00:59 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">format code</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">3a78b67c74d7c818eb30056b780329cb42bae52e</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:33:06 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">remove contribute translations section in the settings, add a clickable link in the
+                  translations bottom sheet</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">33082b30b3a922e89fbf00d32b9e493d8be001ef</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:34:09 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">part 2 of previous commit</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">886baced50975ae76b6302c15f0c6faf1ac473bd</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:38:19 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">Update LanguagesBottomSheetDialogFragment.java</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">526883c6de58a9c054b1bfa3e6f20610c0609885</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:40:19 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">increase header height in settings</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">9cc6acf02127bdfdb6f0c8e823356598049dcfbc</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:42:32 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">Added a warning that the language chooser may not work on Android 9-11</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">8469a097e3552da050d92c1d90720f9cbf254d68</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Fri Feb 14 23:49:22 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">organize all sections in languages for easier readability</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">8f4a6d4a22babbb20bdb3fa5e6b71f5f260c2725</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 15 00:04:34 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">Upcoming Features: removed outdated/added features, adjust formatting, needs new translations
+                  from contributors</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">5993299c6d343c89097a1c03f4b9b43d874d6f05</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 15 00:29:21 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">fix build error</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">d81fa36c2ee68cd705c3af0a8f156d1974c8ac7b</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 15 01:18:52 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">improve the splash screen:
+                  - animated custom gradient
+                  - adjust logo size
+                  - add app name
+                  - new SpinKit animation
+                  </div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <div class="commit-hash">f574e7825cc365ae08787cca6008211c731b3ada</div>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 15 01:23:59 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">improve fireworks animation:
+                  Implemented Fade-Out Effect: Added a fade-out animation at the end of the firework display to gradually fade out the
+                  particles.
+                  No Particle Removal: Disabled the removal of particles after their lifetime, allowing them to remain on screen
+                  indefinitely.
+                  Reduced Gravity & Speeds: Lowered the gravity and particle speeds to create a slower, more graceful animation.
+                  Increased Animation Duration: Increased animation speed.
+                  </div>
+                  </div>
+                  </li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">5e27d7c6885be1bc2d8253a6580b5eddeffef73f</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 07:38:35 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">LanguageAdapter: programmatically change the Locale to its respective name (for example, instead of "Deutsch", it is now "German")</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">747a33bb0c85977cf7e9217bc839de2d4014536f</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 07:44:39 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">Language Chooser: slightly improve ui</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">2e32d313da785e1c2443bec79b3913b636f7418a</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 07:45:32 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">format code</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">26f0fe30506a7eb34506845a90cc12790b198773</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 08:24:48 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">language bottomsheet xml: add a fancy cardview to the "header" of the layout</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">7cdf2c04720ec9beb0a8659c06e93b4b0a8ea8eb</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 08:26:10 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">bottomsheet: add 2 separate layouts for android 9-11 and 12+</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">8972da93553321a165a05edf1e360e2e899a3a14</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 08:26:58 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">format code</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">dad9c583f9da36245ec465269f270de4e7077565</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 11:30:03 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">fix typo</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">02a0e55d4c33ca6249cabf3f57851db9b013fd9e</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 11:31:52 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">improve language sheet:
+                  <ul>
+                  <li>removed ambient shadow</li>
+                  <li>adjusted selected background corner radius</li>
+                  <li>set cardview background to transparent, remove card corners and elevation</li>
+                  <li>add a divider between the header and the list</li>
+                  </ul>
+                  </div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">f4ced584704d79986e3960d79c313a2eff742d6a</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 11:35:24 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">slow down radar cardviews sweep time a little</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">278b9a7af0da95223218575a068f847be20d9854</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 14:18:35 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">improve sparkling gradient showcase fragment</div>
+                  </div>
+                  </li>
+                  <li>
+                  <div class="commit-log">
+                  <div class="commit-header">
+                  <span class="commit-hash">36f3e7266fb28f5925e68cdd9584a41cfe2d073f</span>
+                  <div class="commit-author">Author: Kyler <jeffreykyler6@gmail.com></div>
+                  <div class="commit-date">Date: Sat Feb 8 14:38:09 2025 -0700</div>
+                  </div>
+                  <div class="commit-message">improve ripple showcase:
+                  <ul>
+                  <li>add a test image, but make it slightly transparent so that the Fluid Gradient I have subtly animates underneath it</li>
+                  <li>instead of animating 1 sparkle animation, why not animate 12 simultaneously from different x and y values?</li>
+                  </ul>
+                  </div>
+                  </div>
+                  </li>
+                  </ul>
+               </div>
+            </div>
+            <style>
+               /*  Added Styles */
+               .commit-log {
+               margin-bottom: 15px;
+               padding: 15px;
+               background-color: var(--card-background); /*  Consistent with your theme */
+               border-radius: 8px;
+               box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+               text-align: left;
+               }
+               .commit-header {
+               margin-bottom: 8px;
+               }
+               .commit-hash {
+               font-size: 16px;
+               font-weight: bold;
+               color: #ccc;  /* Or your preferred color */
+               }
+               .commit-author, .commit-date {
+               font-size: 14px;
+               color: #999;  /*  A slightly lighter color */
+               margin-top: 4px;
+               }
+               .commit-message {
+               font-size: 16px;
+               line-height: 1.5;
+               color: var(--on-primary-color);
+               }
+               .commit-message ul {
+               margin-top: 8px;
+               padding-left: 20px;
+               }
+               .commit-message li {
+               margin-bottom: 5px;
+               }
+            </style>
             <li class="changelog-title"><strong>6.0.0 Beta 3:</strong></li>
             <ul>
                <li>Quick/lazy fix for chosen languages not persisting on some devices and older android version (needs testing)</li>
                <li>Updated the API token (again) for the commits section, hopefully allowing it to load</li>
-            </ul>			 
+            </ul>
             <li class="changelog-title"><strong>6.0.0 Beta 2:</strong></li>
             <ul>
                <li>Replaced the dropdown language chooser with a Bottom Sheet + made sure translations work throughout the whole app</li>
