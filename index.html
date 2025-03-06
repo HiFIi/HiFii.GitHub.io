@@ -86,7 +86,8 @@
             border: 1px solid var(--important-note-color);
             border-radius: 12px;
             padding: 30px;
-            margin: 0 auto 30px auto; /* margin: top right bottom left; */
+            margin: 0 auto 30px auto;
+            /* margin: top right bottom left; */
             list-style-type: none;
             box-shadow: 0 14px 16px rgba(0, 0, 0, 0.85);
             text-align: left;
@@ -207,12 +208,32 @@
         }
 
         .changelog-section ul {
-            list-style-type: disc; /* changed from "none" */
-            padding-left: 20px; /* Add padding for visible bullets */
+            list-style-type: disc;
+            /* changed from "none" */
+            padding-left: 20px;
+            /* Add padding for visible bullets */
         }
 
         .changelog-section ul li {
             margin-bottom: 12px;
+        }
+
+        /* Source Code Link */
+        .source-code-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--link-bg);
+            color: var(--link-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .source-code-link:hover {
+            background-color: var(--link-hover-bg);
         }
 
         /* Media Queries */
@@ -315,11 +336,22 @@
             .commit-message li {
                 margin-bottom: 5px;
             }
+
+            .source-code-link {
+                position: fixed; /* Ensure it stays in view even when scrolling */
+                top: 5px; /* Adjust as needed for smaller screens */
+                right: 5px; /* Adjust as needed for smaller screens */
+                font-size: 14px; /* Reduce font size for smaller screens */
+                padding: 6px 12px; /* Adjust padding for smaller screens */
+            }
         }
     </style>
 </head>
 
 <body>
+    <a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank"
+        rel="noopener noreferrer">Source Code</a>
+
     <h1>ThunderDex 6.0.0 Release (Final Test, Build 5)<br>March 6th, 2025</h1>
 
     <div class="download-section">
