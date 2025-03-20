@@ -1,540 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex Test / Beta APKs</title>
-      <style>
-         /*  Font Definitions -  Consolidated and using `font-display: swap` */
-         @font-face {
-         font-family: 'UberMoveBold';
-         src: url('fonts/cashsans_black.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'categories';
-         src: url('fonts/ProductSans-Regular.ttf') format('truetype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'LyftProBold';
-         src: url('fonts/LyftPro-Bold.ttf') format('truetype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'CustomFont';
-         src: url('fonts/ProductSans-Play.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'HeaderFontStyle';
-         src: url('fonts/laca_blackitalic.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'ImportantNotes';
-         src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
-         font-display: swap;
-         }
-         /*  CSS Variables  */
-         :root {
-         --primary-color: #151618;
-         --on-primary-color: #ffffff;
-         --background-color: #101518;
-         --card-background: #281524;
-         --important-note-color: #f5f5f5;
-         --important-note-background: #100712;
-         --build-date-color: #EAEAEA;
-         --link-hover-bg: #3A3B47;
-         --link-bg: #243034;
-         --link-color: #f9f9f9;
-         --ripple-color: rgba(255, 255, 255, 0.6);
-         }
-         /*  General Body Styles */
-         body {
-         font-family: 'CustomFont', sans-serif;
-         font-size: 18px;
-         line-height: 1.8;
-         margin: 0;
-         padding: 25px;
-         background: linear-gradient(95deg, #071414, #100712, #331733, #091313, #151618, #091313);
-         color: var(--on-primary-color);
-         }
-         /*  Heading Styles */
-         h1 {
-         font-family: 'HeaderFontStyle', sans-serif;
-         font-size: 48px;
-         margin-bottom: 20px;
-         text-align: center;
-         }
-         /* Important Notes Section */
-         .important-notes-section {
-         font-family: 'ImportantNotes', sans-serif;
-         font-size: 15px;
-         background-color: var(--important-note-background);
-         color: var(--important-note-color);
-         border: 1px solid var(--important-note-color);
-         border-radius: 12px;
-         padding: 30px;
-         margin: 0 auto 30px auto;
-         /* margin: top right bottom left; */
-         list-style-type: none;
-         box-shadow: 0 14px 16px rgba(0, 0, 0, 0.85);
-         text-align: left;
-         max-width: 1000px;
-         }
-         .important-notes-section strong {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 22px;
-         display: block;
-         margin-bottom: 12px;
-         }
-         .important-notes-section hr.divider {
-         border: 0;
-         border-top: 1px solid rgba(255, 255, 255, 0.4);
-         margin: 18px 0;
-         }
-         /* Download Section */
-         .download-section {
-         text-align: center;
-         margin: 25px 0;
-         }
-         .download-links a {
-         text-decoration: none;
-         background-color: var(--link-bg);
-         font-weight: 600;
-         font-size: 26px;
-         padding: 25px 50px;
-         border-radius: 12px;
-         color: var(--link-color);
-         display: inline-block;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-         position: relative;
-         }
-         .download-links a::before {
-         content: '';
-         position: absolute;
-         background: var(--ripple-color);
-         border-radius: 50%;
-         transform: scale(0);
-         animation: ripple 0.6s linear;
-         pointer-events: none;
-         }
-         .download-links a:hover {
-         background-color: var(--link-hover-bg);
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-         transform: scale(1.05);
-         }
-         .download-links a:active::before {
-         transform: scale(4);
-         opacity: 0;
-         }
-         @keyframes ripple {
-         0% {
-         transform: scale(0);
-         opacity: 1;
-         }
-         100% {
-         transform: scale(3);
-         opacity: 0;
-         }
-         }
-         /* Changelog Section */
-         .changelog-section {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         margin: 20px auto;
-         max-width: 800px;
-         text-align: center;
-         }
-         .changelog-box {
-         background-color: var(--card-background);
-         border-radius: 12px;
-         padding: 25px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-         font-size: 24px;
-         line-height: 1.8;
-         color: var(--on-primary-color);
-         max-width: 100%;
-         text-align: left;
-         }
-         .changelog-title {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 44px;
-         margin-top: 15px;
-         margin-bottom: 15px;
-         text-align: left;
-         }
-         .test-heading,
-         .medium-heading {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 22px;
-         margin-top: 20px;
-         margin-bottom: 12px;
-         text-align: left;
-         list-style: none;
-         }
-         .build-info {
-         font-size: 32px;
-         text-align: center;
-         margin: 15px 0;
-         color: var(--build-date-color);
-         }
-         .changelog-section ul {
-         list-style-type: disc;
-         /* changed from "none" */
-         padding-left: 20px;
-         /* Add padding for visible bullets */
-         }
-         .changelog-section ul li {
-         margin-bottom: 12px;
-         }
-         /* Source Code Link */
-         .source-code-link {
-         position: absolute;
-         top: 10px;
-         right: 10px;
-         background-color: var(--link-bg);
-         color: var(--link-color);
-         padding: 8px 16px;
-         border-radius: 8px;
-         text-decoration: none;
-         font-size: 16px;
-         transition: background-color 0.3s ease;
-         }
-         .source-code-link:hover {
-         background-color: var(--link-hover-bg);
-         }
-         /* Media Queries */
-         @media (max-width: 768px) {
-         h1 {
-         font-size: 30px;
-         }
-         .important-notes-section {
-         font-size: 15px;
-         padding: 18px;
-         }
-         .download-links a {
-         font-size: 22px;
-         }
-         .changelog-box {
-         padding: 20px;
-         }
-         .divider {
-         border: 1px solid rgba(255, 255, 255, 0.3);
-         }
-         .commit-log {
-         background-color: var(--card-background);
-         /* Use your existing theme */
-         border-radius: 8px;
-         padding: 15px;
-         margin-bottom: 15px;
-         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-         font-family: 'CustomFont', sans-serif;
-         color: var(--on-primary-color);
-         }
-         .commit-hash {
-         font-size: 16px;
-         font-weight: bold;
-         }
-         .commit-author {
-         font-size: 14px;
-         color: #aaa;
-         /* Or your preferred muted color */
-         }
-         .commit-date {
-         font-size: 12px;
-         color: #bbb;
-         /* Or your preferred muted color */
-         }
-         .commit-message {
-         font-size: 16px;
-         margin-top: 5px;
-         }
-         .commit-log {
-         margin-bottom: 15px;
-         padding: 15px;
-         background-color: var(--card-background);
-         /* Consistent with your theme */
-         border-radius: 8px;
-         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-         text-align: left;
-         }
-         .commit-header {
-         margin-bottom: 8px;
-         }
-         .commit-hash {
-         font-size: 16px;
-         font-weight: bold;
-         color: #ccc;
-         /* Or your preferred color */
-         }
-         .commit-author,
-         .commit-date {
-         font-size: 14px;
-         color: #999;
-         /* A slightly lighter color */
-         margin-top: 4px;
-         }
-         .commit-message {
-         font-size: 16px;
-         line-height: 1.5;
-         color: var(--on-primary-color);
-         }
-         .commit-message ul {
-         margin-top: 8px;
-         padding-left: 20px;
-         }
-         .commit-message li {
-         margin-bottom: 5px;
-         }
-         .source-code-link {
-         position: fixed; /* Ensure it stays in view even when scrolling */
-         top: 5px; /* Adjust as needed for smaller screens */
-         right: 5px; /* Adjust as needed for smaller screens */
-         font-size: 14px; /* Reduce font size for smaller screens */
-         padding: 6px 12px; /* Adjust padding for smaller screens */
-         }
-         }
-      </style>
-   </head>
-   <body>
-      <a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank"
-         rel="noopener noreferrer">Source Code</a>
-      <h1>ThunderDex 6.0.1<br>March 16th, 2025</h1>
-      <div class="download-section">
-         <div class="download-links">
-            <a
-               href="https://github.com/HiFIi/HiFii.GitHub.io/raw/refs/heads/main/APKs/Release/ThunderDex-03-16-2025_1011-arm64-v8a-debug.apk">Download
-            ThunderDex 6.0.1</a>
-         </div>
-      </div>
-      <section class="changelog-section">
-         <div class="changelog-box">
-            <div class="changelog-list">
-               <ul class="changelog-list">
-<li class="changelog-title"><strong>6.0.1:</strong></li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderDex APKs</title>
+    <style>
+        /* Font Definitions - Consolidated and using `font-display: swap` */
+        @font-face {
+            font-family: 'UberMoveBold';
+            src: url('fonts/cashsans_black.otf') format('opentype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'categories';
+            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'LyftProBold';
+            src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/ProductSans-Play.otf') format('opentype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'HeaderFontStyle';
+            src: url('fonts/laca_blackitalic.otf') format('opentype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'ImportantNotes';
+            src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        /* CSS Variables */
+        :root {
+            --primary-color: #151618;
+            --on-primary-color: #ffffff;
+            --background-color: #101518;
+            --card-background: #281524;
+            --important-note-color: #f5f5f5;
+            --important-note-background: #100712;
+            --build-date-color: #EAEAEA;
+            --link-hover-bg: #3A3B47;
+            --link-bg: #243034;
+            --link-color: #f9f9f9;
+            --ripple-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* General Body Styles */
+        body {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 25px;
+            background: linear-gradient(95deg, #071414, #100712, #331733, #091313, #151618, #091313);
+            color: var(--on-primary-color);
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-family: 'HeaderFontStyle', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Important Notes Section */
+        .important-notes-section {
+            font-family: 'ImportantNotes', sans-serif;
+            font-size: 15px;
+            background-color: var(--important-note-background);
+            color: var(--important-note-color);
+            border: 1px solid var(--important-note-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 0 auto 30px auto;
+            /* margin: top right bottom left; */
+            list-style-type: none;
+            box-shadow: 0 14px 16px rgba(0, 0, 0, 0.85);
+            text-align: left;
+            max-width: 1000px;
+        }
+
+        .important-notes-section strong {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 22px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .important-notes-section hr.divider {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            margin: 18px 0;
+        }
+
+        /* Download Section */
+        .download-section {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .download-links a {
+            text-decoration: none;
+            background-color: var(--link-bg);
+            font-weight: 600;
+            font-size: 26px;
+            padding: 25px 50px;
+            border-radius: 12px;
+            color: var(--link-color);
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .download-links a::before {
+            content: '';
+            position: absolute;
+            background: var(--ripple-color);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        .download-links a:hover {
+            background-color: var(--link-hover-bg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .download-links a:active::before {
+            transform: scale(4);
+            opacity: 0;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* Changelog Section */
+        .changelog-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .changelog-box {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            font-size: 24px;
+            line-height: 1.8;
+            color: var(--on-primary-color);
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .changelog-title {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 44px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .test-heading,
+        .medium-heading {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 22px;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            text-align: left;
+            list-style: none;
+        }
+
+        .build-info {
+            font-size: 32px;
+            text-align: center;
+            margin: 15px 0;
+            color: var(--build-date-color);
+        }
+
+        .changelog-section ul {
+            list-style-type: disc;
+            /* changed from "none" */
+            padding-left: 20px;
+            /* Add padding for visible bullets */
+        }
+
+        .changelog-section ul li {
+            margin-bottom: 12px;
+        }
+
+        /* Source Code Link */
+        .source-code-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--link-bg);
+            color: var(--link-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .source-code-link:hover {
+            background-color: var(--link-hover-bg);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .important-notes-section {
+                font-size: 15px;
+                padding: 18px;
+            }
+
+            .download-links a {
+                font-size: 22px;
+            }
+
+            .changelog-box {
+                padding: 20px;
+            }
+
+            .divider {
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .commit-log {
+                background-color: var(--card-background);
+                /* Use your existing theme */
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 15px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+                font-family: 'CustomFont', sans-serif;
+                color: var(--on-primary-color);
+            }
+
+            .commit-hash {
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .commit-author {
+                font-size: 14px;
+                color: #aaa;
+                /* Or your preferred muted color */
+            }
+
+            .commit-date {
+                font-size: 12px;
+                color: #bbb;
+                /* Or your preferred muted color */
+            }
+
+            .commit-message {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+            .commit-log {
+                margin-bottom: 15px;
+                padding: 15px;
+                background-color: var(--card-background);
+                /* Consistent with your theme */
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                text-align: left;
+            }
+
+            .commit-header {
+                margin-bottom: 8px;
+            }
+
+            .commit-hash {
+                font-size: 16px;
+                font-weight: bold;
+                color: #ccc;
+                /* Or your preferred color */
+            }
+
+            .commit-author,
+            .commit-date {
+                font-size: 14px;
+                color: #999;
+                /* A slightly lighter color */
+                margin-top: 4px;
+            }
+
+            .commit-message {
+                font-size: 16px;
+                line-height: 1.5;
+                color: var(--on-primary-color);
+            }
+
+            .commit-message ul {
+                margin-top: 8px;
+                padding-left: 20px;
+            }
+
+            .commit-message li {
+                margin-bottom: 5px;
+            }
+
+            .source-code-link {
+                position: fixed;
+                /* Ensure it stays in view even when scrolling */
+                top: 5px;
+                /* Adjust as needed for smaller screens */
+                right: 5px;
+                /* Adjust as needed for smaller screens */
+                font-size: 14px;
+                /* Reduce font size for smaller screens */
+                padding: 6px 12px;
+                /* Adjust padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+<a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank"
+   rel="noopener noreferrer">Source Code</a>
+<h1>ThunderDex 6.0.2<br>TBA</h1>
+<div class="download-section">
+    <div class="download-links">
+        <a
+           href="#">Download
+            ThunderDex 6.0.2</a>
+    </div>
+</div>
+<section class="changelog-section">
+    <div class="changelog-box">
+        <div class="changelog-list">
+          <li class="changelog-title"><strong>6.0.2 (Beta 1):</strong></li>
                <ul>
-                  <li>• New images for planes, tanks, helicopters and tanks</li>
-                  <li>• Update Sdk to target Android 16</li>
-                  <li>• Improve Android 16 supportt</li>
-                  <li>• Update 5 librariest</li>
-                  <li>• Increased News image height</li>
-                  <li>• Reduce app header height</li>
-                  <li>• Increase news image height slightly</li>
-                  <li>• increase vehicle image height</li>
-                  <li>• Reduce Radar section Header height</li>
-                  <li>• LANGUAGE CHOOSER ADDED! Android 12+ only</li>
-                  <li>• All sections of the app now work</li>
-                  <li>• Updated news design</li>
-                  <li>• New Radar section from the new wiki</li>
-                  <li>• Animated holiday themes, new themes added</li>
-                  <li>• Increased app performance</li>
-               </ul>				   
-               <li class="changelog-title"><strong>6.0.0 Release (Final Test, Build 9):</strong></li>
-               <ul>
-                  <li>Build 9: Merge German strings pull requst from Flitzepipe and fix build error introduced from the pull request</li>
-                  <li>Build 9: Update AGP</li>
-                  <li>Build 9: Increase app Header height</li>
-                  <li>Build 9: Reduce Radar Header height</li>
-                  <li>Build 9: Increase vehicle information image height</li>
-                  <li>Build 9: Modify vehicle info toolbar initial height and final height on scroll</li>
-                  <li>Build 9: Increase Settings Header height by 30dp</li>
-                  <li>Build 8: WE DID IT. Vehicle Info scrolling is now fixed, along with an animation bug for some users.</li>
-                  <li>Build 8: Redesign Vehicle Info layout</li>
-                  <li>Build 8: Aircraft Machine guns + Aircraft Cannons: fix title showing up as "thunderdex", remove hardcoded values, convert programmatic character sequence to strings and convert them to a string, add german translation for all missing info/usage/details/pros and cons</li>
-                  <li>Build 8: Radar: convert squished circular back navigation to a regular back navigation to improve the overall look</li>
-                  <li>Build 8: Aircraft machine guns: remove "fitsSystemWindows" flag to streamline the look of aircraft cannons and aircraft machine guns</li>
-                  <li>Build 8: Aircraft machine guns: there is a chance the german translations wont show up for this when missing info. I dont care enough to look into fixing it</li>
-                  <li>Build 7: Remove "Older Changelogs" german translation for now</li>
-                  <li>Build 7: Add missing German "Radar" string</li>
-                  <li>Build 7: Remove hardcoded "aircraft cannons" and "aircraft machine guns" code which fixes it not showing up in German and other translations</li>
-                  <li>Build 7: Remove German "premium vehicle" text in the vehicle info to prevent cutoff</li>
-                  <li>Build 7: Change verbage for the Premium vehicle text in the vehicle info to prevent cutoff</li>
-                  <li>Build 7: Add missing game updates german translation</li>
-                  <li>Build 7: Reduced Vehicle Research and Vehicle Purchase body text size for better readability</li>
-                  <li>Build 7: Remove "War Thunder" prefeix for german translations of war thunder news and war thunder updates tabs</li>
-                  <li>Build 7: Increase Header height in the radar section</li>
-                  <li>Build 7: Slightly improve "older changelogs" layout design</li>
-                  <li>Build 7: Slightly decrease search bar height (set to the same size as a ToolBar to fit Android Design Guidelines) and reduce elevation height</li>
-                  <li>Build 6: Update Gradle</li>
-                  <li>Build 6: Slightly reduce ToolBar height in the Radar Section</li>
-                  <li>Build 6: Add a 0.65 alpha to the back navigation in the Radar Section</li>
-                  <li>Build 5: last attempt to fix janky scrolling sometimes in vehicle info (has to do with the recent redesign and large improve of text alignment in the vehicle update from a few updates ago)</li>
-                  <li>Build 5: In the vehicle info section, the following 2 bugs have been fixed:<br>- All of the icons are now the same, no more smaller heart bug<br>- Removed animated ToolBar alpha animation, the "Favorite" and "back" navigation buttons are now 100% (solid) white</li>
-                  <li>Build 4: Reduce Settings Header height and reduce Settings header text size</li>
-                  <li>Build 4: Remove double divider in the Settings under the Donations setting</li>
-                  <li>Build 4: Remove Toolbar titles in Aircraft Cannons and Aircraft Machine Guns Fragments because they aren't aligned and I can't figure out a fix lol</li>
-                  <li>Build 3: Programmatically set language chooser background color to ensure language chooser is the theme background</li>
-                  <li>Adjusted language bottom sheet background color to match app theme</li>
-                  <li>Update JSOUP library</li>
-                  <li>Update a few more libraries</li>
-                  <li>Removed hardcoded values in some layouts for easier readability in the code</li>
-                  <li>Increase Header size</li>
-                  <li>Increase Vehicle Info Header Image size</li>
-                  <li>Remove "Experiments" in the Settings</li>
-                  <li>Note: 6.0.0 changelog not present in app, too lazy. :P will be available upon release.</li>
+                  <li>• Dark Red theme: Upscale header image by 16x and make color adjustments</li>				   
+                  <li>• Add "Experimental Features & Tests" for release builds and reduce Settings header height and text size</li>
+                  <li>• Improve the Fluid Gradient Showcase UI</li>
+                  <li>• Update LyftPro-Bold and Product Sans fonts</li>                  
+                  <li>• Add a "Hide UI for 30 seconds" button in Fluid Gradient Showcase</li>
+                  <li>• IMPROVEMENT: Add a visual vertical scrollbar to the Airborne Radar section</li>
+                  <li>• Drastically improve performance of the "Airborne Radar" section</li>
+                  <li>• New Pulsed Sparkle Showcase Image (Increased app size)</li>
+                  <li>• Reduce selected tab text size</li>                  
                </ul>
-               <li class="changelog-title"><strong>6.0.0 Release (test2):</strong></li>
-               <ul>
-                  <li>Revert language chooser only showing up for Android 12+ to fix wrong language bug</li>
-                  <li>Fix vehicle category force close (ProGuard issue, classes for JSON now kept in Release APK)</li>
-                  <li>Updated 10 libraries</li>
-                  <li>Update AGP + Gradle</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Release (test1):</strong></li>
-               <ul>
-                  <li>Update AGP, Gradle, and a few libraries</li>
-                  <li>Test Settings > Translations only showing up for Android 12+</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Beta 6:</strong></li>
-               <ul>
-                  <li>Update libraries</li>
-                  <li>Added full German translations (Thanks Flitzepipe)</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Beta 5:</strong></li>
-               <ul>
-                  <li>Fixed force close in the favorites section</li>
-                  <li>vehicle info: Fixed strange scrolling behavior from previous beta</li>
-                  <li>vehicle info: adjust the top bar to make it less obnoxiously large</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Beta 4:</strong></li>
-               <ul>
-                  <li>Beta 4 build 3: improve vehicle information UI (aligned texts and a slightly different, improved UI</li>
-                  <li>Beta 4 build 3: improve vehicle information UI (aligned texts and a slightly different, improved UI</li>
-                  <li>Beta 4 build 2: fixed glitchy animation when navigating to the vehicle groups initially</li>
-                  <li>Beta 4 build 2: Removed shadow from radar card, looks better</li>
-                  <li>Added a pulsing color gradient on the splash screen. Now it's less boring!</li>
-                  <li>Finally fixed the "-90" bug, vehicles will show up properly now. In the code, it was being filtered so please check for issues</li>
-                  <li>Finally fixed the "Favorite" icon bug. It now shows a filled heart upon favoriting a vehicle, also ensuring a streamlined icon across the UI</li>
-                  <li>Vehicle info: fixed long-time bug that caused a weird space between "pros and cons"</li>
-                  <li>Added the Beta 4 changelog inside the app</li>
-                  <li>Settings: New icons, changed a few titles</li>
-                  <li>Added more items to the War Thunder Wiki 3.0 test in the Settings (switch from a constraintlayout to a scrollview/more typical layout structure, redesign and improve the ui, new additions: vehicle rank, vehicle role, and research cost (has formatting error where the div from parsing shows up), code improvements)</li>
-                  <li>Removed GitHub Commits section in Settings for now</li>
-                  <li>Removed "Contribute Translations" section in the Settings</li>
-                  <li>Improved app header (removed +15% transparent white foreground -- makes the background darker + improved the text shadow and made it darker)</li>
-                  <li>Add a clickable link to the Translations GitHub website in Language Chooser bottom sheet</li>
-                  <li>Added a warning that the language chooser may not work on Android 9-11</li>
-                  <li>Improved Fireworks animation (Implemented Fade-Out Effect, No Particle Removal, Reduced Gravity & Speeds, Centralized ColorMatrix)</li>
-                  <li>Updated AGP, Libraries and Gradle</li>
-                  <li>Added some experimental gradle.properties flags to boost app launch time, improve app performance and improve app loading times</li>
-                  <li>Upcoming Features: removed outdated features and ones I already added, needs new strings translations from contributors in the XML files</li>
-                  <li>Slightly tweak Settings design (make header texture larger in height, increase texture, change look of "Language Chooser" option)</li>
-                  <li>Improve gradient showcase UI (better buttons, fullscreen animation, added back navigation</li>
-               </ul>
-               </style>
-               <li class="changelog-title"><strong>6.0.0 Beta 3:</strong></li>
-               <ul>
-                  <li>Quick/lazy fix for chosen languages not persisting on some devices and older android version (needs testing)</li>
-                  <li>Updated the API token (again) for the commits section, hopefully allowing it to load</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Beta 2:</strong></li>
-               <ul>
-                  <li>Replaced the dropdown language chooser with a Bottom Sheet + made sure translations work throughout the whole app</li>
-                  <li>Note: I tested the translations on an emulated Pixel 4 XL running Android 10 and it did work</li>
-                  <li>The Language Chooser has a background based on the current theme for Android 9-11 + a Dynamic color theme for Android 12+</li>
-                  <li>Greatly (seriously it's fast af now) improve the loading performance, and reduced the loading time in the Wiki 3.0 test</li>
-                  <li>Fixed Bottom Navigation not showing when navigating up from the Contribute Translations section</li>
-                  <li>Fixed a force close when selecting the "About" section in the Settings for Android 9-11n</li>
-                  <li>Reduced Radar sweep speed on the cardview</li>
-                  <li>Improved Sparkle animation (add image with 0.7 alpha so a fluid gradient animates underneath it, launch 12 sparkle animations from different x and y values)</li>
-               </ul>
-               <li class="changelog-title"><strong>6.0.0 Beta 1:</strong></li>
-               <ul>
-                  <!-- New Additions -->
-                  <li class="medium-heading"><strong>NEW THEME!</strong></li>
-                  <li>Introducing <strong>"Emerald Shadows"</strong> – A rich, dark green with a touch of mystery, like moonlight filtering through dense forest leaves.</li>
-                  <li class="test-heading"><strong>Added a new "Experimental Features & Tests" section in Settings (DEBUG BUILDS ONLY)</strong></li>
-                  <li class="changelog-title"><strong>Current Tests:</strong></li>
-                  <ul>
-                     <li>Early Work-In-Progress migration to <strong>Wiki 3.0</strong></li>
-                     <li>Added a <strong>Fluid Gradient Showcase Fragment</strong></li>
-                     <li>Added a <strong>Sparkling Gradient Showcase Fragment</strong></li>
-                  </ul>
-                  <!-- Performance & Optimization -->
-                  <li class="changelog-title"><strong>Performance & Optimization</strong></li>
-                  <li><strong>Reduced the app size by almost 8MB!</strong></li>
-                  <li><strong>Before:</strong> 59.1MB <br><strong>After:</strong> 51.4MB <br><strong>Note:</strong> The app size will be significantly smaller for the Play Store release... this is the debug APK size.</li>
-                  <li>Added MULTIPLE performance-related and experimental flags into <code>gradle.properties</code></li>
-                  <li><strong>The app seems to be running smoother, can anyone else confirm?</strong></li>
-                  <!-- UI & Design Improvements -->
-                  <li class="changelog-title"><strong>UI & Design Improvements</strong></li>
-                  <li>New Years theme: fixed the dialog text being impossible to read</li>
-                  <li>Christmas theme: changed to an overall different green color, fixed the dialog background color & fixed the dialog text being impossible to read</li>
-                  <!-- Layout and UI Tweaks -->
-                  <li class="changelog-title"><strong>Layout and UI Tweaks</strong></li>
-                  <li>Slightly increased vehicle info image height</li>
-                  <li>
-                     Tweaked some layouts:
-                     <ul>
-                        <li>Removed textured background from the notification permission on launch.</li>
-                        <li>Further improved the changelog layout by programmatically centering the text with the exit button.</li>
-                     </ul>
-                  </li>
-                  <li>
-                     Changelog:
-                     <ul>
-                        <li>Programmatically adjusted the top margin for the exit button and changelog title (status bar height is now measured and statusbarHeight + 16 is applied).</li>
-                        <li>Vertically centered the Changelog Title text with the Exit Button.</li>
-                        <li>Enhanced design and layout improvements.</li>
-                        <li>Adjusted dimensions for a better overall layout.</li>
-                     </ul>
-                  </li>
-                  <!-- Bug Fixes -->
-                  <li class="changelog-title"><strong>Bug Fixes</strong></li>
-                  <li>Fixed crashes that were introduced in previous beta</li>
-                  <!-- Grouped Weaponry & Settings -->
-                  <li class="changelog-title"><strong>Grouped Weaponry & Settings</strong></li>
-                  <li>Grouped weaponry: Reduced card view height for a sleeker look</li>
-                  <li>
-                     Settings:
-                     <ul>
-                        <li>Fixed double line divider issue.</li>
-                        <li>Added a divider above the translations section.</li>
-                     </ul>
-                  </li>
-                  <!-- Miscellaneous Updates -->
-                  <li class="changelog-title"><strong>Miscellaneous Updates</strong></li>
-                  <li>Added experimental Gradle properties to enhance app performance</li>
-                  <li>Updated app Version Code and Version Name</li>
-                  <li>BROKEN FOR NOW: Streamlined "Favorites" icon to a filled heart in the favorites tab and vehicle info section (thanks to girlfii on Discord)</li>
-                  <li>Improved shared transition speed for certain Settings screens</li>
-                  <li>Reduced radar AppBar height for a cleaner UI</li>
-                  <li>Updated AGP and libraries for better compatibility</li>
-               </ul>
-            </div>
-         </div>
-      </section>
-      <section class="important-notes-section">
-         <strong>ThunderDex has been bumped to 6.0.0!</strong>
-         <hr class="divider">
-         <ul>
-            <li>After 3 months of consistent updates and feature additions, this version brings significant improvements.</li>
-            <li>I've worked tirelessly to add new themes, new features, fixed bugs, added a language chooser, + a brand new and fully updated radar section from the updated war thunder wiki website, and continue preparing to integrate the HTML code from the Wiki 3.0 into the app. Multiple parts of the app that relied on the HTML of the older wiki is being rewritten from the ground up</li>
-            <br>
-         </ul>
-         <br>
-         <strong>Some of the cool things I have been working on</strong>
-         <hr class="divider">
-         <ul>
-            <li>Integrating the Airborne Radar section from the updated Wiki! The entirety of the article is done programmatically in the app, including layout, text, and images.</li>
-            <li>Adding animated themes (the Snow for the Christmas theme is done with code, as well as the fireworks for the New Years theme)</li>
-            <li>An "app language" section was finally added! I opted not to use AI translations, so I rely on those who can contribute language translations through both a crowd-sourced translation website called Crowdin, or on GitHub through the ThunderDex Translations repository</li>
-            <li>I spent many hours writing code and added a section in the app through the settings that allow you to either learn, or become informed on how to contribute to the app! (you will also get a spot in the Contributors spot found in the About section)</li>
-            <li>Drastically improved the UI. The vehicle cards are now measured programmatically using math. This was mostly done so users with smaller screens have a better experience</li>
-            <li>More UI improvements: Vehicle cards now have an ambient shadow to give them a sort of "glowing" effect</li>
-            <li>Animations! The vehicle info zoom animation has been improved since the last update, as well as the about section getting a cool new "Fluid Gradient" animation with over 100 themes consisting of 2 groups x 3 colors each</li>
-            <li>Even more Animations! The Radar card now has a pulsing radar that occasionally displays dots upon sweeping (like a real radar does), as well as adding and improving the expanded animations for certain scrolling in the app (found in the airborne radar section as well as the vehicle info section)</li>
-         </ul>
-         <br>
-         <li class="medium-heading"><strong>Alright, that's it!<br>If you made it to the end, I appreciate you reading it <3 </strong></li>
-         <br>
-         <li class="medium-heading"><strong>You're now all caught up on all the major changes the app has had these last few months since the Play Store update in Late November of 2024</strong></li>
-         <br>
-         <li class="medium-heading"><strong>Now check out the 6.0.0 Beta Changelogs below. :)</strong></li>
-      </section>
-   </body>
+        </div>
+    </div>
+</section>
+<section class="important-notes-section">
+    <strong>ThunderDex has been bumped to 6.0.0!</strong>
+    <hr class="divider">
+    <ul>
+        <li>After 3 months of consistent updates and feature additions, this version brings significant
+            improvements.</li>
+        <li>I've worked tirelessly to add new themes, new features, fixed bugs, added a language chooser, + a
+            brand new and fully updated radar section from the updated war thunder wiki website, and continue
+            preparing to integrate the HTML code from the Wiki 3.0 into the app. Multiple parts of the app that
+            relied on the HTML of the older wiki is being rewritten from the ground up</li>
+        <br>
+    </ul>
+    <br>
+    <strong>Some of the cool things I have been working on</strong>
+    <hr class="divider">
+    <ul>
+        <li>Integrating the Airborne Radar section from the updated Wiki! The entirety of the article is done
+            programmatically in the app, including layout, text, and images.</li>
+        <li>Adding animated themes (the Snow for the Christmas theme is done with code, as well as the fireworks
+            for the New Years theme)</li>
+        <li>An "app language" section was finally added! I opted not to use AI translations, so I rely on those who
+            can contribute language translations through both a crowd-sourced translation website called Crowdin, or
+            on GitHub through the ThunderDex Translations repository</li>
+        <li>I spent many hours writing code and added a section in the app through the settings that allow you to
+            either learn, or become informed on how to contribute to the app! (you will also get a spot in the
+            Contributors spot found in the About section)</li>
+        <li>Drastically improved the UI. The vehicle cards are now measured programmatically using math. This was
+            mostly done so users with smaller screens have a better experience</li>
+        <li>More UI improvements: Vehicle cards now have an ambient shadow to give them a sort of "glowing" effect</li>
+        <li>Animations! The vehicle info zoom animation has been improved since the last update, as well as the about
+            section getting a cool new "Fluid Gradient" animation with over 100 themes consisting of 2 groups x 3
+            colors each</li>
+        <li>Even more Animations! The Radar card now has a pulsing radar that occasionally displays dots upon sweeping
+            (like a real radar does), as well as adding and improving the expanded animations for certain scrolling
+            in the app (found in the airborne radar section as well as the vehicle info section)</li>
+    </ul>
+    <br>
+    <li class="medium-heading"><strong>Alright, that's it!<br>If you made it to the end, I appreciate you reading it
+            <3 </strong></li>
+    <br>
+    <li class="medium-heading"><strong>You're now all caught up on all the major changes the app has had these last
+            few months since the Play Store update in Late November of 2024</strong></li>
+    <br>
+    <li class="medium-heading"><strong>Now check out the 6.0.0 Beta Changelogs below. :)</strong></li>
+</section>
+</body>
 </html>
