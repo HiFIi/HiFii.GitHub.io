@@ -364,8 +364,11 @@
 <section class="changelog-section">
     <div class="changelog-box">
         <div class="changelog-list">
-          <li class="changelog-title"><strong>6.0.2 (Beta 2):</strong></li>
+          <li class="changelog-title"><strong>6.0.2 (Beta 3):</strong></li>
                <ul>
+				  <li>• App Experiments: dont hide bottom navigation to prevent bottom nav not showing bug</li>
+				  <li>• Remove splits in build.gradle so it compiles 1 apk instead of splitting by ABI type (Arm64, Arm-V7, x86, etc)</li>
+				  <li>Note: Splits were removed to prevent a build error when compiling the Android App Bundle for the Play Store (Production) Release</li>			   	   
 				  <li>• Adjust Vehicle Name text in the Info section, slightly changed the design but now the text is not offset with the toolbar icons</li>
 				  <li>• Add a scrollbar to the vehicle info section</li>
 				  <li>• Update AGP</li>
