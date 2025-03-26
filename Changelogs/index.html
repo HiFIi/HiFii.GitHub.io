@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog - Version 6.0.3</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Add your CSS file here -->
+
+  <style>
+    /* Font Faces */
+    @font-face {
+      font-family: 'UberMoveBold';
+      src: url('fonts/cashsans_black.otf') format('opentype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'categories';
+      src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'LyftProBold';
+      src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('fonts/ProductSans-Play.otf') format('opentype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'HeaderFontStyle';
+      src: url('fonts/laca_blackitalic.otf') format('opentype');
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'ImportantNotes';
+      src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    /* Global Styles */
+    :root {
+      --primary-color: #151618;
+      --on-primary-color: #ffffff;
+      --background-color: #101518;
+      --card-background: #281524;
+      --important-note-color: #f5f5f5;
+      --important-note-background: #100712;
+      --build-date-color: #EAEAEA;
+      --link-hover-bg: #3A3B47;
+      --link-bg: #243034;
+      --link-color: #f9f9f9;
+      --ripple-color: rgba(255, 255, 255, 0.6);
+      --max-content-width: 1000px;
+      --border-radius: 12px;
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      --transition-duration: 0.3s;
+      --primary-text-color: #f9f9f9;
+      --secondary-text-color: #EAEAEA;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-text-color);
+      margin: 0;
+      padding: 0;
+      transition: background-color var(--transition-duration), color var(--transition-duration);
+    }
+
+    .container {
+      max-width: var(--max-content-width);
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .changelog-section {
+      margin-top: 40px;
+    }
+
+    .changelog-section h2 {
+      font-family: 'HeaderFontStyle', sans-serif;
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: var(--on-primary-color);
+    }
+
+    .changelog-item {
+      background-color: var(--card-background);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: background-color var(--transition-duration);
+    }
+
+    .changelog-item h3 {
+      font-family: 'LyftProBold', sans-serif;
+      margin: 0;
+      font-size: 1.5em;
+      color: var(--on-primary-color);
+    }
+
+    .changelog-item p {
+      font-family: 'categories', sans-serif;
+      margin: 5px 0;
+      font-size: 1em;
+      color: var(--secondary-text-color);
+    }
+
+    .changelog-item a {
+      font-family: 'CustomFont', sans-serif;
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .changelog-item a:hover {
+      background-color: var(--link-hover-bg);
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="changelog-section">
+      <h2>Version 6.0.3 - Release Notes</h2>
+      <div class="changelog-item">
+        <h3>New Features</h3>
+        <p>- Improved UI responsiveness across devices.</p>
+        <p>- New Material Design-inspired theme for better visuals.</p>
+      </div>
+      <div class="changelog-item">
+        <h3>Bug Fixes</h3>
+        <p>- Fixed crashes when loading high-res textures.</p>
+        <p>- Resolved issue where settings were not saving properly.</p>
+      </div>
+      <div class="changelog-item">
+        <h3>Performance Enhancements</h3>
+        <p>- Optimized memory usage for smoother gameplay.</p>
+        <p>- Reduced app launch time by 25%.</p>
+      </div>
+      <div class="changelog-item">
+        <h3>Other Improvements</h3>
+        <p>- Minor UI tweaks and improvements to button layout.</p>
+        <p>- Updated libraries for better compatibility with Android 12 and above.</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
