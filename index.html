@@ -294,70 +294,9 @@
          <h1>ThunderDex 6.0.3<br>TBA</h1>
       </header>
       <main>
-      <section class="download-section">
-         <div class="download-links">
-            <a href="#">Download ThunderDex 6.0.3</a>
-         </div>
+      <div class="download-section">
+      <div class="download-links">
+      <a href="https://hifii.github.io/Changelogs">View the 6.0.3 Changelog</a>
       </section>
-      <section class="changelog-section">
-         <div class="changelog-box">
-            <div class="changelog-list">
-               <li class="changelog-title"><strong>6.0.3 (Build 1):</strong></li>
-               <ul>
-                  <li>This update features a smaller app download, redesigned Bottom Navigation Bar + new bottom nav icons, a common crash was fixed in the Language chooser section, the language chooser bottom sheet got its UI improved, there have been some adjustments and improvements to themes, plus MORE! (like more experimental performance flags were added)</li>
-                  <li>Let me know what you guys are thinking so far with what I have done, I am currently working on implementing more from the New Wiki into the app. I have spent a lot of hours working on parts of the app i have not touched for a bit.</li>
-                  <li>
-                     <strong>UI/UX Improvements:</strong>
-                     <ul>
-                        <li>Touch up the bottom navigation design: adjusted elevation, added a black ambient shadow, made the navigation icons a little smaller, adjusted the bottom margin, adjusted the card corner radius and a few other UI improvements (lets see if anyone notices them)</li>
-                        <li>New Bottom Navigation Icons (home, wiki, settings)</li>
-                        <li>Redesign Vehicle Groups: show the animated videos from new wiki website, increase card size, add a visible vertical scrollbar, and align the text at the bottom left for better a better experience</li>
-                        <li>Improved the "Almost Black" theme custom header (also exported a a .webp lossless)</li>
-                        <li>Redesign and improve the Language Chooser Bottom Sheet</li>
-                        <li>Language Chooser: Put English as first selection</li>
-                        <li>Added a Drag Handle for the Language Chooser Bottom Sheet (thanks flitzepipe for the suggestion)</li>
-                        <li>changed the changelog section animation type from "liquid ripple" to "experimental"</li>
-                        <li>Improved Animation code throughout the apps and animated themes</li>
-                     </ul>
-                  </li>
-                  <li>
-                     <strong>Bug Fixes:</strong>
-                     <ul>
-                        <li>Fixed an occasional force close when switching languages</li>
-                        <li>THEME FIXES: Fix bug that only allowed the home screen to have animated themes (such as snowfall, etc). it now works in the other sections of the app (vehicle group and vehicle list fragments)</li>
-                        <li>THEME FIXES: Enforce full screen (well, just hidden status bar) for holiday (animated) themes</li>
-                        <li>Minor fixes via suggestions from the android studio code analyzer</li>
-                     </ul>
-                  </li>
-                  <li>
-                     <strong>Build/Dependency Updates:</strong>
-                     <ul>
-                        <li>Updated targetSdk and buildTools to Android 16 (sdk 36)</li>
-                        <li>update 17 libraries [including a couple of important ones including the Material Design library and OKHTTP] (I hadnt been getting library update notifications) -- should improve the app</li>
-                        <li>Update Gradle from 8.14-milestone-5 to 8.14-milestone-7</li>
-                        <li>Put lots of time into upgrading and organizing different compile flags in the gradle.properties to ensure the app runs really well, this includes implementation of experimental items</li>
-                     </ul>
-                  </li>
-                  <li>
-                     <strong>Developer Tools/Internal:</strong>
-                     <ul>
-                        <li>NEW (for debug builds): directly view some chosen gradle.properties flags via the new "Gradle Properties JVM Verification" Setting. This was essentially made for me to ensure all of the experimental gradle properties are working and enabled</li>
-                        <li>Updated and improved multiple bash scripts I have written for myself / thunderdex (a png optimizer [optiPNG] script with parallel execution that outputs how much you reduced the folder/project size at the end], a relatively complex changelog creator (over 300 lines of code), and a script to capitalize all letters in the colors.xml (example: #ffffffff --> #FFFFFFFF)</li>
-                        <li>Reintroduce builds split by ABI. It was compiling Play Store release builds (.aab format) to fail. Added code to Gradle for unique compilation of .APKs and .AABs separately</li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </section>
-      </section> <!-- End of changelog-section -->
-
-      <!-- **** ADD THIS NEW SECTION **** -->
-      <section class="external-link-section">
-          <a href="https://hifii.github.io/Changelogs" target="_blank" rel="noopener noreferrer" class="changelog-button">
-              View All Changelogs
-          </a>
-      </section>
-      <!-- **** END OF NEW SECTION **** -->
    </body>
 </html>
