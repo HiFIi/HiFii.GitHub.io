@@ -1,20 +1,10 @@
 [
 {
-  "tag_name": "2025.2.0_beta5_test3",
-  "body": "### What's New\n- Test1\n- TestTest\nBody parse test\n\nversionCode: 202502000503",
+  "tag_name": "2025.2.0_beta5_test5",
+  "body": "### What's New\n- Test1\n- TestTest\n\nversionCode: 202502000505",
   "assets": [
     {
-      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test3/ThunderDex-06-22-2025_0233-arm64-v8a-release.apk"
-    }
-  ]
-}
-,
-{
-  "tag_name": "2025.2.0_beta5_test4",
-  "body": "### What's New\n- Previous test\n- Bug fixes\nthis is also a changelog body test\n\nversionCode: 202502000504",
-  "assets": [
-    {
-      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test4/ThunderDex-06-22-2025_0240-arm64-v8a-release.apk"
+      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test5/ThunderDex-06-22-2025_0448-arm64-v8a-release.apk"
     }
   ]
 }
