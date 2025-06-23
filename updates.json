@@ -7,5 +7,14 @@
       "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test7/ThunderDex-06-23-2025_1502-arm64-v8a-release.apk"
     }
   ]
+},
+{
+  "tag_name": "2025.2.0_beta5_test8",
+  "body": "### What's Newww\n- Previous testttttt\n- Bug fixesssss\n",
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test7/ThunderDex-06-23-2025_1502-arm64-v8a-release.apk"
+    }
+  ]
 }
 ]
