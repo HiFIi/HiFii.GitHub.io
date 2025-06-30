@@ -1,10 +1,19 @@
 [
 {
-  "tag_name": "2025.2.0_test2",
+  "tag_name": "2025.2.0_beta5_test1",
   "body": "###- What's New\n- Second OTA build\n- Fixed crash when navigating home\n\nMake sure to check the app every day. :)",
   "assets": [
     {
-      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_test2/ThunderDex-06-29-2025_1218-arm64-v8a-release.apk"
+      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_beta5_test1/ThunderDex-06-29-2025_1218-arm64-v8a-release.apk"
+    }
+  ]
+},
+{
+  "tag_name": "2025.2.0_test3",
+  "body": "###- What's New\n- Second OTA build\n- Fixed crash when navigating home\n- Silence a part of the update checker\n- Updated AGP\nMake sure to check the app every day. :)",
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/2025.2.0_test3/ThunderDex-06-30-2025_1422-arm64-v8a-release.apk"
     }
   ]
 }
