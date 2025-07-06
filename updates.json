@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "070525_nightly2",
-    "body": "versionCode: 94\n\n### What's New (July 5th, 2025)\n• Build 2: Add right margin to the news and updates title\n• Build 2: Reduce news and updates title text size\n• Further improved the News and Updates design\n• Updated 7 libraries",
+    "tag_name": "070625_nightly1",
+    "body": "versionCode: 95\n\n### What's New (July 5th, 2025 Build 3)\n• News & Updates: Doubled the amount of articles that get retrieved from 18 to 36, slightly increases loading time. Let me know if you want it to be a customization to retrieve X pages of articles with a guarantee of increased loading times (up to maybe 5 pages loaded??)\n• Fixed date fadeout from ending abruptly in the News & Updates Section + some small enhancements to the UI\n• News & Updates (back end): Unwrap an if statement (as it is always true)\n• 24hr StarGaze: Adjust night-to-day animation from 10 seconds to 35 seconds\n• back end: change BaseBottomSheetFragment to its own folder for clarity in an upcoming commit\nfragment_settings.xml: increase bottom margins so the titles (for example, Appearance & Customization now has an increased margin (spacing) to enhance the UI) + reduce the white background opacity on the donate button because SOME users complained about it looking weird. you know who you are, persons username who begins with and F and ends with an E. I wont Flite....pipe up... :P\n• VehicleInfo: remove left and right margins from the vehicle image header\n• Changelog Activity: full opacity for WindowBackground, 0.35 opacity for the Custom Fluid Gradient Animation. LMK what you think...\n• Splash screen: Slightly increased the SplashScreen Icon Width and Height\n• Splash Screen: Changed font, looks nice huh?",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/070525_nightly2/ThunderDex-07-05-2025_0509-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/070625_nightly1/ThunderDex-07-05-2025_2229-arm64-v8a-release.apk"
       }
     ]
   }
