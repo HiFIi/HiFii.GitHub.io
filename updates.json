@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "071725_nightly1",
-    "body": "versionCode: 98\n\n### What's New (July 17th, 2025 Build 1)\n\n• Improve News and Updates UI: Small tweaks (increased font size slight and also increased line spacing)\n• Update 5 libraries",
+    "tag_name": "071925_nightly1",
+    "body": "versionCode: 99\n\n### What's New (July 19th, 2025 Build 1)\n\n• Improve News and Updates UI: decrease body text size)\n\n• Update the Gradle Build System",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/071725_nightly1/ThunderDex-07-17-2025_0550-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/071925_nightly1/ThunderDex-07-19-2025_0617-arm64-v8a-release.apk"
       }
     ]
   }
