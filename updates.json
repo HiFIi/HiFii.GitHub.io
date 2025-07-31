@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "072325_nightly1",
-    "body": "versionCode: 100\n\n### What's New (July 23rd, 2025 Build 1)\n\n#### New Features\n\n*   Added a Tank Ammunition section to the Weaponry Section (Thanks to Flitzepipe)\n    *   Note: This is programmatically/dynamically parsed and is currently a WORK IN PROGRESS\n\n#### UI Improvements\n\n*   **Weaponry Section:**\n    *   Grouped Weaponry section: dynamically measure user’s screen and set card height\n*   **Theme Fix:**\n    *   Fixed themes being off by 1 during selection. This was a simple code oversight and should be resolved.\n*   **Code Quality:**\n    *   Applied code analyzer improvements and suggestions; a few things need testing for stability.\n*   **App Navigation (TabLayout):**\n    *   Reduced unselected and selected tab size.\n*   **Changelog Activity:**\n    *   Programmatically pulling changelogs from GitHub. (Took long enough!)\n    *   Improved layout on first app launch or update.\n    *   Fixed dark text on first launch.\n    *   Adjusted UI to ensure the Changelog title is flush vertically with the close button.\n*   **Groups UI (Tanks, Helis, Planes, Ships, Grouped Weaponry, Tank Ammo):**\n    *   Streamlined design.\n    *   Adjusted card margins, text size, letter spacing, and more.\n\n#### Bug Fixes\n\n*   Fixed incorrect image colors in Notification Fragment on initial launch.\n*   Fixed Changelog text color being black on initial launch or update.\n\n#### File Organization\n\n*   Reorganized strings.xml for all translated languages in dimens.xml.\n\n#### Dependency Updates\n\n*   Updated OVER 15 libraries (including Android Navigation Library and Google Firebase).\n\n#### Optimization\n\n*   Merged in German Translations PR from Flitzepipe and made lots of updates to German strings and strings in general.\n*   Reduced app size by 500KB (half a megabyte).\n*   Updated AGP.\n",
+    "tag_name": "073125",
+    "body": "versionCode: 101\n\n### What's New (July 31st, 2025 Build 1)\n\n• Add human-translated Russian language into the app (WIP)\n\n• Fix app customization force close on older devices (hopefully)• Minor UI tweaks\n\n• Update AGP\n\n• \n\n• Update the Gradle Build System",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/072325_nightly1_TEST/ThunderDex-07-23-2025_1945-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/073125/ThunderDex-07-31-2025_1433-arm64-v8a-release.apk"
       }
     ]
   }
