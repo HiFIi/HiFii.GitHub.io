@@ -1,125 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex Changelog - v6.0.3</title>
-      <link rel="stylesheet" href="styles.css">
-      <!-- Assuming styles.css is empty -->
-      <style>
-         /* Font Faces (Keep as is) */
-         @font-face { font-family: 'UberMoveBold'; src: url('fonts/cashsans_black.otf') format('opentype'); font-display: swap; }
-         @font-face { font-family: 'categories'; src: url('fonts/ProductSans-Regular.ttf') format('truetype'); font-display: swap; }
-         @font-face { font-family: 'LyftProBold'; src: url('fonts/LyftPro-Bold.ttf') format('truetype'); font-display: swap; }
-         @font-face { font-family: 'HeaderFontStyle'; src: url('fonts/laca_blackitalic.otf') format('opentype'); font-display: swap; }
-         @font-face { font-family: 'ImportantNotes'; src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype'); font-display: swap; }
-         /* --- Improved Styles --- */
-         /* Global Styles & Variables */
-         :root {
-         --primary-color: #1A1A2E;
-         --on-primary-color: #E8E8F1;
-         --background-color: #161625;
-         --surface-color: #1E1E30;
-         --card-background: #2A2A43; /* Slightly lighter card */
-         --intro-background: #24243B; /* Different background for intro */
-         --important-note-background: rgba(134, 172, 252, 0.15);
-         --accent-color: #86ACFC;
-         --accent-color-darker: #6A85C8;
-         --secondary-text-color: #B0B0C0;
-         --border-color: rgba(134, 172, 252, 0.25);
-         --border-radius-large: 20px;
-         --border-radius-medium: 12px;
-         --padding-large: 28px;
-         --padding-medium: 20px;
-         --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-         --transition-duration: 0.3s;
-         }
-         body {
-         font-family: 'categories', sans-serif;
-         background: linear-gradient(135deg, var(--primary-color) 0%, var(--background-color) 100%);
-         color: var(--on-primary-color);
-         margin: 0;
-         padding: 20px 10px;
-         line-height: 1.6;
-         }
-         .container {
-         max-width: 850px;
-         margin: 40px auto;
-         padding: 0 var(--padding-medium);
-         }
-         /* Header Title */
-         .changelog-section h1 { /* Changed from h2 for semantic main title */
-         font-size: 2.8em;
-         font-weight: bold;
-         margin-bottom: 40px;
-         color: var(--on-primary-color);
-         font-family: 'HeaderFontStyle', sans-serif;
-         text-align: center;
-         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-         opacity: 0;
-         transform: translateY(-20px);
-         animation: fadeInUp 0.6s 0.1s ease-out forwards;
-         }
-         /* Intro Section Styling */
-         .intro-section {
-         background-color: var(--intro-background);
-         padding: var(--padding-large);
-         border-radius: var(--border-radius-large);
-         box-shadow: var(--box-shadow);
-         border: 1px solid var(--border-color);
-         margin-bottom: 45px; /* Space below intro */
-         opacity: 0;
-         transform: translateY(20px) scale(0.98);
-         animation: fadeInUpScale 0.7s 0.2s ease-out forwards; /* Delay after title */
-         font-size: 1.15em;
-         line-height: 1.7;
-         color: var(--secondary-text-color);
-         }
-         .intro-section p {
-         margin-top: 0;
-         margin-bottom: 1em; /* Space between paragraphs */
-         }
-         .intro-section p:last-child {
-         margin-bottom: 0;
-         }
-         /* Changelog Card Item */
-         .changelog-item {
-         background-color: var(--card-background);
-         padding: var(--padding-large);
-         border-radius: var(--border-radius-large);
-         box-shadow: var(--box-shadow);
-         border: 1px solid var(--border-color);
-         transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color var(--transition-duration);
-         margin-bottom: 35px;
-         opacity: 0;
-         transform: translateY(20px) scale(0.98);
-         animation: fadeInUpScale 0.7s ease-out forwards;
-         }
-         /* Stagger card animation (Adjust delays considering intro section) */
-         .changelog-item:nth-of-type(1) { animation-delay: 0.3s; } /* First category */
-         .changelog-item:nth-of-type(2) { animation-delay: 0.4s; }
-         .changelog-item:nth-of-type(3) { animation-delay: 0.5s; }
-         .changelog-item:nth-of-type(4) { animation-delay: 0.6s; } /* New developer section */
-         .changelog-item:hover {
-         transform: translateY(-6px) scale(1.01);
-         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-         }
-         /* Category Title (H3) */
-         .changelog-item h3 {
-         font-size: 1.8em;
-         margin-top: 0;
-         margin-bottom: 20px;
-         color: var(--accent-color);
-         font-family: 'LyftProBold', sans-serif;
-         display: flex;
-         align-items: center;
-         border-bottom: 1px solid var(--border-color); /* Add subtle separator */
-         padding-bottom: 10px;
-         }
-         /* Icon before H3 */
-         .changelog-item h3::before {
-         content: '';
-         /* If using an icon font like Material Symbols:
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThunderDex Changelog - v6.0.3</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Assuming styles.css is empty -->
+    <style>
+      /* Font Faces (Keep as is) */
+      @font-face {
+        font-family: "UberMoveBold";
+        src: url("fonts/cashsans_black.otf") format("opentype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "categories";
+        src: url("fonts/ProductSans-Regular.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "LyftProBold";
+        src: url("fonts/LyftPro-Bold.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "HeaderFontStyle";
+        src: url("fonts/laca_blackitalic.otf") format("opentype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "ImportantNotes";
+        src: url("fonts/Google_Sans_Display-500-100_0-0_0.ttf")
+          format("truetype");
+        font-display: swap;
+      }
+      /* --- Improved Styles --- */
+      /* Global Styles & Variables */
+      :root {
+        --primary-color: #1a1a2e;
+        --on-primary-color: #e8e8f1;
+        --background-color: #161625;
+        --surface-color: #1e1e30;
+        --card-background: #2a2a43; /* Slightly lighter card */
+        --intro-background: #24243b; /* Different background for intro */
+        --important-note-background: rgba(134, 172, 252, 0.15);
+        --accent-color: #86acfc;
+        --accent-color-darker: #6a85c8;
+        --secondary-text-color: #b0b0c0;
+        --border-color: rgba(134, 172, 252, 0.25);
+        --border-radius-large: 20px;
+        --border-radius-medium: 12px;
+        --padding-large: 28px;
+        --padding-medium: 20px;
+        --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+        --transition-duration: 0.3s;
+      }
+      body {
+        font-family: "categories", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--background-color) 100%
+        );
+        color: var(--on-primary-color);
+        margin: 0;
+        padding: 20px 10px;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 0 var(--padding-medium);
+      }
+      /* Header Title */
+      .changelog-section h1 {
+        /* Changed from h2 for semantic main title */
+        font-size: 2.8em;
+        font-weight: bold;
+        margin-bottom: 40px;
+        color: var(--on-primary-color);
+        font-family: "HeaderFontStyle", sans-serif;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeInUp 0.6s 0.1s ease-out forwards;
+      }
+      /* Intro Section Styling */
+      .intro-section {
+        background-color: var(--intro-background);
+        padding: var(--padding-large);
+        border-radius: var(--border-radius-large);
+        box-shadow: var(--box-shadow);
+        border: 1px solid var(--border-color);
+        margin-bottom: 45px; /* Space below intro */
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+        animation: fadeInUpScale 0.7s 0.2s ease-out forwards; /* Delay after title */
+        font-size: 1.15em;
+        line-height: 1.7;
+        color: var(--secondary-text-color);
+      }
+      .intro-section p {
+        margin-top: 0;
+        margin-bottom: 1em; /* Space between paragraphs */
+      }
+      .intro-section p:last-child {
+        margin-bottom: 0;
+      }
+      /* Changelog Card Item */
+      .changelog-item {
+        background-color: var(--card-background);
+        padding: var(--padding-large);
+        border-radius: var(--border-radius-large);
+        box-shadow: var(--box-shadow);
+        border: 1px solid var(--border-color);
+        transition:
+          transform 0.3s ease-out,
+          box-shadow 0.3s ease-out,
+          background-color var(--transition-duration);
+        margin-bottom: 35px;
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+        animation: fadeInUpScale 0.7s ease-out forwards;
+      }
+      /* Stagger card animation (Adjust delays considering intro section) */
+      .changelog-item:nth-of-type(1) {
+        animation-delay: 0.3s;
+      } /* First category */
+      .changelog-item:nth-of-type(2) {
+        animation-delay: 0.4s;
+      }
+      .changelog-item:nth-of-type(3) {
+        animation-delay: 0.5s;
+      }
+      .changelog-item:nth-of-type(4) {
+        animation-delay: 0.6s;
+      } /* New developer section */
+      .changelog-item:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+      /* Category Title (H3) */
+      .changelog-item h3 {
+        font-size: 1.8em;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+        font-family: "LyftProBold", sans-serif;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color); /* Add subtle separator */
+        padding-bottom: 10px;
+      }
+      /* Icon before H3 */
+      .changelog-item h3::before {
+        content: "";
+        /* If using an icon font like Material Symbols:
          font-family: 'Material Symbols Outlined';
          font-weight: normal;
          font-style: normal;
@@ -132,190 +169,343 @@
          direction: ltr;
          -webkit-font-feature-settings: 'liga';
          -webkit-font-smoothing: antialiased; */
-         font-size: 1.3em; /* Increased size slightly */
-         margin-right: 14px; /* More space */
-         color: var(--accent-color);
-         display: inline-block; /* Keep */
-         /* vertical-align: -0.15em; /* Fine-tune vertical alignment */
-         }
-         /* Specific Icons (Emojis or replace with icon font content/classes) */
-         .changelog-item.ui-ux h3::before { content: '🎨'; } /* Palette */
-         .changelog-item.bugs h3::before { content: '🐛'; } /* Bug */
-         .changelog-item.build h3::before { content: '📦'; } /* Package/Build */
-         .changelog-item.developer h3::before { content: '👨‍💻'; } /* Developer/Code */
-         /* List Styles */
-         .changelog-item ul {
-         padding-left: 5px;
-         list-style-type: none;
-         margin: 0;
-         }
-         /* Nested List for sub-bullets */
-         .changelog-item ul ul {
-         padding-left: 25px; /* Indent sub-list */
-         margin-top: 8px; /* Space above sub-list */
-         }
-         .changelog-item li {
-         font-size: 1.1em;
-         line-height: 1.8;
-         color: var(--secondary-text-color);
-         margin-bottom: 12px;
-         font-family: 'categories', sans-serif;
-         position: relative;
-         padding-left: 28px;
-         opacity: 0;
-         transform: translateX(-10px);
-         animation: fadeInLeft 0.5s ease-out forwards;
-         }
-         /* Nested list item styling */
-         .changelog-item ul ul li {
-         font-size: 1.05em; /* Slightly smaller */
-         margin-bottom: 6px; /* Less space */
-         }
-         /* Stagger list item animation */
-         .changelog-item ul li:nth-child(1) { animation-delay: 0.1s; }
-         .changelog-item ul li:nth-child(2) { animation-delay: 0.2s; }
-         .changelog-item ul li:nth-child(3) { animation-delay: 0.3s; }
-         .changelog-item ul li:nth-child(4) { animation-delay: 0.4s; }
-         .changelog-item ul li:nth-child(5) { animation-delay: 0.5s; }
-         .changelog-item ul li:nth-child(6) { animation-delay: 0.6s; }
-         .changelog-item ul li:nth-child(7) { animation-delay: 0.7s; }
-         .changelog-item ul li:nth-child(8) { animation-delay: 0.8s; }
-         .changelog-item ul li:nth-child(9) { animation-delay: 0.9s; }
-         .changelog-item ul li:nth-child(10){ animation-delay: 1.0s; }
-         /* Custom Bullet Point */
-         .changelog-item li::before {
-         content: '✓';
-         color: var(--accent-color-darker);
-         font-weight: bold;
-         font-size: 1.1em;
-         position: absolute;
-         left: 0;
-         top: 4px;
-         transition: transform 0.2s ease-out;
-         }
-         /* Different bullet for nested list */
-         .changelog-item ul ul li::before {
-         content: '-'; /* Dash for sub-items */
-         font-weight: bold;
-         color: var(--secondary-text-color); /* Less prominent */
-         left: 2px; /* Adjust position */
-         }
-         .changelog-item li:hover::before {
-         transform: scale(1.3);
-         }
-         /* Important Note (If used) */
-         .important-note {
-         background-color: var(--important-note-background);
-         color: var(--accent-color);
-         padding: var(--padding-medium);
-         border-radius: var(--border-radius-medium);
-         font-size: 1.1em;
-         font-family: 'ImportantNotes', sans-serif;
-         text-align: center;
-         border: 1px solid var(--border-color);
-         border-left: 5px solid var(--accent-color);
-         margin-top: 40px;
-         opacity: 0;
-         transform: scale(0.95);
-         animation: fadeInScale 0.6s 0.8s ease-out forwards; /* Adjust delay */
-         }
-         /* Animations */
-         @keyframes fadeInUp {
-         from { opacity: 0; transform: translateY(20px); }
-         to { opacity: 1; transform: translateY(0); }
-         }
-         @keyframes fadeInUpScale {
-         from { opacity: 0; transform: translateY(20px) scale(0.98); }
-         to { opacity: 1; transform: translateY(0) scale(1); }
-         }
-         @keyframes fadeInLeft {
-         from { opacity: 0; transform: translateX(-15px); }
-         to { opacity: 1; transform: translateX(0); }
-         }
-         @keyframes fadeInScale {
-         from { opacity: 0; transform: scale(0.95); }
-         to { opacity: 1; transform: scale(1); }
-         }
-         /* Media Query for smaller screens */
-         @media (max-width: 768px) {
-         body { padding: 15px 5px; }
-         .container { margin: 20px auto; padding: 0 var(--padding-medium); }
-         .changelog-section h1 { font-size: 2.2em; margin-bottom: 30px; } /* Adjusted */
-         .intro-section { padding: var(--padding-medium); font-size: 1.05em; margin-bottom: 35px; }
-         .changelog-item { padding: var(--padding-medium); margin-bottom: 25px; }
-         .changelog-item h3 { font-size: 1.5em; margin-bottom: 15px; }
-         .changelog-item h3::before { font-size: 1.2em; margin-right: 10px; }
-         .changelog-item li { font-size: 1em; line-height: 1.7; padding-left: 24px; }
-         .changelog-item ul ul { padding-left: 20px; } /* Adjust nested indent */
-         .changelog-item li::before { font-size: 1em; top: 3px; }
-         .important-note { font-size: 1em; padding: 15px; margin-top: 30px; }
-         }
-      </style>
-   </head>
-   <body>
-      <div class="container">
-         <section class="changelog-section">
-            <h1>Version 6.0.3 (Build 1) Changelog</h1>
-            <!-- Changed to H1 -->
-            <!-- Intro Section -->
-            <div class="intro-section">
-               <p>
-                  This update features a redesigned Bottom Navigation Bar + new bottom nav icons, a common crash was fixed in the Language chooser section, the language chooser bottom sheet got its UI improved, there have been some adjustments and improvements to themes, plus MORE! (like more experimental performance flags were added)
-               </p>
-               <p>
-                  Let me know what you guys are thinking so far with what I have done, I am currently working on implementing more from the New Wiki into the app. I have spent a lot of hours working on parts of the app i have not touched for a bit.
-               </p>
-            </div>
-            <!-- UI/UX Improvements -->
-            <div class="changelog-item ui-ux">
-               <h3>UI/UX Improvements</h3>
-               <ul>
-                  <li>Touch up the bottom navigation design: adjusted elevation, added a black ambient shadow, made the navigation icons a little smaller, adjusted the bottom margin, adjusted the card corner radius and a few other UI improvements (lets see if anyone notices them)</li>
-                  <li>To celebrate the release of 6.0.0 (although late), i upscaled and made some touchups on the default thunderdex theme. Enjoy!</li>
-                  <li>New Bottom Navigation Icons (home, wiki, settings)</li>
-                  <li>Added a fluid gradient animation on top of the Settings, the "big header" will be back to normal next update</li>
-                  <li>Redesign Vehicle Groups: show the animated videos from new wiki website, increase card size, add a visible vertical scrollbar, and align the text at the bottom left for better a better experience</li>
-                  <li>Improved the "Almost Black" theme custom header (also exported a a .webp lossless)</li>
-                  <li>Redesign and improve the Language Chooser Bottom Sheet</li>
-                  <li>Language Chooser: Put English as first selection</li>
-                  <li>Added a Drag Handle for the Language Chooser Bottom Sheet (thanks flitzepipe for the suggestion)</li>
-                  <li>changed the changelog section animation type from "liquid ripple" to "experimental"</li>
-                  <li>Improved Animation code throughout the apps and animated themes</li>
-               </ul>
-            </div>
-            <!-- Bug Fixes -->
-            <div class="changelog-item bugs">
-               <h3>Bug Fixes</h3>
-               <ul>
-                  <li>Fixed an occasional force close when switching languages</li>
-                  <li>THEME FIXES: Fix bug that only allowed the home screen to have animated themes (such as snowfall, etc). it now works in the other sections of the app (vehicle group and vehicle list fragments)</li>
-                  <li>THEME FIXES: Enforce full screen (well, just hidden status bar) for holiday (animated) themes</li>
-                  <li>Minor fixes via suggestions from the android studio code analyzer</li>
-               </ul>
-            </div>
-            <!-- Build/Dependency Updates -->
-            <div class="changelog-item build">
-               <h3>Build/Dependency Updates</h3>
-               <ul>
-                  <li>Updated targetSdk and buildTools to Android 16 (sdk 36)</li>
-                  <li>update 17 libraries [including a couple of important ones including the Material Design library and OKHTTP] (I hadnt been getting library update notifications) -- should improve the app</li>
-                  <li>
-                     Update Gradle from 8.14-milestone-5 to 8.14-milestone-7 <!-- This was the item needing a sub-bullet style -->
-                     <!-- Removed incorrect sub-bullet marker '-' from text, handled by CSS -->
-                  </li>
-                  <li>Put lots of time into upgrading and organizing different compile flags in the gradle.properties to ensure the app runs really well, this includes implementation of experimental items</li>
-               </ul>
-            </div>
-            <!-- Developer Tools/Internal -->
-            <div class="changelog-item developer">
-               <h3>Developer Tools/Internal</h3>
-               <ul>
-                  <li>NEW (for debug builds): directly view some chosen gradle.properties flags via the new "Gradle Properties JVM Verification" Setting. This was essentially made for me to ensure all of the experimental gradle properties are working and enabled</li>
-                  <li>Updated and improved multiple bash scripts I have written for myself / thunderdex (a png optimizer [optiPNG] script with parallel execution that outputs how much you reduced the folder/project size at the end], a relatively complex changelog creator (over 300 lines of code), and a script to capitalize all letters in the colors.xml (example: #ffffffff --> #FFFFFFFF)</li>
-                  <li>Reintroduce builds split by ABI. It was compiling Play Store release builds (.aab format) to fail. Added code to Gradle for unique compilation of .APKs and .AABs separately</li>
-               </ul>
-            </div>
-         </section>
-      </div>
-   </body>
+        font-size: 1.3em; /* Increased size slightly */
+        margin-right: 14px; /* More space */
+        color: var(--accent-color);
+        display: inline-block; /* Keep */
+        /* vertical-align: -0.15em; /* Fine-tune vertical alignment */
+      }
+      /* Specific Icons (Emojis or replace with icon font content/classes) */
+      .changelog-item.ui-ux h3::before {
+        content: "🎨";
+      } /* Palette */
+      .changelog-item.bugs h3::before {
+        content: "🐛";
+      } /* Bug */
+      .changelog-item.build h3::before {
+        content: "📦";
+      } /* Package/Build */
+      .changelog-item.developer h3::before {
+        content: "👨‍💻";
+      } /* Developer/Code */
+      /* List Styles */
+      .changelog-item ul {
+        padding-left: 5px;
+        list-style-type: none;
+        margin: 0;
+      }
+      /* Nested List for sub-bullets */
+      .changelog-item ul ul {
+        padding-left: 25px; /* Indent sub-list */
+        margin-top: 8px; /* Space above sub-list */
+      }
+      .changelog-item li {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: var(--secondary-text-color);
+        margin-bottom: 12px;
+        font-family: "categories", sans-serif;
+        position: relative;
+        padding-left: 28px;
+        opacity: 0;
+        transform: translateX(-10px);
+        animation: fadeInLeft 0.5s ease-out forwards;
+      }
+      /* Nested list item styling */
+      .changelog-item ul ul li {
+        font-size: 1.05em; /* Slightly smaller */
+        margin-bottom: 6px; /* Less space */
+      }
+      /* Stagger list item animation */
+      .changelog-item ul li:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .changelog-item ul li:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .changelog-item ul li:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .changelog-item ul li:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .changelog-item ul li:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .changelog-item ul li:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+      .changelog-item ul li:nth-child(7) {
+        animation-delay: 0.7s;
+      }
+      .changelog-item ul li:nth-child(8) {
+        animation-delay: 0.8s;
+      }
+      .changelog-item ul li:nth-child(9) {
+        animation-delay: 0.9s;
+      }
+      .changelog-item ul li:nth-child(10) {
+        animation-delay: 1s;
+      }
+      /* Custom Bullet Point */
+      .changelog-item li::before {
+        content: "✓";
+        color: var(--accent-color-darker);
+        font-weight: bold;
+        font-size: 1.1em;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        transition: transform 0.2s ease-out;
+      }
+      /* Different bullet for nested list */
+      .changelog-item ul ul li::before {
+        content: "-"; /* Dash for sub-items */
+        font-weight: bold;
+        color: var(--secondary-text-color); /* Less prominent */
+        left: 2px; /* Adjust position */
+      }
+      .changelog-item li:hover::before {
+        transform: scale(1.3);
+      }
+      /* Important Note (If used) */
+      .important-note {
+        background-color: var(--important-note-background);
+        color: var(--accent-color);
+        padding: var(--padding-medium);
+        border-radius: var(--border-radius-medium);
+        font-size: 1.1em;
+        font-family: "ImportantNotes", sans-serif;
+        text-align: center;
+        border: 1px solid var(--border-color);
+        border-left: 5px solid var(--accent-color);
+        margin-top: 40px;
+        opacity: 0;
+        transform: scale(0.95);
+        animation: fadeInScale 0.6s 0.8s ease-out forwards; /* Adjust delay */
+      }
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUpScale {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      /* Media Query for smaller screens */
+      @media (max-width: 768px) {
+        body {
+          padding: 15px 5px;
+        }
+        .container {
+          margin: 20px auto;
+          padding: 0 var(--padding-medium);
+        }
+        .changelog-section h1 {
+          font-size: 2.2em;
+          margin-bottom: 30px;
+        } /* Adjusted */
+        .intro-section {
+          padding: var(--padding-medium);
+          font-size: 1.05em;
+          margin-bottom: 35px;
+        }
+        .changelog-item {
+          padding: var(--padding-medium);
+          margin-bottom: 25px;
+        }
+        .changelog-item h3 {
+          font-size: 1.5em;
+          margin-bottom: 15px;
+        }
+        .changelog-item h3::before {
+          font-size: 1.2em;
+          margin-right: 10px;
+        }
+        .changelog-item li {
+          font-size: 1em;
+          line-height: 1.7;
+          padding-left: 24px;
+        }
+        .changelog-item ul ul {
+          padding-left: 20px;
+        } /* Adjust nested indent */
+        .changelog-item li::before {
+          font-size: 1em;
+          top: 3px;
+        }
+        .important-note {
+          font-size: 1em;
+          padding: 15px;
+          margin-top: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="changelog-section">
+        <h1>Version 6.0.3 (Build 1) Changelog</h1>
+        <!-- Changed to H1 -->
+        <!-- Intro Section -->
+        <div class="intro-section">
+          <p>
+            This update features a redesigned Bottom Navigation Bar + new bottom
+            nav icons, a common crash was fixed in the Language chooser section,
+            the language chooser bottom sheet got its UI improved, there have
+            been some adjustments and improvements to themes, plus MORE! (like
+            more experimental performance flags were added)
+          </p>
+          <p>
+            Let me know what you guys are thinking so far with what I have done,
+            I am currently working on implementing more from the New Wiki into
+            the app. I have spent a lot of hours working on parts of the app i
+            have not touched for a bit.
+          </p>
+        </div>
+        <!-- UI/UX Improvements -->
+        <div class="changelog-item ui-ux">
+          <h3>UI/UX Improvements</h3>
+          <ul>
+            <li>
+              Touch up the bottom navigation design: adjusted elevation, added a
+              black ambient shadow, made the navigation icons a little smaller,
+              adjusted the bottom margin, adjusted the card corner radius and a
+              few other UI improvements (lets see if anyone notices them)
+            </li>
+            <li>
+              To celebrate the release of 6.0.0 (although late), i upscaled and
+              made some touchups on the default thunderdex theme. Enjoy!
+            </li>
+            <li>New Bottom Navigation Icons (home, wiki, settings)</li>
+            <li>
+              Added a fluid gradient animation on top of the Settings, the "big
+              header" will be back to normal next update
+            </li>
+            <li>
+              Redesign Vehicle Groups: show the animated videos from new wiki
+              website, increase card size, add a visible vertical scrollbar, and
+              align the text at the bottom left for better a better experience
+            </li>
+            <li>
+              Improved the "Almost Black" theme custom header (also exported a a
+              .webp lossless)
+            </li>
+            <li>Redesign and improve the Language Chooser Bottom Sheet</li>
+            <li>Language Chooser: Put English as first selection</li>
+            <li>
+              Added a Drag Handle for the Language Chooser Bottom Sheet (thanks
+              flitzepipe for the suggestion)
+            </li>
+            <li>
+              changed the changelog section animation type from "liquid ripple"
+              to "experimental"
+            </li>
+            <li>
+              Improved Animation code throughout the apps and animated themes
+            </li>
+          </ul>
+        </div>
+        <!-- Bug Fixes -->
+        <div class="changelog-item bugs">
+          <h3>Bug Fixes</h3>
+          <ul>
+            <li>Fixed an occasional force close when switching languages</li>
+            <li>
+              THEME FIXES: Fix bug that only allowed the home screen to have
+              animated themes (such as snowfall, etc). it now works in the other
+              sections of the app (vehicle group and vehicle list fragments)
+            </li>
+            <li>
+              THEME FIXES: Enforce full screen (well, just hidden status bar)
+              for holiday (animated) themes
+            </li>
+            <li>
+              Minor fixes via suggestions from the android studio code analyzer
+            </li>
+          </ul>
+        </div>
+        <!-- Build/Dependency Updates -->
+        <div class="changelog-item build">
+          <h3>Build/Dependency Updates</h3>
+          <ul>
+            <li>Updated targetSdk and buildTools to Android 16 (sdk 36)</li>
+            <li>
+              update 17 libraries [including a couple of important ones
+              including the Material Design library and OKHTTP] (I hadnt been
+              getting library update notifications) -- should improve the app
+            </li>
+            <li>
+              Update Gradle from 8.14-milestone-5 to 8.14-milestone-7
+              <!-- This was the item needing a sub-bullet style -->
+              <!-- Removed incorrect sub-bullet marker '-' from text, handled by CSS -->
+            </li>
+            <li>
+              Put lots of time into upgrading and organizing different compile
+              flags in the gradle.properties to ensure the app runs really well,
+              this includes implementation of experimental items
+            </li>
+          </ul>
+        </div>
+        <!-- Developer Tools/Internal -->
+        <div class="changelog-item developer">
+          <h3>Developer Tools/Internal</h3>
+          <ul>
+            <li>
+              NEW (for debug builds): directly view some chosen
+              gradle.properties flags via the new "Gradle Properties JVM
+              Verification" Setting. This was essentially made for me to ensure
+              all of the experimental gradle properties are working and enabled
+            </li>
+            <li>
+              Updated and improved multiple bash scripts I have written for
+              myself / thunderdex (a png optimizer [optiPNG] script with
+              parallel execution that outputs how much you reduced the
+              folder/project size at the end], a relatively complex changelog
+              creator (over 300 lines of code), and a script to capitalize all
+              letters in the colors.xml (example: #ffffffff --> #FFFFFFFF)
+            </li>
+            <li>
+              Reintroduce builds split by ABI. It was compiling Play Store
+              release builds (.aab format) to fail. Added code to Gradle for
+              unique compilation of .APKs and .AABs separately
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>
