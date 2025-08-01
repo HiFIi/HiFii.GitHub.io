@@ -3,300 +3,611 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex APKs</title>
-      <style>
-         /* style.css */
-         /* ==========================================================================
-         Font Definitions
-         ========================================================================== */
-         @font-face {
-         font-family: 'UberMoveBold';
-         src: url('fonts/cashsans_black.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'categories';
-         src: url('fonts/ProductSans-Regular.ttf') format('truetype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'LyftProBold';
-         src: url('fonts/LyftPro-Bold.ttf') format('truetype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'CustomFont';
-         src: url('fonts/ProductSans-Play.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'HeaderFontStyle';
-         src: url('fonts/laca_blackitalic.otf') format('opentype');
-         font-display: swap;
-         }
-         @font-face {
-         font-family: 'ImportantNotes';
-         src: url('fonts/Google_Sans_Display-500-100_0-0_0.ttf') format('truetype');
-         font-display: swap;
-         }
-         /* ==========================================================================
-         CSS Variables (Custom Properties)
-         ========================================================================== */
-         :root {
-         --primary-color: #151618;
-         --on-primary-color: #ffffff;
-         --background-color: #101518;
-         --card-background: #281524;
-         --important-note-color: #f5f5f5;
-         --important-note-background: #100712;
-         --build-date-color: #EAEAEA;
-         --link-hover-bg: #3A3B47;
-         --link-bg: #243034;
-         --link-color: #f9f9f9;
-         --ripple-color: rgba(255, 255, 255, 0.6);
-         --max-content-width: 1000px; /*  Added a max-width variable */
-         --border-radius: 12px;     /* Consistent border radius */
-         --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*  Consistent box shadow */
-         --transition-duration: 0.3s; /* Consistent transition duration */
-         }
-         /* ==========================================================================
-         Base Styles
-         ========================================================================== */
-         html {
-         box-sizing: border-box; /*  Better box model */
-         scroll-behavior: smooth; /*  Smooth scrolling for anchor links */
-         }
-         *,
-         *::before,
-         *::after {
-         box-sizing: inherit; /*  Inherit box-sizing */
-         }
-         body {
-         font-family: 'CustomFont', sans-serif;
-         font-size: 18px;
-         line-height: 1.8;
-         margin: 0;
-         padding: 25px;
-         background: linear-gradient(95deg, #071414, #100712, #331733, #091313, #151618, #091313);
-         color: var(--on-primary-color);
-         display: flex;            /*  Use Flexbox for layout */
-         flex-direction: column;   /*  Stack content vertically */
-         min-height: 100vh;         /*  Ensure body takes full viewport height */
-         }
-         /* ==========================================================================
-         Typography
-         ========================================================================== */
-         h1 {
-         font-family: 'HeaderFontStyle', sans-serif;
-         font-size: 48px;
-         margin-bottom: 20px;
-         text-align: center;
-         }
-         /* ==========================================================================
-         Layout & Sections
-         ========================================================================== */
-         header {
-         text-align: center;
-         padding: 20px 0;
-         }
-         main {
-         flex: 1;                  /*  Allow main to grow and take available space */
-         width: 100%;
-         max-width: var(--max-content-width); /*  Limit the width of the content */
-         margin: 0 auto;            /*  Center the content horizontally */
-         }
-         section {
-         margin-bottom: 30px;
-         }
-         /* ==========================================================================
-         Download Section
-         ========================================================================== */
-         .download-section {
-         text-align: center;
-         margin: 25px 0;
-         }
-         .download-links a {
-         text-decoration: none;
-         background-color: var(--link-bg);
-         font-weight: 600;
-         font-size: 26px;
-         padding: 25px 50px;
-         border-radius: var(--border-radius);
-         color: var(--link-color);
-         display: inline-block;
-         box-shadow: var(--box-shadow);
-         transition: transform var(--transition-duration) ease-in-out,
-         box-shadow var(--transition-duration) ease-in-out,
-         background-color var(--transition-duration) ease-in-out;
-         position: relative;
-         overflow: hidden;   /*  Hide the ripple overflow */
-         z-index: 1;          /*  Ensure text is above ripple */
-         }
-         .download-links a::before {
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: var(--ripple-color);
-         border-radius: 50%;
-         transform: scale(0);
-         opacity: 0;        /*  Start invisible */
-         transition: transform 0.5s, opacity 1s cubic-bezier(0, 0, 0.3, 1);
-         pointer-events: none;
-         z-index: -1;       /* Place ripple behind the link's background */
-         }
-         .download-links a:hover {
-         background-color: var(--link-hover-bg);
-         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-         transform: scale(1.05);
-         }
-         .download-links a:active::before {
-         transform: scale(3); /*  Grow to a large size */
-         opacity: 0;          /*  Fade out completely */
-         }
-         /* ==========================================================================
-         Changelog Section
-         ========================================================================== */
-         .changelog-section {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         margin: 20px auto;
-         max-width: var(--max-content-width);
-         text-align: center;
-         }
-         .changelog-box {
-         background-color: var(--card-background);
-         border-radius: var(--border-radius);
-         padding: 25px;
-         box-shadow: var(--box-shadow);
-         font-size: 24px;
-         line-height: 1.8;
-         color: var(--on-primary-color);
-         max-width: 100%;
-         text-align: left;
-         }
-         .changelog-title {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 44px;
-         margin-top: 15px;
-         margin-bottom: 15px;
-         text-align: left;
-         }
-         .changelog-section ul {
-         list-style-type: disc;
-         padding-left: 20px;
-         }
-         .changelog-section ul li {
-         margin-bottom: 12px;
-         }
-         /* ==========================================================================
-         Important Notes Section
-         ========================================================================== */
-         .important-notes-section {
-         font-family: 'ImportantNotes', sans-serif;
-         font-size: 15px;
-         background-color: var(--important-note-background);
-         color: var(--important-note-color);
-         border: 1px solid var(--important-note-color);
-         border-radius: var(--border-radius);
-         padding: 30px;
-         margin: 0 auto 30px;  /*  top right bottom left; */
-         list-style-type: none;
-         box-shadow: 0 14px 16px rgba(0, 0, 0, 0.85);
-         text-align: left;
-         max-width: 100%;       /* Ensures it fits within the main container */
-         }
-         .important-notes-section strong {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 22px;
-         display: block;
-         margin-bottom: 12px;
-         }
-         .important-notes-section hr.divider {
-         border: 0;
-         border-top: 1px solid rgba(255, 255, 255, 0.4);
-         margin: 18px 0;
-         }
-         /* ==========================================================================
-         Helper Classes & Components
-         ========================================================================== */
-         .test-heading,
-         .medium-heading {
-         font-family: 'UberMoveBold', sans-serif;
-         font-size: 22px;
-         margin-top: 20px;
-         margin-bottom: 12px;
-         text-align: left;
-         list-style: none;
-         }
-         .build-info {
-         font-size: 32px;
-         text-align: center;
-         margin: 15px 0;
-         color: var(--build-date-color);
-         }
-         /* ==========================================================================
-         Source Code Link
-         ========================================================================== */
-         .source-code-link {
-         position: absolute;
-         top: 10px;
-         right: 10px;
-         background-color: var(--link-bg);
-         color: var(--link-color);
-         padding: 8px 16px;
-         border-radius: 8px;
-         text-decoration: none;
-         font-size: 16px;
-         transition: background-color var(--transition-duration) ease;
-         z-index: 10; /* Ensure it's always on top */
-         }
-         .source-code-link:hover {
-         background-color: var(--link-hover-bg);
-         }
-         /* ==========================================================================
-         Media Queries
-         ========================================================================== */
-         @media (max-width: 768px) {
-         body {
-         padding: 15px;
-         }
-         h1 {
-         font-size: 30px;
-         }
-         .important-notes-section {
-         font-size: 15px;
-         padding: 18px;
-         }
-         .download-links a {
-         font-size: 22px;
-         padding: 18px 36px;
-         }
-         .changelog-box {
-         padding: 20px;
-         }
-         }
-      </style>
+      <title>ThunderDex Hub <br>ThunderHub</br></title>
       <!-- Font Preloading (Critical for Performance) -->
       <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin="anonymous">
       <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
       <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
       <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
       <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type="font/otf" crossorigin="anonymous">
-      <link rel="preload" href="fonts/Google_Sans_Display-500-100_0-0_0.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+      <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+      <!-- Material Symbols Outlined for the expand icon -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down_circle" />
+
+      <style>
+         /* style.css */
+         /* ==========================================================================
+         Font Definitions
+         ========================================================================== */
+         @font-face {
+            font-family: 'UberMoveBold';
+            src: url('fonts/cashsans_black.otf') format('opentype');
+            font-display: swap;
+         }
+         @font-face {
+            font-family: 'categories';
+            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+            font-display: swap;
+         }
+         @font-face {
+            font-family: 'LyftProBold';
+            src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+            font-display: swap;
+         }
+         @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/ProductSans-Play.otf') format('opentype');
+            font-display: swap;
+         }
+         @font-face {
+            font-family: 'HeaderFontStyle';
+            src: url('fonts/alexana.ttf') format('truetype');
+            font-display: swap;
+         }
+         @font-face {
+            font-family: 'ImportantNotes';
+            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+            font-display: swap;
+         }
+
+         /* ==========================================================================
+         CSS Variables (Custom Properties)
+         ========================================================================== */
+         :root {
+            --primary-color: #10101C; /* Dark base color */
+            --on-primary-color: #E9FCFF; /* Light, icy blue for main text */
+
+            /* Frosted Glass Blue Palette */
+            --glass-blue-dark: rgba(22, 33, 50, 0.5); /* Darker base for glass elements */
+            --glass-blue-medium: rgba(30, 45, 65, 0.5); /* Medium tone for glass elements */
+            --glass-blue-light: rgba(40, 60, 85, 0.4); /* Lighter tone for glass elements */
+            --glass-blue-accent: rgba(80, 150, 255, 0.6); /* Accent blue for highlights */
+            --glass-border-color: rgba(100, 180, 255, 0.3); /* Soft blue border */
+            --glass-shadow-color: rgba(0, 0, 0, 0.6); /* Darker shadow for depth */
+
+            --build-date-color: #F8FEFF; /* Lighter blue for build info */
+            --link-color: #E0F7FA; /* Link text color, consistent with on-primary */
+            --ripple-color: rgba(179, 229, 252, 0.7); /* Light blue ripple */
+            
+            --max-content-width: 900px;
+            --border-radius: 20px; /* Slightly larger radius for softer look */
+            --box-shadow: 0 10px 25px var(--glass-shadow-color); /* Adjusted shadow */
+            --transition-duration: 0.475s; /* Slightly slower transitions */
+
+            /* Backdrop filter for the frosted glass effect */
+            --frosted-glass-effect: blur(10px) saturate(2.5); /* Increased blur and saturation */
+         }
+
+         /* ==========================================================================
+         Base Styles
+         ========================================================================== */
+         html {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+         }
+         *,
+         *::before,
+         *::after {
+            box-sizing: inherit;
+         }
+         body {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            color: var(--on-primary-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+         }
+
+         /* ==========================================================================
+         Animated Background - More Interesting/Random Variant
+         ========================================================================== */
+         .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400vw;
+            height: 400vh;
+            z-index: -1;
+background: linear-gradient(
+   135deg,
+   #050505 0%,
+   #1a002b 15%,
+   #3f0d73 30%,
+   #3D1A51 35%,    /* Black accent flash */
+   #001f33 45%,
+   #3a005a 60%,
+   #0e1c28 75%,
+   #0a0a16 100%
+);
+
+   background-size: 600% 800%;
+   animation: gradientFlow 50s ease-in-out infinite alternate,
+              zoomPulse 50s ease-in-out infinite alternate;
+   will-change: background-position, transform;
+   transform-origin: center center;
+         }
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    75% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes zoomPulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1); /* Start at normal brightness */
+    }
+    25% {
+        transform: scale(1.25) rotate(0.5deg); /* Slight zoom and tiny rotation */
+        filter: brightness(1.1); /* Slightly brighter */
+    }
+    50% {
+        transform: scale(1.15) rotate(-0.5deg); /* More pronounced zoom, opposite tiny rotation */
+        filter: brightness(1.2); /* Brighter peak */
+    }
+    75% {
+        transform: scale(1.08) rotate(0.2deg); /* Recoil zoom, small rotation back */
+        filter: brightness(1.05); /* Dim slightly */
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: brightness(1); /* Return to normal */
+    }
+}
+
+         /* ==========================================================================
+         Typography
+         ========================================================================== */
+h1 {
+   font-family: 'HeaderFontStyle', sans-serif;
+   font-size: 60px;
+   margin-bottom: 10px;
+   text-align: center;
+   color: #eaf6ff; /* Icy-blue white */
+   text-shadow:
+      0 4px 10px rgba(0, 0, 0, 0.7),
+      0 0 30px rgba(173, 216, 230, 0.30); /* soft outer glow */
+   letter-spacing: 2.5px;
+   line-height: 1.1;
+   backdrop-filter: blur(5px);
+}
+
+.subtitle {
+   font-family: 'categories', sans-serif;
+   font-size: 20px;
+   text-align: center;
+   display: block;
+   color: rgba(215, 255, 250, 0.6); /* Gentle, luminous aqua */
+   text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.7),
+      0 0 20px rgba(100, 255, 255, 0.15); /* Light atmospheric glow */
+   letter-spacing: 1.85px;
+   line-height: 2.4;
+   margin-bottom: 10px;
+   margin-top: 5px;
+}
+
+
+         /* ==========================================================================
+         Layout & Sections
+         ========================================================================== */
+         header {
+            text-align: center;
+            padding: 0px 0 20px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInDown 1s ease-out forwards;
+         }
+         main {
+            flex: 1;
+            width: 100%;
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 25px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+         }
+         section {
+            margin-bottom: 30px;
+         }
+
+         /* ==========================================================================
+         Download Section (Frosted Glass Blue Buttons)
+         ========================================================================== */
+         .download-section {
+            text-align: center;
+            margin-bottom: 20px; /* Consistent space after each button section */
+         }
+         /* Remove specific top margin for consecutive download sections */
+         .download-section + .download-section {
+             margin-top: 0; 
+         }
+
+         .download-links a, .changelog-button {
+            text-decoration: none;
+            background-color: var(--glass-blue-dark); /* Darker glass blue for base */
+            font-weight: 600;
+            font-size: 28px;
+            padding: 28px 60px;
+            border-radius: var(--border-radius);
+            color: var(--link-color);
+            display: inline-flex; /* Use flexbox for button content alignment */
+            align-items: center; /* Vertically align items */
+            justify-content: center; /* Center horizontally */
+            gap: 16px; /* Space between text and icon */
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--glass-border-color); /* Frosted border */
+            
+            /* The frosted glass effect */
+            backdrop-filter: var(--frosted-glass-effect);
+            -webkit-backdrop-filter: var(--frosted-glass-effect); /* For Safari */
+
+            transition: transform var(--transition-duration) ease-in-out,
+                        box-shadow var(--transition-duration) ease-in-out,
+                        background-color var(--transition-duration) ease-in-out,
+                        border-color var(--transition-duration) ease-in-out;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.75px;
+            cursor: pointer; /* Add cursor pointer for buttons */
+         }
+         /* Ripple effect for download links and changelog button */
+         .download-links a::before, .changelog-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--ripple-color); /* Light blue ripple */
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.6s ease-out, opacity 0.65s ease-out;
+            pointer-events: none;
+            z-index: 0;
+         }
+         .download-links a:hover, .changelog-button:hover {
+            background-color: var(--glass-blue-medium); /* Lighter blue on hover */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.55); /* Stronger shadow on hover */
+            transform: translateY(-8px); /* More pronounced lift effect */
+            border-color: rgba(179, 229, 252, 0.5); /* Brighter border on hover */
+         }
+         .download-links a:active::before, .changelog-button:active::before {
+            transform: translate(-50%, -50%) scale(3);
+            opacity: 1;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+         }
+
+         /* Style for the Material Icon within the button */
+         .changelog-button .material-symbols-outlined {
+             font-size: 32px; /* Adjust icon size as needed */
+             color: var(--link-color); /* Match icon color to link color */
+             transition: transform var(--transition-duration) ease-in-out;
+         }
+
+         /* Rotate icon when content is expanded */
+         .changelog-button.expanded .material-symbols-outlined {
+             transform: rotate(180deg);
+         }
+
+         /* ==========================================================================
+         Changelog Section (Frosted Glass Blue Card)
+         ========================================================================== */
+         .changelog-section {
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto; /* Adjust margin to control spacing from elements above */
+            max-width: var(--max-content-width);
+            text-align: center;
+         }
+
+         #changelog-content { /* This is the main card container for the expandable content */
+            background-color: var(--glass-blue-light); /* Lighter glass blue for card */
+            border-radius: var(--border-radius);
+            padding: 0 25px; /* Set initial padding to 0 for vertical collapse */
+            box-shadow: var(--box-shadow);
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--on-primary-color);
+            max-width: 100%;
+            text-align: left;
+            border: 1px solid var(--glass-border-color); /* Frosted border */
+            
+            /* The frosted glass effect */
+            backdrop-filter: var(--frosted-glass-effect);
+            -webkit-backdrop-filter: var(--frosted-glass-effect);
+
+            overflow: hidden; /* Hide overflow content when collapsed */
+            max-height: 0; /* Start with height 0 to hide content */
+            opacity: 0; /* Start with opacity 0 */
+            transition: max-height 0.7s ease-out, opacity 0.7s ease-out, padding 0.7s ease-out; /* Smooth transition */
+            box-sizing: border-box; /* Include padding in height calculation */
+            margin-top: 0; /* Initially no margin top */
+         }
+
+         #changelog-content.expanded {
+            max-height: 500px; /* Adjust this value based on your content's max height */
+            opacity: 1;
+            padding: 25px; /* Restore padding when expanded */
+            margin-top: 20px; /* Space between button and expanded content */
+         }
+
+         .changelog-title {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 38px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+            color: #BBDEFB; /* Soft blue for headings */
+         }
+         .changelog-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.85); /* Slightly muted list text */
+         }
+         .changelog-section ul li {
+            margin-bottom: 12px;
+         }
+
+         /* ==========================================================================
+         Important Notes Section (Frosted Glass Blue Note)
+         ========================================================================== */
+         .important-notes-section {
+            font-family: 'ImportantNotes', sans-serif;
+            font-size: 16px;
+            background-color: var(--glass-blue-dark); /* Darker glass blue for notes */
+            color: var(--on-primary-color);
+            border: 1px solid var(--glass-border-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 30px auto; /* Add margin-top for spacing from changelog */
+            list-style-type: none;
+            box-shadow: 0 14px 20px var(--glass-shadow-color); /* Adjusted shadow */
+            text-align: left;
+            max-width: 100%;
+            line-height: 1.7;
+
+            /* The frosted glass effect */
+            backdrop-filter: var(--frosted-glass-effect);
+            -webkit-backdrop-filter: var(--frosted-glass-effect);
+         }
+         .important-notes-section strong {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 24px;
+            display: block;
+            margin-bottom: 15px;
+            color: #FFCDD2; /* A softer, almost pinkish red for warnings */
+         }
+         .important-notes-section hr.divider {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 20px 0;
+         }
+         .important-notes-section a {
+             color: #BBDEFB; /* Link color within notes */
+             text-decoration: underline;
+         }
+
+         /* ==========================================================================
+         Helper Classes & Components
+         ========================================================================== */
+         .test-heading,
+         .medium-heading {
+            font-family: 'UberMoveBold', sans-serif;
+            font-size: 24px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-align: left;
+            list-style: none;
+            color: #BBDEFB; /* Blue heading color */
+         }
+         .build-info {
+            font-size: 28px;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--build-date-color); /* Uses new build date color */
+            font-family: 'ImportantNotes', sans-serif;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+         }
+
+         /* ==========================================================================
+         Source Code Link (Frosted Glass Blue)
+         ========================================================================== */
+         .source-code-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--glass-blue-medium); /* Uses glass blue medium */
+            color: var(--link-color);
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color var(--transition-duration) ease, transform 0.2s ease, border-color var(--transition-duration) ease;
+            z-index: 100;
+            backdrop-filter: var(--frosted-glass-effect);
+            -webkit-backdrop-filter: var(--frosted-glass-effect);
+            border: 1px solid var(--glass-border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+         }
+         .source-code-link:hover {
+            background-color: var(--glass-blue-accent); /* Accent blue on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            border-color: rgba(179, 229, 252, 0.7); /* Brighter border on hover */
+         }
+
+         /* ==========================================================================
+         Animations (Existing)
+         ========================================================================== */
+         @keyframes fadeInDown {
+            from {
+               opacity: 0;
+               transform: translateY(20px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+
+         @keyframes fadeInUp {
+            from {
+               opacity: 0;
+               transform: translateY(50px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
+         }
+
+         /* ==========================================================================
+         Media Queries
+         ========================================================================== */
+         @media (max-width: 768px) {
+            body {
+               padding: 0;
+            }
+            h1 {
+               font-size: 40px;
+               margin-bottom: 10px;
+            }
+            .subtitle {
+               font-size: 20px;
+               margin-top: 5px;
+            }
+            .important-notes-section {
+               font-size: 14px;
+               padding: 18px;
+               margin: 20px auto; /* Adjust for smaller screens */
+            }
+            .important-notes-section strong {
+                font-size: 20px;
+            }
+            .download-links a, .changelog-button {
+               font-size: 20px;
+               padding: 20px 40px;
+            }
+            .changelog-button .material-symbols-outlined {
+                font-size: 24px; /* Adjust icon size for smaller screens */
+            }
+            #changelog-content {
+               padding: 0 15px; /* Adjust padding for collapse on smaller screens */
+               font-size: 18px;
+            }
+            #changelog-content.expanded {
+                padding: 15px; /* Restore padding when expanded on smaller screens */
+                margin-top: 15px;
+            }
+            .changelog-title {
+                font-size: 28px;
+            }
+            .source-code-link {
+                top: 15px;
+                right: 15px;
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+            main {
+                padding: 0 15px;
+            }
+            .build-info {
+                font-size: 24px;
+            }
+         }
+      </style>
    </head>
    <body>
+
+      <div class="animated-background"></div>
+
       <a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">Source Code</a>
+
       <header>
-         <h1>ThunderDex 2025.2.0<br>WIP</h1>
+         <h1>ThunderHub<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1>
       </header>
+
       <main>
-      <div class="download-section">
-      <div class="download-links">
-      <a href="https://hifii.github.io/Changelogs">View the 6.0.3 Changelog</a>
-      </section>
+         <div class="download-section">
+            <div class="download-links">
+               <button class="changelog-button" onclick="toggleChangelog()">Nightly Changelog   
+                   <span class="material-symbols-outlined">arrow_drop_down_circle</span>
+               </button>
+            </div>
+         </div>
+
+         <section class="changelog-section">
+            <div id="changelog-content">
+                <h2 class="changelog-title">Build: <br>2025.2.0 (07-31-25)</br></h2>
+                <ul>
+                    <li>Improved performance and stability.</li>
+                    <li>Added new features (details coming soon).</li>
+                    <li>Bug fixes and UI enhancements.</li>
+                </ul>
+            </div>
+         </section>
+
+         <div class="download-section">
+            <div class="download-links">
+               <a href="https://hifii.github.io/Contribute">Contribute translations to ThunderDex</a>
+            </div>
+         </div>
+
+         <section class="important-notes-section">
+            <strong>Important Notes!</strong>
+            <hr class="divider">
+            <p>Please back up your data before updating. This release includes significant changes.</p>
+            <p>For any issues, please refer to our <a href="#" style="color: #BBDEFB; text-decoration: underline;">FAQ section</a> or contact support.</p>
+         </section>
+
+         <div class="build-info">
+             Last updated: July 31st, 2025
+         </div>
+      </main>
+
+      <script>
+        function toggleChangelog() {
+            const changelogContent = document.getElementById('changelog-content');
+            const changelogButton = document.querySelector('.changelog-button');
+
+            changelogContent.classList.toggle('expanded');
+            changelogButton.classList.toggle('expanded'); // Toggle class on button for icon rotation
+            
+            // Adjust scroll to show the content if it's expanded
+            if (changelogContent.classList.contains('expanded')) {
+                // Use setTimeout to allow the expansion animation to start before scrolling
+                setTimeout(() => {
+                    changelogContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300); // A small delay
+            }
+        }
+      </script>
    </body>
 </html>
+
