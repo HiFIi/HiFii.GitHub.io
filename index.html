@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex Hub (ThunderHub)</title>
-      <!-- Font Preloading (Critical for Performance) -->
-      <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin>
-      <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-      <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-      <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
-      <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type="font/otf" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderDex Hub (ThunderHub)</title>
+    <!-- Font Preloading (Critical for Performance) -->
+    <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type="font/otf" crossorigin="anonymous">
 
-      <!-- Material Symbols Outlined for the expand icon -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down_circle" />
+    <!-- Material Symbols Outlined for the expand icon -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down_circle"/>
 
-      <style>
-         /* style.css */
-         /* ==========================================================================
-         Font Definitions
-         ========================================================================== */
-         @font-face {
+    <style>
+        /* style.css */
+        /* ==========================================================================
+        Font Definitions
+        ========================================================================== */
+        @font-face {
             font-family: 'UberMoveBold';
             src: url('fonts/cashsans_black.otf') format('opentype');
             font-display: swap;
-         }
-         @font-face {
+        }
+
+        @font-face {
             font-family: 'categories';
             src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
             font-display: swap;
-         }
-         @font-face {
+        }
+
+        @font-face {
             font-family: 'LyftProBold';
             src: url('fonts/UberMove-Bold.otf') format('opentype');
             font-display: swap;
-         }
-         @font-face {
+        }
+
+        @font-face {
             font-family: 'CustomFont';
             src: url('fonts/ProductSans-Play.otf') format('opentype');
             font-display: swap;
-         }
-     @font-face {
-        font-family: 'HeaderFontStyle';
-        src: url('fonts/alexana.ttf') format('truetype');
-        font-display: swap;
-     }
-     @font-face {
-        font-family: 'HeaderSubtitleStyle';
-        src: url('fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
-        font-display: swap;
-     }
-         @font-face {
+        }
+
+        @font-face {
+            font-family: 'HeaderFontStyle';
+            src: url('fonts/alexana.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'HeaderSubtitleStyle';
+            src: url('fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: 'ImportantNotes';
             src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
             font-display: swap;
-         }
+        }
 
-         :root {
+        :root {
             --primary-color: #10101C; /* Dark base color */
             --on-primary-color: #E9FCFF; /* Light, icy blue for main text */
 
@@ -65,34 +72,42 @@
             --glass-blue-light: rgba(40, 60, 85, 0.4); /* Lighter tone for glass elements */
             --glass-blue-accent: rgba(80, 150, 255, 0.6); /* Accent blue for highlights */
             --glass-border-color: rgba(255, 255, 255, 0.5); /* Soft blue border */
-            --glass-shadow-color:rgba(10, 10, 10, 0.5);/* Darker shadow for depth */
-
+            --glass-shadow-color: rgba(10, 10, 10, 0.5); /* Darker shadow for depth */
             --build-date-color: #F8FEFF; /* Lighter blue for build info */
             --link-color: #E0F7FA; /* Link text color, consistent with on-primary */
             --ripple-color: rgba(179, 229, 252, 0.7); /* Light blue ripple */
-            
             --max-content-width: 900px;
             --border-radius: 24px; /* Slightly larger radius for softer look */
             --box-shadow: 0 10px 25px var(--glass-shadow-color); /* Adjusted shadow */
             --transition-duration: 0.25s; /* Slightly slower transitions */
 
-            /* Backdrop filter for the frosted glass effect */
-            --frosted-glass-effect: blur(12px) saturate(0.7); /* Adjusted blur */
-         }
+  --color-bg1: rgb(12, 0, 12);
+  --color-bg2: rgb(0, 17, 82);
+  --color1: 18, 113, 255;
+  --color2: 221, 74, 255;
+  --color3: 100, 220, 255;
+  --color4: 200, 50, 50;
+  --color5: 180, 180, 50;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 40%;
+  --blending: hard-light;
+        }
 
-         /* ==========================================================================
-         Base Styles
-         ========================================================================== */
-         html {
+        /* ==========================================================================
+        Base Styles
+        ========================================================================== */
+        html {
             box-sizing: border-box;
             scroll-behavior: smooth;
-         }
-         *,
-         *::before,
-         *::after {
+        }
+
+        *,
+        *::before,
+        *::after {
             box-sizing: inherit;
-         }
-         body {
+        }
+
+        body {
             font-family: 'CustomFont', sans-serif;
             font-size: 18px;
             line-height: 1.6;
@@ -103,145 +118,183 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
-         }
+        }
 
-         /* ==========================================================================
-         Animated Background - More Interesting/Random Variant
-         ========================================================================== */
+        /* ==========================================================================
+        Animated Background - More Interesting/Random Variant
+        ========================================================================== */
 .animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 400vw;
-  height: 400vh;
-  z-index: -1;
-  background-attachment: fixed;
-  background-size: 400% 400%;
-  animation:
-    gradientFlow 20s ease-in-out infinite alternate,
-    zoomPulse 30s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* Reduce size to viewport, or slightly larger if subtle movement beyond viewport is desired */
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            /* Use background-size: cover for better responsiveness with smaller dimensions */
+            background-size: cover; /* Changed from 400% 400% */
+            animation:
+                    gradientFlow 20s ease-in-out infinite alternate,
+                    zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
 
-  transition:
-    background-image 2s ease-in-out,
-    background-position 1.5s ease-in-out,
-    transform 0.5s ease-out,
-    filter 0.5s ease-in-out;
-  transform-origin: center center;
-  will-change: background-image, background-position, transform, filter;
-}
+            transition:
+                    background-image 2s ease-in-out,
+                    transform 0.5s ease-out,
+                    filter 0.5s ease-in-out; /* Removed background-position from transition, as it's animated by gradientFlow */
+            transform-origin: center center;
+            will-change: background-image, transform, filter; /* Hint to the browser for animations */
+        }
 
-.animated-background::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 400vw;
-  height: 400vh;
-  background-repeat: no-repeat;
-  background-size: 400% 400%;
-  background-attachment: fixed;
-  z-index: -2;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 2s ease-in-out, background-image 2s ease-in-out;
-  will-change: opacity, background-image;
-}
+        .animated-background::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+           width: 100vw;
+            height: 100vh;
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 2s ease-in-out, background-image 2s ease-in-out;
+            will-change: opacity, background-image;
+        }
 
-.animated-background::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,\
+        .animated-background::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
 <filter id='noiseFilter'>\
-<feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/>\
+<feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
 </filter>\
 <rect width='100%' height='100%' filter='url(%23noiseFilter)'/>\
 </svg>");
-  mix-blend-mode: overlay;
-  opacity: 0.9;
-  animation:
-    shimmerGrain 40s ease-in-out infinite alternate;
-  transform-origin: center center;
-  will-change: background-position, filter, transform;
-  pointer-events: none;
-  z-index: 1;
-}
+            mix-blend-mode: overlay;
+            width: 100vw; /* Adjust or remove based on how you want the noise to behave */
+            height: 100vh; /* Adjust or remove based on how you want the noise to behave */
+            /* ... rest of the properties */
+            will-change: transform, opacity, background-position; /* Hint for shimmerGrain */
+            opacity: 0.9;
+            animation:
+                    shimmerGrain 30s ease-in-out infinite alternate;
+            transform-origin: center center;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-@keyframes gradientFlow {
-  0%   { background-position: 0% 0%; }
-  25%  { background-position: 100% 0%; }
-  50%  { background-position: 0% 100%; }
-  75%  { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 0%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 0% 100%;
+            }
+            75% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
 
-@keyframes zoomPulse {
-  0%   { transform: scale(1) rotate(0deg);       filter: brightness(0.25); }
-  20%  { transform: scale(1.08) rotate(0.2deg);  filter: brightness(0.6); }
-  50%  { transform: scale(1.2) rotate(-0.3deg);  filter: brightness(1.1); }
-  80%  { transform: scale(1.05) rotate(0.2deg);  filter: brightness(0.95); }
-  100% { transform: scale(1) rotate(0deg);       filter: brightness(1); }
-}
+ @keyframes zoomPulse {
+            0% {
+                transform: scale(1) rotate(0deg);
+                filter: brightness(0.25);
+            }
+            20% {
+                transform: scale(1.08) rotate(0.2deg);
+                filter: brightness(0.6);
+            }
+            50% {
+                transform: scale(1.2) rotate(-0.3deg);
+                filter: brightness(1.1);
+            }
+            80% {
+                transform: scale(1.05) rotate(0.2deg);
+                filter: brightness(0.95);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                filter: brightness(1);
+            }
+        }
 
-@keyframes shimmerGrain {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 200% 200%; }
-}
+        @keyframes shimmerGrain {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
 
-@keyframes hueShift {
-  0%   { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
-}
+        @keyframes hueShift {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
 
 
-         /* ==========================================================================
-         Typography
-         ========================================================================== */
+        /* ==========================================================================
+        Typography
+        ========================================================================== */
         h1 {
             font-family: 'HeaderFontStyle', sans-serif;
             font-size: 60px;
             text-align: center;
             color: #eaf6ff;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7),
-              0 0 30px rgba(173, 216, 230, 0.40);
+            0 0 30px rgba(173, 216, 230, 0.40);
             line-height: 1.1; /* Adjusted for better stacking on mobile */
         }
 
         .subtitle {
-           font-family: 'categories', sans-serif;
-           font-size: 20px;
-           text-align: center;
-           display: block;
-           color: rgba(215, 255, 250, 0.7); /* Gentle, luminous aqua */
-           text-shadow:
-              0 1px 3px rgba(0, 0, 0, 0.7),
-              0 0 20px rgba(100, 255, 255, 0.15); /* Light atmospheric glow */
-           margin-bottom: 10px;
-           margin-top: 0px;
+            font-family: 'categories', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+            color: rgba(215, 255, 250, 0.7); /* Gentle, luminous aqua */
+            text-shadow:
+                    0 1px 3px rgba(0, 0, 0, 0.7),
+                    0 0 20px rgba(100, 255, 255, 0.15); /* Light atmospheric glow */
+            margin-bottom: 10px;
+            margin-top: 10px;
         }
 
         .subtitleheader {
-           font-family: 'HeaderSubtitleStyle', sans-serif;
+            font-family: 'HeaderSubtitleStyle', sans-serif;
             font-size: 60px;
             text-align: center;
             color: #eaf6ff;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7),
-              0 0 30px rgba(173, 216, 230, 0.40);
+            0 0 30px rgba(173, 216, 230, 0.40);
             line-height: 1.1; /* Adjusted for better stacking on mobile */
         }
 
-         /* ==========================================================================
-         Layout & Sections
-         ========================================================================== */
-         header {
+
+        /* ==========================================================================
+        Layout & Sections
+        ========================================================================== */
+        header {
             text-align: center;
             padding: 60px 0 20px; /* Increased top padding */
             position: relative;
             z-index: 2;
-            animation: fadeInDown 3s ease-out forwards;
-         }
-         main {
+            animation: fadeInDown 2s ease-out forwards;
+        }
+
+        main {
             flex: 1;
             width: 100%;
             max-width: var(--max-content-width);
@@ -252,21 +305,165 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease-out 0.5s forwards;
-         }
-         section {
-            margin-bottom: 30px;
-         }
+        }
 
-         /* ==========================================================================
-         Download Section (Frosted Glass Blue Buttons)
-         ========================================================================== */
-         .download-section {
+        section {
+            margin-bottom: 30px;
+        }
+
+        .gradient-bg {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+            top: 0;
+            left: 0;
+
+            svg {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+            }
+        }
+
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-35%) translateY(-30%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+
+        .gradients-container {
+            filter: url(#goo) blur(60px);
+            width: 100%;
+            height: 100%;
+        }
+
+        .g1 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(75% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+
+            transform-origin: center center;
+            animation: moveVertical 10s ease infinite;
+
+            opacity: 1;
+        }
+
+        .g2 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+
+            transform-origin: calc(50% - 400px);
+            animation: moveInCircle 20s reverse infinite;
+
+            opacity: 1;
+        }
+
+        .g3 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2 + 200px);
+            left: calc(50% - var(--circle-size) / 2 - 500px);
+
+            transform-origin: calc(50% + 400px);
+            animation: moveInCircle 8s linear infinite;
+
+            opacity: 1;
+        }
+
+        .g4 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+
+            transform-origin: calc(50% - 200px);
+            animation: moveHorizontal 10s ease infinite;
+
+            opacity: 0.7;
+        }
+
+        .g5 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+
+            width: calc(var(--circle-size) * 2);
+            height: calc(var(--circle-size) * 2);
+            top: calc(50% - var(--circle-size));
+            left: calc(50% - var(--circle-size));
+
+            transform-origin: calc(50% - 800px) calc(50% + 200px);
+            animation: moveInCircle 20s ease infinite;
+
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+        Download Section (Frosted Glass Blue Buttons)
+        ========================================================================== */
+        .download-section {
             text-align: center;
             margin-bottom: 20px; /* Consistent space after each button section */
-         }
-         /* No need for download-section + .download-section anymore if margin-bottom is consistent */
+        }
 
-         .download-links a, .changelog-button {
+        /* No need for download-section + .download-section anymore if margin-bottom is consistent */
+
+        .download-links a, .changelog-button, .contribute-button {
             text-decoration: none;
             background-color: var(--glass-blue-dark); /* Darker glass blue for base */
             font-weight: 600;
@@ -280,23 +477,24 @@
             gap: 16px; /* Space between text and icon */
             box-shadow: var(--box-shadow);
             border: 1px solid var(--glass-border-color); /* Frosted border */
-            
+
             /* The frosted glass effect */
             backdrop-filter: var(--frosted-glass-effect);
             -webkit-backdrop-filter: var(--frosted-glass-effect); /* For Safari */
 
             transition: transform var(--transition-duration) ease-in-out,
-                        box-shadow var(--transition-duration) ease-in-out,
-                        background-color var(--transition-duration) ease-in-out,
-                        border-color var(--transition-duration) ease-in-out;
+            box-shadow var(--transition-duration) ease-in-out,
+            background-color var(--transition-duration) ease-in-out,
+            border-color var(--transition-duration) ease-in-out;
             position: relative;
             overflow: hidden;
             z-index: 1;
             letter-spacing: 0.75px;
             cursor: pointer; /* Add cursor pointer for buttons */
-         }
-         /* Ripple effect for download links and changelog button */
-         .download-links a::before, .changelog-button::before {
+        }
+
+        /* Ripple effect for download links and changelog button */
+        .download-links a::before, .changelog-button::before, .contribute-button::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -310,43 +508,46 @@
             transition: transform 0.6s ease-out, opacity 0.65s ease-out;
             pointer-events: none;
             z-index: 0;
-         }
-         .download-links a:hover, .changelog-button:hover {
+        }
+
+        .download-links a:hover, .changelog-button:hover, .contribute-button:hover {
             background-color: var(--glass-blue-medium); /* Lighter blue on hover */
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.55); /* Stronger shadow on hover */
             transform: translateY(-8px); /* More pronounced lift effect */
             border-color: rgba(179, 229, 252, 0.5); /* Brighter border on hover */
-         }
-         .download-links a:active::before, .changelog-button:active::before {
+        }
+
+        .download-links a:active::before, .changelog-button:active::before, .contribute-button:active::before {
             transform: translate(-50%, -50%) scale(3);
             opacity: 1;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-         }
+        }
 
-         /* Style for the Material Icon within the button */
-         .changelog-button .material-symbols-outlined {
-             font-size: 32px; /* Adjust icon size as needed */
-             color: var(--link-color); /* Match icon color to link color */
-             transition: transform var(--transition-duration) ease-in-out;
-         }
+        /* Style for the Material Icon within the button */
+        .changelog-button .material-symbols-outlined, .contribute-button .material-symbols-outlined {
+            font-size: 32px; /* Adjust icon size as needed */
+            color: var(--link-color); /* Match icon color to link color */
+            transition: transform var(--transition-duration) ease-in-out;
+        }
 
-         /* Rotate icon when content is expanded */
-         .changelog-button.expanded .material-symbols-outlined {
-             transform: rotate(180deg);
-         }
+        /* Rotate icon when content is expanded */
+        .changelog-button.expanded .material-symbols-outlined,
+        .contribute-button.expanded .material-symbols-outlined {
+            transform: rotate(180deg);
+        }
 
-         /* ==========================================================================
-         Changelog Section (Frosted Glass Blue Card)
-         ========================================================================== */
-         .changelog-section {
+        /* ==========================================================================
+        Changelog Section (Frosted Glass Blue Card)
+        ========================================================================== */
+        .changelog-section, .contribute-translations-section {
             flex-direction: column;
             justify-content: center;
             margin: 0 auto;
             max-width: var(--max-content-width);
             text-align: center;
-         }
+        }
 
-         #changelog-content { /* This is the main card container for the expandable content */
+        #changelog-content, #contribute-translations-content { /* This is the main card container for the expandable content */
             background-color: var(--glass-blue-light); /* Lighter glass blue for card */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
@@ -355,7 +556,7 @@
             max-width: 100%;
             text-align: left;
             border: 1px solid var(--glass-border-color); /* Frosted border */
-            
+
             /* The frosted glass effect */
             backdrop-filter: var(--frosted-glass-effect);
             -webkit-backdrop-filter: var(--frosted-glass-effect);
@@ -366,36 +567,48 @@
             transition: max-height 0.7s ease-out, opacity 0.7s ease-out, padding 0.7s ease-out; /* Smooth transition */
             box-sizing: border-box; /* Include padding in height calculation */
             margin-top: 0; /* Initially no margin top */
-         }
+        }
 
-         #changelog-content.expanded {
+        #changelog-content.expanded, #contribute-translations-content.expanded {
             max-height: 500px; /* Adjust this value based on your content's max height */
             opacity: 1;
             padding: 25px; /* Restore padding when expanded */
             margin-top: 20px; /* Space between button and expanded content */
-         }
+        }
 
-         .changelog-title {
+        .changelog-title, .contribute-title {
             font-family: 'UberMoveBold', sans-serif;
             font-size: 38px;
             margin-top: 15px;
             margin-bottom: 15px;
             text-align: left;
             color: #BBDEFB; /* Soft blue for headings */
-         }
-         .changelog-section ul {
+        }
+
+        .changelog-section ul, .contribute-translations-section ul {
             list-style-type: disc;
             padding-left: 20px;
             color: rgba(255, 255, 255, 0.85); /* Slightly muted list text */
-         }
-         .changelog-section ul li {
-            margin-bottom: 12px;
-         }
+        }
 
-         /* ==========================================================================
-         Important Notes Section (Frosted Glass Blue Note)
-         ========================================================================== */
-         .important-notes-section {
+        .changelog-section ul li, .contribute-translations-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .contribute-translations-section p {
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .contribute-translations-section a {
+            color: #BBDEFB;
+            text-decoration: underline;
+        }
+
+
+        /* ==========================================================================
+        ThunderDex Social Section (Revamped Frosted Glass Blue Card)
+        ========================================================================== */
+        .thunderdex-social-section {
             font-family: 'ImportantNotes', sans-serif;
             font-size: 16px;
             background-color: var(--glass-blue-dark); /* Darker glass blue for notes */
@@ -406,36 +619,62 @@
             margin: 30px auto; /* Add margin-top for spacing from changelog */
             list-style-type: none;
             box-shadow: 0 14px 20px var(--glass-shadow-color); /* Adjusted shadow */
-            text-align: left;
+            text-align: center; /* Center content for social links */
             max-width: 100%;
             line-height: 1.7;
 
             /* The frosted glass effect */
             backdrop-filter: var(--frosted-glass-effect);
             -webkit-backdrop-filter: var(--frosted-glass-effect);
-         }
-         .important-notes-section strong {
+        }
+
+        .thunderdex-social-section strong {
             font-family: 'UberMoveBold', sans-serif;
             font-size: 24px;
             display: block;
             margin-bottom: 15px;
-            color: #FFCDD2; /* A softer, almost pinkish red for warnings */
-         }
-         .important-notes-section hr.divider {
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            margin: 20px 0;
-         }
-         .important-notes-section a {
-             color: #BBDEFB; /* Link color within notes */
-             text-decoration: underline;
-         }
+            color: #BBDEFB; /* Use a consistent blue for the main heading */
+        }
 
-         /* ==========================================================================
-         Helper Classes & Components
-         ========================================================================== */
-         .test-heading,
-         .medium-heading {
+        .thunderdex-social-section .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center social links */
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .thunderdex-social-section .social-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(80, 150, 255, 0.2); /* Lighter accent for social buttons */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: var(--on-primary-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .thunderdex-social-section .social-links a:hover {
+            background-color: rgba(80, 150, 255, 0.4);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .thunderdex-social-section .social-links a .material-symbols-outlined {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        /* ==========================================================================
+        Helper Classes & Components
+        ========================================================================== */
+        .test-heading,
+        .medium-heading {
             font-family: 'UberMoveBold', sans-serif;
             font-size: 24px;
             margin-top: 25px;
@@ -443,8 +682,9 @@
             text-align: left;
             list-style: none;
             color: #BBDEFB; /* Blue heading color */
-         }
-         .build-info {
+        }
+
+        .build-info {
             font-size: 28px;
             text-align: center;
             margin: 20px 0;
@@ -453,12 +693,12 @@
             opacity: 0;
             transform: translateY(10px);
             animation: fadeInUp 0.8s ease-out 0.8s forwards;
-         }
+        }
 
-         /* ==========================================================================
-         Source Code Link (Frosted Glass Blue)
-         ========================================================================== */
-         .source-code-link {
+        /* ==========================================================================
+        Source Code Link (Frosted Glass Blue)
+        ========================================================================== */
+        .source-code-link {
             position: fixed;
             top: 20px;
             right: 20px;
@@ -473,98 +713,110 @@
             backdrop-filter: var(--frosted-glass-effect);
             -webkit-backdrop-filter: var(--frosted-glass-effect);
             border: 1px solid var(--glass-border-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-         }
-         .source-code-link:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .source-code-link:hover {
             background-color: var(--glass-blue-accent); /* Accent blue on hover */
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             border-color: rgba(179, 229, 252, 0.7); /* Brighter border on hover */
-         }
+        }
 
-         /* ==========================================================================
-         Animations (Existing)
-         ========================================================================== */
-         @keyframes fadeInDown {
+        /* ==========================================================================
+        Animations (Existing)
+        ========================================================================== */
+        @keyframes fadeInDown {
             from {
-               opacity: 0;
-               transform: translateY(20px);
+                opacity: 0;
+                transform: translateY(20px);
             }
             to {
-               opacity: 1;
-               transform: translateY(0);
+                opacity: 1;
+                transform: translateY(0);
             }
-         }
+        }
 
-         @keyframes fadeInUp {
+        @keyframes fadeInUp {
             from {
-               opacity: 0;
-               transform: translateY(50px);
+                opacity: 0;
+                transform: translateY(50px);
             }
             to {
-               opacity: 1;
-               transform: translateY(0);
+                opacity: 1;
+                transform: translateY(0);
             }
-         }
+        }
 
-         /* ==========================================================================
-         Media Queries - Mobile Optimizations
-         ========================================================================== */
-         @media (max-width: 768px) {
+        /* ==========================================================================
+        Media Queries - Mobile Optimizations
+        ========================================================================== */
+        @media (max-width: 768px) {
             body {
-               padding: 0;
+                padding: 0;
             }
+
             header {
                 padding-top: 40px; /* Reduce header padding on mobile */
             }
+
             h1 {
-               font-size: 40px;
-               margin-bottom: 8px; /* Slightly less margin */
+                font-size: 40px;
+                margin-bottom: 8px; /* Slightly less margin */
             }
+
             .subtitle {
-               font-size: 16px; /* Smaller subtitle */
-               margin-top: 0px; /* Adjust margin */
-               margin-bottom: 5px;
+                font-size: 16px; /* Smaller subtitle */
+                margin-top: 0px; /* Adjust margin */
+                margin-bottom: 5px;
             }
-            .important-notes-section {
-               font-size: 14px;
-               padding: 18px;
-               margin: 20px auto; /* Adjust for smaller screens */
+
+            .thunderdex-social-section {
+                font-size: 14px;
+                padding: 18px;
+                margin: 20px auto; /* Adjust for smaller screens */
             }
-            .important-notes-section strong {
+
+            .thunderdex-social-section strong {
                 font-size: 20px;
             }
 
             /* Buttons: Stack vertically on mobile */
-            .download-links a, .changelog-button {
-               font-size: 20px;
-               padding: 20px 30px; /* Reduced padding for smaller screens */
-               display: block; /* Make buttons take full width */
-               margin: 0 auto 15px auto; /* Center and provide vertical spacing */
-               max-width: 90%; /* Max width for buttons to not touch edges */
+            .download-links a, .changelog-button, .contribute-button {
+                font-size: 20px;
+                padding: 20px 30px; /* Reduced padding for smaller screens */
+                display: block; /* Make buttons take full width */
+                margin: 0 auto 15px auto; /* Center and provide vertical spacing */
+                max-width: 90%; /* Max width for buttons to not touch edges */
 
             }
-            .changelog-button .material-symbols-outlined {
+
+            .changelog-button .material-symbols-outlined, .contribute-button .material-symbols-outlined {
                 font-size: 24px; /* Adjust icon size for smaller screens */
             }
-            #changelog-content {
-               padding: 0 0; /* Adjust padding for collapse on smaller screens */
-               font-size: 16px; /* Smaller font for content */
-               line-height: 1.6; /* Tighter line height for readability */
+
+            #changelog-content, #contribute-translations-content {
+                padding: 0 0; /* Adjust padding for collapse on smaller screens */
+                font-size: 16px; /* Smaller font for content */
+                line-height: 1.6; /* Tighter line height for readability */
             }
-            #changelog-content.expanded {
+
+            #changelog-content.expanded, #contribute-translations-content.expanded {
                 padding: 0; /* Restore padding when expanded on smaller screens */
                 margin-top: 15px;
             }
-            .changelog-title {
+
+            .changelog-title, .contribute-title {
                 font-size: 24px;
                 margin-top: 5px; /* Adjusted margin */
                 margin-bottom: 5px;
             }
-            .changelog-section ul {
+
+            .changelog-section ul, .contribute-translations-section ul {
                 padding-left: 15px; /* Reduce list padding */
             }
-            .changelog-section ul li {
+
+            .changelog-section ul li, .contribute-translations-section ul li {
                 margin-bottom: 8px; /* Reduce spacing between list items */
             }
 
@@ -574,147 +826,354 @@
                 padding: 6px 12px;
                 font-size: 13px;
             }
+
             main {
                 padding: 0 15px; /* Ensure main content has horizontal padding */
             }
+
             .build-info {
                 font-size: 20px; /* Smaller build info */
                 margin: 15px 0;
             }
-         }
-      </style>
-   </head>
-   <body>
 
-      <div class="animated-background"></div>
-
-      <a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">Source Code</a>
-
-      <header>
-         <h1>ThunderHub<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1> 
-      </header>
-
-      <main>
-         <!-- Changelog Button and Content are grouped together for logical flow -->
-         <div class="download-section">
-            <div class="download-links">
-               <button class="changelog-button" onclick="toggleChangelog()">Nightly Changelog   
-                   <span class="material-symbols-outlined">arrow_drop_down_circle</span>
-               </button>
-            </div>
-         </div>
-
-<section class="changelog-section">
-   <div id="changelog-content">
-      <h2 class="changelog-title">Build:<br>2025.2.0 (07-31-25)</h2>
-      <ul>
-         <li>Fix Changelog Fragment parsing incorrect info</li>
-         <li>Add human-translated Russian language into the app (WIP)</li>
-         <li>Fix app customization force close on older devices (hopefully)</li>
-         <li>Added back App Customization layout for Android 12+</li>
-         <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
-         <li>Vehicle Weaponry Group: Reduce card height</li>
-         <li>Update Android Gradle Plugin (AGP)</li>
-         <li>Update Gradle</li>
-      </ul>
-   </div>
-</section>
-         
-         <!-- Other download buttons/links go after the changelog content -->
-         <div class="download-section">
-            <div class="download-links">
-               <a href="https://hifii.github.io/Contribute">Contribute translations to ThunderDex</a>
-            </div>
-         </div>
-
-         <section class="important-notes-section">
-            <strong>ThunderDex Social!</strong>
-            <hr class="divider">
-            <p>For any issues, please refer to our <a href="#" style="color: #BBDEFB; text-decoration: underline;">FAQ section</a> or contact support.</p>
-            <p>For any issues, please refer to our <a href="#" style="color: #BBDEFB; text-decoration: underline;">FAQ section</a> or contact support.</p>
-         </section>
-
-
-         <div class="build-info">
-             Last updated:<br>July 31st, 2025
-         </div>
-      </main>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-const gradientSets = [
-["#331E51", "#662D8C", "#A23AB3", "#C93F96", "#ED1E79"],
-["#4B0082", "#7A1FA2", "#9C27B0", "#E91E63", "#ED1E79"],
-["#2C003E", "#5E2D91", "#904EBC", "#C93F96", "#ED1E79"],
-["#3B1F5A", "#662D8C", "#BA68C8", "#F06292", "#ED1E79"],
-["#512DA8", "#7B1FA2", "#AB47BC", "#EC407A", "#ED1E79"],
-["#02AABD", "#00BFC2", "#00C6AF", "#00CDAC", "#02D2A6"],
-["#009EAA", "#02AABD", "#00B6B2", "#00CDAC", "#00D5A0"],
-["#029CA8", "#02AABD", "#00C0B1", "#00CDAC", "#00D9A8"],
-["#018C96", "#02AABD", "#00BDB3", "#00CDAC", "#0DE3BC"],
-["#028C99", "#03ABB0", "#00BEB2", "#00CDAC", "#06D1AB"]
-];
-
-      const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
-      const bg = document.querySelector(".animated-background");
-
-      let currentColors = gradientSets[Math.floor(Math.random() * gradientSets.length)];
-      let currentAngle = Math.floor(Math.random() * 360);
-      let blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
-
-      function buildGradient(angle, colors) {
-        return `linear-gradient(${angle}deg, ${colors.map((c, i) =>
-          `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")})`;
-      }
-
-      function applyGradient() {
-        bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
-      }
-
-      applyGradient();
-
-      // ⟳ Animate angle
-      setInterval(() => {
-        currentAngle = (currentAngle + 0.25) % 360;
-        applyGradient();
-      }, 60);
-
-      // 🌈 Cycle palette every 30s
-      setInterval(() => {
-        let next;
-        do {
-          next = gradientSets[Math.floor(Math.random() * gradientSets.length)];
-        } while (next === currentColors);
-        currentColors = next;
-        applyGradient();
-      }, 30000);
-
-      // 🖼️ Blend mode
-      const grainStyle = document.createElement("style");
-      grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
-      document.head.appendChild(grainStyle);
-
-      ;
-    });
-  </script>
-
-
-      <script>
-        function toggleChangelog() {
-            const changelogContent = document.getElementById('changelog-content');
-            const changelogButton = document.querySelector('.changelog-button');
-
-            changelogContent.classList.toggle('expanded');
-            changelogButton.classList.toggle('expanded'); // Toggle class on button for icon rotation
-            
-            // Adjust scroll to show the content if it's expanded
-            if (changelogContent.classList.contains('expanded')) {
-                // Use setTimeout to allow the expansion animation to start before scrolling
-                setTimeout(() => {
-                    changelogContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 150); // A small delay
+            .thunderdex-social-section .social-links a {
+                font-size: 16px;
+                padding: 8px 15px;
             }
         }
-      </script>
-   </body>
+    </style>
+</head>
+<body>
+
+<div class="animated-background">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+    <div class="g1"></div>
+    <div class="g2"></div>
+    <div class="g3"></div>
+    <div class="g4"></div>
+    <div class="g5"></div>
+</div>
+
+<a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank"
+   rel="noopener noreferrer">Source Code</a>
+
+<header>
+    <h1>ThunderHub<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1>
+</header>
+
+<main>
+    <!-- Changelog Button and Content are grouped together for logical flow -->
+    <div class="download-section">
+        <div class="download-links">
+            <button class="changelog-button" onclick="toggleChangelog()">Nightly Changelog
+                <span class="material-symbols-outlined">arrow_drop_down_circle</span>
+            </button>
+        </div>
+    </div>
+
+    <section class="changelog-section">
+        <div id="changelog-content">
+            <h2 class="changelog-title">Build:<br>2025.2.0 (07-31-25)</h2>
+            <ul>
+                <li>Fix Changelog Fragment parsing incorrect info</li>
+                <li>Add human-translated Russian language into the app (WIP)</li>
+                <li>Fix app customization force close on older devices (hopefully)</li>
+                <li>Added back App Customization layout for Android 12+</li>
+                <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
+                <li>Vehicle Weaponry Group: Reduce card height</li>
+                <li>Update Android Gradle Plugin (AGP)</li>
+                <li>Update Gradle</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contribute Translations Section (Dropdown) -->
+    <div class="download-section">
+        <div class="download-links">
+            <button class="contribute-button" onclick="toggleContributeTranslations()">Contribute Translations
+                <span class="material-symbols-outlined">arrow_drop_down_circle</span>
+            </button>
+        </div>
+    </div>
+
+    <section class="contribute-translations-section">
+        <div id="contribute-translations-content">
+            <h2 class="contribute-title">How to Contribute Translations</h2>
+            <p>Thank you for your interest in contributing to ThunderDex translations! Follow these steps to get
+                started:</p>
+
+            <h3 class="medium-heading">1. Set up your GitHub Profile</h3>
+            <p>If you don't have a GitHub account, you'll need to create one. It's free and easy! Once you have an
+                account, you can personalize your profile by adding a profile README to showcase your skills and
+                projects. [7, 8, 9, 11, 12]</p>
+            <ul>
+                <li>Go to <a href="https://github.com/join" target="_blank">github.com/join</a> to create a new
+                    account.
+                </li>
+                <li>Consider creating a special repository named after your GitHub username (e.g.,
+                    `your-username/your-username`) to create a profile README. [8, 9, 11] This allows you to add an
+                    "About Me" section to your profile. [8]
+                </li>
+            </ul>
+
+            <h3 class="medium-heading">2. Fork the Translation Repository</h3>
+            <p>Forking a repository creates a personal copy of the project in your GitHub account. This allows you to
+                make changes without affecting the original project. [2, 3, 4, 6]</p>
+            <ul>
+                <li>Go to the <a href="https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank">WarThunderWiki-Translations
+                    repository</a>.</li>
+                <li>In the top-right corner of the page, click the "<strong
+                        style="color: #FFCDD2;">Fork</strong>" button. [2, 3, 4]</li>
+                <li>A copy of the repository will be created under your GitHub account (e.g.,
+                    `your-username/WarThunderWiki-Translations`). [2, 4]
+                </li>
+            </ul>
+
+            <h3 class="medium-heading">3. Understand the Translation Folders</h3>
+            <p>The translation files are typically located in the `strings.xml` file within language-specific
+                folders. [16, 17]</p>
+            <ul>
+                <li>The main translation file you'll be working with is `strings.xml`.</li>
+                <li>Each language will ideally have its own folder structure (e.g., `values-xx/strings.xml` where `xx`
+                    is the language code). For example, `values-ru` for Russian, `values-de` for German.
+                </li>
+                <li>You'll primarily be modifying the values within the `strings.xml` file for your chosen
+                    language.
+                </li>
+            </ul>
+            <p>After making your changes to the `strings.xml` file in your forked repository, you can then create a
+                "Pull Request" to submit your translations back to the original project. This allows the project
+                maintainers to review and merge your contributions. [5]</p>
+        </div>
+    </section>
+
+    <section class="thunderdex-social-section">
+        <strong>ThunderDex Social</strong>
+        <p>Connect with us and stay updated on the latest ThunderDex news, features, and community discussions!</p>
+        <div class="social-links">
+            <a href="https://discord.gg/yourdiscordlink" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined">discord</span> Discord
+            </a>
+            <a href="https://twitter.com/yourtwitter" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined">X</span> X (Twitter)
+            </a>
+            <a href="https://reddit.com/r/yoursubreddit" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined">account_circle</span> Reddit
+            </a>
+            <a href="https://www.youtube.com/yourchannel" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined">play_circle</span> YouTube
+            </a>
+            <a href="mailto:support@thunderdex.com">
+                <span class="material-symbols-outlined">mail</span> Email
+            </a>
+        </div>
+        <p style="margin-top: 20px;">For any issues or support, please refer to our <a href="#"
+                                                                                     style="color: #BBDEFB; text-decoration: underline;">FAQ
+            section</a> or contact us directly.</p>
+    </section>
+
+
+
+    <div class="build-info">
+        Last updated:<br>July 31st, 2025
+    </div>
+
+
+
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const gradientSets = [
+            ["#000000", "#1A0020", "#330040", "#660080", "#9900B3", "#CC00E6", "#FF00FF"], // Deep Violet to Magenta
+            ["#000000", "#0A1000", "#142000", "#284000", "#4D8000", "#72C000", "#99FF00"], // Forest to Neon Green
+            ["#000000", "#0D001A", "#1A0033", "#330066", "#6600CC", "#9900FF", "#CC33FF"], // Midnight Blue to Electric Purple
+            ["#000000", "#1A0A00", "#332000", "#664000", "#996600", "#CC8C00", "#FFB300"], // Burnt Umber to Goldenrod
+            ["#000000", "#001A1A", "#003333", "#006666", "#009999", "#00CCCC", "#00FFFF"], // Abyss to Cyan
+            ["#000000", "#1A000A", "#330014", "#660028", "#99004C", "#CC0070", "#FF0094"], // Deepest Red to Hot Pink
+            ["#000000", "#0A0D1A", "#141A33", "#283366", "#4C6699", "#7099CC", "#94CCFF"], // Charcoal to Sky Blue
+            ["#000000", "#1A100A", "#332014", "#664028", "#99664C", "#CC8C70", "#FFB394"], // Espresso to Coral
+            ["#000000", "#0A1A00", "#143300", "#286600", "#4C9900", "#70CC00", "#94FF00"], // Oil Slick to Lime
+            ["#000000", "#1A0000", "#330000", "#660000", "#990000", "#CC0000", "#FF0000"],  // Pure Black to Vibrant Red
+            ["#FF9A8B", "#FF6A88", "#FF99AC", "#F97794", "#F45B7B"], // Sunset Berry
+            ["#8A2BE2", "#4B0082", "#9370DB", "#AB47BC", "#CE93D8"], // Deep Violet Dream
+            ["#00CDAC", "#02AABD", "#00BFC2", "#00D2A6", "#06D1AB"], // Aqua Green Surge
+            ["#FFD700", "#FFA500", "#FF7F50", "#FF6347", "#E63946"], // Golden Hour Blaze
+            ["#2E8B57", "#00CED1", "#48D1CC", "#66CDAA", "#20B2AA"], // Mystic Forest Dew
+            ["#FFB6C1", "#FF69B4", "#FF1493", "#C71585", "#DB7093"], // Candy Floss Burst
+            ["#17313E", "#415E72", "#6D8CA2", "#9EB8CD", "#C8D9E7"], // Ocean Depth
+            ["#7B68EE", "#6A5ACD", "#8A2BE2", "#9400D3", "#4B0082"], // Royal Purple Haze
+            ["#FFC371", "#FF5F6D", "#FF7F50", "#FF5733", "#E94E77"], // Peach Sunset
+            ["#A1C4FD", "#C2E9FB", "#8EC5FC", "#E0C3FC", "#C5E6FE"], // Sky Serenity
+            ["#FF6B6B", "#FFC761", "#FFD180", "#FF9F80", "#E06666"], // Fiery Sunrise
+            ["#B5FCCD", "#7AC6D2", "#87CEEB", "#ADD8E6", "#6495ED"], // Cool Mint Breeze
+            ["#2A1458", "#9B177E", "#C70039", "#FF5733", "#FFC300"], // Galactic Burst
+            ["#F0FF39", "#28E700", "#85F928", "#7FFF00", "#ADFF2F"], // Electric Lime
+            ["#868F96", "#596164", "#343A40", "#495057", "#212529"]  // Subtle Stone
+        ];
+
+        const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
+        const bg = document.querySelector(".animated-background");
+
+        const info = document.createElement("div");
+        info.style.cssText = `
+            position: fixed; bottom: 12px; left: 12px; padding: 8px 12px;
+            background: rgba(0,0,0,0.65); color: white;
+            font-family: monospace; font-size: 14px; border-radius: 6px;
+            z-index: 1000;
+        `;
+        document.body.appendChild(info);
+
+        let currentColors = gradientSets[Math.floor(Math.random() * gradientSets.length)];
+        let currentAngle = Math.floor(Math.random() * 360);
+        let blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
+
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return [r, g, b];
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+        }
+
+        function interpolateColor(color1, color2, factor) {
+            const rgb1 = hexToRgb(color1);
+            const rgb2 = hexToRgb(color2);
+            const r = Math.round(rgb1[0] + factor * (rgb2[0] - rgb1[0]));
+            const g = Math.round(rgb1[1] + factor * (rgb2[1] - rgb1[1]));
+            const b = Math.round(rgb1[2] + factor * (rgb2[2] - rgb1[2]));
+            return rgbToHex(r, g, b);
+        }
+
+        function buildGradient(angle, colors) {
+            return `linear-gradient(${angle}deg, ${colors.map((c, i) =>
+                `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")})`;
+        }
+
+        function applyGradient() {
+            bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
+        }
+
+        applyGradient();
+
+        // ⟳ Animate angle
+        setInterval(() => {
+            currentAngle = (currentAngle + 0.25) % 360;
+            applyGradient();
+        }, 60);
+
+        // 🌈 Cycle palette smoothly every 30s
+        setInterval(() => {
+            let nextColors;
+            do {
+                nextColors = gradientSets[Math.floor(Math.random() * gradientSets.length)];
+            } while (nextColors === currentColors);
+
+            const duration = 5000; // 5 seconds for transition
+            const startTime = performance.now();
+
+            const animatePalette = () => {
+                const elapsed = performance.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const interpolatedPalette = currentColors.map((color, i) => {
+                    const targetColor = nextColors[i] || nextColors[nextColors.length - 1]; // Handle differing lengths
+                    return interpolateColor(color, targetColor, progress);
+                });
+                
+                // Update currentColors for the next interpolation step
+                currentColors = interpolatedPalette; 
+
+                if (progress < 1) {
+                    requestAnimationFrame(animatePalette);
+                } else {
+                    currentColors = nextColors; // Ensure it snaps to the final colors
+                }
+                applyGradient();
+            };
+            requestAnimationFrame(animatePalette);
+        }, 30000); // Start new transition every 30 seconds
+
+        // 🖼️ Blend mode (unchanged, as it's applied once)
+        const grainStyle = document.createElement("style");
+        grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
+        document.head.appendChild(grainStyle);
+
+        // Update info
+        setInterval(() => {
+          info.textContent = `Angle: ${Math.round(currentAngle)}°\nBlend: ${blendMode}\nPalette: ${currentColors.join(", ")}`;
+        }, 5000);
+    });
+
+
+    function toggleChangelog() {
+        const changelogContent = document.getElementById('changelog-content');
+        const changelogButton = document.querySelector('.changelog-button');
+
+        changelogContent.classList.toggle('expanded');
+        changelogButton.classList.toggle('expanded'); // Toggle class on button for icon rotation
+
+        // Adjust scroll to show the content if it's expanded
+        if (changelogContent.classList.contains('expanded')) {
+            // Use setTimeout to allow the expansion animation to start before scrolling
+            setTimeout(() => {
+                changelogContent.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }, 150); // A small delay
+        }
+    }
+
+    function toggleContributeTranslations() {
+        const contributeContent = document.getElementById('contribute-translations-content');
+        const contributeButton = document.querySelector('.contribute-button');
+
+        contributeContent.classList.toggle('expanded');
+        contributeButton.classList.toggle('expanded'); // Toggle class on button for icon rotation
+
+        // Adjust scroll to show the content if it's expanded
+        if (contributeContent.classList.contains('expanded')) {
+            setTimeout(() => {
+                contributeContent.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }, 150);
+        }
+    }
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const blobs = document.querySelectorAll('.blob');
+
+  blobs.forEach(blob => {
+    // Start random movement
+    function animateBlob() {
+      const x = Math.floor(Math.random() * 200 - 100); // -100 to +100 px
+      const y = Math.floor(Math.random() * 200 - 100); // -100 to +100 px
+      const duration = Math.random() * 5000 + 5000; // 5s to 10s
+
+      blob.animate([
+        { transform: 'translate(0, 0)' },
+        { transform: `translate(${x}px, ${y}px)` }
+      ], {
+        duration: duration,
+        direction: 'alternate',
+        iterations: Infinity,
+        easing: 'ease-in-out'
+      });
+    }
+
+    animateBlob();
+  });
+});
+</script>
+</body>
 </html>
