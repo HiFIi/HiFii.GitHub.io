@@ -3,14 +3,14 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>ThunderDex Hub <br>ThunderHub</br></title>
+      <title>ThunderDex Hub (ThunderHub)</title>
       <!-- Font Preloading (Critical for Performance) -->
-      <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin="anonymous">
+      <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin>
       <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
       <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
       <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
       <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type="font/otf" crossorigin="anonymous">
-      <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
       <!-- Material Symbols Outlined for the expand icon -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_drop_down_circle" />
 
@@ -26,12 +26,12 @@
          }
          @font-face {
             font-family: 'categories';
-            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+            src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
             font-display: swap;
          }
          @font-face {
             font-family: 'LyftProBold';
-            src: url('fonts/LyftPro-Bold.ttf') format('truetype');
+            src: url('fonts/UberMove-Bold.otf') format('opentype');
             font-display: swap;
          }
          @font-face {
@@ -39,43 +39,45 @@
             src: url('fonts/ProductSans-Play.otf') format('opentype');
             font-display: swap;
          }
-         @font-face {
-            font-family: 'HeaderFontStyle';
-            src: url('fonts/alexana.ttf') format('truetype');
-            font-display: swap;
-         }
+     @font-face {
+        font-family: 'HeaderFontStyle';
+        src: url('fonts/alexana.ttf') format('truetype');
+        font-display: swap;
+     }
+     @font-face {
+        font-family: 'HeaderSubtitleStyle';
+        src: url('fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
+        font-display: swap;
+     }
          @font-face {
             font-family: 'ImportantNotes';
-            src: url('fonts/ProductSans-Regular.ttf') format('truetype');
+            src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
             font-display: swap;
          }
 
-         /* ==========================================================================
-         CSS Variables (Custom Properties)
-         ========================================================================== */
          :root {
             --primary-color: #10101C; /* Dark base color */
             --on-primary-color: #E9FCFF; /* Light, icy blue for main text */
 
             /* Frosted Glass Blue Palette */
-            --glass-blue-dark: rgba(22, 33, 50, 0.5); /* Darker base for glass elements */
-            --glass-blue-medium: rgba(30, 45, 65, 0.5); /* Medium tone for glass elements */
+            --glass-blue-dark: rgba(10, 10, 10, 0.5); /* Darker base for glass elements */
+            --glass-blue-medium: rgba(30, 45, 65, 0.9); /* Medium tone for glass elements */
             --glass-blue-light: rgba(40, 60, 85, 0.4); /* Lighter tone for glass elements */
             --glass-blue-accent: rgba(80, 150, 255, 0.6); /* Accent blue for highlights */
-            --glass-border-color: rgba(100, 180, 255, 0.3); /* Soft blue border */
-            --glass-shadow-color: rgba(0, 0, 0, 0.6); /* Darker shadow for depth */
+            --glass-border-color: rgba(255, 255, 255, 0.5); /* Soft blue border */
+            --glass-shadow-color:rgba(10, 10, 10, 0.5);/* Darker shadow for depth */
 
             --build-date-color: #F8FEFF; /* Lighter blue for build info */
             --link-color: #E0F7FA; /* Link text color, consistent with on-primary */
             --ripple-color: rgba(179, 229, 252, 0.7); /* Light blue ripple */
             
             --max-content-width: 900px;
-            --border-radius: 20px; /* Slightly larger radius for softer look */
+            --border-radius: 24px; /* Slightly larger radius for softer look */
             --box-shadow: 0 10px 25px var(--glass-shadow-color); /* Adjusted shadow */
-            --transition-duration: 0.475s; /* Slightly slower transitions */
+            --transition-duration: 0.25s; /* Slightly slower transitions */
 
             /* Backdrop filter for the frosted glass effect */
-            --frosted-glass-effect: blur(10px) saturate(2.5); /* Increased blur and saturation */
+            --frosted-glass-effect: blur(12px) saturate(0.7); /* Adjusted blur */
          }
 
          /* ==========================================================================
@@ -93,7 +95,7 @@
          body {
             font-family: 'CustomFont', sans-serif;
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.6;
             margin: 0;
             color: var(--on-primary-color);
             display: flex;
@@ -106,122 +108,145 @@
          /* ==========================================================================
          Animated Background - More Interesting/Random Variant
          ========================================================================== */
-         .animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 400vw;
-            height: 400vh;
-            z-index: -1;
-background: linear-gradient(
-   135deg,
-   #050505 0%,
-   #1a002b 15%,
-   #3f0d73 30%,
-   #3D1A51 35%,    /* Black accent flash */
-   #001f33 45%,
-   #3a005a 60%,
-   #0e1c28 75%,
-   #0a0a16 100%
-);
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400vw;
+  height: 400vh;
+  z-index: -1;
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  animation:
+    gradientFlow 20s ease-in-out infinite alternate,
+    zoomPulse 30s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
 
-   background-size: 600% 800%;
-   animation: gradientFlow 50s ease-in-out infinite alternate,
-              zoomPulse 50s ease-in-out infinite alternate;
-   will-change: background-position, transform;
-   transform-origin: center center;
-         }
+  transition:
+    background-image 2s ease-in-out,
+    background-position 1.5s ease-in-out,
+    transform 0.5s ease-out,
+    filter 0.5s ease-in-out;
+  transform-origin: center center;
+  will-change: background-image, background-position, transform, filter;
+}
+
+.animated-background::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400vw;
+  height: 400vh;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  z-index: -2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease-in-out, background-image 2s ease-in-out;
+  will-change: opacity, background-image;
+}
+
+.animated-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
+<filter id='noiseFilter'>\
+<feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/>\
+</filter>\
+<rect width='100%' height='100%' filter='url(%23noiseFilter)'/>\
+</svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+  animation:
+    shimmerGrain 40s ease-in-out infinite alternate;
+  transform-origin: center center;
+  will-change: background-position, filter, transform;
+  pointer-events: none;
+  z-index: 1;
+}
 
 @keyframes gradientFlow {
-    0% {
-        background-position: 0% 0%;
-    }
-    25% {
-        background-position: 100% 0%;
-    }
-    50% {
-        background-position: 0% 100%;
-    }
-    75% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
+  0%   { background-position: 0% 0%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 0% 100%; }
+  75%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
 }
 
 @keyframes zoomPulse {
-    0% {
-        transform: scale(1) rotate(0deg);
-        filter: brightness(1); /* Start at normal brightness */
-    }
-    25% {
-        transform: scale(1.25) rotate(0.5deg); /* Slight zoom and tiny rotation */
-        filter: brightness(1.1); /* Slightly brighter */
-    }
-    50% {
-        transform: scale(1.15) rotate(-0.5deg); /* More pronounced zoom, opposite tiny rotation */
-        filter: brightness(1.2); /* Brighter peak */
-    }
-    75% {
-        transform: scale(1.08) rotate(0.2deg); /* Recoil zoom, small rotation back */
-        filter: brightness(1.05); /* Dim slightly */
-    }
-    100% {
-        transform: scale(1) rotate(0deg);
-        filter: brightness(1); /* Return to normal */
-    }
+  0%   { transform: scale(1) rotate(0deg);       filter: brightness(0.25); }
+  20%  { transform: scale(1.08) rotate(0.2deg);  filter: brightness(0.6); }
+  50%  { transform: scale(1.2) rotate(-0.3deg);  filter: brightness(1.1); }
+  80%  { transform: scale(1.05) rotate(0.2deg);  filter: brightness(0.95); }
+  100% { transform: scale(1) rotate(0deg);       filter: brightness(1); }
 }
+
+@keyframes shimmerGrain {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+@keyframes hueShift {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
 
          /* ==========================================================================
          Typography
          ========================================================================== */
-h1 {
-   font-family: 'HeaderFontStyle', sans-serif;
-   font-size: 60px;
-   margin-bottom: 10px;
-   text-align: center;
-   color: #eaf6ff; /* Icy-blue white */
-   text-shadow:
-      0 4px 10px rgba(0, 0, 0, 0.7),
-      0 0 30px rgba(173, 216, 230, 0.30); /* soft outer glow */
-   letter-spacing: 2.5px;
-   line-height: 1.1;
-   backdrop-filter: blur(5px);
-}
+        h1 {
+            font-family: 'HeaderFontStyle', sans-serif;
+            font-size: 60px;
+            text-align: center;
+            color: #eaf6ff;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7),
+              0 0 30px rgba(173, 216, 230, 0.40);
+            line-height: 1.1; /* Adjusted for better stacking on mobile */
+        }
 
-.subtitle {
-   font-family: 'categories', sans-serif;
-   font-size: 20px;
-   text-align: center;
-   display: block;
-   color: rgba(215, 255, 250, 0.6); /* Gentle, luminous aqua */
-   text-shadow:
-      0 1px 3px rgba(0, 0, 0, 0.7),
-      0 0 20px rgba(100, 255, 255, 0.15); /* Light atmospheric glow */
-   letter-spacing: 1.85px;
-   line-height: 2.4;
-   margin-bottom: 10px;
-   margin-top: 5px;
-}
+        .subtitle {
+           font-family: 'categories', sans-serif;
+           font-size: 20px;
+           text-align: center;
+           display: block;
+           color: rgba(215, 255, 250, 0.7); /* Gentle, luminous aqua */
+           text-shadow:
+              0 1px 3px rgba(0, 0, 0, 0.7),
+              0 0 20px rgba(100, 255, 255, 0.15); /* Light atmospheric glow */
+           margin-bottom: 10px;
+           margin-top: 0px;
+        }
 
+        .subtitleheader {
+           font-family: 'HeaderSubtitleStyle', sans-serif;
+            font-size: 60px;
+            text-align: center;
+            color: #eaf6ff;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7),
+              0 0 30px rgba(173, 216, 230, 0.40);
+            line-height: 1.1; /* Adjusted for better stacking on mobile */
+        }
 
          /* ==========================================================================
          Layout & Sections
          ========================================================================== */
          header {
             text-align: center;
-            padding: 0px 0 20px;
+            padding: 60px 0 20px; /* Increased top padding */
             position: relative;
             z-index: 2;
-            animation: fadeInDown 1s ease-out forwards;
+            animation: fadeInDown 3s ease-out forwards;
          }
          main {
             flex: 1;
             width: 100%;
             max-width: var(--max-content-width);
             margin: 0 auto;
-            padding: 0 25px;
+            padding: 0 25px; /* Base padding */
             position: relative;
             z-index: 2;
             opacity: 0;
@@ -239,10 +264,7 @@ h1 {
             text-align: center;
             margin-bottom: 20px; /* Consistent space after each button section */
          }
-         /* Remove specific top margin for consecutive download sections */
-         .download-section + .download-section {
-             margin-top: 0; 
-         }
+         /* No need for download-section + .download-section anymore if margin-bottom is consistent */
 
          .download-links a, .changelog-button {
             text-decoration: none;
@@ -252,7 +274,7 @@ h1 {
             padding: 28px 60px;
             border-radius: var(--border-radius);
             color: var(--link-color);
-            display: inline-flex; /* Use flexbox for button content alignment */
+            display: inline-flex; /* Use flexbox for button content alignment on wider screens */
             align-items: center; /* Vertically align items */
             justify-content: center; /* Center horizontally */
             gap: 16px; /* Space between text and icon */
@@ -319,7 +341,7 @@ h1 {
          .changelog-section {
             flex-direction: column;
             justify-content: center;
-            margin: 0 auto; /* Adjust margin to control spacing from elements above */
+            margin: 0 auto;
             max-width: var(--max-content-width);
             text-align: center;
          }
@@ -327,10 +349,8 @@ h1 {
          #changelog-content { /* This is the main card container for the expandable content */
             background-color: var(--glass-blue-light); /* Lighter glass blue for card */
             border-radius: var(--border-radius);
-            padding: 0 25px; /* Set initial padding to 0 for vertical collapse */
             box-shadow: var(--box-shadow);
             font-size: 20px;
-            line-height: 1.8;
             color: var(--on-primary-color);
             max-width: 100%;
             text-align: left;
@@ -488,19 +508,23 @@ h1 {
          }
 
          /* ==========================================================================
-         Media Queries
+         Media Queries - Mobile Optimizations
          ========================================================================== */
          @media (max-width: 768px) {
             body {
                padding: 0;
             }
+            header {
+                padding-top: 40px; /* Reduce header padding on mobile */
+            }
             h1 {
                font-size: 40px;
-               margin-bottom: 10px;
+               margin-bottom: 8px; /* Slightly less margin */
             }
             .subtitle {
-               font-size: 20px;
-               margin-top: 5px;
+               font-size: 16px; /* Smaller subtitle */
+               margin-top: 0px; /* Adjust margin */
+               margin-bottom: 5px;
             }
             .important-notes-section {
                font-size: 14px;
@@ -510,35 +534,52 @@ h1 {
             .important-notes-section strong {
                 font-size: 20px;
             }
+
+            /* Buttons: Stack vertically on mobile */
             .download-links a, .changelog-button {
                font-size: 20px;
-               padding: 20px 40px;
+               padding: 20px 30px; /* Reduced padding for smaller screens */
+               display: block; /* Make buttons take full width */
+               margin: 0 auto 15px auto; /* Center and provide vertical spacing */
+               max-width: 90%; /* Max width for buttons to not touch edges */
+
             }
             .changelog-button .material-symbols-outlined {
                 font-size: 24px; /* Adjust icon size for smaller screens */
             }
             #changelog-content {
-               padding: 0 15px; /* Adjust padding for collapse on smaller screens */
-               font-size: 18px;
+               padding: 0 0; /* Adjust padding for collapse on smaller screens */
+               font-size: 16px; /* Smaller font for content */
+               line-height: 1.6; /* Tighter line height for readability */
             }
             #changelog-content.expanded {
-                padding: 15px; /* Restore padding when expanded on smaller screens */
+                padding: 0; /* Restore padding when expanded on smaller screens */
                 margin-top: 15px;
             }
             .changelog-title {
-                font-size: 28px;
+                font-size: 24px;
+                margin-top: 5px; /* Adjusted margin */
+                margin-bottom: 5px;
             }
+            .changelog-section ul {
+                padding-left: 15px; /* Reduce list padding */
+            }
+            .changelog-section ul li {
+                margin-bottom: 8px; /* Reduce spacing between list items */
+            }
+
             .source-code-link {
-                top: 15px;
-                right: 15px;
-                padding: 8px 14px;
-                font-size: 14px;
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 13px;
             }
             main {
-                padding: 0 15px;
+                padding: 0 15px; /* Ensure main content has horizontal padding */
             }
             .build-info {
-                font-size: 24px;
+                font-size: 20px; /* Smaller build info */
+                margin: 15px 0;
             }
          }
       </style>
@@ -550,10 +591,11 @@ h1 {
       <a class="source-code-link" href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">Source Code</a>
 
       <header>
-         <h1>ThunderHub<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1>
+         <h1>ThunderHub<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1> 
       </header>
 
       <main>
+         <!-- Changelog Button and Content are grouped together for logical flow -->
          <div class="download-section">
             <div class="download-links">
                <button class="changelog-button" onclick="toggleChangelog()">Nightly Changelog   
@@ -562,17 +604,23 @@ h1 {
             </div>
          </div>
 
-         <section class="changelog-section">
-            <div id="changelog-content">
-                <h2 class="changelog-title">Build: <br>2025.2.0 (07-31-25)</br></h2>
-                <ul>
-                    <li>Improved performance and stability.</li>
-                    <li>Added new features (details coming soon).</li>
-                    <li>Bug fixes and UI enhancements.</li>
-                </ul>
-            </div>
-         </section>
-
+<section class="changelog-section">
+   <div id="changelog-content">
+      <h2 class="changelog-title">Build:<br>2025.2.0 (07-31-25)</h2>
+      <ul>
+         <li>Fix Changelog Fragment parsing incorrect info</li>
+         <li>Add human-translated Russian language into the app (WIP)</li>
+         <li>Fix app customization force close on older devices (hopefully)</li>
+         <li>Added back App Customization layout for Android 12+</li>
+         <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
+         <li>Vehicle Weaponry Group: Reduce card height</li>
+         <li>Update Android Gradle Plugin (AGP)</li>
+         <li>Update Gradle</li>
+      </ul>
+   </div>
+</section>
+         
+         <!-- Other download buttons/links go after the changelog content -->
          <div class="download-section">
             <div class="download-links">
                <a href="https://hifii.github.io/Contribute">Contribute translations to ThunderDex</a>
@@ -580,16 +628,76 @@ h1 {
          </div>
 
          <section class="important-notes-section">
-            <strong>Important Notes!</strong>
+            <strong>ThunderDex Social!</strong>
             <hr class="divider">
-            <p>Please back up your data before updating. This release includes significant changes.</p>
+            <p>For any issues, please refer to our <a href="#" style="color: #BBDEFB; text-decoration: underline;">FAQ section</a> or contact support.</p>
             <p>For any issues, please refer to our <a href="#" style="color: #BBDEFB; text-decoration: underline;">FAQ section</a> or contact support.</p>
          </section>
 
+
          <div class="build-info">
-             Last updated: July 31st, 2025
+             Last updated:<br>July 31st, 2025
          </div>
       </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+const gradientSets = [
+["#331E51", "#662D8C", "#A23AB3", "#C93F96", "#ED1E79"],
+["#4B0082", "#7A1FA2", "#9C27B0", "#E91E63", "#ED1E79"],
+["#2C003E", "#5E2D91", "#904EBC", "#C93F96", "#ED1E79"],
+["#3B1F5A", "#662D8C", "#BA68C8", "#F06292", "#ED1E79"],
+["#512DA8", "#7B1FA2", "#AB47BC", "#EC407A", "#ED1E79"],
+["#02AABD", "#00BFC2", "#00C6AF", "#00CDAC", "#02D2A6"],
+["#009EAA", "#02AABD", "#00B6B2", "#00CDAC", "#00D5A0"],
+["#029CA8", "#02AABD", "#00C0B1", "#00CDAC", "#00D9A8"],
+["#018C96", "#02AABD", "#00BDB3", "#00CDAC", "#0DE3BC"],
+["#028C99", "#03ABB0", "#00BEB2", "#00CDAC", "#06D1AB"]
+];
+
+      const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
+      const bg = document.querySelector(".animated-background");
+
+      let currentColors = gradientSets[Math.floor(Math.random() * gradientSets.length)];
+      let currentAngle = Math.floor(Math.random() * 360);
+      let blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
+
+      function buildGradient(angle, colors) {
+        return `linear-gradient(${angle}deg, ${colors.map((c, i) =>
+          `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")})`;
+      }
+
+      function applyGradient() {
+        bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
+      }
+
+      applyGradient();
+
+      // ⟳ Animate angle
+      setInterval(() => {
+        currentAngle = (currentAngle + 0.25) % 360;
+        applyGradient();
+      }, 60);
+
+      // 🌈 Cycle palette every 30s
+      setInterval(() => {
+        let next;
+        do {
+          next = gradientSets[Math.floor(Math.random() * gradientSets.length)];
+        } while (next === currentColors);
+        currentColors = next;
+        applyGradient();
+      }, 30000);
+
+      // 🖼️ Blend mode
+      const grainStyle = document.createElement("style");
+      grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
+      document.head.appendChild(grainStyle);
+
+      ;
+    });
+  </script>
+
 
       <script>
         function toggleChangelog() {
@@ -604,10 +712,9 @@ h1 {
                 // Use setTimeout to allow the expansion animation to start before scrolling
                 setTimeout(() => {
                     changelogContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 300); // A small delay
+                }, 150); // A small delay
             }
         }
       </script>
    </body>
 </html>
-
