@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThunderDex Hub (ThunderHub)</title>
-
-  <!-- Font Preloading -->
-  <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf" crossorigin="anonymous">
-  <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
-  <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type="font/otf" crossorigin="anonymous">
-
-  <!-- Material Symbols -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+  <title>ThunderDex Hub (ThunderHub)</title><!-- Font Preloading -->
+  <link rel="preload" href="fonts/cashsans_black.otf" as="font" type="font/otf"
+  crossorigin="anonymous">
+  <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type=
+  "font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="fonts/LyftPro-Bold.ttf" as="font" type="font/ttf"
+  crossorigin="anonymous">
+  <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type=
+  "font/otf" crossorigin="anonymous">
+  <link rel="preload" href="fonts/laca_blackitalic.otf" as="font" type=
+  "font/otf" crossorigin="anonymous"><!-- Material Symbols -->
+  <link rel="stylesheet" href=
+  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <!-- Material Web Components -->
-  <script type="module" src="https://unpkg.com/@material/web@1.0.0/dist/all.js"></script>
 
-  <!-- Import Map for Module Resolution -->
+  <script type="module" src=
+  "https://unpkg.com/@material/web@1.0.0/dist/all.js"></script><!-- Import Map for Module Resolution -->
+
   <script type="importmap">
     {
       "imports": {
         "@material/web/": "https://esm.run/@material/web/"
       }
     }
-  </script>
+  </script><!-- Adopt MD3 Typography Styles -->
 
-  <!-- Adopt MD3 Typography Styles -->
   <script type="module">
     import '@material/web/all.js';
     import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
 
     document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
   </script>
-</head>
-
-
-    <style>
+  <style>
         /* style.css - Keep your existing styles and add Material Design 3 specific overrides */
         /* ==========================================================================
         Font Definitions
@@ -93,7 +92,7 @@
     font-style: normal;
   }
 
-:root {
+  :root {
   /* Light base */
   --primary-color: #16161C;
   --on-primary-color: #1b1b1c;
@@ -177,7 +176,7 @@
 
   --circle-size: 40%;
   --blending: screen;
-}
+  }
 
            
         }
@@ -259,12 +258,12 @@
             position: absolute;
             inset: 0;
             background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
-<filter id='noiseFilter'>\
-<feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
-</filter>\
-<rect width='100%' height='100%' filter='url(%23noiseFilter)'/>\
-</svg>");
+  <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
+  <filter id='noiseFilter'>\
+  <feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
+  </filter>\
+  <rect width='100%' height='100%' filter='url(%23noiseFilter)'/>\
+  </svg>");
             mix-blend-mode: overlay;
             width: 100vw;
             height: 100vh;
@@ -312,9 +311,9 @@
   100% {
     transform: rotate(360deg);
   }
-}
+  }
 
-@keyframes moveInCircle {
+  @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
   }
@@ -324,8 +323,8 @@
   100% {
     transform: rotate(360deg);
   }
-}
-@-webkit-keyframes moveVertical {
+  }
+  @-webkit-keyframes moveVertical {
   0% {
     transform: translateY(-50%);
   }
@@ -335,8 +334,8 @@
   100% {
     transform: translateY(-50%);
   }
-}
-@keyframes moveVertical {
+  }
+  @keyframes moveVertical {
   0% {
     transform: translateY(-50%);
   }
@@ -346,8 +345,8 @@
   100% {
     transform: translateY(-50%);
   }
-}
-@-webkit-keyframes moveHorizontal {
+  }
+  @-webkit-keyframes moveHorizontal {
   0% {
     transform: translateX(-50%) translateY(-10%);
   }
@@ -357,8 +356,8 @@
   100% {
     transform: translateX(-50%) translateY(-10%);
   }
-}
-@keyframes moveHorizontal {
+  }
+  @keyframes moveHorizontal {
   0% {
     transform: translateX(-50%) translateY(-10%);
   }
@@ -368,7 +367,7 @@
   100% {
     transform: translateX(-50%) translateY(-10%);
   }
-}
+  }
 
         /* ==========================================================================
         Typography
@@ -406,7 +405,7 @@
             line-height: 1.1;
         }
         
-md-tabs {
+  md-tabs {
   display: inline-flex;
   /* background-color: var(--glass-blue-dark); */ /* Apply frosted glass to tab container */
   border-bottom: 8px solid var(--glass-border-color);
@@ -424,9 +423,9 @@ md-tabs {
   border-radius: var(--border-radius); /* Apply border-radius to the tab bar */
   margin-top: 20px; /* Spacing from header */
   border: 6px solid var(--glass-border-color); /* Add border to the tab bar */
-}
+  }
 
-md-primary-tab {
+  md-primary-tab {
   margin: 0 8px; /* Reduced horizontal margin between each tab */
   font-family: "navTabs", sans-serif;
   font-size: var(--md-primary-tab-label-text-size);
@@ -442,9 +441,9 @@ md-primary-tab {
 
   /* Remove backdrop-filter here, it's on the container */
   /* Remove border here, it's on the container */
-}
+  }
 
-md-primary-tab::part(button) {
+  md-primary-tab::part(button) {
   font-family: "navTabs", sans-serif;
   font-size: var(--md-primary-tab-label-text-size);
   color: inherit; /* Inherit color from the md-primary-tab */
@@ -454,24 +453,24 @@ md-primary-tab::part(button) {
   animation: fadeInScale 0.5s cubic-bezier(0.2, 0.0, 0, 1.0) forwards;
   line-height: 1.6; /* Optional: adds vertical spacing within text */
   min-height: var(--md-primary-tab-with-icon-and-label-height); /* Ensures consistent height across browsers */
-}
+  }
 
-md-primary-tab[aria-selected="true"] {
+  md-primary-tab[aria-selected="true"] {
   background-color: #202020; /* Lighter white on active */
   color: #e5e5e5; /* Primary color for active tab text */
   border-color: var(--md-primary-tab-active-indicator-color);
   opacity: 0.75; /* Fully opaque for active tab */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Subtle shadow for active tab */
-}
+  }
 
-md-primary-tab:hover {
+  md-primary-tab:hover {
   background-color: var(--md-primary-tab-hover-state-layer-color);
   opacity: 0.9; /* Slightly more opaque on hover */
-}
+  }
 
-md-primary-tab::part(button):active {
+  md-primary-tab::part(button):active {
   background-color: var(--md-primary-tab-pressed-state-layer-color);
-}
+  }
 
 
         /* ==========================================================================
@@ -579,36 +578,36 @@ md-primary-tab::part(button):active {
             color: var(--link-color);
             text-decoration: underline;
         }
-/* Safe container */
-.gradients-wrapper {
+  /* Safe container */
+  .gradients-wrapper {
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   z-index: -1;
-}
+  }
 
-/* Gooey + blur */
-.gradients-container {
+  /* Gooey + blur */
+  .gradients-container {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
   filter: url(#goo) blur(50px);
   pointer-events: none;
-}
+  }
 
-/* Shared style */
-.g1, .g2, .g3, .g4, .g5 {
+  /* Shared style */
+  .g1, .g2, .g3, .g4, .g5 {
   position: absolute;
   mix-blend-mode: var(--blending);
   border-radius: 50%;
   background-repeat: no-repeat;
-}
+  }
 
-/* g1: Vertical */
-.g1 {
+  /* g1: Vertical */
+  .g1 {
   background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -617,10 +616,10 @@ md-primary-tab::part(button):active {
   transform: translate(-50%, -50%);
   animation: moveVertical 10s ease-in-out infinite;
   opacity: 0.5;
-}
+  }
 
-/* g2: Spin reverse */
-.g2 {
+  /* g2: Spin reverse */
+  .g2 {
   background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -629,10 +628,10 @@ md-primary-tab::part(button):active {
   transform-origin: 400px center;
   animation: moveInCircle 20s linear reverse infinite;
   opacity: 1;
-}
+  }
 
-/* g3: Spin normal */
-.g3 {
+  /* g3: Spin normal */
+  .g3 {
   background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -641,10 +640,10 @@ md-primary-tab::part(button):active {
   transform-origin: -400px center;
   animation: moveInCircle 8s linear infinite;
   opacity: 1;
-}
+  }
 
-/* g4: Horizontal motion */
-.g4 {
+  /* g4: Horizontal motion */
+  .g4 {
   background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%);
   width: var(--circle-size);
   height: var(--circle-size);
@@ -653,10 +652,10 @@ md-primary-tab::part(button):active {
   transform: translate(-50%, -50%);
   animation: moveHorizontal 10s ease-in-out infinite;
   opacity: 0.7;
-}
+  }
 
-/* g5: Larger circle spin */
-.g5 {
+  /* g5: Larger circle spin */
+  .g5 {
   background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%);
   width: calc(var(--circle-size) * 2);
   height: calc(var(--circle-size) * 2);
@@ -665,7 +664,7 @@ md-primary-tab::part(button):active {
   transform-origin: -800px 200px;
   animation: moveInCircle 20s ease infinite;
   opacity: 1;
-}
+  }
 
 
         /* ==========================================================================
@@ -966,99 +965,109 @@ md-primary-tab::part(button):active {
             .build-info { font-size: 20px; margin: 15px 0; }
             .social-links a { font-size: 16px; padding: 8px 15px; }
         }
-    </style>
+  </style>
 </head>
 <body>
-
-<div class="animated-background">
-      <svg xmlns="http://www.w3.org/2000/svg">
+  <div class="animated-background">
+    <svg xmlns="http://www.w3.org/2000/svg">
     <defs>
       <filter id="goo">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-        <feBlend in="SourceGraphic" in2="goo" />
+        <fegaussianblur in="SourceGraphic" stddeviation="10" result=
+        "blur"></fegaussianblur>
+        <fecolormatrix in="blur" mode="matrix" values=
+        "1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8" result=
+        "goo"></fecolormatrix>
+        <feblend in="SourceGraphic" in2="goo"></feblend>
       </filter>
-    </defs>
-  </svg>
+    </defs></svg>
     <div class="g1"></div>
     <div class="g2"></div>
     <div class="g3"></div>
     <div class="g4"></div>
-    <div class="g5"></div> 
-
-</div>
-
-
-  
-
-<header>
-<!--
+    <div class="g5"></div>
+  </div>
+  <header>
+    <!--
     <h1>T H U N D E R H U B<span class="subtitle"><i>The</i> Central Hub for ThunderDex</span></h1>
 -->
-        <h1>T H U N D E R D E X</h1> <!-- Changed H1 text based on "ThunderDex" fix request -->
-        <span class="subtitle"><i>The</i> Central Hub for ThunderDex</span>
-    
+    <h1>T H U N D E R D E X</h1>
+    <!-- Changed H1 text based on "ThunderDex" fix request -->
+    <span class="subtitle"><i>The</i> Central Hub for ThunderDex</span>
     <md-tabs aria-label="Content tabs" id="main-tabs">
-      <md-primary-tab id="changelog-tab" aria-controls="changelog-panel" aria-selected="true" tabindex="0">Changelog</md-primary-tab>
-      <md-primary-tab id="source-code-tab" aria-controls="source-code-panel" tabindex="-1">Contribute</md-primary-tab>
-      <md-primary-tab id="socials-tab" aria-controls="socials-panel" tabindex="-1">Social</md-primary-tab>
+      <md-primary-tab id="changelog-tab" aria-controls="changelog-panel"
+      aria-selected="true" tabindex="0">Changelog</md-primary-tab>
+      <md-primary-tab id="source-code-tab" aria-controls="source-code-panel"
+      tabindex="-1">Contribute</md-primary-tab>
+      <md-primary-tab id="socials-tab" aria-controls="socials-panel" tabindex=
+      "-1">Social</md-primary-tab>
     </md-tabs>
-  
-</header>
-
-
-<main>
-    <section id="changelog-panel" role="tabpanel" aria-labelledby="changelog-tab" class="active">
-        <h2 class="changelog-title">Build: 2025.2.0 (07-31-25)</h2>
-        <ul>
-            <li>Fix Changelog Fragment parsing incorrect info</li>
-            <li>Add human-translated Russian language into the app (WIP)</li>
-            <li>Fix app customization force close on older devices (hopefully)</li>
-            <li>Added back App Customization layout for Android 12+</li>
-            <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
-            <li>Vehicle Weaponry Group: Reduce card height</li>
-            <li>Update Android Gradle Plugin (AGP)</li>
-            <li>Update Gradle</li>
-        </ul>
+  </header>
+  <main>
+    <section id="changelog-panel" role="tabpanel" aria-labelledby=
+    "changelog-tab" class="active">
+      <h2 class="changelog-title">Build: 2025.2.0 (07-31-25)</h2>
+      <ul>
+        <li>Fix Changelog Fragment parsing incorrect info</li>
+        <li>Add human-translated Russian language into the app (WIP)</li>
+        <li>Fix app customization force close on older devices (hopefully)</li>
+        <li>Added back App Customization layout for Android 12+</li>
+        <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition
+        section</li>
+        <li>Vehicle Weaponry Group: Reduce card height</li>
+        <li>Update Android Gradle Plugin (AGP)</li>
+        <li>Update Gradle</li>
+      </ul>
     </section>
-
-    <section id="source-code-panel" role="tabpanel" aria-labelledby="source-code-tab" hidden>
-        <h2 class="contribute-title">Contribute Translations / Open Source</h2>
-        <p>Thank you for your interest in contributing to ThunderDex translations! Follow these steps to get started:</p>
-        <h3>1. Set up your GitHub Profile</h3>
-        <p>If you don't have a GitHub account, you'll need to create one. Once you have an account, you can personalize your profile.</p>
-        <ul>
-            <li>Go to <a href="https://github.com/join" target="_blank" rel="noopener noreferrer">github.com/join</a> to create a new account.</li>
-        </ul>
-        <h3>2. Fork the Translation Repository</h3>
-        <p>Forking a repository creates a personal copy of the project in your GitHub account. This allows you to make changes without affecting the original project.</p>
-        <ul>
-            <li>Go to the <a href="https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank" rel="noopener noreferrer">WarThunderWiki-Translations repository</a> and click the "Fork" button.</li>
-        </ul>
-        <h3>3. Understand the Translation Files</h3>
-        <p>The translation files are located in `strings.xml` within language-specific folders (e.g., `values-ru` for Russian). After making changes, create a "Pull Request" to submit your translations.</p>
-        <p>For the main application source code, visit the <a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">ThunderHub GitHub repository</a>.</p>
+    <section id="source-code-panel" role="tabpanel" aria-labelledby=
+    "source-code-tab" hidden="">
+      <h2 class="contribute-title">Contribute Translations / Open Source</h2>
+      <p>Thank you for your interest in contributing to ThunderDex
+      translations! Follow these steps to get started:</p>
+      <h3>1. Set up your GitHub Profile</h3>
+      <p>If you don't have a GitHub account, you'll need to create one. Once
+      you have an account, you can personalize your profile.</p>
+      <ul>
+        <li>Go to <a href="https://github.com/join" target="_blank" rel=
+        "noopener noreferrer">github.com/join</a> to create a new account.
+        </li>
+      </ul>
+      <h3>2. Fork the Translation Repository</h3>
+      <p>Forking a repository creates a personal copy of the project in your
+      GitHub account. This allows you to make changes without affecting the
+      original project.</p>
+      <ul>
+        <li>Go to the <a href=
+        "https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank"
+          rel="noopener noreferrer">WarThunderWiki-Translations repository</a>
+          and click the "Fork" button.
+        </li>
+      </ul>
+      <h3>3. Understand the Translation Files</h3>
+      <p>The translation files are located in `strings.xml` within
+      language-specific folders (e.g., `values-ru` for Russian). After making
+      changes, create a "Pull Request" to submit your translations.</p>
+      <p>For the main application source code, visit the <a href=
+      "https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel=
+      "noopener noreferrer">ThunderHub GitHub repository</a>.</p>
     </section>
-
-    <section id="socials-panel" role="tabpanel" aria-labelledby="socials-tab" hidden>
-        <h2 class="contribute-title">ThunderDex Social</h2>
-        <p>Join our communities and connect with us:</p>
-        <div class="social-links">
-            <a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined">code</span> GitHub
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined">forum</span> Discord
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-                <span class="material-symbols-outlined">mail</span> Email
-            </a>
-        </div>
-        <p style="margin-top: 24px;">For any issues, please refer to our <a href="#">FAQ section</a> or contact support.</p>
+    <section id="socials-panel" role="tabpanel" aria-labelledby="socials-tab"
+    hidden="">
+      <h2 class="contribute-title">ThunderDex Social</h2>
+      <p>Join our communities and connect with us:</p>
+      <div class="social-links">
+        <a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel=
+        "noopener noreferrer"><span class=
+        "material-symbols-outlined">code</span> GitHub</a> <a href="#" target=
+        "_blank" rel="noopener noreferrer"><span class=
+        "material-symbols-outlined">forum</span> Discord</a> <a href="#"
+        target="_blank" rel="noopener noreferrer"><span class=
+        "material-symbols-outlined">mail</span> Email</a>
+      </div>
+      <p style="margin-top: 24px;">For any issues, please refer to our <a href=
+      "#">FAQ section</a> or contact support.</p>
     </section>
-</main>
-
-<script>
+  </main>
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
         const gradientSets = [
             ["#000000", "#1A0020", "#330040", "#660080", "#9900B3", "#CC00E6", "#FF00FF"],
@@ -1183,11 +1192,9 @@ md-primary-tab::part(button):active {
         // This is handled by setting `active` attribute on the first tab and `class="active"` on the first panel
         // and `hidden` on the others in the HTML directly.
     });
-</script>
+  </script> 
+  <script>
 
-
-
-<script>
   // Simple accessible tabs switching
   const tabs = document.querySelectorAll('md-primary-tab');
   const panels = document.querySelectorAll('main section[role="tabpanel"]');
@@ -1224,7 +1231,6 @@ md-primary-tab::part(button):active {
       }
     });
   });
-</script>
-
+  </script>
 </body>
 </html>
