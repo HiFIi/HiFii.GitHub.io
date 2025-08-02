@@ -177,101 +177,10 @@ body {
     position: relative;
     background-color: var(--primary-background); /* Use theme-dependent background */
     width: 100%;
-    overflow: hidden; /* Hide scrollbars during splash, reveal after */
 }
-
-/* SPLASH SCREEN CONTAINER */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--primary-background); /* Match body background */
-    z-index: 10000; /* Ensure it's on top of everything */
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-#splash-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none; /* Prevent clicks after fade out */
-}
-
-.splash-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10001; /* Ensure content is above splash background */
-    animation: fadeInDown 1s ease-out forwards; /* Animate splash content in */
-}
-
-.splash-logo {
-    width: 120px; /* Adjust size as needed */
-    height: 120px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2390CAF9"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z"/></svg>'); /* Simple info icon as placeholder, replace with your logo */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 8px rgba(144, 202, 249, 0.6)); /* Glow effect for logo */
-}
-
-.splash-title-text {
-    font-family: 'HeaderFontStyle', sans-serif;
-    font-size: clamp(3rem, 8vw, 60px);
-    text-align: center;
-    color: var(--header-text-color);
-    text-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.7),
-        0 0 20px rgba(136, 76, 255, 0.8),
-        0 0 40px rgba(170, 102, 255, 0.6);
-    margin-bottom: 30px;
-    animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.05); opacity: 0.9; }
-}
-
-#loading-indicator {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top-color: var(--link-color); /* Use a vibrant color for the spinner */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-top: 30px;
-    z-index: 10002;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Main application container - initially hidden */
-#app-container {
-    display: none; /* Initially hidden */
-    opacity: 0;
-    transition: opacity 1s ease-out;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-#app-container.show {
-    opacity: 1;
-}
-
 
 /* ==========================================================================
-Animated Background (Bubbles) - Applies to the one in #app-container and splash
+Animated Background
 ========================================================================== */
 .animated-background {
     position: fixed;
@@ -281,7 +190,7 @@ Animated Background (Bubbles) - Applies to the one in #app-container and splash
     height: 100vh;
     z-index: -1;
     background-size: cover;
-    opacity: 0.30; /* Default opacity, adjusted by theme switcher */
+    opacity: 0.30;
     animation: gradientFlow 20s ease-in-out infinite alternate,
     zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
     transform-origin: center center;
@@ -434,9 +343,9 @@ Animated Background (Bubbles) - Applies to the one in #app-container and splash
 
 
 /* ==========================================================================
-Typography (apply to main content)
+Typography
 ========================================================================== */
-header h1 { /* This targets the header within main content */
+h1 {
     font-family: 'HeaderFontStyle', sans-serif;
     font-size: clamp(2rem, 5vw, 35px); /* Responsive font size */
     text-align: center;
@@ -471,9 +380,9 @@ header h1 { /* This targets the header within main content */
 }
 
 /* ==========================================================================
-Layout & Sections (apply to main content)
+Layout & Sections
 ========================================================================== */
-header { /* This targets the header within main content */
+header {
     text-align: center;
     padding: 10px 0 20px;
     position: relative;
@@ -497,6 +406,9 @@ main {
     padding: 0 25px;
     position: relative;
     z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out 0.5s forwards; /* Add fade-in animation */
     padding-bottom: 80px; /* Increased space for taller custom navigation */
 }
 
