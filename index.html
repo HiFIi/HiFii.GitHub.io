@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ThunderDex Hub (ThunderHub)</title>
 
-  <!-- ✅ Preload only essential fonts -->
+  <!-- Preload essential fonts -->
   <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
 
-  <!-- ✅ Material Symbols -->
+  <!-- Material Symbols -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 
-  <!-- ✅ Material Design 3 Web Components (still needed for other MD3 elements if any) -->
+  <!-- Material Design 3 Web Components -->
   <script type="module" src="https://unpkg.com/@material/web@1.0.0/dist/all.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" />
 
-  <!-- ✅ Optional: Use adoptive MD3 typography -->
+  <!-- Optional: Use adoptive MD3 typography -->
   <script type="module">
     import { styles as typescaleStyles } from 'https://esm.run/@material/web/typography/md-typescale-styles.js';
     document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
   </script>
 
-  <!-- ✅ Fade-in style for smooth startup -->
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fade-in style for smooth startup -->
   <style>
     body {
       opacity: 0;
@@ -33,7 +36,7 @@
     }
   </style>
 
-  <!-- ✅ Script to trigger fade-in after DOM is ready -->
+  <!-- Script to trigger fade-in after DOM is ready -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(() => {
@@ -43,938 +46,131 @@
   </script>
 </head>
 <body data-theme="dark"> <!-- Default to dark theme -->
-  <style>
-        /* style.css - Keep your existing styles and add Material Design 3 specific overrides */
-        /* ==========================================================================
-        Font Definitions
-        ========================================================================== */
-        @font-face {
-            font-family: 'UberMoveBold';
-            src: url('fonts/cashsans_black.otf') format('opentype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'categories';
-            src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'LyftProBold';
-            src: url('fonts/UberMove-Bold.otf') format('opentype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'CustomFont';
-            src: url('fonts/ProductSans-Play.otf') format('opentype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'HeaderFontStyle';
-            src: url('fonts/Tourner.ttf') format('truetype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'HeaderSubtitleStyle';
-            src: url('fonts/MajorMonoDisplay-Regular.ttf') format('truetype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'ImportantNotes';
-            src: url('fonts/GoogleSans-Regular.ttf') format('truetype');
-            font-display: swap;
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'navTabs';
-            src: url('fonts/google_sans_bold.ttf') format('truetype');
-            font-display: swap;
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        :root {
-            /* Common variables for both themes if they share values or structure */
-            --border-radius: 16px;
-            --box-shadow: 0 8px 20px var(--glass-shadow-color);
-            --frosted-glass-effect: blur(16px) saturate(1.8) brightness(1.2);
-            --transition-duration: 0.01s;
-            --ripple-color: rgba(93, 46, 255, 0.15); /* Keep a consistent ripple */
-
-            /* Decorative sparkles/noise palette - might vary by theme, but keep common for now */
-            --color1: 93, 46, 255;
-            --color2: 255, 92, 206;
-            --color3: 123, 92, 255;
-            --color4: 255, 206, 92;
-            --color5: 92, 255, 217;
-            --color-interactive: 93, 46, 255;
-            --circle-size: 50%;
-            --blending: screen;
-        }
-
-        /* Dark Theme Variables (default) */
-        body[data-theme="dark"] {
-            --primary-background: #17171C;
-            --on-primary-background: #E0E0E0; /* Text on primary background */
-            
-            --md-sys-color-primary: #007178; /* Primary accent */
-            --md-sys-color-on-primary: #14151C; /* Text on primary accent */
-
-            --md-sys-color-secondary: #E0E0FF; /* Secondary muted */
-            --md-sys-color-on-secondary: #1b1b1c; /* Text on secondary muted */
-
-            --glass-blue-dark: rgba(21, 22, 28, 0.2);
-            --glass-blue-medium: rgba(245, 245, 255, 0.2);
-            --glass-border-color: rgba(255, 255, 255, 0.35);
-            --glass-shadow-color: rgba(0, 0, 0, 0.65);
-
-            --header-text-color: #E0E0E0;
-            --subtitle-color: #B0BEC5;
-            --link-color: #90CAF9;
-            --title-color-bright: #BBDEFB; /* For titles inside sections */
-            --note-bg-color: var(--glass-blue-dark);
-            --note-text-color: #E0E0E0;
-            --button-bg-color: rgba(80, 150, 255, 0.2);
-            --button-border-color: rgba(255, 255, 255, 0.3);
-            --button-text-color: #E0E0E0;
-            --button-hover-bg-color: rgba(80, 150, 255, 0.4);
-            --button-hover-border-color: rgba(255, 255, 255, 0.7);
-            --active-tab-bg-color: rgba(93, 46, 255, 0.2);
-            --active-tab-text-color: var(--link-color);
-            --inactive-tab-text-color: #B0BEC5;
-        }
-
-        /* Light Theme Variables */
-        body[data-theme="light"] {
-            --primary-background: #F5F5F5; /* Light background */
-            --on-primary-background: #1C1C1E; /* Dark text on light background */
-            
-            --md-sys-color-primary: #164ca3; /* Primary accent */
-            --md-sys-color-on-primary: #FFFFFF; /* Text on primary accent */
-
-            --md-sys-color-secondary: #7a818b; /* Secondary muted */
-            --md-sys-color-on-secondary: #FFFFFF; /* Text on secondary muted */
-
-            --glass-blue-dark: rgba(255, 255, 255, 0.7); /* Lighter glass */
-            --glass-blue-medium: rgba(240, 240, 240, 0.8); /* Even lighter glass */
-            --glass-border-color: rgba(0, 0, 0, 0.1); /* Darker border for light glass */
-            --glass-shadow-color: rgba(0, 0, 0, 0.1); /* Lighter shadow */
-
-            --header-text-color: #1C1C1E;
-            --subtitle-color: #4A4A4A;
-            --link-color: #164ca3; /* Accent blue for links */
-            --title-color-bright: #164ca3; /* Accent blue for titles */
-            --note-bg-color: rgba(240, 240, 240, 0.7);
-            --note-text-color: #333333;
-            --button-bg-color: rgba(220, 220, 220, 0.7);
-            --button-border-color: rgba(150, 150, 150, 0.3);
-            --button-text-color: #333333;
-            --button-hover-bg-color: rgba(200, 200, 200, 0.8);
-            --button-hover-border-color: rgba(100, 100, 100, 0.7);
-            --active-tab-bg-color: rgba(22, 76, 163, 0.2); /* Accent color with transparency */
-            --active-tab-text-color: var(--link-color);
-            --inactive-tab-text-color: #555555; /* Darker inactive text */
-            
-            /* Adjust animated background opacity for light theme */
-            .animated-background { opacity: 0.35 !important; } /* Less intrusive */
-            .animated-background::before { opacity: 0.5 !important; mix-blend-mode: soft-light !important; } /* Adjust grain */
-        }
-
-
-        /* ==========================================================================
-        Base Styles - Crucial for layout with fixed footer
-        ========================================================================== */
-        html {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-            height: 100%; /* Ensure html takes full viewport height */
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: inherit;
-        }
-
-        body {
-            font-family: 'CustomFont', sans-serif;
-            font-size: 18px;
-            line-height: 1.2;
-            margin: 0;
-            color: var(--on-primary-background); /* Use theme-dependent text color */
-            display: flex;
-            flex-direction: column; /* Stack header, main, and footer vertically */
-            min-height: 100vh; /* Ensure body takes at least full viewport height */
-            position: relative;
-            background-color: var(--primary-background); /* Use theme-dependent background */
-            width: 100%;
-        }
-
-       
-        /* ==========================================================================
-        Animated Background - More Interesting/Random Variant
-        ========================================================================== */
-        .animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background-size: cover;
-            opacity: 0.30;
-
-            animation: gradientFlow 20s ease-in-out infinite alternate,
-                       zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
-            transform-origin: center center;
-            will-change: background-image, transform, filter;
-        }
-
-        .animated-background::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            
-            animation: gradientFlow 20s ease-in-out infinite alternate,
-                       zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
-            z-index: -2;
-            opacity: 0.20;
-            pointer-events: none;
-            will-change: opacity, background-image;
-        }
-
-        .animated-background::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml;utf8,\
-  <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
-  <filter id='noiseFilter'>\
-  <feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/>\
-  </filter>\
-  <rect width='100%' height='100%' filter='url(%23noiseFilter)'/>\
-  </svg>");
-            mix-blend-mode: overlay;
-            width: 100vw;
-            height: 100vh;
-            will-change: transform, opacity, background-position;
-            opacity: 0.9;
-            animation: shimmerGrain 30s ease-in-out infinite alternate;
-            transform-origin: center center;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 0%; }
-            25% { background-position: 100% 0%; }
-            50% { background-position: 0% 100%; }
-            75% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-
-        @keyframes zoomPulse {
-            0% { transform: scale(1) rotate(0deg); filter: brightness(0.25); }
-            20% { transform: scale(1.08) rotate(0.2deg); filter: brightness(0.6); }
-            50% { transform: scale(1.2) rotate(-0.3deg); filter: brightness(1.1); }
-            80% { transform: scale(1.05) rotate(0.2deg); filter: brightness(0.95); }
-            100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
-        }
-
-        @keyframes shimmerGrain {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 200%; }
-        }
-
-        @keyframes hueShift {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-        
-        @-webkit-keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-  }
-
-  @keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-  }
-  @-webkit-keyframes moveVertical {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-  }
-  @keyframes moveVertical {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-  }
-  @-webkit-keyframes moveHorizontal {
-  0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  }
-  @keyframes moveHorizontal {
-  0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  }
-
-
-        /* ==========================================================================
-        Typography
-        ========================================================================== */
-        h1 {
-            font-family: 'HeaderFontStyle', sans-serif;
-            font-size: clamp(2rem, 5vw, 35px); /* Responsive font size */
-            text-align: center;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            color: var(--header-text-color); /* Theme-dependent */
-            text-shadow:
-                0 4px 10px rgba(0, 0, 0, 0.6), /* Darker shadow for contrast */
-                0 0 10px rgba(136, 76, 255, 0.5),
-                0 0 20px rgba(170, 102, 255, 0.4),
-                0 0 40px rgba(200, 140, 255, 0.8);
-        }
-
-        .subtitle {
-            font-family: 'categories', sans-serif;
-            font-size: clamp(1rem, 2.5vw, 20px); /* Responsive font size */
-            text-align: center;
-            display: block;
-            color: var(--subtitle-color); /* Theme-dependent */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7),
-                         0 0 20px rgba(100, 255, 255, 0.15);
-        }
-
-        .subtitleheader {
-            font-family: 'HeaderSubtitleStyle', sans-serif;
-            font-size: clamp(2rem, 5vw, 35px); /* Responsive font size */
-            text-align: center;
-            color: var(--header-text-color); /* Theme-dependent */
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7),
-                         0 0 30px rgba(173, 216, 230, 0.40);
-            line-height: 1.1;
-        }
-        
-        /* ==========================================================================
-        Layout & Sections
-        ========================================================================== */
-        header {
-            text-align: center;
-            padding: 10px 0 20px;
-            position: relative;
-            background-color: var(--glass-blue-dark); /* Apply frosted glass to header */
-            backdrop-filter: var(--frosted-glass-effect);
-            -webkit-backdrop-filter: var(--frosted-glass-effect);
-            opacity: 1; /* Fully opaque header */
-            border-bottom-left-radius: var(--border-radius); /* Rounded bottom-left */
-            border-bottom-right-radius: var(--border-radius); /* Rounded bottom-right */
-            box-shadow: var(--box-shadow);
-            border: 4px solid var(--glass-border-color); /* Add border to header */
-            z-index: 2;
-            animation: fadeInDown 1s ease-out forwards;
-        }
-        
-        main {
-            flex: 1; /* Allows main content to grow and push navigation to bottom */
-            width: 100%;
-            max-width: 900px; /* Set a max-width for content */
-            margin: 20px auto; /* Center main content and add spacing */
-            padding: 0 25px;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease-out 0.5s forwards; /* Add fade-in animation */
-            padding-bottom: 80px; /* Increased space for taller custom navigation */
-        }
-
-
-        section[role="tabpanel"] {
-            padding: 24px;
-            background-color: var(--glass-blue-dark); /* Apply frosted glass to panels */
-            border-radius: var(--border-radius);
-            margin-bottom: 24px;
-            display: none;
-            border: 1px solid var(--glass-border-color); /* Consistent border */
-            box-shadow: var(--box-shadow); /* Consistent shadow */
-            backdrop-filter: var(--frosted-glass-effect);
-            -webkit-backdrop-filter: var(--frosted-glass-effect);
-            color: var(--on-primary-background); /* Theme-dependent */
-        }
-    
-        section.active {
-            display: block;
-            animation: fadeInScale 0.5s cubic-bezier(0.2, 0.0, 0, 1.0) forwards;
-        }
-
-        .gradient-bg {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            background: linear-gradient(135deg, var(--color-bg2), var(--color-bg1));
-            top: 0;
-            left: 0;
-
-            svg {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 0;
-                height: 0;
-            }
-        }
-
-        .important-notes-section {
-            font-family: 'ImportantNotes', sans-serif;
-            font-size: clamp(1rem, 2vw, 16px); /* Responsive font size */
-            background-color: var(--note-bg-color); /* Theme-dependent */
-            color: var(--note-text-color); /* Theme-dependent */
-            border: 1px solid var(--glass-border-color);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            margin: 30px auto;
-            list-style-type: none;
-            box-shadow: var(--box-shadow);
-            text-align: left;
-            max-width: 100%;
-            line-height: 1.7;
-            backdrop-filter: var(--frosted-glass-effect);
-            -webkit-backdrop-filter: var(--frosted-glass-effect);
-        }
-        .important-notes-section strong {
-            font-family: 'UberMoveBold', sans-serif;
-            font-size: clamp(1.2rem, 3vw, 24px); /* Responsive font size */
-            display: block;
-            margin-bottom: 15px;
-            color: var(--title-color-bright); /* Theme-dependent */
-        }
-        .important-notes-section hr.divider {
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lighter divider */
-            margin: 20px 0;
-        }
-        .important-notes-section a {
-            color: var(--link-color);
-            text-decoration: underline;
-        }
-        
-/* Safe container */
-.gradients-wrapper {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* Gooey + blur */
-.gradients-container {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  filter: url(#goo) blur(40px);
-  pointer-events: none;
-}
-
-/* Shared style */
-.g1, .g2, .g3, .g4, .g5 {
-  position: absolute;
-  mix-blend-mode: var(--blending);
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  will-change: transform, opacity;
-}
-
-/* g1: Vertical */
-.g1 {
-  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%);
-  width: var(--circle-size);
-  height: var(--circle-size);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation:
-    moveVertical 16s ease-in-out infinite,
-    scalePulse 12s ease-in-out infinite;
-  opacity: 1;
-}
-
-/* g2: Spin reverse */
-.g2 {
-  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%);
-  width: var(--circle-size);
-  height: var(--circle-size);
-  top: 50%;
-  left: 50%;
-  transform-origin: 400px center;
-  animation:
-    moveInCircle 40s linear reverse infinite,
-    rotateSlightly 20s ease-in-out infinite;
-  opacity: 1;
-  animation-delay: 2s;
-}
-
-/* g3: Spin normal */
-.g3 {
-  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%);
-  width: var(--circle-size);
-  height: var(--circle-size);
-  top: 50%;
-  left: 50%;
-  transform-origin: -400px center;
-  animation:
-    moveInCircle 24s linear infinite,
-    rotateSlightly 30s ease-in-out infinite;
-  opacity: 1;
-  animation-delay: 1s;
-}
-
-/* g4: Horizontal motion */
-.g4 {
-  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%);
-  width: var(--circle-size);
-  height: var(--circle-size);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation:
-    moveHorizontal 18s ease-in-out infinite,
-    scalePulse 14s ease-in-out infinite;
-  opacity: 0.7;
-  animation-delay: 0.5s;
-}
-
-/* g5: Larger circle spin */
-.g5 {
-  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%);
-  width: calc(var(--circle-size) * 2);
-  height: calc(var(--circle-size) * 2);
-  top: 50%;
-  left: 50%;
-  transform-origin: -800px 200px;
-  animation:
-    moveInCircle 48s ease infinite,
-    scalePulse 20s ease-in-out infinite;
-  opacity: 1;
-  animation-delay: 4s;
-}
-
-
-        /* ==========================================================================
-        Animations (Existing)
-        ========================================================================== */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Custom Bottom Navigation Bar */
-        .bottom-navigation {
-            position: fixed;
-            bottom: 0;
-            left: 50%; /* Center the bar */
-            transform: translateX(-50%); /* Adjust for centering */
-            width: 90%; /* Adjust width for smaller screen presence */
-            max-width: 450px; /* Max width for larger screens */
-            height: 70px; /* Taller height */
-            background-color: var(--glass-blue-dark); /* Apply glass effect, theme-dependent */
-            backdrop-filter: var(--frosted-glass-effect);
-            -webkit-backdrop-filter: var(--frosted-glass-effect);
-            border: 1px solid var(--glass-border-color); /* Full border, theme-dependent */
-            box-shadow: var(--box-shadow); /* Apply full box-shadow */
-            z-index: 100;
-            display: flex; /* Arrange tabs horizontally */
-            justify-content: space-evenly; /* Evenly space tabs within their constrained width */
-            align-items: center; /* Center items vertically */
-            padding: 0 10px; /* Horizontal padding */
-            border-radius: var(--border-radius); /* Apply radius for "pill" shape */
-            margin-bottom: 10px; /* Lift it slightly from the very bottom */
-        }
-
-        .nav-tab {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 12px; /* Adjusted padding for larger size */
-            min-width: 70px; /* Ensure a minimum clickable area */
-            color: var(--inactive-tab-text-color); /* Theme-dependent */
-            font-family: 'navTabs', sans-serif;
-            font-size: 15px; /* Slightly larger font size */
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
-            border-radius: var(--border-radius); /* Apply border-radius */
-            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-        }
-
-        .nav-tab .material-symbols-outlined {
-            font-size: 26px; /* Larger icon size */
-            margin-bottom: 4px; /* Space between icon and label */
-            color: inherit; /* Inherit color from parent .nav-tab */
-        }
-
-        .nav-tab.active {
-            color: var(--active-tab-text-color); /* Theme-dependent */
-            background-color: var(--active-tab-bg-color); /* Theme-dependent */
-            transform: translateY(-2px); /* Slight lift for active tab */
-        }
-
-        .nav-tab:hover:not(.active) {
-            background-color: rgba(93, 46, 255, 0.1); /* Consistent hover for now, can be theme-dependent */
-        }
-
-        .nav-tab:active {
-            background-color: rgba(93, 46, 255, 0.3); /* Consistent pressed for now, can be theme-dependent */
-        }
-
-        /* Theme options styles */
-        .theme-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .theme-option-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 15px;
-            border: 1px solid var(--glass-border-color); /* Theme-dependent */
-            border-radius: var(--border-radius);
-            background-color: var(--note-bg-color); /* Use note background for consistency, theme-dependent */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .theme-option-group h3 {
-            font-family: 'UberMoveBold', sans-serif;
-            font-size: clamp(1.1rem, 2.8vw, 22px); /* Responsive font size */
-            color: var(--title-color-bright); /* Theme-dependent */
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .theme-button {
-            background-color: var(--button-bg-color); /* Theme-dependent */
-            border: 1px solid var(--button-border-color); /* Theme-dependent */
-            border-radius: 10px;
-            color: var(--button-text-color); /* Theme-dependent */
-            padding: 10px 15px;
-            font-size: clamp(0.9rem, 2vw, 16px); /* Responsive font size */
-            cursor: pointer;
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .theme-button:hover {
-            background-color: var(--button-hover-bg-color); /* Theme-dependent */
-            border-color: var(--button-hover-border-color); /* Theme-dependent */
-            transform: translateY(-2px);
-        }
-
-        .theme-button.active-theme {
-            background-color: var(--link-color); /* Highlight active theme */
-            color: var(--on-primary-background); /* Adjust text color for highlight */
-            border-color: var(--link-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-weight: bold;
-        }
-
-        /* Media Queries - Mobile Optimizations */
-        @media (max-width: 768px) {
-            body { 
-                padding-bottom: 80px; /* Adjusted padding for taller bottom navigation */
-            }
-            
-            main { padding: 0 15px 80px; } /* Adjust main padding for mobile bottom nav */
-            
-            .bottom-navigation {
-                height: 60px; /* Slightly smaller height on mobile for space */
-                padding: 0 8px;
-                gap: 6px; /* Smaller gap on mobile */
-                max-width: calc(100% - 20px); /* Adjust max-width to consider body padding */
-            }
-            .nav-tab {
-                font-size: 12px; /* Smaller font for mobile tabs */
-                padding: 6px 10px; /* Adjust padding */
-                min-width: 60px;
-            }
-            .nav-tab .material-symbols-outlined {
-                font-size: 22px; /* Slightly smaller icon size for mobile */
-            }
-
-            .theme-option-group h3 {
-                font-size: 20px;
-            }
-            .theme-button {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-        }
-  </style>
   <div class="animated-background">
     <svg xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <filter id="goo">
-        <fegaussianblur in="SourceGraphic" stddeviation="10" result=
-        "blur"></fegaussianblur>
-        <fecolormatrix in="blur" mode="matrix" values=
-        "1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8" result=
-        "goo"></fecolormatrix>
-        <feblend in="SourceGraphic" in2="goo"></feblend>
-      </filter>
-    </defs></svg>
-    <div class="g1"></div>
-    <div class="g2"></div>
-    <div class="g3"></div>
-    <div class="g4"></div>
-    <div class="g5"></div>
+      <defs>
+        <filter id="goo">
+          <fegaussianblur in="SourceGraphic" stddeviation="10" result="blur"></fegaussianblur>
+          <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8" result="goo"></fecolormatrix>
+          <feblend in="SourceGraphic" in2="goo"></feblend>
+        </filter>
+      </defs>
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+    </svg>
   </div>
+
   <header>
-    <h1>T H U N D E R H U B<span class="subtitle"></span</h1>
+    <h1>T H U N D E R H U B<span class="subtitle"></span></h1>
   </header>
+
   <main>
     <section id="home-panel" role="tabpanel" aria-labelledby="home-tab" class="active">
-        <h2 class="changelog-title">Welcome to ThunderHub!</h2>
-        <p>Your one-stop destination for all things ThunderDex. Here you'll find the latest updates, ways to contribute to the project, and links to our community channels.</p>
-        <ul class="important-notes-section">
-            <strong>Key Features:</strong>
-            <li>Stay up-to-date with the latest app features and bug fixes in the <b>Changelog</b>.</li>
-            <li>Learn how to help translate ThunderDex or contribute to the code on the <b>Contribute</b> tab.</li>
-            <li>Adjust app preferences and appearance on the <b>Settings</b> tab.</li>
-            <hr class="divider">
-            <li>ThunderDex is constantly evolving thanks to community support. Explore and get involved!</li>
-        </ul>
+      <h2 class="changelog-title">Welcome to ThunderHub!</h2>
+      <p>Your one-stop destination for all things ThunderDex. Here you'll find the latest updates, ways to contribute to the project, and links to our community channels.</p>
+      <ul class="important-notes-section">
+        <strong>Key Features:</strong>
+        <li>Stay up-to-date with the latest app features and bug fixes in the <b>Changelog</b>.</li>
+        <li>Learn how to help translate ThunderDex or contribute to the code on the <b>Contribute</b> tab.</li>
+        <li>Adjust app preferences and appearance on the <b>Settings</b> tab.</li>
+        <hr class="divider">
+        <li>ThunderDex is constantly evolving thanks to community support. Explore and get involved!</li>
+      </ul>
     </section>
-    <section id="changelog-panel" role="tabpanel" aria-labelledby=
-    "changelog-tab" hidden="">
+
+    <section id="changelog-panel" role="tabpanel" aria-labelledby="changelog-tab" hidden>
       <h2 class="changelog-title">Build: 2025.2.0 (07-31-25)</h2>
       <ul>
         <li>Fix Changelog Fragment parsing incorrect info</li>
         <li>Add human-translated Russian language into the app (WIP)</li>
         <li>Fix app customization force close on older devices (hopefully)</li>
         <li>Added back App Customization layout for Android 12+</li>
-        <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition
-        section</li>
+        <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
         <li>Vehicle Weaponry Group: Reduce card height</li>
         <li>Update Android Gradle Plugin (AGP)</li>
         <li>Update Gradle</li>
       </ul>
     </section>
-    
-    <section id="source-code-panel" role="tabpanel" aria-labelledby="contribute-tab" hidden="">
-  <style>
-    .contribute-section {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      padding: 2rem;
-      border-radius: 12px;
-      font-family: "Segoe UI", Roboto, sans-serif;
-    }
 
-    .contribute-section h2 {
-      color: #58a6ff;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+    <section id="source-code-panel" role="tabpanel" aria-labelledby="contribute-tab" hidden>
+      <div class="contribute-section">
+        <h2>🚀 Contribute Translations to ThunderDex</h2>
+        <p>Want to help localize ThunderDex into your language? Follow this quick guide to learn how to fork the project and submit your first pull request on GitHub.</p>
 
-    .contribute-step {
-      margin: 2rem 0;
-    }
+        <div class="contribute-step">
+          <h3>1. Create Your GitHub Account</h3>
+          <p>Don’t have a GitHub account yet? Sign up below:</p>
+          <ul>
+            <li><a href="https://github.com/join" target="_blank" rel="noopener noreferrer">github.com/join</a></li>
+          </ul>
+        </div>
 
-    .contribute-step h3 {
-      color: #79c0ff;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
+        <div class="contribute-step">
+          <h3>2. Fork the Translations Repository</h3>
+          <p>This creates your own editable copy of the ThunderDex translations repo:</p>
+          <ul>
+            <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank" rel="noopener noreferrer">WarThunderWiki-Translations on GitHub</a></li>
+          </ul>
+        </div>
 
-    .contribute-section p,
-    .contribute-section li {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
+        <div class="contribute-step">
+          <h3>3. Add a Language Folder</h3>
+          <p>Inside the project, translations live in Android-style folders like:</p>
+          <div class="code-box">
+            app/src/main/res/values-ru/strings.xml
+          </div>
+          <p>Make a new folder for your language using the format:</p>
+          <div class="code-box">
+            values-xx
+          </div>
+          <p>Replace <code>xx</code> with your language code, e.g. <code>values-fr</code> for French.</p>
 
-    .contribute-section ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
+          <div class="note">
+            💡 Tip: See <a href="https://github.com/HiFIi/WarThunderWiki-Translations/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> for supported language codes and examples.
+          </div>
+        </div>
 
-    .contribute-section a {
-      color: #58a6ff;
-      text-decoration: underline;
-    }
+        <div class="contribute-step">
+          <h3>4. Edit <code>strings.xml</code></h3>
+          <p>Inside your new folder, create or update the <code>strings.xml</code> file with your translations.</p>
+          <div class="code-box">
+            <resources><br>
+              <string name="app_name">ThunderDex</string><br>
+              <string name="welcome_message">Bienvenue!</string><br>
+            </resources>
+          </div>
+        </div>
 
-    .code-box {
-      background-color: #161b22;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
+        <div class="contribute-step">
+          <h3>5. Submit a Pull Request</h3>
+          <p>Once your changes are committed to your forked copy, open a pull request back to the original repository:</p>
+          <ul>
+            <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations/compare" target="_blank" rel="noopener noreferrer">Open a Pull Request</a></li>
+          </ul>
+          <p>We'll review it and merge your contribution!</p>
+        </div>
 
-    .note {
-      background-color: #1c1f26;
-      border-left: 4px solid #3fb950;
-      padding: 0.75rem;
-      border-radius: 6px;
-      margin-top: 1rem;
-    }
-  </style>
-
-  <div class="contribute-section">
-    <h2>🚀 Contribute Translations to ThunderDex</h2>
-    <p>Want to help localize ThunderDex into your language? Follow this quick guide to learn how to fork the project and submit your first pull request on GitHub.</p>
-
-    <div class="contribute-step">
-      <h3>1. Create Your GitHub Account</h3>
-      <p>Don’t have a GitHub account yet? Sign up below:</p>
-      <ul>
-        <li><a href="https://github.com/join" target="_blank" rel="noopener noreferrer">github.com/join</a></li>
-      </ul>
-    </div>
-
-    <div class="contribute-step">
-      <h3>2. Fork the Translations Repository</h3>
-      <p>This creates your own editable copy of the ThunderDex translations repo:</p>
-      <ul>
-        <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank" rel="noopener noreferrer">WarThunderWiki-Translations on GitHub</a></li>
-      </ul>
-    </div>
-
-    <div class="contribute-step">
-      <h3>3. Add a Language Folder</h3>
-      <p>Inside the project, translations live in Android-style folders like:</p>
-      <div class="code-box">
-        app/src/main/res/values-ru/strings.xml
+        <div class="contribute-step">
+          <h3>6. Want to Contribute Code?</h3>
+          <p>The main source code for the ThunderDex Android app is here:</p>
+          <ul>
+            <li><a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">ThunderHub GitHub Repository</a></li>
+          </ul>
+        </div>
       </div>
-      <p>Make a new folder for your language using the format:</p>
-      <div class="code-box">
-        values-xx
-      </div>
-      <p>Replace <code>xx</code> with your language code, e.g. <code>values-fr</code> for French.</p>
+    </section>
 
-      <div class="note">
-        💡 Tip: See <a href="https://github.com/HiFIi/WarThunderWiki-Translations/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> for supported language codes and examples.
-      </div>
-    </div>
-
-    <div class="contribute-step">
-      <h3>4. Edit <code>strings.xml</code></h3>
-      <p>Inside your new folder, create or update the <code>strings.xml</code> file with your translations.</p>
-      <div class="code-box">
-        <resources><br>
-          <string name="app_name">ThunderDex</string><br>
-          <string name="welcome_message">Bienvenue!</string><br>
-        </resources>
-      </div>
-    </div>
-
-    <div class="contribute-step">
-      <h3>5. Submit a Pull Request</h3>
-      <p>Once your changes are committed to your forked copy, open a pull request back to the original repository:</p>
-      <ul>
-        <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations/compare" target="_blank" rel="noopener noreferrer">Open a Pull Request</a></li>
-      </ul>
-      <p>We'll review it and merge your contribution!</p>
-    </div>
-
-    <div class="contribute-step">
-      <h3>6. Want to Contribute Code?</h3>
-      <p>The main source code for the ThunderDex Android app is here:</p>
-      <ul>
-        <li><a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">ThunderHub GitHub Repository</a></li>
-      </ul>
-    </div>
-  </div>
-  
-
-</section>
-
-
-
-    <section id="settings-panel" role="tabpanel" aria-labelledby="settings-tab" hidden="">
+    <section id="settings-panel" role="tabpanel" aria-labelledby="settings-tab" hidden>
       <h2 class="contribute-title">Settings</h2>
       <p>Customize your ThunderHub experience:</p>
 
       <div class="theme-option-group">
         <h3>App Theme</h3>
         <p>Choose your preferred color scheme.</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <div class="theme-buttons-container">
           <button class="theme-button active-theme" data-theme="dark">
             <span class="material-symbols-outlined">dark_mode</span> Dark
           </button>
@@ -987,21 +183,20 @@
         </div>
       </div>
 
-      <div class="theme-option-group" style="margin-top: 20px;">
+      <div class="theme-option-group">
         <h3>Text Size</h3>
         <p>Adjust the font size for readability.</p>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <div class="theme-buttons-container">
           <button class="theme-button active-theme" data-text-size="medium">Medium</button>
           <button class="theme-button" data-text-size="large">Large</button>
         </div>
       </div>
-      
+
       <p style="margin-top: 24px;">More settings options coming soon!</p>
     </section>
-
   </main>
-  
-  <div class="bottom-navigation" id="bottom-nav">
+
+  <nav class="bottom-navigation" id="bottom-nav">
     <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
       <span class="material-symbols-outlined">home</span>
       <span>Home</span>
@@ -1018,274 +213,8 @@
       <span class="material-symbols-outlined">settings</span>
       <span>Settings</span>
     </div>
-  </div>
+  </nav>
 
- <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const originalGradientSets = [
-            ["#1A1A1A", "#222831", "#31363F", "#3A4750", "#00FFF5", "#EEEEEE", "#FFFFFF"],
-            ["#190A2D", "#2E1A47", "#47305F", "#5F4879", "#9B59B6", "#BC13FE", "#F5F5F5"],
-            ["#0F2027", "#203A43", "#2C5364", "#52E1E2", "#A9F7FF", "#FFFFFF", "#FF007F"],
-            ["#0F0C29", "#302B63", "#24243E", "#3E8EDE", "#00E0FF", "#B2FFFF", "#EAF9F9"],
-            ["#1F1C2C", "#928DAB", "#C3CBDC", "#FFFFFF", "#FFD3E0", "#FF00FF", "#00FFFF"],
-            ["#3E5151", "#4E6464", "#627878", "#E1FFFA", "#A1FFFF", "#00FFC6", "#0BFF00"],
-            ["#232526", "#414345", "#636566", "#8E9091", "#DADADA", "#FFFFFF", "#FF6EC7"],
-            ["#202020", "#3D3D3D", "#5A5A5A", "#77B6EA", "#5FFBF1", "#B2FFFF", "#FA00FF"],
-            ["#2C3E50", "#4CA1AF", "#C4E0E5", "#ECF0F1", "#FFFFFF", "#FF0080", "#00FF80"],
-            ["#141E30", "#243B55", "#2C5364", "#7DCEA0", "#D4EFDF", "#FFFFFF", "#FFDC00"],
-            ["#1A2980", "#2677B4", "#32C4E0", "#6FE4E6", "#A2F1E9", "#D1FAF4", "#FFFFFF"],
-            ["#FF512F", "#FF3C1F", "#FF2C0F", "#E0260F", "#B3200F", "#7F1A0F", "#4C140F"],
-            ["#0B486B", "#227397", "#3BA0C2", "#62BFE7", "#88D3F9", "#B6E4FB", "#E3F5FD"],
-            ["#2980B9", "#3E99D0", "#54B2E7", "#6FCBF7", "#9BDDFB", "#C7EEFD", "#F2FFFF"],
-            ["#EB3349", "#D72845", "#BF1D40", "#A6123C", "#8F0737", "#770032", "#5F002D"],
-            ["#2C3E50", "#27394E", "#22344C", "#1D2F4A", "#182A47", "#132544", "#0E2042"],
-            ["#360033", "#540048", "#72005D", "#900072", "#AF0087", "#CD009C", "#EB00B1"],
-            ["#FC00FF", "#D900DC", "#B300B9", "#8C0096", "#660073", "#400050", "#1A002D"],
-            ["#4DA0B0", "#56B1A8", "#5FC2A0", "#68D398", "#71E490", "#A1F5AA", "#D1FFCC"],
-            ["#BDCCC1", "#B3C2B8", "#A8B8AF", "#9EAEA6", "#93A49D", "#899A94", "#7E908B"],
-        ];
-
-        // --- Gradient Filtering Logic ---
-        function isLightColor(hex) {
-            const r = parseInt(hex.substring(1, 3), 16);
-            const g = parseInt(hex.substring(3, 5), 16);
-            const b = parseInt(hex.substring(5, 7), 16);
-            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-            return luminance > 0.7; // Adjust threshold as needed
-        }
-
-        const filteredGradientSets = [];
-        const seenCombinations = new Set();
-
-        originalGradientSets.forEach(set => {
-            const hasLightColor = set.some(color => isLightColor(color));
-            const stringifiedSet = JSON.stringify(set.slice().sort());
-
-            if (!hasLightColor && !seenCombinations.has(stringifiedSet)) {
-                filteredGradientSets.push(set);
-                seenCombinations.add(stringifiedSet);
-            }
-        });
-
-        const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
-        const bg = document.querySelector(".animated-background");
-
-        let currentColors, currentAngle, blendMode;
-
-        // --- Initial State Loading (from localStorage or random) ---
-        const savedGradient = localStorage.getItem("gradient-colors");
-        const savedAngle = localStorage.getItem("gradient-angle");
-        const savedBlend = localStorage.getItem("blend-mode");
-
-        if (savedGradient && savedAngle && savedBlend) {
-            currentColors = JSON.parse(savedGradient);
-            currentAngle = parseFloat(savedAngle);
-            blendMode = savedBlend;
-        } else {
-            currentColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
-            currentAngle = Math.floor(Math.random() * 360);
-            blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
-        }
-
-        // Save initial (or loaded) state
-        localStorage.setItem("gradient-colors", JSON.stringify(currentColors));
-        localStorage.setItem("gradient-angle", currentAngle.toString());
-        localStorage.setItem("blend-mode", blendMode);
-
-        // --- Gradient Animation and Utility Functions ---
-        function hexToRgb(hex) {
-            const bigint = parseInt(hex.slice(1), 16);
-            return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
-        }
-
-        function rgbToHex(r, g, b) {
-            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-        }
-
-        function interpolateColor(color1, color2, factor) {
-            const [r1, g1, b1] = hexToRgb(color1);
-            const [r2, g2, b2] = hexToRgb(color2);
-            return rgbToHex(
-                Math.round(r1 + factor * (r2 - r1)),
-                Math.round(g1 + factor * (g2 - g1)),
-                Math.round(b1 + factor * (b2 - b1))
-            );
-        }
-
-        function buildGradient(angle, colors) {
-            return `linear-gradient(${angle}deg, ${colors.map((c, i) => `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")}`;
-        }
-
-        let isAnimatingColors = false;
-
-        function applyGradientAndRotate() {
-            if (!isAnimatingColors) {
-                currentAngle = (currentAngle + 0.25) % 360;
-            }
-            bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
-        }
-
-        let lastRotationFrameTime = 0;
-        function animateRotation(timestamp) {
-            if (!lastRotationFrameTime) lastRotationFrameTime = timestamp;
-            const elapsed = timestamp - lastRotationFrameTime;
-            currentAngle = (currentAngle + (0.25 * elapsed / 1000 * 60)) % 360;
-            applyGradientAndRotate();
-            lastRotationFrameTime = timestamp;
-            requestAnimationFrame(animateRotation);
-        }
-        requestAnimationFrame(animateRotation);
-
-        setInterval(() => {
-            let nextColors;
-            do {
-                nextColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
-            } while (JSON.stringify(nextColors) === JSON.stringify(currentColors));
-
-            const duration = 5000;
-            const startTime = performance.now();
-            isAnimatingColors = true;
-
-            const animatePalette = () => {
-                const elapsed = performance.now() - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                currentColors = currentColors.map((color, i) =>
-                    interpolateColor(color, nextColors[i] || nextColors[nextColors.length - 1], progress)
-                );
-
-                applyGradientAndRotate();
-
-                if (progress < 1) {
-                    requestAnimationFrame(animatePalette);
-                } else {
-                    currentColors = nextColors;
-                    isAnimatingColors = false;
-                    localStorage.setItem("gradient-colors", JSON.stringify(currentColors)); // Save new palette
-                }
-            };
-            requestAnimationFrame(animatePalette);
-        }, 30000);
-
-        const grainStyle = document.createElement("style");
-        grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
-        document.head.appendChild(grainStyle);
-
-        // --- Custom Tab Logic ─────────────────────────────────────────────
-        const navTabs = document.querySelectorAll('.nav-tab');
-        const panels = {
-            'home-panel': document.getElementById('home-panel'),
-            'changelog-panel': document.getElementById('changelog-panel'),
-            'source-code-panel': document.getElementById('source-code-panel'),
-            'settings-panel': document.getElementById('settings-panel')
-        };
-
-        const activateTab = (tabElement) => {
-            navTabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            for (const panelId in panels) {
-                panels[panelId].classList.remove('active');
-                panels[panelId].setAttribute('hidden', 'true');
-            }
-
-            tabElement.classList.add('active');
-            const targetPanelId = tabElement.dataset.targetPanel;
-            const activePanel = panels[targetPanelId];
-            if (activePanel) {
-                activePanel.removeAttribute('hidden');
-                activePanel.classList.add('active');
-            }
-        };
-
-        navTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                activateTab(tab);
-            });
-        });
-
-        const initialTab = document.getElementById('home-tab');
-        if (initialTab) {
-            activateTab(initialTab);
-        }
-
-        // --- Theme Options Functionality ---
-        const themeButtons = document.querySelectorAll('.theme-button[data-theme]');
-        const systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-        const applyTheme = (theme) => {
-            const body = document.body;
-            if (theme === 'system') {
-                if (systemThemeMediaQuery.matches) {
-                    body.setAttribute('data-theme', 'dark');
-                } else {
-                    body.setAttribute('data-theme', 'light');
-                }
-            } else {
-                body.setAttribute('data-theme', theme);
-            }
-            // Update grain overlay blend mode based on theme for better contrast
-            if (body.getAttribute('data-theme') === 'light') {
-                grainStyle.textContent = `.animated-background::before { mix-blend-mode: soft-light !important; opacity: 0.5 !important; }`;
-                bg.style.opacity = '0.15'; // Less intense background for light theme
-            } else {
-                grainStyle.textContent = `.animated-background::before { mix-blend-mode: overlay !important; opacity: 0.9 !important; }`;
-                bg.style.opacity = '0.40'; // Original intensity for dark theme
-            }
-        };
-
-        themeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                themeButtons.forEach(btn => btn.classList.remove('active-theme'));
-                button.classList.add('active-theme');
-                localStorage.setItem('thunderhub-theme', button.dataset.theme);
-                applyTheme(button.dataset.theme);
-            });
-        });
-
-        systemThemeMediaQuery.addEventListener('change', (e) => {
-            const activeThemeButton = document.querySelector('.theme-button.active-theme[data-theme="system"]');
-            if (activeThemeButton) {
-                applyTheme('system');
-            }
-        });
-
-        const savedTheme = localStorage.getItem('thunderhub-theme');
-        if (savedTheme) {
-            document.querySelector(`.theme-button[data-theme="${savedTheme}"]`).classList.add('active-theme');
-            applyTheme(savedTheme);
-        } else {
-            if (systemThemeMediaQuery.matches) {
-                document.querySelector('.theme-button[data-theme="system"]').classList.add('active-theme');
-                applyTheme('system');
-            } else {
-                document.querySelector('.theme-button[data-theme="dark"]').classList.add('active-theme');
-                applyTheme('dark');
-            }
-        }
-
-        // --- Text Size Functionality ---
-        const textSizeButtons = document.querySelectorAll('.theme-button[data-text-size]');
-        textSizeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                textSizeButtons.forEach(btn => btn.classList.remove('active-theme'));
-                button.classList.add('active-theme');
-                const textSize = button.dataset.textSize;
-                console.log(`Text size selected: ${textSize}`);
-                // Implement your text size logic here, e.g., by adding/removing classes on the body
-                // document.body.style.fontSize = textSize; // Simple example
-                localStorage.setItem('thunderhub-text-size', textSize);
-            });
-        });
-
-        const savedTextSize = localStorage.getItem('thunderhub-text-size');
-        if (savedTextSize) {
-            document.querySelector(`.theme-button[data-text-size="${savedTextSize}"]`).classList.add('active-theme');
-            // Apply saved text size, e.g., document.body.style.fontSize = savedTextSize;
-        } else {
-            document.querySelector('.theme-button[data-text-size="medium"]').classList.add('active-theme');
-        }
-    });
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
