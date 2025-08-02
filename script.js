@@ -1,4 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // --- Splash Screen Logic ---
+    const splashScreen = document.getElementById('splash-screen');
+    const appContainer = document.getElementById('app-container');
+    // Note: bottomNav is part of appContainer's content now, so no need to explicitly hide/show it here
+    // as it will be shown when appContainer becomes visible.
+
+    const minDisplayTime = 2000; // Minimum 2 seconds for splash screen
+    const startTime = performance.now();
+
+    const hideSplashScreen = () => {
+        const elapsedTime = performance.now() - startTime;
+        const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+
+        setTimeout(() => {
+            splashScreen.classList.add('fade-out'); // Start fade out animation
+
+            splashScreen.addEventListener('transitionend', () => {
+                splashScreen.style.display = 'none'; // Fully hide after transition
+                document.body.style.overflow = 'auto'; // Restore scrolling
+
+                // Show the main application content smoothly
+                appContainer.style.display = 'flex'; // Change to flex for main layout
+                requestAnimationFrame(() => { // Use rAF for immediate reflow and transition start
+                    appContainer.classList.add('show');
+                });
+
+            }, { once: true }); // Ensure listener fires only once
+        }, remainingTime);
+    };
+
+    // Call hideSplashScreen once all external resources (images, fonts, etc.) are loaded
+    window.addEventListener('load', hideSplashScreen);
+
+    // Fallback for very fast loads or if 'load' event doesn't fire as expected
+    // If DOMContentLoaded is fired and load hasn't, hide after a short delay
+    setTimeout(() => {
+        if (!splashScreen.classList.contains('fade-out')) {
+            hideSplashScreen();
+        }
+    }, 5000); // Max splash screen display time
+
+    // --- Gradient Logic ---
     const originalGradientSets = [
         ["#1A1A1A", "#222831", "#31363F", "#3A4750", "#00FFF5", "#EEEEEE", "#FFFFFF"],
         ["#190A2D", "#2E1A47", "#47305F", "#5F4879", "#9B59B6", "#BC13FE", "#F5F5F5"],
@@ -22,13 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ["#BDCCC1", "#B3C2B8", "#A8B8AF", "#9EAEA6", "#93A49D", "#899A94", "#7E908B"],
     ];
 
-    // --- Gradient Filtering Logic ---
     function isLightColor(hex) {
         const r = parseInt(hex.substring(1, 3), 16);
         const g = parseInt(hex.substring(3, 5), 16);
         const b = parseInt(hex.substring(5, 7), 16);
         const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-        return luminance > 0.7; // Adjust threshold as needed
+        return luminance > 0.7;
     }
 
     const filteredGradientSets = [];
@@ -45,29 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
-    const bg = document.querySelector(".animated-background");
+
+    // Get both animated background containers
+    const mainAnimatedBackground = appContainer.querySelector(".animated-background");
+    const splashAnimatedBackground = splashScreen.querySelector('.animated-background');
 
     let currentColors, currentAngle, blendMode;
 
-    // --- Initial State Loading (from localStorage or random) ---
-    const savedGradient = localStorage.getItem("gradient-colors");
-    const savedAngle = localStorage.getItem("gradient-angle");
-    const savedBlend = localStorage.getItem("blend-mode");
+    // --- Initial State - ALWAYS choose random on load ---
+    currentColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
+    currentAngle = Math.floor(Math.random() * 360);
+    blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
 
-    if (savedGradient && savedAngle && savedBlend) {
-        currentColors = JSON.parse(savedGradient);
-        currentAngle = parseFloat(savedAngle);
-        blendMode = savedBlend;
-    } else {
-        currentColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
-        currentAngle = Math.floor(Math.random() * 360);
-        blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
-    }
-
-    // Save initial (or loaded) state
-    localStorage.setItem("gradient-colors", JSON.stringify(currentColors));
-    localStorage.setItem("gradient-angle", currentAngle.toString());
-    localStorage.setItem("blend-mode", blendMode);
+    // Removed localStorage.setItem for initial state to ensure random on every load
 
     // --- Gradient Animation and Utility Functions ---
     function hexToRgb(hex) {
@@ -99,7 +130,34 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isAnimatingColors) {
             currentAngle = (currentAngle + 0.25) % 360;
         }
-        bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
+
+        const gradientString = buildGradient(currentAngle, currentColors);
+
+        // Apply to the main app's background
+        if (mainAnimatedBackground) {
+            mainAnimatedBackground.style.backgroundImage = gradientString;
+        }
+        // Also apply to the splash screen's background if it's still visible
+        if (splashAnimatedBackground && splashScreen.style.display !== 'none') {
+            splashAnimatedBackground.style.backgroundImage = gradientString;
+            // Ensure splash background has the right blend mode/opacity initially
+            const bodyTheme = document.body.getAttribute('data-theme');
+            if (bodyTheme === 'light') {
+              splashAnimatedBackground.style.opacity = '0.15';
+              splashAnimatedBackground.style.mixBlendMode = 'soft-light';
+            } else {
+              splashAnimatedBackground.style.opacity = '0.30'; // Default for dark theme
+              splashAnimatedBackground.style.mixBlendMode = 'overlay'; // Default for dark theme
+            }
+        }
+
+        // Update the CSS variables for the gooey elements dynamically
+        document.documentElement.style.setProperty('--color1', hexToRgb(currentColors[0]).join(', '));
+        document.documentElement.style.setProperty('--color2', hexToRgb(currentColors[1] || currentColors[0]).join(', '));
+        document.documentElement.style.setProperty('--color3', hexToRgb(currentColors[2] || currentColors[0]).join(', '));
+        document.documentElement.style.setProperty('--color4', hexToRgb(currentColors[3] || currentColors[0]).join(', '));
+        document.documentElement.style.setProperty('--color5', hexToRgb(currentColors[4] || currentColors[0]).join(', '));
+        document.documentElement.style.setProperty('--blending', blendMode);
     }
 
     let lastRotationFrameTime = 0;
@@ -107,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!lastRotationFrameTime) lastRotationFrameTime = timestamp;
         const elapsed = timestamp - lastRotationFrameTime;
         currentAngle = (currentAngle + (0.25 * elapsed / 1000 * 60)) % 360;
-        applyGradientAndRotate();
+        applyGradientAndRotate(); // This will now update the colors for goo as well
         lastRotationFrameTime = timestamp;
         requestAnimationFrame(animateRotation);
     }
@@ -138,13 +196,15 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 currentColors = nextColors;
                 isAnimatingColors = false;
-                localStorage.setItem("gradient-colors", JSON.stringify(currentColors)); // Save new palette
+                // No longer saving new palette to localStorage
             }
         };
         requestAnimationFrame(animatePalette);
     }, 30000);
 
     const grainStyle = document.createElement("style");
+    // This style tag now manages the blend mode for *both* animated backgrounds' ::before pseudo-elements
+    // Ensure it's correctly placed in <head> for global effect.
     grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
     document.head.appendChild(grainStyle);
 
@@ -204,10 +264,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update grain overlay blend mode based on theme for better contrast
         if (body.getAttribute('data-theme') === 'light') {
             grainStyle.textContent = `.animated-background::before { mix-blend-mode: soft-light !important; opacity: 0.5 !important; }`;
-            bg.style.opacity = '0.15'; // Less intense background for light theme
+            if (mainAnimatedBackground) mainAnimatedBackground.style.opacity = '0.15'; // Less intense for main app
+            if (splashAnimatedBackground) splashAnimatedBackground.style.opacity = '0.15'; // Less intense for splash
         } else {
             grainStyle.textContent = `.animated-background::before { mix-blend-mode: overlay !important; opacity: 0.9 !important; }`;
-            bg.style.opacity = '0.40'; // Original intensity for dark theme
+            if (mainAnimatedBackground) mainAnimatedBackground.style.opacity = '0.30'; // Original for main app
+            if (splashAnimatedBackground) splashAnimatedBackground.style.opacity = '0.30'; // Original for splash
         }
     };
 
@@ -227,16 +289,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Apply theme initially on load
     const savedTheme = localStorage.getItem('thunderhub-theme');
     if (savedTheme) {
-        document.querySelector(`.theme-button[data-theme="${savedTheme}"]`).classList.add('active-theme');
+        const themeBtn = document.querySelector(`.theme-button[data-theme="${savedTheme}"]`);
+        if (themeBtn) themeBtn.classList.add('active-theme');
         applyTheme(savedTheme);
     } else {
         if (systemThemeMediaQuery.matches) {
-            document.querySelector('.theme-button[data-theme="system"]').classList.add('active-theme');
+            const systemBtn = document.querySelector('.theme-button[data-theme="system"]');
+            if (systemBtn) systemBtn.classList.add('active-theme');
             applyTheme('system');
         } else {
-            document.querySelector('.theme-button[data-theme="dark"]').classList.add('active-theme');
+            const darkBtn = document.querySelector('.theme-button[data-theme="dark"]');
+            if (darkBtn) darkBtn.classList.add('active-theme');
             applyTheme('dark');
         }
     }
@@ -257,9 +323,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedTextSize = localStorage.getItem('thunderhub-text-size');
     if (savedTextSize) {
-        document.querySelector(`.theme-button[data-text-size="${savedTextSize}"]`).classList.add('active-theme');
+        const sizeBtn = document.querySelector(`.theme-button[data-text-size="${savedTextSize}"]`);
+        if (sizeBtn) sizeBtn.classList.add('active-theme');
         // Apply saved text size, e.g., document.body.style.fontSize = savedTextSize;
     } else {
-        document.querySelector('.theme-button[data-text-size="medium"]').classList.add('active-theme');
+        const mediumBtn = document.querySelector('.theme-button[data-text-size="medium"]');
+        if (mediumBtn) mediumBtn.classList.add('active-theme');
     }
 });
