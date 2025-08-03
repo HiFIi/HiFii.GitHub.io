@@ -78,7 +78,7 @@ Root Variables (Themes and Common)
   --color4: 255, 206, 92;
   --color5: 92, 255, 217;
   --color-interactive: 93, 46, 255;
-  --circle-size: 66%;
+  --circle-size: 50%;
   --blending: color-dodge;
 }
 
@@ -530,9 +530,12 @@ Animated Background - OPTIMIZED
   mix-blend-mode: var(--blending);
   border-radius: 50%;
   background-repeat: no-repeat;
-  will-change: transform, opacity;
+  will-change: transform, opacity; /* Keep will-change */
   /* Using radial-gradient directly on each blob,
      consider simpler gradients if performance is still an issue */
+
+  /* Ensure hardware acceleration for individual blobs */
+  transform: translateZ(0);
 }
 
 /* Each gradient blob uses black fade edges for dramatic effect */
@@ -583,7 +586,7 @@ Animated Background - OPTIMIZED
   top: calc(50% - var(--circle-size) / 2 + 200px);
   left: calc(50% - var(--circle-size) / 2 - 500px);
   transform-origin: calc(50% + 400px);
-  animation: moveInCircle 40s linear infinite; 
+  animation: moveInCircle 40s linear infinite;
   opacity: 1;
 }
 
@@ -620,6 +623,7 @@ Animated Background - OPTIMIZED
   animation: moveInCircle 20s ease infinite;
   opacity: 1;
 }
+
 
 /* ==========================================================================
 Typography
