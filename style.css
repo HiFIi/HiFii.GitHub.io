@@ -892,7 +892,7 @@ Navigation
   padding: 0 10px; /* Horizontal padding */
   border-radius: var(--border-radius); /* Apply radius for "pill" shape */
   margin-bottom: 10px; /* Lift it slightly from the very bottom */
-}
+} 
 
 .nav-tab {
   display: flex;
