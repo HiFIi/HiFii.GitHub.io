@@ -76,29 +76,12 @@
 
     <!-- Default to dark theme -->
     <div class="animated-background">
-      <svg xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="goo">
-            <fegaussianblur
-              in="SourceGraphic"
-              stddeviation="5"
-              result="blur"
-            ></fegaussianblur>
-            <fecolormatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8"
-              result="goo"
-            ></fecolormatrix>
-            <feblend in="SourceGraphic" in2="goo"></feblend>
-          </filter>
-        </defs>
-        
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g5"></div>
-      </svg>
+      <!-- REMOVED SVG FILTER DEFS FOR PERFORMANCE -->
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
     </div>
 
     <header>
@@ -312,34 +295,49 @@
             <button class="theme-button" data-theme="grey">
               <span class="material-symbols-outlined">palette</span> Grey
             </button>
-<button class="theme-button" data-theme="material-purple">
-  <span class="material-symbols-outlined">palette</span> Material Purple
-</button>
+            <button class="theme-button" data-theme="material-purple">
+              <span class="material-symbols-outlined">palette</span> Material Purple
+            </button>
+            <button class="theme-button" data-theme="system">
+              <span class="material-symbols-outlined">settings_brightness</span>
+              System Default
+            </button>
           </div>
         </div>
 
-<div class="theme-option-group">
-  <h3>Blending Mode</h3>
-  <p>Choose how gradient blobs blend with each other and the background.</p>
-  <div class="theme-buttons-container">
-    <button class="theme-button active-theme" data-blending="screen">Screen</button>
-    <button class="theme-button" data-blending="normal">Normal</button>
-    <button class="theme-button" data-blending="overlay">Overlay</button>
-    <button class="theme-button" data-blending="multiply">Multiply</button>
-    <button class="theme-button" data-blending="lighten">Lighten</button>
-    <button class="theme-button" data-blending="darken">Darken</button>
-    <button class="theme-button" data-blending="difference">Difference</button>
-    <button class="theme-button" data-blending="exclusion">Exclusion</button>
-    <button class="theme-button" data-blending="color-dodge">Color Dodge</button>
-    <button class="theme-button" data-blending="color-burn">Color Burn</button>
-    <button class="theme-button" data-blending="hard-light">Hard Light</button>
-    <button class="theme-button" data-blending="soft-light">Soft Light</button>
-    <button class="theme-button" data-blending="hue">Hue</button>
-    <button class="theme-button" data-blending="saturation">Saturation</button>
-    <button class="theme-button" data-blending="color">Color</button>
-    <button class="theme-button" data-blending="luminosity">Luminosity</button>
-  </div>
-</div>
+        <div class="theme-option-group">
+          <h3>Blending Mode</h3>
+          <p>Choose how gradient blobs blend with each other and the background.</p>
+          <div class="theme-buttons-container">
+            <button class="theme-button active-theme" data-blending="screen">Screen</button>
+            <button class="theme-button" data-blending="normal">Normal</button>
+            <button class="theme-button" data-blending="overlay">Overlay</button>
+            <button class="theme-button" data-blending="multiply">Multiply</button>
+            <button class="theme-button" data-blending="lighten">Lighten</button>
+            <button class="theme-button" data-blending="darken">Darken</button>
+            <button class="theme-button" data-blending="difference">Difference</button>
+            <button class="theme-button" data-blending="exclusion">Exclusion</button>
+            <button class="theme-button" data-blending="color-dodge">Color Dodge</button>
+            <button class="theme-button" data-blending="color-burn">Color Burn</button>
+            <button class="theme-button" data-blending="hard-light">Hard Light</button>
+            <button class="theme-button" data-blending="soft-light">Soft Light</button>
+            <button class="theme-button" data-blending="hue">Hue</button>
+            <button class="theme-button" data-blending="saturation">Saturation</button>
+            <button class="theme-button" data-blending="color">Color</button>
+            <button class="theme-button" data-blending="luminosity">Luminosity</button>
+          </div>
+        </div>
+
+        <div class="theme-option-group">
+          <h3>Text Size</h3>
+          <p>Adjust the font size for readability.</p>
+          <div class="theme-buttons-container">
+            <button class="theme-button active-theme" data-text-size="medium">
+              Medium
+            </button>
+            <button class="theme-button" data-text-size="large">Large</button>
+          </div>
+        </div>
 
         <p style="margin-top: 24px">More settings options coming soon!</p>
       </section>

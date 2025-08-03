@@ -79,7 +79,7 @@ Root Variables (Themes and Common)
   --color5: 92, 255, 217;
   --color-interactive: 93, 46, 255;
   --circle-size: 50%;
-  --blending: color-dodge;
+  --blending: color-dodge; /* Default blending mode, can be overridden by theme */
 }
 
 /* Dark Theme Variables (default) */
@@ -186,9 +186,8 @@ body[data-theme="light"] {
   --grain-opacity-main: 0.1 !important;
   --grain-opacity-extra: 0.08 !important;
   --base-opacity: 0.15 !important;
-  --glow-color: rgba(0, 255, 255, 0.85) !important; /* even more subtle glow */
-  
-      /* Adjust animated background opacity for light theme */
+  --glow-color: rgba(0, 255, 255, 0.05) !important; /* even more subtle glow */
+
   .animated-background {
     opacity: 0.45 !important;
   } /* Less intrusive */
@@ -229,19 +228,29 @@ body[data-theme="grey"] {
   --active-tab-text-color: var(--link-color);
   --inactive-tab-text-color: #9E9E9E; /* Grey 500 for inactive text */
 
-  --grain-opacity-main: 0.92;
+  /* These values were intended to hide/show grain and glow, now controlled by JS on tab change */
+  --grain-opacity-main: 0.12;
   --grain-opacity-extra: 0.09;
   --base-opacity: 0.35;
-  --glow-color: rgba(187, 134, 252, 0.98); /* subtle accent glow */
-  
-    /* Adjust animated background opacity for light theme */
+  --glow-color: rgba(187, 134, 252, 0.08); /* subtle accent glow */
+
+  /* Specific overrides for animated background when this theme is active */
   .animated-background {
-    opacity: 0 !important;
-  } /* Less intrusive */
+    opacity: var(--base-opacity) !important; /* Use theme variable for base opacity */
+  }
   .animated-background::before {
-    opacity: 0 !important;
-    mix-blend-mode: soft-light !important;
-  } /* Adjust grain */
+    opacity: var(--grain-opacity-main) !important;
+    mix-blend-mode: overlay !important; /* Revert to overlay for grain */
+  }
+  .animated-background::after {
+    opacity: 0.85 !important; /* Keep the underlay visible as per default */
+  }
+  .animated-background .extra-grain {
+    opacity: var(--grain-opacity-extra) !important;
+  }
+  .gradients-container {
+    filter: none !important; /* Remove blur from gooey gradients */
+  }
 }
 
 /* Material Purple Theme Variables */
@@ -293,7 +302,7 @@ body[data-theme="material-purple"] {
   --glow-color: rgba(0, 0, 0, 0); /* No glow if background is hidden */
 
   .animated-background {
-    opacity: 0.01 !important; /* Force hide animated background */
+    opacity: 0 !important; /* Force hide animated background */
   }
   .animated-background::before {
     opacity: 0 !important; /* Force hide grain overlay */
@@ -306,6 +315,11 @@ body[data-theme="material-purple"] {
   }
   .gradients-container {
     filter: none !important; /* Remove blur from gooey gradients */
+  }
+  /* If you still want the gooey effect without the background, ensure the .g1-.g5 elements are visible */
+  .g1, .g2, .g3, .g4, .g5 {
+    opacity: 0.6 !important; /* Adjust if too dim or bright */
+    mix-blend-mode: screen !important; /* Or 'lighten', 'plus-lighter', 'overlay' depending on desired effect */
   }
 }
 
@@ -339,6 +353,7 @@ body {
   ); /* Use theme-dependent background */
   width: 100%;
   overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+  transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
 }
 
 /* ==========================================================================
@@ -408,6 +423,7 @@ Animated Background - OPTIMIZED
   pointer-events: none;
   /* subtle glow overlay */
   box-shadow: inset 0 0 150px var(--glow-color);
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity changes */
 }
 
 /* Underlay background, subtle secondary layer for depth */
@@ -506,21 +522,21 @@ Animated Background - OPTIMIZED
   z-index: -1;
 }
 
-/* Gooey + blur - OPTIMIZED: Applied blur directly to container, removed SVG filter */
+/* Gooey + blur - OPTIMIZED: Removed filter: blur from container for performance */
 .gradients-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Simplified blur - no SVG filter for better performance */
-  filter: blur(10px); /* Reduced blur for performance */
+  /* REMOVED: filter: blur(10px); */ /* This was a major lag source */
   pointer-events: none;
-  /* If you want the 'goo' effect, you'd need a more performant SVG setup
-     or a different approach. This removes the SVG filter to fix lag. */
+  /* Add a transform to create a new compositing layer for better performance */
+  transform: translateZ(0); /* Promotes to a composite layer */
+  will-change: transform;
 }
 
-/* Shared style */
+/* Shared style for blobs */
 .g1,
 .g2,
 .g3,
@@ -692,6 +708,10 @@ body[data-theme="grey"] header {
   background-color: rgba(33, 33, 33, 0.7); /* Slightly transparent dark grey for header */
 }
 
+body[data-theme="material-purple"] header {
+  background-color: rgba(32, 31, 35, 0.7); /* Match Material Purple glass-blue-dark with more opacity */
+}
+
 main {
   flex: 1; /* Allows main content to grow and push navigation to bottom */
   width: 100%;
@@ -725,6 +745,10 @@ body[data-theme="light"] section[role="tabpanel"] {
 
 body[data-theme="grey"] section[role="tabpanel"] {
   background-color: rgba(33, 33, 33, 0.6); /* Slightly transparent dark grey for panels */
+}
+
+body[data-theme="material-purple"] section[role="tabpanel"] {
+  background-color: rgba(28, 27, 31, 0.7); /* Match Material Purple note-bg-color for consistency */
 }
 
 section.active {
@@ -788,7 +812,7 @@ section.active {
 
 /* Contribute Section Specific Styles */
 .contribute-section {
-  background-color: #0d1117;
+  background-color: #0d1117; /* Keep specific GitHub dark background */
   color: #c9d1d9;
   padding: 2rem;
   border-radius: 12px;
@@ -1034,7 +1058,7 @@ Navigation
   padding: 0 10px; /* Horizontal padding */
   border-radius: var(--border-radius); /* Apply radius for "pill" shape */
   margin-bottom: 10px; /* Lift it slightly from the very bottom */
-} 
+}
 
 .nav-tab {
   display: flex;
@@ -1073,7 +1097,7 @@ Navigation
   background-color: rgba(
     93,
     46,
-255,
+    255,
     0.1
   ); /* Consistent hover for now, can be theme-dependent */
 }
@@ -1082,7 +1106,7 @@ Navigation
   background-color: rgba(
     93,
     46,
-255,
+    255,
     0.3
   ); /* Consistent pressed for now, can be theme-dependent */
 }
