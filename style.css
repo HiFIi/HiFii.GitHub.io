@@ -94,7 +94,12 @@ body[data-theme="dark"] {
   --md-sys-color-on-secondary: #1b1b1c; /* Text on secondary muted */
 
   /* Adjusted glass colors to be slightly less complex if 'saturate' and 'brightness' are removed from blur */
-  --glass-blue-dark: rgba(21, 22, 28, 0.7); /* Increased opacity for more solid look without complex filter */
+  --glass-blue-dark: rgba(
+    21,
+    22,
+    28,
+    0.7
+  ); /* Increased opacity for more solid look without complex filter */
   --glass-blue-medium: rgba(245, 245, 255, 0.2);
   --glass-border-color: rgba(255, 255, 255, 0.15);
   --glass-shadow-color: rgba(0, 0, 0, 0.65);
@@ -117,7 +122,12 @@ body[data-theme="dark"] {
 
 /* Light Theme Variables */
 body[data-theme="light"] {
-  --primary-background: rgba(255, 255, 255, 0.4); /* Overall body background 40% opaque */
+  --primary-background: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Overall body background 40% opaque */
   --on-primary-background: #1c1c1e; /* Dark text on light background */
 
   --md-sys-color-primary: #164ca3; /* Primary accent */
@@ -127,8 +137,18 @@ body[data-theme="light"] {
   --md-sys-color-on-secondary: #ffffff; /* Text on secondary muted */
 
   /* Adjusted glass colors */
-  --glass-blue-dark: rgba(255, 255, 255, 1); /* Full opaque for bottom nav, overridden for header/panels below */
-  --glass-blue-medium: rgba(255, 255, 255, 0.4); /* 40% opaque for other glass elements */
+  --glass-blue-dark: rgba(
+    255,
+    255,
+    255,
+    1
+  ); /* Full opaque for bottom nav, overridden for header/panels below */
+  --glass-blue-medium: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* 40% opaque for other glass elements */
   --glass-border-color: rgba(0, 0, 0, 0.1); /* Darker border for light glass */
   --glass-shadow-color: rgba(0, 0, 0, 0.1); /* Lighter shadow */
 
@@ -136,7 +156,12 @@ body[data-theme="light"] {
   --subtitle-color: #4a4a4a;
   --link-color: #164ca3; /* Accent blue for links */
   --title-color-bright: #164ca3; /* Accent blue for titles */
-  --note-bg-color: rgba(255, 255, 255, 0.4); /* 40% white for notes/cards */
+  --note-bg-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* 40% white for notes/cards */
   --note-text-color: #333333;
   --button-bg-color: rgba(220, 220, 220, 0.7);
   --button-border-color: rgba(150, 150, 150, 0.3);
@@ -191,6 +216,56 @@ body {
     --primary-background
   ); /* Use theme-dependent background */
   width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+
+/* ==========================================================================
+Splash Screen Styles
+========================================================================== */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-background); /* Use theme background for splash */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it's on top of everything */
+  opacity: 1;
+  transition: opacity 0.5s ease-out; /* For fade-out effect */
+}
+
+#splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Disable interactions after fade out begins */
+}
+
+.splash-logo {
+  font-family: "HeaderFontStyle", sans-serif;
+  font-size: clamp(2rem, 8vw, 60px); /* Larger for splash */
+  color: var(--header-text-color);
+  text-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(136, 76, 255, 0.5),
+    0 0 20px rgba(170, 102, 255, 0.4),
+    0 0 40px rgba(200, 140, 255, 0.8);
+  margin-bottom: 10px; /* Space between logo and subtitle */
+  opacity: 1;
+  animation: splashLogoFadeOut 0.5s ease-out 2.5s forwards; /* Fades out later than splash screen */
+}
+
+.splash-text {
+  font-family: "categories", sans-serif;
+  font-size: clamp(1rem, 3vw, 25px); /* Larger for splash */
+  color: var(--subtitle-color);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(100, 255, 255, 0.15);
+  opacity: 1;
+  animation: splashTextFadeOut 0.5s ease-out 2.5s forwards; /* Fades out later than splash screen */
 }
 
 /* ==========================================================================
@@ -758,6 +833,37 @@ Animations
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes splashFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes splashLogoFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes splashTextFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 

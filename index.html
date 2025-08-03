@@ -50,7 +50,7 @@
     <style>
       body {
         opacity: 0;
-        transition: opacity 0.4s ease-in-out 0.2s;
+        transition: opacity 0.2s ease-in-out 0.5s;
       }
       body.ready {
         opacity: 1;
@@ -67,9 +67,13 @@
     </script>
   </head>
 
-
-
   <body data-theme="dark">
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+      <h1 class="splash-logo">T H U N D E R H U B</h1>
+      <span class="subtitle splash-text"></span>
+    </div>
+
     <!-- Default to dark theme -->
     <div class="animated-background">
       <svg xmlns="http://www.w3.org/2000/svg">
@@ -326,29 +330,36 @@
       </section>
     </main>
 
-<nav class="bottom-navigation" id="bottom-nav">
-  <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
-    <span class="material-symbols-outlined">home</span>
-    <span>Home</span>
-  </div>
-  <div class="nav-tab" id="changelog-tab" data-target-panel="changelog-panel">
-    <span class="material-symbols-outlined">history</span>
-    <span>Changelog</span>
-  </div>
-  <div class="nav-tab" id="contribute-tab" data-target-panel="source-code-panel">
-    <span class="material-symbols-outlined">code</span>
-    <span>Contribute</span>
-  </div>
-  <div class="nav-tab" id="settings-tab" data-target-panel="settings-panel">
-    <span class="material-symbols-outlined">settings</span>
-    <span>Settings</span>
-  </div>
-  <div class="nav-tab" id="source-tab">
-    <span class="material-symbols-outlined">visibility</span>
-    <span>Source</span>
-  </div>
-</nav>
-
+    <nav class="bottom-navigation" id="bottom-nav">
+      <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
+        <span class="material-symbols-outlined">home</span>
+        <span>Home</span>
+      </div>
+      <div
+        class="nav-tab"
+        id="changelog-tab"
+        data-target-panel="changelog-panel"
+      >
+        <span class="material-symbols-outlined">history</span>
+        <span>Changelog</span>
+      </div>
+      <div
+        class="nav-tab"
+        id="contribute-tab"
+        data-target-panel="source-code-panel"
+      >
+        <span class="material-symbols-outlined">code</span>
+        <span>Contribute</span>
+      </div>
+      <div class="nav-tab" id="settings-tab" data-target-panel="settings-panel">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </div>
+      <div class="nav-tab" id="source-tab">
+        <span class="material-symbols-outlined">visibility</span>
+        <span>Source</span>
+      </div>
+    </nav>
 
     <script src="script.js"></script>
   </body>

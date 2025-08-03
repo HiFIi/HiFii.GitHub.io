@@ -1,6 +1,31 @@
 // script.js
 
 window.addEventListener("DOMContentLoaded", () => {
+  // ---- SPLASH SCREEN CONTROL ----
+  const splash = document.getElementById("splash-screen");
+  const mainHeader = document.querySelector("header");
+  const mainContent = document.querySelector("main");
+  const bottomNav = document.querySelector(".bottom-navigation");
+
+  if (splash) {
+    // Hide main content initially to ensure splash screen is fully visible
+    mainHeader.style.display = "none";
+    mainContent.style.display = "none";
+    bottomNav.style.display = "none";
+
+    // Allow some time for fonts to load and splash animation to be seen
+    setTimeout(() => {
+      splash.classList.add("fade-out"); // Start fade out animation
+      // After fade-out animation completes, remove the splash screen and show main content
+      splash.addEventListener("transitionend", () => {
+        splash.remove();
+        mainHeader.style.display = ""; // Show header
+        mainContent.style.display = ""; // Show main
+        bottomNav.style.display = ""; // Show navigation
+      });
+    }, 2800); // Adjust this delay as needed, e.g., 2800ms (2.8 seconds)
+  }
+
   // ---- GRADIENT ANIMATION ----
   const originalGradientSets = [
     ["#000000", "#050A0F", "#003046", "#006B8F", "#00C4E1", "#A3E8FF", "#FFFFFF"],
@@ -22,13 +47,6 @@ window.addEventListener("DOMContentLoaded", () => {
     ["#000016", "#1E0043", "#440077", "#6F00B3", "#9D00E0", "#CD65FF", "#F4E1FF"],
     ["#000000", "#1F1F1F", "#393939", "#32FF18", "#70FF6E", "#D0FFD6", "#FFFFFF"],
   ];
-
-// Hide splash screen after animation ends
-setTimeout(() => {
-  const splash = document.getElementById("splash-screen");
-  splash?.remove();
-}, 3000);
-
 
   const bg = document.querySelector(".animated-background");
 
@@ -66,12 +84,7 @@ setTimeout(() => {
   let currentColors = getRandomGradient();
   let currentAngle = Math.floor(Math.random() * 360);
 
-  const applyGradient = (colors = currentColors) => {// Hide splash screen after animation ends
-setTimeout(() => {
-  const splash = document.getElementById("splash-screen");
-  splash?.remove();
-}, 3000);
-
+  const applyGradient = (colors = currentColors) => {
     bg.style.backgroundImage = buildGradient(currentAngle, colors);
   };
 
@@ -158,7 +171,14 @@ setTimeout(() => {
     });
   });
 
-  activateTab(document.getElementById("home-tab"));
+  // Activate home tab only after splash screen is gone
+  if (!splash) {
+    activateTab(document.getElementById("home-tab"));
+  } else {
+    splash.addEventListener("transitionend", () => {
+      activateTab(document.getElementById("home-tab"));
+    });
+  }
 
   // ---- THEME AND TEXT SIZE ----
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
@@ -227,4 +247,3 @@ setTimeout(() => {
     });
   }
 });
-
