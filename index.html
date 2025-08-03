@@ -50,7 +50,7 @@
     <style>
       body {
         opacity: 0;
-        transition: opacity 0.2s ease-in-out 0.5s;
+        transition: opacity 0.2s ease-in-out 0.35s;
       }
       body.ready {
         opacity: 1;
@@ -81,22 +81,22 @@
           <filter id="goo">
             <fegaussianblur
               in="SourceGraphic"
-              stddeviation="10"
+              stddeviation="5"
               result="blur"
             ></fegaussianblur>
             <fecolormatrix
               in="blur"
               mode="matrix"
-              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8"
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 -8"
               result="goo"
             ></fecolormatrix>
             <feblend in="SourceGraphic" in2="goo"></feblend>
           </filter>
         </defs>
+        
         <div class="g1"></div>
         <div class="g2"></div>
         <div class="g3"></div>
-        <div class="g5"></div>
       </svg>
     </div>
 
@@ -293,7 +293,7 @@
         id="settings-panel"
         role="tabpanel"
         aria-labelledby="settings-tab"
-        hidden
+        hidden  bottom
       >
         <h2 class="contribute-title">Settings</h2>
         <p>Customize your ThunderHub experience:</p>
@@ -309,7 +309,10 @@
               <span class="material-symbols-outlined">light_mode</span> Light
             </button>
             <button class="theme-button" data-theme="system">
-              <span class="material-symbols-outlined">settings_brightness</span>
+              <span class="mater  --grain-opacity-main: 0.12;
+  --grain-opacity-extra: 0.1;
+  --base-opacity: 0.95;
+  --glow-color: rgba(0, 255, 255, 0.1); /* subtle cyan glow */ial-symbols-outlined">settings_brightness</span>
               System Default
             </button>
           </div>
