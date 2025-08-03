@@ -37,13 +37,47 @@
   </style>
 
   <!-- Script to trigger fade-in after DOM is ready -->
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      requestAnimationFrame(() => {
-        document.body.classList.add("ready");
+  <!-- Script to trigger fade-in and handle WebSocket + tab switching -->
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
+      document.body.classList.add("ready");
+    });
+
+    // WebSocket for live terminal
+    const socket = new WebSocket("ws://localhost:8080"); // Replace with remote IP/domain if needed
+
+    socket.onopen = () => {
+      console.log("✅ WebSocket connected.");
+    };
+
+    socket.onmessage = (event) => {
+      const el = document.getElementById("console-output");
+      el.textContent += event.data;
+      el.scrollTop = el.scrollHeight;
+    };
+
+    socket.onerror = () => {
+      const el = document.getElementById("console-output");
+      el.textContent += "\n⚠️ Connection error. Check server.\n";
+    };
+
+    // Tab switching
+    const tabs = document.querySelectorAll(".nav-tab");
+    const panels = document.querySelectorAll("main > section");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        panels.forEach(p => p.hidden = true);
+        tab.classList.add("active");
+        const panel = document.getElementById(tab.dataset.targetPanel);
+        if (panel) panel.hidden = false;
       });
     });
-  </script>
+  });
+</script>
+
 </head>
 <body data-theme="dark"> <!-- Default to dark theme -->
   <div class="animated-background">
@@ -91,6 +125,24 @@
         <li>Update Android Gradle Plugin (AGP)</li>
         <li>Update Gradle</li>
       </ul>
+    </section>
+    
+        <!-- New Live Console Output Section -->
+    <section id="console-output-panel" role="tabpanel" aria-labelledby="console-tab" hidden>
+      <h2 class="contribute-title">🔧 Live Console Output</h2>
+      <pre id="console-output" style="
+        background-color: #111;
+        color: #0f0;
+        padding: 16px;
+        border-radius: 12px;
+        max-height: 60vh;
+        overflow-y: auto;
+        font-family: monospace;
+        font-size: 13px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+        border: 1px solid #333;
+      ">Connecting to ThunderDex console...</pre>
     </section>
 
     <section id="source-code-panel" role="tabpanel" aria-labelledby="contribute-tab" hidden>
@@ -202,6 +254,10 @@
     <div class="nav-tab" id="changelog-tab" data-target-panel="changelog-panel">
       <span class="material-symbols-outlined">history</span>
       <span>Changelog</span>
+    </div>
+        <div class="nav-tab" id="console-tab" data-target-panel="console-output-panel">
+      <span class="material-symbols-outlined">terminal</span>
+      <span>Console</span>
     </div>
     <div class="nav-tab" id="contribute-tab" data-target-panel="source-code-panel">
       <span class="material-symbols-outlined">code</span>
