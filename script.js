@@ -190,10 +190,8 @@ window.onload = () => {
         animatedBackground.style.opacity = "var(--base-opacity)";
       }
     }
-    // --- END NEW LOGIC ---
-  };
 
-  tabs.forEach((tab) => {
+  };
     tab.addEventListener("click", () => activateTab(tab));
     tab.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
