@@ -1,10 +1,52 @@
 [
   {
-    "tag_name": "073125",
-    "body": "versionCode: 101\n\n### What's New (July 31st, 2025 Build 1)\n\n• Add human-translated Russian language into the app (WIP)\n\n• Fix app customization force close on older devices (hopefully)• Minor UI tweaks\n\n• Update AGP\n\n• \n\n• Update the Gradle Build System",
+    "tag_name": "250803",
+    "body": "versionCode: 102
+
+### What's New (08-03-25 Build)
+
+  - Update strings.xml
+  - Update changelog_menu.sh
+  - bump AGP
+  - update gradle
+  - fix app customization FC on older devices possibly
+  - WIP russian translations
+  - Update build.gradle
+  - fix app customization fc on android 9-11 (fix)
+  - add back app customization layout for 12+
+  - add some fonts
+  - Delete .selected_header
+  - add some fonts in folder outside of app
+  - update gradle to 9.0.0 stable
+  - create nightly.sh: # Compiles my apk, shows build status in discord, then auto-uploads to github releases with the tag for whatever date it is
+  - doing some cleanup from the code analyzer. WIP
+  - bump gradle to 9.0.0
+  - Merge pull request #19 from Mahmud0808/gradle-property-verify-test
+  - nightly.sh:
+  - Revert "nightly.sh:"
+  - nightly.sh: Changelog parsing and custom formatting are now fully functional, with code optimized for efficiency. Authentication to the private GitHub repository has been enhanced using an alternate token login method. The last build date is manually set to 07-31 for initial history, while future builds will dynamically update the changelog by comparing the current date to the previous build date, ensuring proper changelog display and automatic daily updates.
+  - nightly.sh: beautify
+  - changelog.sh / changelog_menu.sh: beautify
+  - nightly: set correct release tag on github so the current in-app updater picks it up
+  - nightly.sh: dynamically parse json file as well in hifii.github.io/updates.json for streamlined automation of changelog  (untested)
+  - Update strings.xml
+  - nightly.sh: add back accidentally removed discord changelog parsing, make LAST_BUILD_DATE a variable instead of hardcoded, various fixes
+  - nightly: add explanation on how the script works: # Steps: set shell vars, cd repo root, set git remote with token, define Discord notifier, notify start, pull updates, set build dates/tags, gather commits, notify Discord changelog, update website changelog HTML, build APK, locate APK, tag & push git tag, create/get GitHub release, mark non-prerelease, delete old APK asset, upload new APK, notify Discord success, generate updates.json, commit & push changelog + updates.json
+  - nightly.sh: bump max commits to 30 lol
+  - nightly.sh: beautify
+  - weaponry fragment group: add custom image instead of "tanks" image from vehicle groups
+  - vehicle groups: reduce text size for grouped vehicles, grouped radar and grouped ammunition layouts from 16sp to 14sp
+  - Update nightly.sh
+  - build.gradle: bump versioncode to 102
+  - nightly.sh: add +1 to versioncode in the json file each successful build
+  - nightly.sh: beautify
+  - build.gradle: update versionName too (( oops ))
+  - format code
+  - Update nightly.sh
+  - nightly.sh: more fixes",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/073125/ThunderDex-07-31-2025_1433-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250803/ThunderDex-08-03-2025_1118-armeabi-v7a-release.apk"
       }
     ]
   }
