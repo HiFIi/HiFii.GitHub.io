@@ -3,24 +3,168 @@
 window.addEventListener("DOMContentLoaded", () => {
   // Animated Gradient Background Logic
   const originalGradientSets = [
-    ["#000000", "#050A0F", "#003046", "#006B8F", "#00C4E1", "#A3E8FF", "#FFFFFF"],
-    ["#12001A", "#3B004D", "#680085", "#9A00B8", "#CC3DFF", "#E6B3FF", "#FFFFFF"],
-    ["#1A0010", "#420034", "#7D2E6F", "#FF577F", "#FF9A5E", "#FFCE82", "#FFF9E1"],
-    ["#001A2B", "#3A2E87", "#FF5C5C", "#FFAD6F", "#FFD865", "#FFFD9A", "#FFF7E1"],
-    ["#0A0B0F", "#19202A", "#398C85", "#62D9DD", "#B9F1EE", "#E7FFFF", "#FFFFFF"],
-    ["#0E0E0E", "#1F1F1F", "#434343", "#6B6B6B", "#929292", "#B9B9B9", "#E0E0E0"],
-    ["#2E0000", "#600000", "#9D0000", "#CC2900", "#FF5E00", "#FF9133", "#FFD766"],
-    ["#000000", "#003E40", "#006873", "#00A497", "#42C4B6", "#FF7A7A", "#FFD455"],
-    ["#150F34", "#4A3572", "#866EB0", "#BDA1F8", "#D9D1FF", "#FBFAFF", "#FFFFFF"],
-    ["#000628", "#005082", "#00B2B7", "#98CC5F", "#D4FD7C", "#F6FFD1", "#FFFFFF"],
-    ["#0D0029", "#31005B", "#741BA1", "#A95BD7", "#CD8DFF", "#E3B6FF", "#FFFFFF"],
-    ["#12212B", "#2C4651", "#3E6D77", "#63C6FF", "#00FFD6", "#00FF7F", "#FFFFFF"],
-    ["#000000", "#24003E", "#54008A", "#8F00CE", "#00FFFF", "#7FFFD4", "#FFFFFF"],
-    ["#FFD4F7", "#FFA3E6", "#FF6ED1", "#FF37B8", "#FF0094", "#CC007A", "#99005C"],
-    ["#4C0000", "#800000", "#D93900", "#FF6C00", "#FF9E33", "#FFCD66", "#FFFFCC"],
-    ["#1F2123", "#43494F", "#6F7890", "#A9B4CC", "#D4DCE6", "#F0F4F9", "#FFFFFF"],
-    ["#000016", "#1E0043", "#440077", "#6F00B3", "#9D00E0", "#CD65FF", "#F4E1FF"],
-    ["#000000", "#1F1F1F", "#393939", "#32FF18", "#70FF6E", "#D0FFD6", "#FFFFFF"],
+    [
+      "#000000",
+      "#050A0F",
+      "#003046",
+      "#006B8F",
+      "#00C4E1",
+      "#A3E8FF",
+      "#FFFFFF",
+    ],
+    [
+      "#12001A",
+      "#3B004D",
+      "#680085",
+      "#9A00B8",
+      "#CC3DFF",
+      "#E6B3FF",
+      "#FFFFFF",
+    ],
+    [
+      "#1A0010",
+      "#420034",
+      "#7D2E6F",
+      "#FF577F",
+      "#FF9A5E",
+      "#FFCE82",
+      "#FFF9E1",
+    ],
+    [
+      "#001A2B",
+      "#3A2E87",
+      "#FF5C5C",
+      "#FFAD6F",
+      "#FFD865",
+      "#FFFD9A",
+      "#FFF7E1",
+    ],
+    [
+      "#0A0B0F",
+      "#19202A",
+      "#398C85",
+      "#62D9DD",
+      "#B9F1EE",
+      "#E7FFFF",
+      "#FFFFFF",
+    ],
+    [
+      "#0E0E0E",
+      "#1F1F1F",
+      "#434343",
+      "#6B6B6B",
+      "#929292",
+      "#B9B9B9",
+      "#E0E0E0",
+    ],
+    [
+      "#2E0000",
+      "#600000",
+      "#9D0000",
+      "#CC2900",
+      "#FF5E00",
+      "#FF9133",
+      "#FFD766",
+    ],
+    [
+      "#000000",
+      "#003E40",
+      "#006873",
+      "#00A497",
+      "#42C4B6",
+      "#FF7A7A",
+      "#FFD455",
+    ],
+    [
+      "#150F34",
+      "#4A3572",
+      "#866EB0",
+      "#BDA1F8",
+      "#D9D1FF",
+      "#FBFAFF",
+      "#FFFFFF",
+    ],
+    [
+      "#000628",
+      "#005082",
+      "#00B2B7",
+      "#98CC5F",
+      "#D4FD7C",
+      "#F6FFD1",
+      "#FFFFFF",
+    ],
+    [
+      "#0D0029",
+      "#31005B",
+      "#741BA1",
+      "#A95BD7",
+      "#CD8DFF",
+      "#E3B6FF",
+      "#FFFFFF",
+    ],
+    [
+      "#12212B",
+      "#2C4651",
+      "#3E6D77",
+      "#63C6FF",
+      "#00FFD6",
+      "#00FF7F",
+      "#FFFFFF",
+    ],
+    [
+      "#000000",
+      "#24003E",
+      "#54008A",
+      "#8F00CE",
+      "#00FFFF",
+      "#7FFFD4",
+      "#FFFFFF",
+    ],
+    [
+      "#FFD4F7",
+      "#FFA3E6",
+      "#FF6ED1",
+      "#FF37B8",
+      "#FF0094",
+      "#CC007A",
+      "#99005C",
+    ],
+    [
+      "#4C0000",
+      "#800000",
+      "#D93900",
+      "#FF6C00",
+      "#FF9E33",
+      "#FFCD66",
+      "#FFFFCC",
+    ],
+    [
+      "#1F2123",
+      "#43494F",
+      "#6F7890",
+      "#A9B4CC",
+      "#D4DCE6",
+      "#F0F4F9",
+      "#FFFFFF",
+    ],
+    [
+      "#000016",
+      "#1E0043",
+      "#440077",
+      "#6F00B3",
+      "#9D00E0",
+      "#CD65FF",
+      "#F4E1FF",
+    ],
+    [
+      "#000000",
+      "#1F1F1F",
+      "#393939",
+      "#32FF18",
+      "#70FF6E",
+      "#D0FFD6",
+      "#FFFFFF",
+    ],
   ];
 
   const bg = document.querySelector(".animated-background");
@@ -34,7 +178,10 @@ window.addEventListener("DOMContentLoaded", () => {
   function getRandomGradient(exclude) {
     let pick;
     do {
-      pick = originalGradientSets[Math.floor(Math.random() * originalGradientSets.length)];
+      pick =
+        originalGradientSets[
+          Math.floor(Math.random() * originalGradientSets.length)
+        ];
     } while (exclude && JSON.stringify(pick) === JSON.stringify(exclude));
     return [...pick];
   }
@@ -45,7 +192,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function rgbToHex(r, g, b) {
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+    return (
+      "#" +
+      ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
+    );
   }
 
   function interpolateColor(c1, c2, t) {
@@ -54,7 +204,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return rgbToHex(
       Math.round(r1 + (r2 - r1) * t),
       Math.round(g1 + (g2 - g1) * t),
-      Math.round(b1 + (b2 - b1) * t)
+      Math.round(b1 + (b2 - b1) * t),
     );
   }
 
@@ -90,7 +240,11 @@ window.addEventListener("DOMContentLoaded", () => {
     function step() {
       const t = Math.min((performance.now() - start) / 5000, 1);
       const blended = currentColors.map((c, i) =>
-        interpolateColor(c, nextColors[i] || nextColors[nextColors.length - 1], t)
+        interpolateColor(
+          c,
+          nextColors[i] || nextColors[nextColors.length - 1],
+          t,
+        ),
       );
       applyGradient(blended);
       if (t < 1) {
@@ -149,7 +303,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Theme and text size controls
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
-  const textButtons = document.querySelectorAll(".theme-button[data-text-size]");
+  const textButtons = document.querySelectorAll(
+    ".theme-button[data-text-size]",
+  );
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
   function applyTheme(name) {
@@ -166,22 +322,28 @@ window.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-theme", btn.dataset.theme);
       applyTheme(btn.dataset.theme);
-    })
+    }),
   );
 
   mq.addEventListener("change", () => {
-    if (document.querySelector('.theme-button.active-theme[data-theme="system"]')) {
+    if (
+      document.querySelector('.theme-button.active-theme[data-theme="system"]')
+    ) {
       applyTheme("system");
     }
   });
 
   const savedTheme = localStorage.getItem("thunderhub-theme");
   if (savedTheme) {
-    document.querySelector(`.theme-button[data-theme="${savedTheme}"]`)?.classList.add("active-theme");
+    document
+      .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
+      ?.classList.add("active-theme");
     applyTheme(savedTheme);
   } else {
     const defaultTheme = mq.matches ? "system" : "dark";
-    document.querySelector(`.theme-button[data-theme="${defaultTheme}"]`)?.classList.add("active-theme");
+    document
+      .querySelector(`.theme-button[data-theme="${defaultTheme}"]`)
+      ?.classList.add("active-theme");
     applyTheme(defaultTheme);
   }
 
@@ -190,14 +352,17 @@ window.addEventListener("DOMContentLoaded", () => {
       textButtons.forEach((b) => b.classList.remove("active-theme"));
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-text-size", btn.dataset.textSize);
-    })
+    }),
   );
 
   const savedSize = localStorage.getItem("thunderhub-text-size");
   if (savedSize) {
-    document.querySelector(`.theme-button[data-text-size="${savedSize}"]`)?.classList.add("active-theme");
+    document
+      .querySelector(`.theme-button[data-text-size="${savedSize}"]`)
+      ?.classList.add("active-theme");
   } else {
-    document.querySelector('.theme-button[data-text-size="medium"]')?.classList.add("active-theme");
+    document
+      .querySelector('.theme-button[data-text-size="medium"]')
+      ?.classList.add("active-theme");
   }
 });
-

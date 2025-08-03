@@ -1,224 +1,355 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThunderDex Hub (ThunderHub)</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThunderDex Hub (ThunderHub)</title>
 
-  <!-- Preload essential fonts -->
-  <link rel="preload" href="fonts/ProductSans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="fonts/ProductSans-Play.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <!-- Preload essential fonts -->
+    <link
+      rel="preload"
+      href="fonts/ProductSans-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="fonts/ProductSans-Play.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
 
-  <!-- Material Symbols -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- Material Symbols -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
-  <!-- Material Design 3 Web Components -->
-  <script type="module" src="https://unpkg.com/@material/web@1.0.0/dist/all.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" />
+    <!-- Material Design 3 Web Components -->
+    <script
+      type="module"
+      src="https://unpkg.com/@material/web@1.0.0/dist/all.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap"
+    />
 
-  <!-- Optional: Use adoptive MD3 typography -->
-  <script type="module">
-    import { styles as typescaleStyles } from 'https://esm.run/@material/web/typography/md-typescale-styles.js';
-    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-  </script>
+    <!-- Optional: Use adoptive MD3 typography -->
+    <script type="module">
+      import { styles as typescaleStyles } from "https://esm.run/@material/web/typography/md-typescale-styles.js";
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
 
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Fade-in style for smooth startup -->
-  <style>
-body {
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-body.ready {
-  opacity: 1;
-}
+    <!-- Fade-in style for smooth startup -->
+    <style>
+      body {
+        opacity: 0;
+        transition: opacity 1.2s ease;
+      }
+      body.ready {
+        opacity: 1;
+      }
+    </style>
 
-  </style>
-
-  <!-- Script to trigger fade-in after DOM is ready -->
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      requestAnimationFrame(() => {
-        document.body.classList.add("ready");
+    <!-- Script to trigger fade-in after DOM is ready -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => {
+          document.body.classList.add("ready");
+        });
       });
-    });
-  </script>
-</head>
-<body data-theme="dark"> <!-- Default to dark theme -->
-  <div class="animated-background">
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="goo">
-          <fegaussianblur in="SourceGraphic" stddeviation="10" result="blur"></fegaussianblur>
-          <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8" result="goo"></fecolormatrix>
-          <feblend in="SourceGraphic" in2="goo"></feblend>
-        </filter>
-      </defs>
-      <div class="g1"></div>
-      <div class="g2"></div>
-      <div class="g3"></div>
-      <div class="g5"></div>
-    </svg>
-  </div>
-
-  <header>
-    <h1>T H U N D E R H U B<span class="subtitle"></span></h1>
-  </header>
-
-  <main>
-    <section id="home-panel" role="tabpanel" aria-labelledby="home-tab" class="active">
-      <h2 class="changelog-title">Welcome to ThunderHub!</h2>
-      <p>Your one-stop destination for all things ThunderDex. Here you'll find the latest updates, ways to contribute to the project, and links to our community channels.</p>
-      <div class="build-status-container">
-        <span class="build-status-label">Latest Build:</span>
-        <span class="build-status-value">2025.2.0 (07-31-25)</span>
-      </div>
-      <ul class="important-notes-section">
-        <strong>Key Features:</strong>
-        <li>Stay up-to-date with the latest app features and bug fixes in the <b>Changelog</b>.</li>
-        <li>Learn how to help translate ThunderDex or contribute to the code on the <b>Contribute</b> tab.</li>
-        <li>Adjust app preferences and appearance on the <b>Settings</b> tab.</li>
-        <hr class="divider">
-        <li>ThunderDex is constantly evolving thanks to community support. Explore and get involved!</li>
-      </ul>
-    </section>
-
-    <section id="changelog-panel" role="tabpanel" aria-labelledby="changelog-tab" hidden>
-      <h2 class="changelog-title">Build: 2025.2.0 (07-31-25)</h2>
-      <ul>
-        <li>Fix Changelog Fragment parsing incorrect info</li>
-        <li>Add human-translated Russian language into the app (WIP)</li>
-        <li>Fix app customization force close on older devices (hopefully)</li>
-        <li>Added back App Customization layout for Android 12+</li>
-        <li>Vehicle Weaponry Group: Add unique image for Tank Ammunition section</li>
-        <li>Vehicle Weaponry Group: Reduce card height</li>
-        <li>Update Android Gradle Plugin (AGP)</li>
-        <li>Update Gradle</li>
-      </ul>
-    </section>
-
-    <section id="source-code-panel" role="tabpanel" aria-labelledby="contribute-tab" hidden>
-      <div class="contribute-section">
-        <h2>🚀 Contribute Translations to ThunderDex</h2>
-        <p>Want to help localize ThunderDex into your language? Follow this quick guide to learn how to fork the project and submit your first pull request on GitHub.</p>
-
-        <div class="contribute-step">
-          <h3>1. Create Your GitHub Account</h3>
-          <p>Don’t have a GitHub account yet? Sign up below:</p>
-          <ul>
-            <li><a href="https://github.com/join" target="_blank" rel="noopener noreferrer">github.com/join</a></li>
-          </ul>
-        </div>
-
-        <div class="contribute-step">
-          <h3>2. Fork the Translations Repository</h3>
-          <p>This creates your own editable copy of the ThunderDex translations repo:</p>
-          <ul>
-            <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations" target="_blank" rel="noopener noreferrer">WarThunderWiki-Translations on GitHub</a></li>
-          </ul>
-        </div>
-
-        <div class="contribute-step">
-          <h3>3. Add a Language Folder</h3>
-          <p>Inside the project, translations live in Android-style folders like:</p>
-          <div class="code-box">
-            app/src/main/res/values-ru/strings.xml
-          </div>
-          <p>Make a new folder for your language using the format:</p>
-          <div class="code-box">
-            values-xx
-          </div>
-          <p>Replace <code>xx</code> with your language code, e.g. <code>values-fr</code> for French.</p>
-
-          <div class="note">
-            💡 Tip: See <a href="https://github.com/HiFIi/WarThunderWiki-Translations/blob/main/README.md" target="_blank" rel="noopener noreferrer">README.md</a> for supported language codes and examples.
-          </div>
-        </div>
-
-        <div class="contribute-step">
-          <h3>4. Edit <code>strings.xml</code></h3>
-          <p>Inside your new folder, create or update the <code>strings.xml</code> file with your translations.</p>
-          <div class="code-box">
-            <resources><br>
-              <string name="app_name">ThunderDex</string><br>
-              <string name="welcome_message">Bienvenue!</string><br>
-            </resources>
-          </div>
-        </div>
-
-        <div class="contribute-step">
-          <h3>5. Submit a Pull Request</h3>
-          <p>Once your changes are committed to your forked copy, open a pull request back to the original repository:</p>
-          <ul>
-            <li><a href="https://github.com/HiFIi/WarThunderWiki-Translations/compare" target="_blank" rel="noopener noreferrer">Open a Pull Request</a></li>
-          </ul>
-          <p>We'll review it and merge your contribution!</p>
-        </div>
-
-        <div class="contribute-step">
-          <h3>6. Want to Contribute Code?</h3>
-          <p>The main source code for the ThunderDex Android app is here:</p>
-          <ul>
-            <li><a href="https://github.com/HiFIi/HiFii.GitHub.io" target="_blank" rel="noopener noreferrer">ThunderHub GitHub Repository</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="settings-panel" role="tabpanel" aria-labelledby="settings-tab" hidden>
-      <h2 class="contribute-title">Settings</h2>
-      <p>Customize your ThunderHub experience:</p>
-
-      <div class="theme-option-group">
-        <h3>App Theme</h3>
-        <p>Choose your preferred color scheme.</p>
-        <div class="theme-buttons-container">
-          <button class="theme-button active-theme" data-theme="dark">
-            <span class="material-symbols-outlined">dark_mode</span> Dark
-          </button>
-          <button class="theme-button" data-theme="light">
-            <span class="material-symbols-outlined">light_mode</span> Light
-          </button>
-          <button class="theme-button" data-theme="system">
-            <span class="material-symbols-outlined">settings_brightness</span> System Default
-          </button>
-        </div>
-      </div>
-
-      <div class="theme-option-group">
-        <h3>Text Size</h3>
-        <p>Adjust the font size for readability.</p>
-        <div class="theme-buttons-container">
-          <button class="theme-button active-theme" data-text-size="medium">Medium</button>
-          <button class="theme-button" data-text-size="large">Large</button>
-        </div>
-      </div>
-
-      <p style="margin-top: 24px;">More settings options coming soon!</p>
-    </section>
-  </main>
-
-  <nav class="bottom-navigation" id="bottom-nav">
-    <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
-      <span class="material-symbols-outlined">home</span>
-      <span>Home</span>
+    </script>
+  </head>
+  <body data-theme="dark">
+    <!-- Default to dark theme -->
+    <div class="animated-background">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <fegaussianblur
+              in="SourceGraphic"
+              stddeviation="10"
+              result="blur"
+            ></fegaussianblur>
+            <fecolormatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -8"
+              result="goo"
+            ></fecolormatrix>
+            <feblend in="SourceGraphic" in2="goo"></feblend>
+          </filter>
+        </defs>
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g5"></div>
+      </svg>
     </div>
-    <div class="nav-tab" id="changelog-tab" data-target-panel="changelog-panel">
-      <span class="material-symbols-outlined">history</span>
-      <span>Changelog</span>
-    </div>
-    <div class="nav-tab" id="contribute-tab" data-target-panel="source-code-panel">
-      <span class="material-symbols-outlined">code</span>
-      <span>Contribute</span>
-    </div>
-    <div class="nav-tab" id="settings-tab" data-target-panel="settings-panel">
-      <span class="material-symbols-outlined">settings</span>
-      <span>Settings</span>
-    </div>
-  </nav>
 
-  <script src="script.js"></script>
-</body>
+    <header>
+      <h1>T H U N D E R H U B<span class="subtitle"></span></h1>
+    </header>
+
+    <main>
+      <section
+        id="home-panel"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+        class="active"
+      >
+        <h2 class="changelog-title">Welcome to ThunderHub!</h2>
+        <p>
+          Your one-stop destination for all things ThunderDex. Here you'll find
+          the latest updates, ways to contribute to the project, and links to
+          our community channels.
+        </p>
+        <div class="build-status-container">
+          <span class="build-status-label">Latest Build:</span>
+          <span class="build-status-value">2025.2.0 (07-31-25)</span>
+        </div>
+        <ul class="important-notes-section">
+          <strong>Key Features:</strong>
+          <li>
+            Stay up-to-date with the latest app features and bug fixes in the
+            <b>Changelog</b>.
+          </li>
+          <li>
+            Learn how to help translate ThunderDex or contribute to the code on
+            the <b>Contribute</b> tab.
+          </li>
+          <li>
+            Adjust app preferences and appearance on the <b>Settings</b> tab.
+          </li>
+          <hr class="divider" />
+          <li>
+            ThunderDex is constantly evolving thanks to community support.
+            Explore and get involved!
+          </li>
+        </ul>
+      </section>
+
+      <section
+        id="changelog-panel"
+        role="tabpanel"
+        aria-labelledby="changelog-tab"
+        hidden
+      >
+        <h2 class="changelog-title">Build: 2025.2.0 (07-31-25)</h2>
+        <ul>
+          <li>Fix Changelog Fragment parsing incorrect info</li>
+          <li>Add human-translated Russian language into the app (WIP)</li>
+          <li>
+            Fix app customization force close on older devices (hopefully)
+          </li>
+          <li>Added back App Customization layout for Android 12+</li>
+          <li>
+            Vehicle Weaponry Group: Add unique image for Tank Ammunition section
+          </li>
+          <li>Vehicle Weaponry Group: Reduce card height</li>
+          <li>Update Android Gradle Plugin (AGP)</li>
+          <li>Update Gradle</li>
+        </ul>
+      </section>
+
+      <section
+        id="source-code-panel"
+        role="tabpanel"
+        aria-labelledby="contribute-tab"
+        hidden
+      >
+        <div class="contribute-section">
+          <h2>🚀 Contribute Translations to ThunderDex</h2>
+          <p>
+            Want to help localize ThunderDex into your language? Follow this
+            quick guide to learn how to fork the project and submit your first
+            pull request on GitHub.
+          </p>
+
+          <div class="contribute-step">
+            <h3>1. Create Your GitHub Account</h3>
+            <p>Don’t have a GitHub account yet? Sign up below:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/join"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >github.com/join</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="contribute-step">
+            <h3>2. Fork the Translations Repository</h3>
+            <p>
+              This creates your own editable copy of the ThunderDex translations
+              repo:
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/HiFIi/WarThunderWiki-Translations"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >WarThunderWiki-Translations on GitHub</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="contribute-step">
+            <h3>3. Add a Language Folder</h3>
+            <p>
+              Inside the project, translations live in Android-style folders
+              like:
+            </p>
+            <div class="code-box">app/src/main/res/values-ru/strings.xml</div>
+            <p>Make a new folder for your language using the format:</p>
+            <div class="code-box">values-xx</div>
+            <p>
+              Replace <code>xx</code> with your language code, e.g.
+              <code>values-fr</code> for French.
+            </p>
+
+            <div class="note">
+              💡 Tip: See
+              <a
+                href="https://github.com/HiFIi/WarThunderWiki-Translations/blob/main/README.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                >README.md</a
+              >
+              for supported language codes and examples.
+            </div>
+          </div>
+
+          <div class="contribute-step">
+            <h3>4. Edit <code>strings.xml</code></h3>
+            <p>
+              Inside your new folder, create or update the
+              <code>strings.xml</code> file with your translations.
+            </p>
+            <div class="code-box">
+              <resources
+                ><br />
+                  <string name="app_name">ThunderDex</string><br />
+                  <string name="welcome_message">Bienvenue!</string><br />
+              </resources>
+            </div>
+          </div>
+
+          <div class="contribute-step">
+            <h3>5. Submit a Pull Request</h3>
+            <p>
+              Once your changes are committed to your forked copy, open a pull
+              request back to the original repository:
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/HiFIi/WarThunderWiki-Translations/compare"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Open a Pull Request</a
+                >
+              </li>
+            </ul>
+            <p>We'll review it and merge your contribution!</p>
+          </div>
+
+          <div class="contribute-step">
+            <h3>6. Want to Contribute Code?</h3>
+            <p>The main source code for the ThunderDex Android app is here:</p>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/HiFIi/HiFii.GitHub.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ThunderHub GitHub Repository</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="settings-panel"
+        role="tabpanel"
+        aria-labelledby="settings-tab"
+        hidden
+      >
+        <h2 class="contribute-title">Settings</h2>
+        <p>Customize your ThunderHub experience:</p>
+
+        <div class="theme-option-group">
+          <h3>App Theme</h3>
+          <p>Choose your preferred color scheme.</p>
+          <div class="theme-buttons-container">
+            <button class="theme-button active-theme" data-theme="dark">
+              <span class="material-symbols-outlined">dark_mode</span> Dark
+            </button>
+            <button class="theme-button" data-theme="light">
+              <span class="material-symbols-outlined">light_mode</span> Light
+            </button>
+            <button class="theme-button" data-theme="system">
+              <span class="material-symbols-outlined">settings_brightness</span>
+              System Default
+            </button>
+          </div>
+        </div>
+
+        <div class="theme-option-group">
+          <h3>Text Size</h3>
+          <p>Adjust the font size for readability.</p>
+          <div class="theme-buttons-container">
+            <button class="theme-button active-theme" data-text-size="medium">
+              Medium
+            </button>
+            <button class="theme-button" data-text-size="large">Large</button>
+          </div>
+        </div>
+
+        <p style="margin-top: 24px">More settings options coming soon!</p>
+      </section>
+    </main>
+
+    <nav class="bottom-navigation" id="bottom-nav">
+      <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
+        <span class="material-symbols-outlined">home</span>
+        <span>Home</span>
+      </div>
+      <div
+        class="nav-tab"
+        id="changelog-tab"
+        data-target-panel="changelog-panel"
+      >
+        <span class="material-symbols-outlined">history</span>
+        <span>Changelog</span>
+      </div>
+      <div
+        class="nav-tab"
+        id="contribute-tab"
+        data-target-panel="source-code-panel"
+      >
+        <span class="material-symbols-outlined">code</span>
+        <span>Contribute</span>
+      </div>
+      <div class="nav-tab" id="settings-tab" data-target-panel="settings-panel">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </div>
+    </nav>
+
+    <script src="script.js"></script>
+  </body>
 </html>
