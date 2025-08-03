@@ -23,6 +23,13 @@ window.addEventListener("DOMContentLoaded", () => {
     ["#000000", "#1F1F1F", "#393939", "#32FF18", "#70FF6E", "#D0FFD6", "#FFFFFF"],
   ];
 
+// Hide splash screen after animation ends
+setTimeout(() => {
+  const splash = document.getElementById("splash-screen");
+  splash?.remove();
+}, 3000);
+
+
   const bg = document.querySelector(".animated-background");
 
   const hexToRgb = (hex) => {
@@ -59,7 +66,12 @@ window.addEventListener("DOMContentLoaded", () => {
   let currentColors = getRandomGradient();
   let currentAngle = Math.floor(Math.random() * 360);
 
-  const applyGradient = (colors = currentColors) => {
+  const applyGradient = (colors = currentColors) => {// Hide splash screen after animation ends
+setTimeout(() => {
+  const splash = document.getElementById("splash-screen");
+  splash?.remove();
+}, 3000);
+
     bg.style.backgroundImage = buildGradient(currentAngle, colors);
   };
 
@@ -101,7 +113,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     requestAnimationFrame(step);
-  }, 30000);
+  }, 15000);
 
   // ---- NAVIGATION ----
   const tabs = document.querySelectorAll(".nav-tab");
