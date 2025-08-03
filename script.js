@@ -23,7 +23,7 @@ window.onload = () => {
           activateTab(document.getElementById("home-tab"));
         });
       }, { once: true });
-    }, 1600);
+    }, 1200);
   } else {
     activateTab(document.getElementById("home-tab"));
   }
@@ -141,13 +141,12 @@ window.onload = () => {
   const panels = {
     "home-panel": document.getElementById("home-panel"),
     "changelog-panel": document.getElementById("changelog-panel"),
-    "source-code-panel": document.getElementById("source-code-panel"), // This is your Contribute tab
+    "source-code-panel": document.getElementById("source-code-panel"),
     "settings-panel": document.getElementById("settings-panel"),
   };
 
   const activateTab = (tab) => {
     if (!tab) return;
-
     tabs.forEach((t) => {
       t.classList.remove("active");
       t.setAttribute("aria-selected", "false");
@@ -159,19 +158,18 @@ window.onload = () => {
         panel.setAttribute("hidden", "true");
       }
     });
-
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
     tab.setAttribute("tabindex", "0");
-
     const target = tab.dataset.targetPanel;
     if (panels[target]) {
       panels[target].removeAttribute("hidden");
       panels[target].classList.add("active");
     }
     tab.focus();
+  };
 
-    // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
+ // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
     const body = document.body;
     const animatedBackground = document.querySelector(".animated-background");
 
@@ -190,8 +188,6 @@ window.onload = () => {
         animatedBackground.style.opacity = "var(--base-opacity)";
       }
     }
-    // --- END NEW LOGIC ---
-  };
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => activateTab(tab));
@@ -217,47 +213,24 @@ window.onload = () => {
     switch (mode) {
       case "dark":
         document.body.style.setProperty("--base-opacity", "0.40");
-        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.1)");
-        // Ensure other animated background elements revert to defaults if needed
-        document.body.style.setProperty("--grain-opacity-main", "0.15");
-        document.body.style.setProperty("--grain-opacity-extra", "0.1");
+        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.8)");
         break;
       case "light":
         document.body.style.setProperty("--base-opacity", "0.15");
         document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.05)");
-        document.body.style.setProperty("--grain-opacity-main", "0.1");
-        document.body.style.setProperty("--grain-opacity-extra", "0.08");
         break;
       case "grey":
         document.body.style.setProperty("--base-opacity", "0.35");
         document.body.style.setProperty("--glow-color", "rgba(187, 134, 252, 0.08)");
-        document.body.style.setProperty("--grain-opacity-main", "0.12");
-        document.body.style.setProperty("--grain-opacity-extra", "0.09");
         break;
       case "material-purple":
-        // For material-purple, we want the animated background mostly hidden
-        document.body.style.setProperty("--base-opacity", "0");
-        document.body.style.setProperty("--glow-color", "rgba(0, 0, 0, 0)"); // No glow if hidden
-        document.body.style.setProperty("--grain-opacity-main", "0"); // No grain
-        document.body.style.setProperty("--grain-opacity-extra", "0"); // No extra grain
+        document.body.style.setProperty("--base-opacity", "0.3");
+        document.body.style.setProperty("--glow-color", "rgba(206, 189, 255, 0.15)");
         break;
       default:
-        // Fallback for system or unknown themes
         document.body.style.setProperty("--base-opacity", "0.40");
         document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.1)");
-        document.body.style.setProperty("--grain-opacity-main", "0.15");
-        document.body.style.setProperty("--grain-opacity-extra", "0.1");
         break;
-    }
-
-    // After applying theme, if 'Contribute' tab is active, ensure its background is correct
-    // This handles cases where theme is switched while on the Contribute tab
-    const contributeTab = document.getElementById("contribute-tab");
-    if (contributeTab && contributeTab.classList.contains("active")) {
-      document.body.style.backgroundColor = "#10101c";
-      if (animatedBackground) {
-        animatedBackground.style.opacity = "0";
-      }
     }
   };
 
@@ -282,12 +255,6 @@ window.onload = () => {
       .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
       ?.classList.add("active-theme");
     applyTheme(savedTheme);
-  } else {
-    const defaultTheme = mq.matches ? "system" : "dark";
-    document
-      .querySelector(`.theme-button[data-theme="${defaultTheme}"]`)
-      ?.classList.add("active-theme");
-    applyTheme(defaultTheme);
   }
 
   // ---- TEXT SIZE ----
@@ -303,10 +270,6 @@ window.onload = () => {
   if (savedSize) {
     document
       .querySelector(`.theme-button[data-text-size="${savedSize}"]`)
-      ?.classList.add("active-theme");
-  } else {
-    document
-      .querySelector('.theme-button[data-text-size="medium"]')
       ?.classList.add("active-theme");
   }
 
@@ -340,3 +303,4 @@ window.onload = () => {
     });
   }
 };
+
