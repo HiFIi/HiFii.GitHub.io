@@ -263,15 +263,6 @@ body[data-theme="grey"] {
   .gradients-container {
     filter: none !important; /* Remove blur from gooey gradients */
   }
-  /* If you still want the gooey effect without the background, ensure the .g1-.g5 elements are visible */
-  .g1,
-  .g2,
-  .g3,
-  .g4,
-  .g5 {
-    opacity: 0.6 !important; /* Adjust if too dim or bright */
-    mix-blend-mode: screen !important; /* Or 'lighten', 'plus-lighter', 'overlay' depending on desired effect */
-  }
 }
 
 /* Material Purple Theme Variables */
@@ -638,7 +629,7 @@ Animated Background - OPTIMIZED
 .g1 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color1), 0.25) 0%, /* Changed 1 to 0.25 */
+      rgba(var(--color1), 1) 0%,
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
@@ -655,7 +646,7 @@ Animated Background - OPTIMIZED
 .g2 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color2), 0.25) 0%, /* Changed 1 to 0.25 */
+      rgba(var(--color2), 1) 0%,
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
@@ -672,7 +663,7 @@ Animated Background - OPTIMIZED
 .g3 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color3), 0.25) 0%, /* Changed 1 to 0.25 */
+      rgba(var(--color3), 1) 0%,
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
@@ -689,7 +680,7 @@ Animated Background - OPTIMIZED
 .g4 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color4), 0.25) 0%, /* Changed 1 to 0.25 */
+      rgba(var(--color4), 1) 0%,
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
@@ -706,7 +697,7 @@ Animated Background - OPTIMIZED
 .g5 {
   background: radial-gradient(
       circle at center,
-      rgba(var(--color5), 0.25) 0%, /* Changed 1 to 0.25 */
+      rgba(var(--color5), 1) 0%,
       rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
@@ -1313,90 +1304,11 @@ Media Queries - Mobile Optimizations
 @media (max-width: 768px) {
   body {
     padding-bottom: 80px; /* Adjusted padding for taller bottom navigation */
-    /* Set overall body background to opaque */
-    background-color: var(--primary-background) !important;
-    overflow-y: auto !important; /* Allow scrolling if content overflows */
-  }
-
-  /* Ensure splash screen is also opaque and static */
-  #splash-screen {
-    background-color: var(--primary-background) !important;
-    transition: none !important; /* No fade-out animation for splash */
-  }
-
-  .splash-logo,
-  .splash-text {
-    animation: none !important; /* No fade-out animation for splash text/logo */
   }
 
   main {
     padding: 0 15px 80px;
-    animation: none !important; /* Disable main content fade-in */
-    opacity: 1 !important; /* Ensure main content is visible */
-    transform: none !important; /* Remove any initial transform */
   } /* Adjust main padding for mobile bottom nav */
-
-  /* Remove all animations from the background elements */
-  .animated-background,
-  .animated-background::before,
-  .animated-background::after,
-  .animated-background .extra-grain {
-    animation: none !important; /* Disable all animations */
-    transition: none !important; /* Disable any transitions */
-    opacity: 1 !important; /* Make background fully opaque */
-    filter: none !important; /* Remove any filters like brightness, contrast */
-    transform: none !important; /* Remove any transforms like zoomPulse */
-    background-image: none !important; /* Remove grain images */
-    background-color: var(--primary-background) !important; /* Solid background color */
-  }
-
-  /* Hide gradient blobs by setting their opacity to 0 or display to none */
-  .g1,
-  .g2,
-  .g3,
-  .g4,
-  .g5 {
-    animation: none !important; /* Disable movement animations */
-    transition: none !important; /* Disable any transitions */
-    opacity: 0 !important; /* Make them completely invisible */
-    display: none !important; /* Or set display to none if you want to remove them from layout */
-  }
-
-  .gradients-container {
-    filter: none !important; /* Ensure no blur on gradients container */
-    transform: none !important; /* No hardware acceleration trick needed if elements are gone */
-    display: none !important; /* Hide the container if blobs are hidden */
-  }
-
-  header {
-    animation: none !important; /* Disable header fade-in */
-    opacity: 1 !important; /* Ensure header is visible */
-    transform: none !important; /* Remove initial transform */
-    backdrop-filter: none !important; /* Remove frosted glass */
-    -webkit-backdrop-filter: none !important; /* Remove frosted glass */
-    background-color: var(--primary-background) !important; /* Opaque background */
-  }
-
-  section {
-    transition: none !important; /* Disable section transitions */
-    animation: none !important; /* Disable section animations */
-    opacity: 1 !important; /* Ensure sections are visible */
-    transform: none !important; /* Remove any initial transform */
-  }
-
-  section.active {
-    animation: none !important; /* Disable active section animation */
-    transform: none !important; /* Remove active section transform */
-  }
-
-  section[role="tabpanel"],
-  .important-notes-section,
-  .theme-option-group {
-    backdrop-filter: none !important; /* Remove frosted glass */
-    -webkit-backdrop-filter: none !important; /* Remove frosted glass */
-    /* Ensure background color is opaque and matches the primary background if desired, or a solid variation */
-    background-color: var(--primary-background) !important; /* Or a solid color like #17171c for dark theme */
-  }
 
   .bottom-navigation {
     height: 60px; /* Slightly smaller height on mobile for space */
@@ -1405,21 +1317,16 @@ Media Queries - Mobile Optimizations
     max-width: calc(
       100% - 20px
     ); /* Adjust max-width to consider body padding */
-    backdrop-filter: none !important; /* Remove frosted glass */
-    -webkit-backdrop-filter: none !important; /* Remove frosted glass */
-    background-color: var(--primary-background) !important; /* Make nav opaque */
-    transition: none !important; /* Remove nav transitions */
   }
 
   .nav-tab {
     font-size: 12px; /* Smaller font for mobile tabs */
     padding: 6px 10px; /* Adjust padding */
     min-width: 60px;
-    transition: none !important; /* Remove tab transitions */
   }
 
-  .nav-tab.active {
-    transform: none !important; /* Remove active tab lift animation */
+  .nav-tab .material-symbols-outlined {
+    font-size: 22px; /* Slightly smaller icon size for mobile */
   }
 
   .theme-option-group h3 {
@@ -1429,50 +1336,5 @@ Media Queries - Mobile Optimizations
   .theme-button {
     font-size: 14px;
     padding: 8px 12px;
-    transition: none !important; /* Remove button transitions */
-    transform: none !important; /* Remove button hover/active transforms */
-  }
-
-  .theme-button:hover,
-  .theme-button.active-theme {
-    transform: none !important; /* Remove hover/active transforms */
-  }
-}
-
-/* You might consider a `@media (prefers-reduced-motion)` query as well
-   for users who prefer less motion, regardless of device type. */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  /* Specific elements you want to hide entirely if motion is reduced */
-  .animated-background,
-  .gradients-wrapper,
-  .gradients-container,
-  .g1, .g2, .g3, .g4, .g5,
-  .animated-background::before,
-  .animated-background::after,
-  .animated-background .extra-grain {
-    animation: none !important;
-    transition: none !important;
-    opacity: 0 !important;
-    filter: none !important;
-    display: none !important; /* Hide them completely */
-  }
-
-  /* Ensure backdrop-filter is also removed if animations are preferred to be off */
-  header,
-  section[role="tabpanel"],
-  .important-notes-section,
-  .theme-option-group,
-  .bottom-navigation {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
   }
 }
