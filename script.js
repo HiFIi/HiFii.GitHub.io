@@ -1,6 +1,6 @@
 // script.js
 
-window.addEventListener("DOMContentLoaded", () => {
+window.onload = () => {
   // ---- SPLASH SCREEN CONTROL ----
   const splash = document.getElementById("splash-screen");
   const mainHeader = document.querySelector("header");
@@ -13,17 +13,23 @@ window.addEventListener("DOMContentLoaded", () => {
     mainContent.style.display = "none";
     bottomNav.style.display = "none";
 
-    // Allow some time for fonts to load and splash animation to be seen
+    // Wait a bit to show splash then fade it out
     setTimeout(() => {
       splash.classList.add("fade-out"); // Start fade out animation
-      // After fade-out animation completes, remove the splash screen and show main content
+
       splash.addEventListener("transitionend", () => {
-        splash.remove();
+        splash.remove(); // Remove splash from DOM
         mainHeader.style.display = ""; // Show header
-        mainContent.style.display = ""; // Show main
-        bottomNav.style.display = ""; // Show navigation
-      });
-    }, 2800); // Adjust this delay as needed, e.g., 2800ms (2.8 seconds)
+        mainContent.style.display = ""; // Show main content
+        bottomNav.style.display = ""; // Show bottom nav
+        requestAnimationFrame(() => {
+          activateTab(document.getElementById("home-tab")); // Activate home tab now
+        });
+      }, { once: true });
+    }, 1600); // ~1.6 seconds splash duration
+  } else {
+    // If no splash, just activate home tab immediately
+    activateTab(document.getElementById("home-tab"));
   }
 
   // ---- GRADIENT ANIMATION ----
@@ -83,9 +89,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let currentColors = getRandomGradient();
   let currentAngle = Math.floor(Math.random() * 360);
+  let gradientTimer = 0;
 
   const applyGradient = (colors = currentColors) => {
-    bg.style.backgroundImage = buildGradient(currentAngle, colors);
+    if (bg) {
+      bg.style.backgroundImage = buildGradient(currentAngle, colors);
+    }
   };
 
   let isVisible = true;
@@ -94,9 +103,13 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   let lastTime = performance.now();
+
   const rotateStep = (dt) => {
-    if (dt > 100 || dt < 10) return; // throttle large or tiny frames
-    currentAngle = (currentAngle + dt * 0.005) % 360;
+    gradientTimer += dt;
+    if (gradientTimer < 1000 / 30) return; // limit updates to ~30fps
+    gradientTimer = 0;
+
+    currentAngle = (currentAngle + dt * 0.0025) % 360;
     applyGradient(currentColors);
   };
 
@@ -116,7 +129,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const start = performance.now();
 
     const step = () => {
-      const t = Math.min((performance.now() - start) / 5000, 1);
+      const t = Math.min((performance.now() - start) / 3500, 1);
       const blended = currentColors.map((c, i) =>
         interpolateColor(c, nextColors[i] || nextColors.at(-1), t)
       );
@@ -138,14 +151,17 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   const activateTab = (tab) => {
+    if (!tab) return;
     tabs.forEach((t) => {
       t.classList.remove("active");
       t.setAttribute("aria-selected", "false");
       t.setAttribute("tabindex", "-1");
     });
     Object.values(panels).forEach((panel) => {
-      panel.classList.remove("active");
-      panel.setAttribute("hidden", "true");
+      if (panel) {
+        panel.classList.remove("active");
+        panel.setAttribute("hidden", "true");
+      }
     });
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
@@ -171,15 +187,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Activate home tab only after splash screen is gone
-  if (!splash) {
-    activateTab(document.getElementById("home-tab"));
-  } else {
-    splash.addEventListener("transitionend", () => {
-      activateTab(document.getElementById("home-tab"));
-    });
-  }
-
   // ---- THEME AND TEXT SIZE ----
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
   const textButtons = document.querySelectorAll(".theme-button[data-text-size]");
@@ -188,7 +195,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const applyTheme = (name) => {
     const mode = name === "system" ? (mq.matches ? "dark" : "light") : name;
     document.body.setAttribute("data-theme", mode);
-    bg.style.opacity = mode === "light" ? "0.15" : "0.40";
+    if (bg) bg.style.opacity = mode === "light" ? "0.15" : "0.40";
   };
 
   themeButtons.forEach((btn) =>
@@ -246,4 +253,5 @@ window.addEventListener("DOMContentLoaded", () => {
       window.open("https://github.com/HiFIi/HiFii.GitHub.io", "_blank");
     });
   }
-});
+};
+
