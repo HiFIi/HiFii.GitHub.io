@@ -254,7 +254,7 @@ Animated Background
     left: 0;
     width: 100%;
     height: 100%;
-    filter: url(#goo) blur(40px);
+    filter: url(#goo) blur(20px);  /* Reduced blur for sharper colors */
     pointer-events: none;
 }
 
@@ -267,78 +267,85 @@ Animated Background
     will-change: transform, opacity;
 }
 
-/* g1: Vertical */
+/* Each gradient blob uses black fade edges for dramatic effect */
 .g1 {
-    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color2), 0) 50%);
-    width: var(--circle-size);
-    height: var(--circle-size);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation:
-        moveVertical 16s ease-in-out infinite,
-        scalePulse 12s ease-in-out infinite;
-    opacity: 1;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color1), 1) 0%,           /* Full opacity */
+    rgba(0, 0, 0, 0.4) 40%,              /* Less black fade */
+    rgba(0, 0, 0, 0) 70%                 /* Earlier transparency */
+  ) no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+  opacity: 1;
 }
 
-/* g2: Spin reverse */
 .g2 {
-    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%);
-    width: var(--circle-size);
-    height: var(--circle-size);
-    top: 50%;
-    left: 50%;
-    transform-origin: 400px center;
-    animation:
-        moveInCircle 40s linear reverse infinite,
-        rotateSlightly 20s ease-in-out infinite;
-    opacity: 1;
-    animation-delay: 2s;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color2), 1) 0%,           /* Full opacity */
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0) 70%
+  ) no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
 }
 
-/* g3: Spin normal */
 .g3 {
-    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%);
-    width: var(--circle-size);
-    height: var(--circle-size);
-    top: 50%;
-    left: 50%;
-    transform-origin: -400px center;
-    animation:
-        moveInCircle 24s linear infinite,
-        rotateSlightly 30s ease-in-out infinite;
-    opacity: 1;
-    animation-delay: 1s;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color3), 1) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0) 70%
+  ) no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: 1;
 }
 
-/* g4: Horizontal motion */
 .g4 {
-    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%);
-    width: var(--circle-size);
-    height: var(--circle-size);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation:
-        moveHorizontal 18s ease-in-out infinite,
-        scalePulse 14s ease-in-out infinite;
-    opacity: 0.7;
-    animation-delay: 0.5s;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color4), 1) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0) 70%
+  ) no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 1;  /* Increased opacity */
 }
 
-/* g5: Larger circle spin */
 .g5 {
-    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%);
-    width: calc(var(--circle-size) * 2);
-    height: calc(var(--circle-size) * 2);
-    top: 50%;
-    left: 50%;
-    transform-origin: -800px 200px;
-    animation:
-        moveInCircle 48s ease infinite,
-        scalePulse 20s ease-in-out infinite;
-    opacity: 1;
-    animation-delay: 4s;
+  background: radial-gradient(
+    circle at center,
+    rgba(var(--color5), 1) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0) 70%
+  ) no-repeat;
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: 1;
 }
 
 

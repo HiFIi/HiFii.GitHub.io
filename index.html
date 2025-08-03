@@ -27,13 +27,14 @@
 
   <!-- Fade-in style for smooth startup -->
   <style>
-    body {
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    body.ready {
-      opacity: 1;
-    }
+body {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+body.ready {
+  opacity: 1;
+}
+
   </style>
 
   <!-- Script to trigger fade-in after DOM is ready -->
@@ -58,6 +59,7 @@
       <div class="g1"></div>
       <div class="g2"></div>
       <div class="g3"></div>
+      <div class="g5"></div>
     </svg>
   </div>
 
@@ -69,6 +71,10 @@
     <section id="home-panel" role="tabpanel" aria-labelledby="home-tab" class="active">
       <h2 class="changelog-title">Welcome to ThunderHub!</h2>
       <p>Your one-stop destination for all things ThunderDex. Here you'll find the latest updates, ways to contribute to the project, and links to our community channels.</p>
+      <div class="build-status-container">
+        <span class="build-status-label">Latest Build:</span>
+        <span class="build-status-value">2025.2.0 (07-31-25)</span>
+      </div>
       <ul class="important-notes-section">
         <strong>Key Features:</strong>
         <li>Stay up-to-date with the latest app features and bug fixes in the <b>Changelog</b>.</li>
