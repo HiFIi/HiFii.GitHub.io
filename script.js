@@ -29,6 +29,7 @@ window.onload = () => {
       );
     }, 1600);
   } else {
+    // Ensure home-tab is activated if no splash screen
     activateTab(document.getElementById("home-tab"));
   }
 
@@ -299,6 +300,15 @@ window.onload = () => {
 
   const activateTab = (tab) => {
     if (!tab) return;
+
+    // --- NEW LOGIC FOR "SOURCE" TAB ---
+    // If the clicked tab is the "source-tab", open the link and stop further execution
+    if (tab.id === "source-tab") {
+      window.open("https://github.com/hifii/hifii.github.io", "_blank");
+      return; // Stop activateTab from doing anything else for this specific tab
+    }
+
+    // Normal tab activation logic for all *other* tabs
     tabs.forEach((t) => {
       t.classList.remove("active");
       t.setAttribute("aria-selected", "false");
@@ -320,23 +330,21 @@ window.onload = () => {
     }
     tab.focus();
 
-    // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
+    // --- LOGIC FOR GITHUB TAB BACKGROUND (for the internal "Contribute" panel) ---
     const body = document.body;
     const animatedBackground = document.querySelector(".animated-background");
 
+    // This applies when the *internal* "Contribute" panel is activated
     if (target === "source-code-panel") {
-      // Check if the target is the 'Contribute' tab
       body.style.backgroundColor = "#10101c";
       if (animatedBackground) {
-        animatedBackground.style.opacity = "0"; // Hide it completely
+        animatedBackground.style.opacity = "0";
       }
     } else {
       // Revert to theme's primary background color if another tab is selected
       body.style.backgroundColor = "var(--primary-background)";
-
       // Restore animated background opacity
       if (animatedBackground) {
-        // This will revert to the theme's base-opacity (defined in style.css)
         animatedBackground.style.opacity = "var(--base-opacity)";
       }
     }
@@ -348,8 +356,13 @@ window.onload = () => {
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         e.preventDefault();
         const currentIndex = Array.from(tabs).indexOf(document.activeElement);
-        const delta = e.key === "ArrowRight" ? 1 : -1;
-        const nextIndex = (currentIndex + delta + tabs.length) % tabs.length;
+        // Ensure that navigating with arrow keys doesn't try to activate the 'Source' tab as an internal panel
+        let nextIndex = (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+        // Skip the 'Source' tab if navigating to it via arrow keys, unless that's the only option
+        if (tabs[nextIndex].id === "source-tab" && tabs.length > 1) {
+             // If there's another tab to go to, skip this one
+             nextIndex = (nextIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+        }
         activateTab(tabs[nextIndex]);
       }
     });
@@ -386,28 +399,7 @@ window.onload = () => {
           "--glow-color",
           "rgba(187, 134, 252, 0.08)",
         );
-        break; // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
-        const body = document.body;
-        const animatedBackground = document.querySelector(
-          ".animated-background",
-        );
-
-        if (target === "source-code-panel") {
-          // Check if the target is the 'Contribute' tab
-          body.style.backgroundColor = "#10101c";
-          if (animatedBackground) {
-            animatedBackground.style.opacity = "0"; // Hide it completely
-          }
-        } else {
-          // Revert to theme's primary background color if another tab is selected
-          body.style.backgroundColor = "var(--primary-background)";
-
-          // Restore animated background opacity
-          if (animatedBackground) {
-            // This will revert to the theme's base-opacity (defined in style.css)
-            animatedBackground.style.opacity = "var(--base-opacity)";
-          }
-        }
+        break;
       case "material-purple":
         document.body.style.setProperty("--base-opacity", "0.3");
         document.body.style.setProperty(
@@ -422,6 +414,20 @@ window.onload = () => {
           "rgba(0, 255, 255, 0.1)",
         );
         break;
+    }
+    // Reapply background logic after theme change if the "Contribute" tab is active
+    // This part should be safe since it targets the internal "source-code-panel"
+    const currentActivePanel = document.querySelector('main section.active');
+    if (currentActivePanel && currentActivePanel.id === 'source-code-panel') {
+        document.body.style.backgroundColor = "#10101c";
+        if (document.querySelector(".animated-background")) {
+            document.querySelector(".animated-background").style.opacity = "0";
+        }
+    } else {
+        document.body.style.backgroundColor = "var(--primary-background)";
+        if (document.querySelector(".animated-background")) {
+            document.querySelector(".animated-background").style.opacity = "var(--base-opacity)";
+        }
     }
   };
 
@@ -442,27 +448,7 @@ window.onload = () => {
     }
   });
 
-  const savedTheme = lo; // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
-  const body = document.body;
-  const animatedBackground = document.querySelector(".animated-background");
-
-  if (target === "source-code-panel") {
-    // Check if the target is the 'Contribute' tab
-    body.style.backgroundColor = "#10101c";
-    if (animatedBackground) {
-      animatedBackground.style.opacity = "0"; // Hide it completely
-    }
-  } else {
-    // Revert to theme's primary background color if another tab is selected
-    body.style.backgroundColor = "var(--primary-background)";
-
-    // Restore animated background opacity
-    if (animatedBackground) {
-      // This will revert to the theme's base-opacity (defined in style.css)
-      animatedBackground.style.opacity = "var(--base-opacity)";
-    }
-  }
-  calStorage.getItem("thunderhub-theme");
+  const savedTheme = localStorage.getItem("thunderhub-theme");
   if (savedTheme) {
     document
       .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
@@ -476,6 +462,8 @@ window.onload = () => {
       textButtons.forEach((b) => b.classList.remove("active-theme"));
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-text-size", btn.dataset.textSize);
+      // You might want to add logic here to actually change text size
+      document.body.setAttribute("data-text-size", btn.dataset.textSize);
     }),
   );
 
@@ -484,6 +472,10 @@ window.onload = () => {
     document
       .querySelector(`.theme-button[data-text-size="${savedSize}"]`)
       ?.classList.add("active-theme");
+    document.body.setAttribute("data-text-size", savedSize); // Apply on load
+  } else {
+    // Default text size if none saved
+    document.body.setAttribute("data-text-size", "medium");
   }
 
   // ---- BLENDING MODE ----
@@ -510,11 +502,4 @@ window.onload = () => {
     ?.classList.add("active-theme");
   applyBlending(savedBlend);
 
-  // ---- VIEW SOURCE ----
-  const sourceTab = document.getElementById("source-tab");
-  if (sourceTab) {
-    sourceTab.addEventListener("click", () => {
-      window.open("https://github.com/HiFIi/HiFii.GitHub.io", "_blank");
-    });
-  }
 };
