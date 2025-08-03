@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ["#BDCCC1", "#B3C2B8", "#A8B8AF", "#9EAEA6", "#93A49D", "#899A94", "#7E908B"],
     ];
 
+    // Filter gradients to exclude very light ones
     function isLightColor(hex) {
         const r = parseInt(hex.substring(1, 3), 16);
         const g = parseInt(hex.substring(3, 5), 16);
@@ -31,104 +32,202 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const filteredGradientSets = [];
-    const seen = new Set();
-    for (const set of originalGradientSets) {
-        const key = JSON.stringify(set.slice().sort());
-        if (!set.some(isLightColor) && !seen.has(key)) {
+    const seenCombinations = new Set();
+
+    originalGradientSets.forEach(set => {
+        const hasLightColor = set.some(color => isLightColor(color));
+        const stringifiedSet = JSON.stringify(set.slice().sort());
+        if (!hasLightColor && !seenCombinations.has(stringifiedSet)) {
             filteredGradientSets.push(set);
-            seen.add(key);
+            seenCombinations.add(stringifiedSet);
         }
-    }
+    });
 
     const blendModes = ["overlay", "soft-light", "multiply", "screen", "color-dodge"];
     const bg = document.querySelector(".animated-background");
 
-    // 🔀 Always pick new on refresh
+    // Always select random on load
     let currentColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
     let currentAngle = Math.floor(Math.random() * 360);
-    const blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
+    let blendMode = blendModes[Math.floor(Math.random() * blendModes.length)];
 
-    // 🔧 Interpolation
-    const hexToRgb = (hex) => {
+    // Interpolation + utilities
+    function hexToRgb(hex) {
         const bigint = parseInt(hex.slice(1), 16);
         return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
-    };
+    }
 
-    const rgbToHex = (r, g, b) =>
-        "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+    function rgbToHex(r, g, b) {
+        return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+    }
 
-    const interpolateColor = (c1, c2, t) => {
-        const [r1, g1, b1] = hexToRgb(c1);
-        const [r2, g2, b2] = hexToRgb(c2);
+    function interpolateColor(color1, color2, factor) {
+        const [r1, g1, b1] = hexToRgb(color1);
+        const [r2, g2, b2] = hexToRgb(color2);
         return rgbToHex(
-            Math.round(r1 + t * (r2 - r1)),
-            Math.round(g1 + t * (g2 - g1)),
-            Math.round(b1 + t * (b2 - b1))
+            Math.round(r1 + factor * (r2 - r1)),
+            Math.round(g1 + factor * (g2 - g1)),
+            Math.round(b1 + factor * (b2 - b1))
         );
-    };
+    }
 
-    const buildGradient = (angle, colors) =>
-        `linear-gradient(${angle}deg, ${colors.map((c, i) => `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")})`;
+    function buildGradient(angle, colors) {
+        return `linear-gradient(${angle}deg, ${colors.map((c, i) => `${c} ${(i / (colors.length - 1)) * 100}%`).join(", ")})`;
+    }
 
-    // 🌀 Gradient rotation
     let isAnimatingColors = false;
-    let lastFrame = 0;
 
-    const applyGradient = () => {
+    function applyGradientAndRotate() {
+        if (!isAnimatingColors) {
+            currentAngle = (currentAngle + 0.25) % 360;
+        }
         bg.style.backgroundImage = buildGradient(currentAngle, currentColors);
-    };
+    }
 
-    const animateRotation = (ts) => {
-        if (!lastFrame) lastFrame = ts;
-        const elapsed = ts - lastFrame;
-        currentAngle = (currentAngle + 0.25 * (elapsed / 16.67)) % 360;
-        if (!isAnimatingColors) applyGradient();
-        lastFrame = ts;
+    let lastRotationFrameTime = 0;
+    function animateRotation(timestamp) {
+        if (!lastRotationFrameTime) lastRotationFrameTime = timestamp;
+        const elapsed = timestamp - lastRotationFrameTime;
+        currentAngle = (currentAngle + (0.25 * elapsed / 1000 * 60)) % 360;
+        applyGradientAndRotate();
+        lastRotationFrameTime = timestamp;
         requestAnimationFrame(animateRotation);
-    };
+    }
     requestAnimationFrame(animateRotation);
 
-    // 🎨 Change palette every 30s
     setInterval(() => {
         let nextColors;
         do {
             nextColors = filteredGradientSets[Math.floor(Math.random() * filteredGradientSets.length)];
         } while (JSON.stringify(nextColors) === JSON.stringify(currentColors));
 
-        // Pad to match length
-        const originalColors = [...currentColors];
-        while (nextColors.length < originalColors.length) {
-            nextColors.push(nextColors[nextColors.length - 1]);
-        }
-
-        const startTime = performance.now();
         const duration = 5000;
+        const startTime = performance.now();
         isAnimatingColors = true;
 
         const animatePalette = () => {
             const elapsed = performance.now() - startTime;
-            const t = Math.min(elapsed / duration, 1);
+            const progress = Math.min(elapsed / duration, 1);
 
-            currentColors = originalColors.map((c, i) =>
-                interpolateColor(c, nextColors[i], t)
+            currentColors = currentColors.map((color, i) =>
+                interpolateColor(color, nextColors[i] || nextColors[nextColors.length - 1], progress)
             );
 
-            applyGradient();
+            applyGradientAndRotate();
 
-            if (t < 1) {
+            if (progress < 1) {
                 requestAnimationFrame(animatePalette);
             } else {
                 currentColors = nextColors;
                 isAnimatingColors = false;
+                // Optional: Save only after transition
+                localStorage.setItem("gradient-colors", JSON.stringify(currentColors));
             }
         };
-
         requestAnimationFrame(animatePalette);
     }, 30000);
 
-    // 🌫️ Blend mode overlay
     const grainStyle = document.createElement("style");
     grainStyle.textContent = `.animated-background::before { mix-blend-mode: ${blendMode}; }`;
     document.head.appendChild(grainStyle);
+
+    // --- Bottom Navigation Tabs ---
+    const navTabs = document.querySelectorAll('.nav-tab');
+    const panels = {
+        'home-panel': document.getElementById('home-panel'),
+        'changelog-panel': document.getElementById('changelog-panel'),
+        'source-code-panel': document.getElementById('source-code-panel'),
+        'settings-panel': document.getElementById('settings-panel')
+    };
+
+    const activateTab = (tabElement) => {
+        navTabs.forEach(tab => tab.classList.remove('active'));
+        for (const panelId in panels) {
+            panels[panelId].classList.remove('active');
+            panels[panelId].setAttribute('hidden', 'true');
+        }
+
+        tabElement.classList.add('active');
+        const targetPanelId = tabElement.dataset.targetPanel;
+        const activePanel = panels[targetPanelId];
+        if (activePanel) {
+            activePanel.removeAttribute('hidden');
+            activePanel.classList.add('active');
+        }
+    };
+
+    navTabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab));
+    });
+
+    const initialTab = document.getElementById('home-tab');
+    if (initialTab) activateTab(initialTab);
+
+    // --- Theme Buttons ---
+    const themeButtons = document.querySelectorAll('.theme-button[data-theme]');
+    const systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const applyTheme = (theme) => {
+        const body = document.body;
+        if (theme === 'system') {
+            body.setAttribute('data-theme', systemThemeMediaQuery.matches ? 'dark' : 'light');
+        } else {
+            body.setAttribute('data-theme', theme);
+        }
+
+        if (body.getAttribute('data-theme') === 'light') {
+            grainStyle.textContent = `.animated-background::before { mix-blend-mode: soft-light !important; opacity: 0.5 !important; }`;
+            bg.style.opacity = '0.15';
+        } else {
+            grainStyle.textContent = `.animated-background::before { mix-blend-mode: overlay !important; opacity: 0.9 !important; }`;
+            bg.style.opacity = '0.40';
+        }
+    };
+
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            themeButtons.forEach(btn => btn.classList.remove('active-theme'));
+            button.classList.add('active-theme');
+            const theme = button.dataset.theme;
+            localStorage.setItem('thunderhub-theme', theme);
+            applyTheme(theme);
+        });
+    });
+
+    systemThemeMediaQuery.addEventListener('change', () => {
+        if (document.querySelector('.theme-button.active-theme[data-theme="system"]')) {
+            applyTheme('system');
+        }
+    });
+
+    const savedTheme = localStorage.getItem('thunderhub-theme');
+    if (savedTheme) {
+        document.querySelector(`.theme-button[data-theme="${savedTheme}"]`)?.classList.add('active-theme');
+        applyTheme(savedTheme);
+    } else {
+        const fallback = systemThemeMediaQuery.matches ? 'system' : 'dark';
+        document.querySelector(`.theme-button[data-theme="${fallback}"]`)?.classList.add('active-theme');
+        applyTheme(fallback);
+    }
+
+    // --- Text Size Buttons ---
+    const textSizeButtons = document.querySelectorAll('.theme-button[data-text-size]');
+    textSizeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            textSizeButtons.forEach(btn => btn.classList.remove('active-theme'));
+            button.classList.add('active-theme');
+            const textSize = button.dataset.textSize;
+            localStorage.setItem('thunderhub-text-size', textSize);
+            // Optional: apply text size styling
+        });
+    });
+
+    const savedTextSize = localStorage.getItem('thunderhub-text-size');
+    if (savedTextSize) {
+        document.querySelector(`.theme-button[data-text-size="${savedTextSize}"]`)?.classList.add('active-theme');
+        // Optional: apply text size styling
+    } else {
+        document.querySelector('.theme-button[data-text-size="medium"]')?.classList.add('active-theme');
+    }
 });
 
