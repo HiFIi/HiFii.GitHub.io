@@ -2,6 +2,11 @@
 /* ==========================================================================
 Font Definitions
 ========================================================================== */
+/*
+  Font Optimization:
+  Review if all these fonts are strictly necessary. Each @font-face is a download.
+  Consider using fewer custom fonts or serving them from your own domain in WOFF2 format.
+*/
 @font-face {
   font-family: "UberMoveBold";
   src: url("fonts/cashsans_black.otf") format("opentype");
@@ -61,7 +66,8 @@ Root Variables (Themes and Common)
   /* Common variables for both themes if they share values or structure */
   --border-radius: 16px;
   --box-shadow: 0 8px 20px var(--glass-shadow-color);
-  --frosted-glass-effect: blur(16px) saturate(1.8) brightness(1.2);
+  /* Simplified frosted glass effect for performance */
+  --frosted-glass-effect: blur(10px); /* Reduced blur amount */
   --transition-duration: 0.01s;
   --ripple-color: rgba(93, 46, 255, 0.15); /* Keep a consistent ripple */
 
@@ -87,7 +93,8 @@ body[data-theme="dark"] {
   --md-sys-color-secondary: #e0e0ff; /* Secondary muted */
   --md-sys-color-on-secondary: #1b1b1c; /* Text on secondary muted */
 
-  --glass-blue-dark: rgba(21, 22, 28, 0.2);
+  /* Adjusted glass colors to be slightly less complex if 'saturate' and 'brightness' are removed from blur */
+  --glass-blue-dark: rgba(21, 22, 28, 0.7); /* Increased opacity for more solid look without complex filter */
   --glass-blue-medium: rgba(245, 245, 255, 0.2);
   --glass-border-color: rgba(255, 255, 255, 0.35);
   --glass-shadow-color: rgba(0, 0, 0, 0.65);
@@ -110,7 +117,7 @@ body[data-theme="dark"] {
 
 /* Light Theme Variables */
 body[data-theme="light"] {
-  --primary-background: #f5f5f5; /* Light background */
+  --primary-background: rgba(255, 255, 255, 0.4); /* Overall body background 40% opaque */
   --on-primary-background: #1c1c1e; /* Dark text on light background */
 
   --md-sys-color-primary: #164ca3; /* Primary accent */
@@ -119,16 +126,17 @@ body[data-theme="light"] {
   --md-sys-color-secondary: #7a818b; /* Secondary muted */
   --md-sys-color-on-secondary: #ffffff; /* Text on secondary muted */
 
-  --glass-blue-dark: rgba(255, 255, 255, 0.7); /* Lighter glass */
-  --glass-blue-medium: rgba(240, 240, 240, 0.8); /* Even lighter glass */
+  /* Adjusted glass colors */
+  --glass-blue-dark: rgba(255, 255, 255, 1); /* Full opaque for bottom nav, overridden for header/panels below */
+  --glass-blue-medium: rgba(255, 255, 255, 0.4); /* 40% opaque for other glass elements */
   --glass-border-color: rgba(0, 0, 0, 0.1); /* Darker border for light glass */
   --glass-shadow-color: rgba(0, 0, 0, 0.1); /* Lighter shadow */
 
-  --header-text-color: #1c1c1e;
+  --header-text-color: white; /* "Thunderhub" text white */
   --subtitle-color: #4a4a4a;
   --link-color: #164ca3; /* Accent blue for links */
   --title-color-bright: #164ca3; /* Accent blue for titles */
-  --note-bg-color: rgba(240, 240, 240, 0.7);
+  --note-bg-color: rgba(255, 255, 255, 0.4); /* 40% white for notes/cards */
   --note-text-color: #333333;
   --button-bg-color: rgba(220, 220, 220, 0.7);
   --button-border-color: rgba(150, 150, 150, 0.3);
@@ -146,10 +154,10 @@ body[data-theme="light"] {
 
   /* Adjust animated background opacity for light theme */
   .animated-background {
-    opacity: 0.35 !important;
+    opacity: 1 !important;
   } /* Less intrusive */
   .animated-background::before {
-    opacity: 0.5 !important;
+    opacity: 0.65 !important;
     mix-blend-mode: soft-light !important;
   } /* Adjust grain */
 }
@@ -186,7 +194,7 @@ body {
 }
 
 /* ==========================================================================
-Animated Background
+Animated Background - OPTIMIZED
 ========================================================================== */
 .animated-background {
   position: fixed;
@@ -196,12 +204,13 @@ Animated Background
   height: 100vh;
   z-index: -1;
   background-size: cover;
-  opacity: 0.3;
+  opacity: 0.85; /* Adjusted base opacity */
   animation:
     gradientFlow 20s ease-in-out infinite alternate,
     zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
   transform-origin: center center;
   will-change: background-image, transform, filter;
+  /* Removed the direct filter from here and pseudo-elements */
 }
 
 .animated-background::after {
@@ -255,15 +264,18 @@ Animated Background
   z-index: -1;
 }
 
-/* Gooey + blur */
+/* Gooey + blur - OPTIMIZED: Applied blur directly to container, removed SVG filter */
 .gradients-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  filter: url(#goo) blur(20px); /* Reduced blur for sharper colors */
+  /* Simplified blur - no SVG filter for better performance */
+  filter: blur(10px); /* Reduced blur for performance */
   pointer-events: none;
+  /* If you want the 'goo' effect, you'd need a more performant SVG setup
+     or a different approach. This removes the SVG filter to fix lag. */
 }
 
 /* Shared style */
@@ -277,6 +289,8 @@ Animated Background
   border-radius: 50%;
   background-repeat: no-repeat;
   will-change: transform, opacity;
+  /* Using radial-gradient directly on each blob,
+     consider simpler gradients if performance is still an issue */
 }
 
 /* Each gradient blob uses black fade edges for dramatic effect */
@@ -284,8 +298,8 @@ Animated Background
   background: radial-gradient(
       circle at center,
       rgba(var(--color1), 1) 0%,
-      /* Full opacity */ rgba(0, 0, 0, 0.4) 40%,
-      /* Less black fade */ rgba(0, 0, 0, 0) 70% /* Earlier transparency */
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
     )
     no-repeat;
   width: var(--circle-size);
@@ -301,7 +315,7 @@ Animated Background
   background: radial-gradient(
       circle at center,
       rgba(var(--color2), 1) 0%,
-      /* Full opacity */ rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.4) 40%,
       rgba(0, 0, 0, 0) 70%
     )
     no-repeat;
@@ -374,6 +388,7 @@ h1 {
   text-align: center;
   margin-left: 1rem;
   margin-right: 1rem;
+  /* Removed background property to make it transparent */
   color: var(--header-text-color); /* Theme-dependent */
   text-shadow:
     0 4px 10px rgba(0, 0, 0, 0.6),
@@ -411,7 +426,7 @@ header {
   text-align: center;
   padding: 10px 0 20px;
   position: relative;
-  background-color: var(--glass-blue-dark); /* Apply frosted glass to header */
+  /* Apply frosted glass to header */
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
   opacity: 1; /* Fully opaque header */
@@ -421,6 +436,10 @@ header {
   border: 4px solid var(--glass-border-color); /* Add border to header */
   z-index: 2;
   animation: fadeInDown 1s ease-out forwards;
+}
+
+body[data-theme="light"] header {
+  background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
 }
 
 main {
@@ -439,7 +458,7 @@ main {
 
 section[role="tabpanel"] {
   padding: 24px;
-  background-color: var(--glass-blue-dark); /* Apply frosted glass to panels */
+  /* Apply frosted glass to panels */
   border-radius: var(--border-radius);
   margin-bottom: 24px;
   display: none;
@@ -448,6 +467,10 @@ section[role="tabpanel"] {
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
   color: var(--on-primary-background); /* Theme-dependent */
+}
+
+body[data-theme="light"] section[role="tabpanel"] {
+  background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
 }
 
 section.active {
