@@ -14,15 +14,19 @@ window.onload = () => {
 
     setTimeout(() => {
       splash.classList.add("fade-out");
-      splash.addEventListener("transitionend", () => {
-        splash.remove();
-        mainHeader.style.display = "";
-        mainContent.style.display = "";
-        bottomNav.style.display = "";
-        requestAnimationFrame(() => {
-          activateTab(document.getElementById("home-tab"));
-        });
-      }, { once: true });
+      splash.addEventListener(
+        "transitionend",
+        () => {
+          splash.remove();
+          mainHeader.style.display = "";
+          mainContent.style.display = "";
+          bottomNav.style.display = "";
+          requestAnimationFrame(() => {
+            activateTab(document.getElementById("home-tab"));
+          });
+        },
+        { once: true },
+      );
     }, 1600);
   } else {
     activateTab(document.getElementById("home-tab"));
@@ -30,24 +34,168 @@ window.onload = () => {
 
   // ---- GRADIENT ANIMATION ----
   const originalGradientSets = [
-    ["#000000", "#050A0F", "#003046", "#006B8F", "#00C4E1", "#A3E8FF", "#FFFFFF"],
-    ["#12001A", "#3B004D", "#680085", "#9A00B8", "#CC3DFF", "#E6B3FF", "#FFFFFF"],
-    ["#1A0010", "#420034", "#7D2E6F", "#FF577F", "#FF9A5E", "#FFCE82", "#FFF9E1"],
-    ["#001A2B", "#3A2E87", "#FF5C5C", "#FFAD6F", "#FFD865", "#FFFD9A", "#FFF7E1"],
-    ["#0A0B0F", "#19202A", "#398C85", "#62D9DD", "#B9F1EE", "#E7FFFF", "#FFFFFF"],
-    ["#0E0E0E", "#1F1F1F", "#434343", "#6B6B6B", "#929292", "#B9B9B9", "#E0E0E0"],
-    ["#2E0000", "#600000", "#9D0000", "#CC2900", "#FF5E00", "#FF9133", "#FFD766"],
-    ["#000000", "#003E40", "#006873", "#00A497", "#42C4B6", "#FF7A7A", "#FFD455"],
-    ["#150F34", "#4A3572", "#866EB0", "#BDA1F8", "#D9D1FF", "#FBFAFF", "#FFFFFF"],
-    ["#000628", "#005082", "#00B2B7", "#98CC5F", "#D4FD7C", "#F6FFD1", "#FFFFFF"],
-    ["#0D0029", "#31005B", "#741BA1", "#A95BD7", "#CD8DFF", "#E3B6FF", "#FFFFFF"],
-    ["#12212B", "#2C4651", "#3E6D77", "#63C6FF", "#00FFD6", "#00FF7F", "#FFFFFF"],
-    ["#000000", "#24003E", "#54008A", "#8F00CE", "#00FFFF", "#7FFFD4", "#FFFFFF"],
-    ["#FFD4F7", "#FFA3E6", "#FF6ED1", "#FF37B8", "#FF0094", "#CC007A", "#99005C"],
-    ["#4C0000", "#800000", "#D93900", "#FF6C00", "#FF9E33", "#FFCD66", "#FFFFCC"],
-    ["#1F2123", "#43494F", "#6F7890", "#A9B4CC", "#D4DCE6", "#F0F4F9", "#FFFFFF"],
-    ["#000016", "#1E0043", "#440077", "#6F00B3", "#9D00E0", "#CD65FF", "#F4E1FF"],
-    ["#000000", "#1F1F1F", "#393939", "#32FF18", "#70FF6E", "#D0FFD6", "#FFFFFF"],
+    [
+      "#000000",
+      "#050A0F",
+      "#003046",
+      "#006B8F",
+      "#00C4E1",
+      "#A3E8FF",
+      "#FFFFFF",
+    ],
+    [
+      "#12001A",
+      "#3B004D",
+      "#680085",
+      "#9A00B8",
+      "#CC3DFF",
+      "#E6B3FF",
+      "#FFFFFF",
+    ],
+    [
+      "#1A0010",
+      "#420034",
+      "#7D2E6F",
+      "#FF577F",
+      "#FF9A5E",
+      "#FFCE82",
+      "#FFF9E1",
+    ],
+    [
+      "#001A2B",
+      "#3A2E87",
+      "#FF5C5C",
+      "#FFAD6F",
+      "#FFD865",
+      "#FFFD9A",
+      "#FFF7E1",
+    ],
+    [
+      "#0A0B0F",
+      "#19202A",
+      "#398C85",
+      "#62D9DD",
+      "#B9F1EE",
+      "#E7FFFF",
+      "#FFFFFF",
+    ],
+    [
+      "#0E0E0E",
+      "#1F1F1F",
+      "#434343",
+      "#6B6B6B",
+      "#929292",
+      "#B9B9B9",
+      "#E0E0E0",
+    ],
+    [
+      "#2E0000",
+      "#600000",
+      "#9D0000",
+      "#CC2900",
+      "#FF5E00",
+      "#FF9133",
+      "#FFD766",
+    ],
+    [
+      "#000000",
+      "#003E40",
+      "#006873",
+      "#00A497",
+      "#42C4B6",
+      "#FF7A7A",
+      "#FFD455",
+    ],
+    [
+      "#150F34",
+      "#4A3572",
+      "#866EB0",
+      "#BDA1F8",
+      "#D9D1FF",
+      "#FBFAFF",
+      "#FFFFFF",
+    ],
+    [
+      "#000628",
+      "#005082",
+      "#00B2B7",
+      "#98CC5F",
+      "#D4FD7C",
+      "#F6FFD1",
+      "#FFFFFF",
+    ],
+    [
+      "#0D0029",
+      "#31005B",
+      "#741BA1",
+      "#A95BD7",
+      "#CD8DFF",
+      "#E3B6FF",
+      "#FFFFFF",
+    ],
+    [
+      "#12212B",
+      "#2C4651",
+      "#3E6D77",
+      "#63C6FF",
+      "#00FFD6",
+      "#00FF7F",
+      "#FFFFFF",
+    ],
+    [
+      "#000000",
+      "#24003E",
+      "#54008A",
+      "#8F00CE",
+      "#00FFFF",
+      "#7FFFD4",
+      "#FFFFFF",
+    ],
+    [
+      "#FFD4F7",
+      "#FFA3E6",
+      "#FF6ED1",
+      "#FF37B8",
+      "#FF0094",
+      "#CC007A",
+      "#99005C",
+    ],
+    [
+      "#4C0000",
+      "#800000",
+      "#D93900",
+      "#FF6C00",
+      "#FF9E33",
+      "#FFCD66",
+      "#FFFFCC",
+    ],
+    [
+      "#1F2123",
+      "#43494F",
+      "#6F7890",
+      "#A9B4CC",
+      "#D4DCE6",
+      "#F0F4F9",
+      "#FFFFFF",
+    ],
+    [
+      "#000016",
+      "#1E0043",
+      "#440077",
+      "#6F00B3",
+      "#9D00E0",
+      "#CD65FF",
+      "#F4E1FF",
+    ],
+    [
+      "#000000",
+      "#1F1F1F",
+      "#393939",
+      "#32FF18",
+      "#70FF6E",
+      "#D0FFD6",
+      "#FFFFFF",
+    ],
   ];
 
   const bg = document.querySelector(".animated-background");
@@ -58,7 +206,8 @@ window.onload = () => {
   };
 
   const rgbToHex = (r, g, b) =>
-    "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+    "#" +
+    ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
 
   const interpolateColor = (c1, c2, t) => {
     const [r1, g1, b1] = hexToRgb(c1);
@@ -66,7 +215,7 @@ window.onload = () => {
     return rgbToHex(
       Math.round(r1 + (r2 - r1) * t),
       Math.round(g1 + (g2 - g1) * t),
-      Math.round(b1 + (b2 - b1) * t)
+      Math.round(b1 + (b2 - b1) * t),
     );
   };
 
@@ -78,7 +227,10 @@ window.onload = () => {
   const getRandomGradient = (exclude) => {
     let pick;
     do {
-      pick = originalGradientSets[Math.floor(Math.random() * originalGradientSets.length)];
+      pick =
+        originalGradientSets[
+          Math.floor(Math.random() * originalGradientSets.length)
+        ];
     } while (exclude && JSON.stringify(pick) === JSON.stringify(exclude));
     return [...pick];
   };
@@ -126,7 +278,7 @@ window.onload = () => {
     const step = () => {
       const t = Math.min((performance.now() - start) / 3500, 1);
       const blended = currentColors.map((c, i) =>
-        interpolateColor(c, nextColors[i] || nextColors.at(-1), t)
+        interpolateColor(c, nextColors[i] || nextColors.at(-1), t),
       );
       applyGradient(blended);
       if (t < 1) requestAnimationFrame(step);
@@ -168,11 +320,12 @@ window.onload = () => {
     }
     tab.focus();
 
-// --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
+    // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
     const body = document.body;
     const animatedBackground = document.querySelector(".animated-background");
 
-    if (target === "source-code-panel") { // Check if the target is the 'Contribute' tab
+    if (target === "source-code-panel") {
+      // Check if the target is the 'Contribute' tab
       body.style.backgroundColor = "#10101c";
       if (animatedBackground) {
         animatedBackground.style.opacity = "0"; // Hide it completely
@@ -204,7 +357,9 @@ window.onload = () => {
 
   // ---- THEME ----
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
-  const textButtons = document.querySelectorAll(".theme-button[data-text-size]");
+  const textButtons = document.querySelectorAll(
+    ".theme-button[data-text-size]",
+  );
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
   const applyTheme = (name) => {
@@ -213,41 +368,59 @@ window.onload = () => {
     switch (mode) {
       case "dark":
         document.body.style.setProperty("--base-opacity", "0.40");
-        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.8)");
+        document.body.style.setProperty(
+          "--glow-color",
+          "rgba(0, 255, 255, 0.8)",
+        );
         break;
       case "light":
         document.body.style.setProperty("--base-opacity", "0.15");
-        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.05)");
+        document.body.style.setProperty(
+          "--glow-color",
+          "rgba(0, 255, 255, 0.05)",
+        );
         break;
       case "grey":
         document.body.style.setProperty("--base-opacity", "0.35");
-        document.body.style.setProperty("--glow-color", "rgba(187, 134, 252, 0.08)");
-        break;// --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
-    const body = document.body;
-    const animatedBackground = document.querySelector(".animated-background");
+        document.body.style.setProperty(
+          "--glow-color",
+          "rgba(187, 134, 252, 0.08)",
+        );
+        break; // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
+        const body = document.body;
+        const animatedBackground = document.querySelector(
+          ".animated-background",
+        );
 
-    if (target === "source-code-panel") { // Check if the target is the 'Contribute' tab
-      body.style.backgroundColor = "#10101c";
-      if (animatedBackground) {
-        animatedBackground.style.opacity = "0"; // Hide it completely
-      }
-    } else {
-      // Revert to theme's primary background color if another tab is selected
-      body.style.backgroundColor = "var(--primary-background)";
+        if (target === "source-code-panel") {
+          // Check if the target is the 'Contribute' tab
+          body.style.backgroundColor = "#10101c";
+          if (animatedBackground) {
+            animatedBackground.style.opacity = "0"; // Hide it completely
+          }
+        } else {
+          // Revert to theme's primary background color if another tab is selected
+          body.style.backgroundColor = "var(--primary-background)";
 
-      // Restore animated background opacity
-      if (animatedBackground) {
-        // This will revert to the theme's base-opacity (defined in style.css)
-        animatedBackground.style.opacity = "var(--base-opacity)";
-      }
-    }
+          // Restore animated background opacity
+          if (animatedBackground) {
+            // This will revert to the theme's base-opacity (defined in style.css)
+            animatedBackground.style.opacity = "var(--base-opacity)";
+          }
+        }
       case "material-purple":
         document.body.style.setProperty("--base-opacity", "0.3");
-        document.body.style.setProperty("--glow-color", "rgba(206, 189, 255, 0.15)");
+        document.body.style.setProperty(
+          "--glow-color",
+          "rgba(206, 189, 255, 0.15)",
+        );
         break;
       default:
         document.body.style.setProperty("--base-opacity", "0.40");
-        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.1)");
+        document.body.style.setProperty(
+          "--glow-color",
+          "rgba(0, 255, 255, 0.1)",
+        );
         break;
     }
   };
@@ -258,34 +431,38 @@ window.onload = () => {
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-theme", btn.dataset.theme);
       applyTheme(btn.dataset.theme);
-    })
+    }),
   );
 
   mq.addEventListener("change", () => {
-    if (document.querySelector('.theme-button.active-theme[data-theme="system"]')) {
+    if (
+      document.querySelector('.theme-button.active-theme[data-theme="system"]')
+    ) {
       applyTheme("system");
     }
   });
 
-  const savedTheme = lo// --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
-    const body = document.body;
-    const animatedBackground = document.querySelector(".animated-background");
+  const savedTheme = lo; // --- NEW LOGIC FOR GITHUB TAB BACKGROUND ---
+  const body = document.body;
+  const animatedBackground = document.querySelector(".animated-background");
 
-    if (target === "source-code-panel") { // Check if the target is the 'Contribute' tab
-      body.style.backgroundColor = "#10101c";
-      if (animatedBackground) {
-        animatedBackground.style.opacity = "0"; // Hide it completely
-      }
-    } else {
-      // Revert to theme's primary background color if another tab is selected
-      body.style.backgroundColor = "var(--primary-background)";
+  if (target === "source-code-panel") {
+    // Check if the target is the 'Contribute' tab
+    body.style.backgroundColor = "#10101c";
+    if (animatedBackground) {
+      animatedBackground.style.opacity = "0"; // Hide it completely
+    }
+  } else {
+    // Revert to theme's primary background color if another tab is selected
+    body.style.backgroundColor = "var(--primary-background)";
 
-      // Restore animated background opacity
-      if (animatedBackground) {
-        // This will revert to the theme's base-opacity (defined in style.css)
-        animatedBackground.style.opacity = "var(--base-opacity)";
-      }
-    }calStorage.getItem("thunderhub-theme");
+    // Restore animated background opacity
+    if (animatedBackground) {
+      // This will revert to the theme's base-opacity (defined in style.css)
+      animatedBackground.style.opacity = "var(--base-opacity)";
+    }
+  }
+  calStorage.getItem("thunderhub-theme");
   if (savedTheme) {
     document
       .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
@@ -299,7 +476,7 @@ window.onload = () => {
       textButtons.forEach((b) => b.classList.remove("active-theme"));
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-text-size", btn.dataset.textSize);
-    })
+    }),
   );
 
   const savedSize = localStorage.getItem("thunderhub-text-size");
@@ -310,7 +487,9 @@ window.onload = () => {
   }
 
   // ---- BLENDING MODE ----
-  const blendingButtons = document.querySelectorAll(".theme-button[data-blending]");
+  const blendingButtons = document.querySelectorAll(
+    ".theme-button[data-blending]",
+  );
 
   const applyBlending = (mode) => {
     document.body.style.setProperty("--blending", mode);
@@ -322,7 +501,7 @@ window.onload = () => {
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-blending", btn.dataset.blending);
       applyBlending(btn.dataset.blending);
-    })
+    }),
   );
 
   const savedBlend = localStorage.getItem("thunderhub-blending") || "screen";
@@ -339,4 +518,3 @@ window.onload = () => {
     });
   }
 };
-

@@ -121,7 +121,7 @@ body[data-theme="dark"] {
 
   --grain-opacity-main: 0.15;
   --grain-opacity-extra: 0.1;
-  --base-opacity: 0.40;
+  --base-opacity: 0.4;
   --glow-color: rgba(0, 255, 255, 0.1); /* subtle cyan glow */
 }
 
@@ -161,12 +161,7 @@ body[data-theme="light"] {
   --subtitle-color: #4a4a4a;
   --link-color: #164ca3; /* Accent blue for links */
   --title-color-bright: #164ca3; /* Accent blue for titles */
-  --note-bg-color: rgba(
-    255,
-    255,
-    255,
-    0.4
-  ); /* 40% white for notes/cards */
+  --note-bg-color: rgba(255, 255, 255, 0.4); /* 40% white for notes/cards */
   --note-text-color: #333333;
   --button-bg-color: rgba(220, 220, 220, 0.7);
   --button-border-color: rgba(150, 150, 150, 0.3);
@@ -200,12 +195,12 @@ body[data-theme="light"] {
 /* Grey Theme Variables (Material Dark Grey) */
 body[data-theme="grey"] {
   --primary-background: #212121; /* Google Material Dark Grey 900 */
-  --on-primary-background: #E0E0E0; /* Light text for contrast */
+  --on-primary-background: #e0e0e0; /* Light text for contrast */
 
-  --md-sys-color-primary: #BB86FC; /* Material Design purple for accent */
+  --md-sys-color-primary: #bb86fc; /* Material Design purple for accent */
   --md-sys-color-on-primary: #212121;
 
-  --md-sys-color-secondary: #03DAC6; /* Material Design teal for secondary */
+  --md-sys-color-secondary: #03dac6; /* Material Design teal for secondary */
   --md-sys-color-on-secondary: #212121;
 
   --glass-blue-dark: rgba(33, 33, 33, 0.8); /* Slightly transparent dark grey */
@@ -213,20 +208,35 @@ body[data-theme="grey"] {
   --glass-border-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
   --glass-shadow-color: rgba(0, 0, 0, 0.7); /* Darker shadow */
 
-  --header-text-color: #E0E0E0;
-  --subtitle-color: #BDBDBD; /* Lighter grey for subtitles */
-  --link-color: #BB86FC; /* Primary accent for links */
-  --title-color-bright: #BB86FC; /* Primary accent for titles */
-  --note-bg-color: rgba(50, 50, 50, 0.6); /* Slightly lighter grey for notes/cards */
-  --note-text-color: #E0E0E0;
+  --header-text-color: #e0e0e0;
+  --subtitle-color: #bdbdbd; /* Lighter grey for subtitles */
+  --link-color: #bb86fc; /* Primary accent for links */
+  --title-color-bright: #bb86fc; /* Primary accent for titles */
+  --note-bg-color: rgba(
+    50,
+    50,
+    50,
+    0.6
+  ); /* Slightly lighter grey for notes/cards */
+  --note-text-color: #e0e0e0;
   --button-bg-color: rgba(97, 97, 97, 0.3); /* Grey 600 with transparency */
-  --button-border-color: rgba(158, 158, 158, 0.4); /* Grey 500 with transparency */
-  --button-text-color: #E0E0E0;
+  --button-border-color: rgba(
+    158,
+    158,
+    158,
+    0.4
+  ); /* Grey 500 with transparency */
+  --button-text-color: #e0e0e0;
   --button-hover-bg-color: rgba(97, 97, 97, 0.5);
   --button-hover-border-color: rgba(158, 158, 158, 0.7);
-  --active-tab-bg-color: rgba(187, 134, 252, 0.2); /* Accent with transparency */
+  --active-tab-bg-color: rgba(
+    187,
+    134,
+    252,
+    0.2
+  ); /* Accent with transparency */
   --active-tab-text-color: var(--link-color);
-  --inactive-tab-text-color: #9E9E9E; /* Grey 500 for inactive text */
+  --inactive-tab-text-color: #9e9e9e; /* Grey 500 for inactive text */
 
   /* These values were intended to hide/show grain and glow, now controlled by JS on tab change */
   --grain-opacity-main: 0.12;
@@ -236,7 +246,9 @@ body[data-theme="grey"] {
 
   /* Specific overrides for animated background when this theme is active */
   .animated-background {
-    opacity: var(--base-opacity) !important; /* Use theme variable for base opacity */
+    opacity: var(
+      --base-opacity
+    ) !important; /* Use theme variable for base opacity */
   }
   .animated-background::before {
     opacity: var(--grain-opacity-main) !important;
@@ -259,7 +271,11 @@ body[data-theme="material-purple"] {
   --primary-background: rgb(20, 19, 23); /* md-sys-color-background */
   --on-primary-background: rgb(230, 225, 231); /* md-sys-color-on-background */
 
-  --md-sys-color-primary: rgb(206, 189, 255); /* primary-fixed-dim / surface-tint as primary accent */
+  --md-sys-color-primary: rgb(
+    206,
+    189,
+    255
+  ); /* primary-fixed-dim / surface-tint as primary accent */
   --md-sys-color-on-primary: rgb(53, 37, 99);
 
   --md-sys-color-secondary: rgb(203, 194, 226);
@@ -272,26 +288,63 @@ body[data-theme="material-purple"] {
   --md-sys-color-on-error: rgb(105, 0, 5);
 
   /* Glassmorphism elements */
-  --glass-blue-dark: rgba(32, 31, 35, 0.9); /* md-sys-color-surface-container with high opacity */
-  --glass-blue-medium: rgba(43, 41, 46, 0.6); /* md-sys-color-surface-container-high with medium opacity */
-  --glass-border-color: rgba(147, 143, 154, 0.3); /* md-sys-color-outline with transparency */
+  --glass-blue-dark: rgba(
+    32,
+    31,
+    35,
+    0.9
+  ); /* md-sys-color-surface-container with high opacity */
+  --glass-blue-medium: rgba(
+    43,
+    41,
+    46,
+    0.6
+  ); /* md-sys-color-surface-container-high with medium opacity */
+  --glass-border-color: rgba(
+    147,
+    143,
+    154,
+    0.3
+  ); /* md-sys-color-outline with transparency */
   --glass-shadow-color: rgba(0, 0, 0, 0.8); /* Dark shadow */
 
   --header-text-color: var(--on-primary-background);
   --subtitle-color: rgb(202, 196, 209); /* md-sys-color-on-surface-variant */
   --link-color: rgb(100, 84, 149); /* md-sys-color-inverse-primary for links */
-  --title-color-bright: var(--md-sys-color-primary); /* Primary accent for titles */
+  --title-color-bright: var(
+    --md-sys-color-primary
+  ); /* Primary accent for titles */
 
-  --note-bg-color: rgba(28, 27, 31, 0.7); /* md-sys-color-surface-container-low with transparency */
+  --note-bg-color: rgba(
+    28,
+    27,
+    31,
+    0.7
+  ); /* md-sys-color-surface-container-low with transparency */
   --note-text-color: var(--on-primary-background);
 
-  --button-bg-color: rgba(76, 69, 95, 0.4); /* md-sys-color-secondary-container with transparency */
-  --button-border-color: rgba(147, 143, 154, 0.5); /* md-sys-color-outline with transparency */
+  --button-bg-color: rgba(
+    76,
+    69,
+    95,
+    0.4
+  ); /* md-sys-color-secondary-container with transparency */
+  --button-border-color: rgba(
+    147,
+    143,
+    154,
+    0.5
+  ); /* md-sys-color-outline with transparency */
   --button-text-color: var(--on-primary-background);
   --button-hover-bg-color: rgba(76, 69, 95, 0.6);
   --button-hover-border-color: rgba(147, 143, 154, 0.8);
 
-  --active-tab-bg-color: rgba(100, 84, 149, 0.2); /* inverse-primary with transparency */
+  --active-tab-bg-color: rgba(
+    100,
+    84,
+    149,
+    0.2
+  ); /* inverse-primary with transparency */
   --active-tab-text-color: var(--link-color);
   --inactive-tab-text-color: var(--subtitle-color);
 
@@ -317,7 +370,11 @@ body[data-theme="material-purple"] {
     filter: none !important; /* Remove blur from gooey gradients */
   }
   /* If you still want the gooey effect without the background, ensure the .g1-.g5 elements are visible */
-  .g1, .g2, .g3, .g4, .g5 {
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5 {
     opacity: 0.6 !important; /* Adjust if too dim or bright */
     mix-blend-mode: screen !important; /* Or 'lighten', 'plus-lighter', 'overlay' depending on desired effect */
   }
@@ -410,8 +467,10 @@ Animated Background - OPTIMIZED
 ========================================================================== */
 .animated-background {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -10;
   background-size: cover;
   opacity: var(--base-opacity);
@@ -430,8 +489,10 @@ Animated Background - OPTIMIZED
 .animated-background::after {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -449,8 +510,10 @@ Animated Background - OPTIMIZED
 .animated-background::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-image: url("data:image/svg+xml;utf8,\
   <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'>\
   <filter id='noiseFilter'>\
@@ -471,8 +534,10 @@ Animated Background - OPTIMIZED
 /* Extra subtle grain layer: slower and finer detail */
 .animated-background .extra-grain {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,\
   <svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'>\
@@ -507,9 +572,15 @@ Animated Background - OPTIMIZED
 
 /* Shimmer grain animation */
 @keyframes shimmerGrain {
-  0% { transform: translate(0, 0) }
-  50% { transform: translate(10px, 10px) }
-  100% { transform: translate(0, 0) }
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* Safe container */
@@ -640,7 +711,6 @@ Animated Background - OPTIMIZED
   opacity: 1;
 }
 
-
 /* ==========================================================================
 Typography
 ========================================================================== */
@@ -705,11 +775,21 @@ body[data-theme="light"] header {
 }
 
 body[data-theme="grey"] header {
-  background-color: rgba(33, 33, 33, 0.7); /* Slightly transparent dark grey for header */
+  background-color: rgba(
+    33,
+    33,
+    33,
+    0.7
+  ); /* Slightly transparent dark grey for header */
 }
 
 body[data-theme="material-purple"] header {
-  background-color: rgba(32, 31, 35, 0.7); /* Match Material Purple glass-blue-dark with more opacity */
+  background-color: rgba(
+    32,
+    31,
+    35,
+    0.7
+  ); /* Match Material Purple glass-blue-dark with more opacity */
 }
 
 main {
@@ -744,18 +824,30 @@ body[data-theme="light"] section[role="tabpanel"] {
 }
 
 body[data-theme="grey"] section[role="tabpanel"] {
-  background-color: rgba(33, 33, 33, 0.6); /* Slightly transparent dark grey for panels */
+  background-color: rgba(
+    33,
+    33,
+    33,
+    0.6
+  ); /* Slightly transparent dark grey for panels */
 }
 
 body[data-theme="material-purple"] section[role="tabpanel"] {
-  background-color: rgba(28, 27, 31, 0.7); /* Match Material Purple note-bg-color for consistency */
+  background-color: rgba(
+    28,
+    27,
+    31,
+    0.7
+  ); /* Match Material Purple note-bg-color for consistency */
 }
 
 section {
   display: none;
   opacity: 0;
   transform: scale(0.98);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 section.active {
@@ -769,7 +861,7 @@ section.active {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
   background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #ADD8E6;
+  border-left: 4px solid #add8e6;
   border-radius: 12px;
 }
 
@@ -782,7 +874,6 @@ section.active {
   margin: 0.5rem 0;
   display: inline-block;
 }
-
 
 .gradient-bg {
   width: 100%;
