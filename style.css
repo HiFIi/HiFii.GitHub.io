@@ -1336,9 +1336,46 @@ Media Queries - Mobile Optimizations
     transform: none !important; /* Remove any initial transform */
   } /* Adjust main padding for mobile bottom nav */
 
+  /* Remove all animations from the background elements */
+  .animated-background,
+  .animated-background::before,
+  .animated-background::after,
+  .animated-background .extra-grain {
+    animation: none !important; /* Disable all animations */
+    transition: none !important; /* Disable any transitions */
+    opacity: 1 !important; /* Make background fully opaque */
+    filter: none !important; /* Remove any filters like brightness, contrast */
+    transform: none !important; /* Remove any transforms like zoomPulse */
+    background-image: none !important; /* Remove grain images */
+    background-color: var(--primary-background) !important; /* Solid background color */
+  }
 
+  /* Hide gradient blobs by setting their opacity to 0 or display to none */
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5 {
+    animation: none !important; /* Disable movement animations */
+    transition: none !important; /* Disable any transitions */
+    opacity: 0 !important; /* Make them completely invisible */
+    display: none !important; /* Or set display to none if you want to remove them from layout */
+  }
 
- 
+  .gradients-container {
+    filter: none !important; /* Ensure no blur on gradients container */
+    transform: none !important; /* No hardware acceleration trick needed if elements are gone */
+    display: none !important; /* Hide the container if blobs are hidden */
+  }
+
+  header {
+    animation: none !important; /* Disable header fade-in */
+    opacity: 1 !important; /* Ensure header is visible */
+    transform: none !important; /* Remove initial transform */
+    backdrop-filter: none !important; /* Remove frosted glass */
+    -webkit-backdrop-filter: none !important; /* Remove frosted glass */
+    background-color: var(--primary-background) !important; /* Opaque background */
+  }
 
   section {
     transition: none !important; /* Disable section transitions */
@@ -1422,9 +1459,11 @@ Media Queries - Mobile Optimizations
   .animated-background::before,
   .animated-background::after,
   .animated-background .extra-grain {
+    animation: none !important;
     transition: none !important;
-    opacity: 0.45 !important;
-    filter: none !important; /* Hide them completely */
+    opacity: 0 !important;
+    filter: none !important;
+    display: none !important; /* Hide them completely */
   }
 
   /* Ensure backdrop-filter is also removed if animations are preferred to be off */
