@@ -1,6 +1,7 @@
 // script.js
 
 window.addEventListener("DOMContentLoaded", () => {
+  // ---- GRADIENT ANIMATION ----
   const originalGradientSets = [
     ["#000000", "#050A0F", "#003046", "#006B8F", "#00C4E1", "#A3E8FF", "#FFFFFF"],
     ["#12001A", "#3B004D", "#680085", "#9A00B8", "#CC3DFF", "#E6B3FF", "#FFFFFF"],
@@ -69,8 +70,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let lastTime = performance.now();
   const rotateStep = (dt) => {
-    if (dt > 100) return; // throttle slow frames
-    currentAngle = (currentAngle + dt * 0.0075) % 360;
+    if (dt > 100 || dt < 10) return; // throttle large or tiny frames
+    currentAngle = (currentAngle + dt * 0.005) % 360;
     applyGradient(currentColors);
   };
 
@@ -91,27 +92,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const step = () => {
       const t = Math.min((performance.now() - start) / 5000, 1);
-      const blended = [];
-      for (let i = 0; i < currentColors.length; i++) {
-        blended.push(
-          interpolateColor(
-            currentColors[i],
-            nextColors[i] || nextColors[nextColors.length - 1],
-            t
-          )
-        );
-      }
+      const blended = currentColors.map((c, i) =>
+        interpolateColor(c, nextColors[i] || nextColors.at(-1), t)
+      );
       applyGradient(blended);
-      if (t < 1) {
-        requestAnimationFrame(step);
-      } else {
-        currentColors = nextColors;
-      }
+      if (t < 1) requestAnimationFrame(step);
+      else currentColors = nextColors;
     };
+
     requestAnimationFrame(step);
   }, 30000);
 
-  // NAVIGATION
+  // ---- NAVIGATION ----
   const tabs = document.querySelectorAll(".nav-tab");
   const panels = {
     "home-panel": document.getElementById("home-panel"),
@@ -156,7 +148,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   activateTab(document.getElementById("home-tab"));
 
-  // THEMES
+  // ---- THEME AND TEXT SIZE ----
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
   const textButtons = document.querySelectorAll(".theme-button[data-text-size]");
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -213,6 +205,14 @@ window.addEventListener("DOMContentLoaded", () => {
     document
       .querySelector('.theme-button[data-text-size="medium"]')
       ?.classList.add("active-theme");
+  }
+
+  // ---- VIEW SOURCE TAB ----
+  const sourceTab = document.getElementById("source-tab");
+  if (sourceTab) {
+    sourceTab.addEventListener("click", () => {
+      window.open("https://github.com/HiFIi/HiFii.GitHub.io", "_blank");
+    });
   }
 });
 

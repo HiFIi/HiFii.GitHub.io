@@ -96,7 +96,7 @@ body[data-theme="dark"] {
   /* Adjusted glass colors to be slightly less complex if 'saturate' and 'brightness' are removed from blur */
   --glass-blue-dark: rgba(21, 22, 28, 0.7); /* Increased opacity for more solid look without complex filter */
   --glass-blue-medium: rgba(245, 245, 255, 0.2);
-  --glass-border-color: rgba(255, 255, 255, 0.35);
+  --glass-border-color: rgba(255, 255, 255, 0.15);
   --glass-shadow-color: rgba(0, 0, 0, 0.65);
 
   --header-text-color: #e0e0e0;
