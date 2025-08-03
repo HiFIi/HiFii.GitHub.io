@@ -78,8 +78,8 @@ Root Variables (Themes and Common)
   --color4: 255, 206, 92;
   --color5: 92, 255, 217;
   --color-interactive: 93, 46, 255;
-  --circle-size: 50%;
-  --blending: screen;
+  --circle-size: 66%;
+  --blending: color-dodge;
 }
 
 /* Dark Theme Variables (default) */
@@ -118,6 +118,11 @@ body[data-theme="dark"] {
   --active-tab-bg-color: rgba(93, 46, 255, 0.2);
   --active-tab-text-color: var(--link-color);
   --inactive-tab-text-color: #b0bec5;
+
+  --grain-opacity-main: 0.15;
+  --grain-opacity-extra: 0.1;
+  --base-opacity: 0.40;
+  --glow-color: rgba(0, 255, 255, 0.1); /* subtle cyan glow */
 }
 
 /* Light Theme Variables */
@@ -178,13 +183,130 @@ body[data-theme="light"] {
   --inactive-tab-text-color: #555555; /* Darker inactive text */
 
   /* Adjust animated background opacity for light theme */
+  --grain-opacity-main: 0.1 !important;
+  --grain-opacity-extra: 0.08 !important;
+  --base-opacity: 0.15 !important;
+  --glow-color: rgba(0, 255, 255, 0.85) !important; /* even more subtle glow */
+  
+      /* Adjust animated background opacity for light theme */
   .animated-background {
-    opacity: 1 !important;
+    opacity: 0.45 !important;
   } /* Less intrusive */
   .animated-background::before {
-    opacity: 0.65 !important;
+    opacity: 0.45 !important;
     mix-blend-mode: soft-light !important;
   } /* Adjust grain */
+}
+
+/* Grey Theme Variables (Material Dark Grey) */
+body[data-theme="grey"] {
+  --primary-background: #212121; /* Google Material Dark Grey 900 */
+  --on-primary-background: #E0E0E0; /* Light text for contrast */
+
+  --md-sys-color-primary: #BB86FC; /* Material Design purple for accent */
+  --md-sys-color-on-primary: #212121;
+
+  --md-sys-color-secondary: #03DAC6; /* Material Design teal for secondary */
+  --md-sys-color-on-secondary: #212121;
+
+  --glass-blue-dark: rgba(33, 33, 33, 0.8); /* Slightly transparent dark grey */
+  --glass-blue-medium: rgba(50, 50, 50, 0.5); /* Medium transparent grey */
+  --glass-border-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
+  --glass-shadow-color: rgba(0, 0, 0, 0.7); /* Darker shadow */
+
+  --header-text-color: #E0E0E0;
+  --subtitle-color: #BDBDBD; /* Lighter grey for subtitles */
+  --link-color: #BB86FC; /* Primary accent for links */
+  --title-color-bright: #BB86FC; /* Primary accent for titles */
+  --note-bg-color: rgba(50, 50, 50, 0.6); /* Slightly lighter grey for notes/cards */
+  --note-text-color: #E0E0E0;
+  --button-bg-color: rgba(97, 97, 97, 0.3); /* Grey 600 with transparency */
+  --button-border-color: rgba(158, 158, 158, 0.4); /* Grey 500 with transparency */
+  --button-text-color: #E0E0E0;
+  --button-hover-bg-color: rgba(97, 97, 97, 0.5);
+  --button-hover-border-color: rgba(158, 158, 158, 0.7);
+  --active-tab-bg-color: rgba(187, 134, 252, 0.2); /* Accent with transparency */
+  --active-tab-text-color: var(--link-color);
+  --inactive-tab-text-color: #9E9E9E; /* Grey 500 for inactive text */
+
+  --grain-opacity-main: 0.92;
+  --grain-opacity-extra: 0.09;
+  --base-opacity: 0.35;
+  --glow-color: rgba(187, 134, 252, 0.98); /* subtle accent glow */
+  
+    /* Adjust animated background opacity for light theme */
+  .animated-background {
+    opacity: 0 !important;
+  } /* Less intrusive */
+  .animated-background::before {
+    opacity: 0 !important;
+    mix-blend-mode: soft-light !important;
+  } /* Adjust grain */
+}
+
+/* Material Purple Theme Variables */
+body[data-theme="material-purple"] {
+  /* Using specific Material Design 3 values for direct application */
+  --primary-background: rgb(20, 19, 23); /* md-sys-color-background */
+  --on-primary-background: rgb(230, 225, 231); /* md-sys-color-on-background */
+
+  --md-sys-color-primary: rgb(206, 189, 255); /* primary-fixed-dim / surface-tint as primary accent */
+  --md-sys-color-on-primary: rgb(53, 37, 99);
+
+  --md-sys-color-secondary: rgb(203, 194, 226);
+  --md-sys-color-on-secondary: rgb(51, 45, 69);
+
+  --md-sys-color-tertiary: rgb(255, 204, 229);
+  --md-sys-color-on-tertiary: rgb(84, 27, 63);
+
+  --md-sys-color-error: rgb(255, 180, 171);
+  --md-sys-color-on-error: rgb(105, 0, 5);
+
+  /* Glassmorphism elements */
+  --glass-blue-dark: rgba(32, 31, 35, 0.9); /* md-sys-color-surface-container with high opacity */
+  --glass-blue-medium: rgba(43, 41, 46, 0.6); /* md-sys-color-surface-container-high with medium opacity */
+  --glass-border-color: rgba(147, 143, 154, 0.3); /* md-sys-color-outline with transparency */
+  --glass-shadow-color: rgba(0, 0, 0, 0.8); /* Dark shadow */
+
+  --header-text-color: var(--on-primary-background);
+  --subtitle-color: rgb(202, 196, 209); /* md-sys-color-on-surface-variant */
+  --link-color: rgb(100, 84, 149); /* md-sys-color-inverse-primary for links */
+  --title-color-bright: var(--md-sys-color-primary); /* Primary accent for titles */
+
+  --note-bg-color: rgba(28, 27, 31, 0.7); /* md-sys-color-surface-container-low with transparency */
+  --note-text-color: var(--on-primary-background);
+
+  --button-bg-color: rgba(76, 69, 95, 0.4); /* md-sys-color-secondary-container with transparency */
+  --button-border-color: rgba(147, 143, 154, 0.5); /* md-sys-color-outline with transparency */
+  --button-text-color: var(--on-primary-background);
+  --button-hover-bg-color: rgba(76, 69, 95, 0.6);
+  --button-hover-border-color: rgba(147, 143, 154, 0.8);
+
+  --active-tab-bg-color: rgba(100, 84, 149, 0.2); /* inverse-primary with transparency */
+  --active-tab-text-color: var(--link-color);
+  --inactive-tab-text-color: var(--subtitle-color);
+
+  /* Specific adjustments for animated background */
+  --grain-opacity-main: 0; /* No grain */
+  --grain-opacity-extra: 0; /* No extra grain */
+  --base-opacity: 0; /* Hide the animated background */
+  --glow-color: rgba(0, 0, 0, 0); /* No glow if background is hidden */
+
+  .animated-background {
+    opacity: 0.01 !important; /* Force hide animated background */
+  }
+  .animated-background::before {
+    opacity: 0 !important; /* Force hide grain overlay */
+  }
+  .animated-background::after {
+    opacity: 0 !important; /* Force hide underlay background */
+  }
+  .animated-background .extra-grain {
+    opacity: 0 !important; /* Force hide extra grain layer */
+  }
+  .gradients-container {
+    filter: none !important; /* Remove blur from gooey gradients */
+  }
 }
 
 /* ==========================================================================
@@ -461,7 +583,7 @@ Animated Background - OPTIMIZED
   top: calc(50% - var(--circle-size) / 2 + 200px);
   left: calc(50% - var(--circle-size) / 2 - 500px);
   transform-origin: calc(50% + 400px);
-  animation: moveInCircle 40s linear infinite;
+  animation: moveInCircle 40s linear infinite; 
   opacity: 1;
 }
 
@@ -562,6 +684,10 @@ body[data-theme="light"] header {
   background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
 }
 
+body[data-theme="grey"] header {
+  background-color: rgba(33, 33, 33, 0.7); /* Slightly transparent dark grey for header */
+}
+
 main {
   flex: 1; /* Allows main content to grow and push navigation to bottom */
   width: 100%;
@@ -591,6 +717,10 @@ section[role="tabpanel"] {
 
 body[data-theme="light"] section[role="tabpanel"] {
   background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
+}
+
+body[data-theme="grey"] section[role="tabpanel"] {
+  background-color: rgba(33, 33, 33, 0.6); /* Slightly transparent dark grey for panels */
 }
 
 section.active {
@@ -776,18 +906,6 @@ Animations
   }
 }
 
-@-webkit-keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
@@ -797,18 +915,6 @@ Animations
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes moveVertical {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(-50%);
   }
 }
 
@@ -823,19 +929,6 @@ Animations
     transform: translateY(-50%);
   }
 }
-
-@-webkit-keyframes moveHorizontal {
-  0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-}
-
 @keyframes moveHorizontal {
   0% {
     transform: translateX(-50%) translateY(-10%);
@@ -976,7 +1069,7 @@ Navigation
   background-color: rgba(
     93,
     46,
-    255,
+255,
     0.1
   ); /* Consistent hover for now, can be theme-dependent */
 }
@@ -985,7 +1078,7 @@ Navigation
   background-color: rgba(
     93,
     46,
-    255,
+255,
     0.3
   ); /* Consistent pressed for now, can be theme-dependent */
 }
@@ -1051,7 +1144,7 @@ Navigation
 }
 
 .theme-button.active-theme {
-  background-color: var(--link-color); /* Highlight active theme */
+  background-color: rgba(255, 255, 255, 0.3); /* Highlight active theme */
   color: var(--on-primary-background); /* Adjust text color for highlight */
   border-color: var(--link-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);

@@ -8,27 +8,23 @@ window.onload = () => {
   const bottomNav = document.querySelector(".bottom-navigation");
 
   if (splash) {
-    // Hide main content initially to ensure splash screen is fully visible
     mainHeader.style.display = "none";
     mainContent.style.display = "none";
     bottomNav.style.display = "none";
 
-    // Wait a bit to show splash then fade it out
     setTimeout(() => {
-      splash.classList.add("fade-out"); // Start fade out animation
-
+      splash.classList.add("fade-out");
       splash.addEventListener("transitionend", () => {
-        splash.remove(); // Remove splash from DOM
-        mainHeader.style.display = ""; // Show header
-        mainContent.style.display = ""; // Show main content
-        bottomNav.style.display = ""; // Show bottom nav
+        splash.remove();
+        mainHeader.style.display = "";
+        mainContent.style.display = "";
+        bottomNav.style.display = "";
         requestAnimationFrame(() => {
-          activateTab(document.getElementById("home-tab")); // Activate home tab now
+          activateTab(document.getElementById("home-tab"));
         });
       }, { once: true });
-    }, 1600); // ~1.6 seconds splash duration
+    }, 1600);
   } else {
-    // If no splash, just activate home tab immediately
     activateTab(document.getElementById("home-tab"));
   }
 
@@ -106,9 +102,8 @@ window.onload = () => {
 
   const rotateStep = (dt) => {
     gradientTimer += dt;
-    if (gradientTimer < 1000 / 30) return; // limit updates to ~30fps
+    if (gradientTimer < 1000 / 30) return;
     gradientTimer = 0;
-
     currentAngle = (currentAngle + dt * 0.0025) % 360;
     applyGradient(currentColors);
   };
@@ -187,7 +182,7 @@ window.onload = () => {
     });
   });
 
-  // ---- THEME AND TEXT SIZE ----
+  // ---- THEME ----
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
   const textButtons = document.querySelectorAll(".theme-button[data-text-size]");
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -195,7 +190,28 @@ window.onload = () => {
   const applyTheme = (name) => {
     const mode = name === "system" ? (mq.matches ? "dark" : "light") : name;
     document.body.setAttribute("data-theme", mode);
-    if (bg) bg.style.opacity = mode === "light" ? "0.15" : "0.40";
+    switch (mode) {
+      case "dark":
+        document.body.style.setProperty("--base-opacity", "0.40");
+        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.8)");
+        break;
+      case "light":
+        document.body.style.setProperty("--base-opacity", "0.15");
+        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.05)");
+        break;
+      case "grey":
+        document.body.style.setProperty("--base-opacity", "0.35");
+        document.body.style.setProperty("--glow-color", "rgba(187, 134, 252, 0.08)");
+        break;
+      case "material-purple":
+        document.body.style.setProperty("--base-opacity", "0.3");
+        document.body.style.setProperty("--glow-color", "rgba(206, 189, 255, 0.15)");
+        break;
+      default:
+        document.body.style.setProperty("--base-opacity", "0.40");
+        document.body.style.setProperty("--glow-color", "rgba(0, 255, 255, 0.1)");
+        break;
+    }
   };
 
   themeButtons.forEach((btn) =>
@@ -219,14 +235,9 @@ window.onload = () => {
       .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
       ?.classList.add("active-theme");
     applyTheme(savedTheme);
-  } else {
-    const defaultTheme = mq.matches ? "system" : "dark";
-    document
-      .querySelector(`.theme-button[data-theme="${defaultTheme}"]`)
-      ?.classList.add("active-theme");
-    applyTheme(defaultTheme);
   }
 
+  // ---- TEXT SIZE ----
   textButtons.forEach((btn) =>
     btn.addEventListener("click", () => {
       textButtons.forEach((b) => b.classList.remove("active-theme"));
@@ -240,13 +251,31 @@ window.onload = () => {
     document
       .querySelector(`.theme-button[data-text-size="${savedSize}"]`)
       ?.classList.add("active-theme");
-  } else {
-    document
-      .querySelector('.theme-button[data-text-size="medium"]')
-      ?.classList.add("active-theme");
   }
 
-  // ---- VIEW SOURCE TAB ----
+  // ---- BLENDING MODE ----
+  const blendingButtons = document.querySelectorAll(".theme-button[data-blending]");
+
+  const applyBlending = (mode) => {
+    document.body.style.setProperty("--blending", mode);
+  };
+
+  blendingButtons.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      blendingButtons.forEach((b) => b.classList.remove("active-theme"));
+      btn.classList.add("active-theme");
+      localStorage.setItem("thunderhub-blending", btn.dataset.blending);
+      applyBlending(btn.dataset.blending);
+    })
+  );
+
+  const savedBlend = localStorage.getItem("thunderhub-blending") || "screen";
+  document
+    .querySelector(`.theme-button[data-blending="${savedBlend}"]`)
+    ?.classList.add("active-theme");
+  applyBlending(savedBlend);
+
+  // ---- VIEW SOURCE ----
   const sourceTab = document.getElementById("source-tab");
   if (sourceTab) {
     sourceTab.addEventListener("click", () => {
