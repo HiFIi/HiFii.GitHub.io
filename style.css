@@ -1337,12 +1337,16 @@ Media Queries - Mobile Optimizations
     font-size: 14px;
     padding: 8px 12px;
   }
-  
-    /* Specific elements you want to hide entirely if motion is reduced */
+
+  /* Specific elements you want to hide entirely if motion is reduced */
   .animated-background,
   .gradients-wrapper,
   .gradients-container,
-  .g1, .g2, .g3, .g4, .g5,
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
   .animated-background::before,
   .animated-background::after,
   .animated-background .extra-grain {
