@@ -1,7 +1,7 @@
 [
   {
     "tag_name": "250815",
-    "body": "versionCode: 105\n\n### Whats New (08-15-25 Build)\n\n  - format code\n  - bump gradle\n  - bump AGP\n  - update russian strings\n  - bump versionCode and versionName\n  - Update gradle.properties\n  - nightly.sh: update DEFAULT_VERSION_CODE\n  - nighlty.sh: fix messup\n  - nightly.sh: adjusted messed up formatting, convert \\n\\n to ||",
+    "body": "versionCode: 104\n\n### Whats New (08-15-25 Build)\n\n  - Update Russian Translations\n  - Update AGP to 9.0.0-alpha1\n  - Update Platform-Tools to 36.0.1\n  - Update 14 libraries(!!)\n  - Update Gradle to 9.1.0-RC1\n## MORE IS COMING. HANG TIGHT. ",
     "assets": [
       {
         "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250815/ThunderDex-08-15-2025_2207-arm64-v8a-release.apk"
