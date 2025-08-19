@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250817",
-    "body": "versionCode: 106\n\n### Whats New (08-17-25 Build)\n\n  - build.gradle: August 17th nightly aka update versionName and versionCode\n  - format code\n  - grouped XMLs: set rounded background for the textviews",
+    "tag_name": "250819",
+    "body": "versionCode: 107\n\n### Whats New (08-19-25 Build)\n\n  - build.gradle: bump versionName and versionCode\n  - nightly.sh: streamline versioncode to current in Android Studio\n  - groups: tighten up design (decrease vertical padding and text size)\n  - nightly.sh: increase versionCode by 1",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250817/ThunderDex-08-17-2025_0429-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250819/ThunderDex-08-19-2025_1525-arm64-v8a-release.apk"
       }
     ]
   }
