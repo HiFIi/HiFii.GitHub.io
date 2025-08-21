@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250819",
-    "body": "versionCode: 107\n\n### Whats New (08-19-25 Build)\n\n  - build.gradle: bump versionName and versionCode\n  - nightly.sh: streamline versioncode to current in Android Studio\n  - groups: tighten up design (decrease vertical padding and text size)\n  - nightly.sh: increase versionCode by 1",
+    "tag_name": "250820",
+    "body": "versionCode: 108\n\n### Whats New (08-20-25 Build)\n\n  - format code\n  - nightly.sh: bump default version code for updater parsing in-app\n  - nightly.sh: auto-commit my changelog.json file as well for In-App changelog parsing\n  - build.gradle: update versionCode and versionName\n  - build.gradle: upgrade build tools from 36.0.0 to 36.1.0 rc1\n  - SwitchWidget: fix build error from material library upgrade\n  - MenuWidget: fix build error from material library upgrade\n  - Gradle Property Debug Tests: fix build error from material library upgrade\n  - Update Material library to the latest (was outdated by a bit)",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250819/ThunderDex-08-19-2025_1525-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250820/ThunderDex-08-20-2025_2036-arm64-v8a-release.apk"
       }
     ]
   }
