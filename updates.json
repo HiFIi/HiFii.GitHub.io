@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250821",
-    "body": "versionCode: 109\n\n### Whats New (08-21-25 Build)\n\n  - nightly.sh: remove changelog.json from git add function for now\n  - nightly.sh: bump versionCode\n  - gradle: bump versionName and versionCode\n  - build.gradle: revert build tools to 36.0.0\n  - gradle: remove com.google.firebase.firebase-perf (deprecated and causes gradle sync error)\n  - build.gradle: bump AGP\n  - Update gradle.properties\n  - format code\n  - nightly.sh: bump default version code for updater parsing in-app\n  - nightly.sh: auto-commit my changelog.json file as well for In-App changelog parsing\n  - build.gradle: update versionCode and versionName\n  - build.gradle: upgrade build tools from 36.0.0 to 36.1.0 rc1\n  - SwitchWidget: fix build error from material library upgrade\n  - MenuWidget: fix build error from material library upgrade\n  - Gradle Property Debug Tests: fix build error from material library upgrade\n  - Update Material library to the latest (was outdated by a bit)",
+    "tag_name": "250823",
+    "body": "versionCode: 110\n\n### Whats New (08-23-25 Build)\n\n  - nighty.sh: bump default version\n  - build.gradle: bump versionName and versionCode\n  - build.gradle: revert \"revert build tools to 36.0.0\" (build tools version: 36.1.0-rc1)\n  - Revert \"changelogActivity: replace (jsonArray.size() == 0) with (jsonArray.isEmpty()) and same for assets\"\n  - Revert \"vehicle info fragment: replace length() == 0)  with isEmpty()\"",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250821/ThunderDex-08-21-2025_1936-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250823/ThunderDex-08-23-2025_1648-arm64-v8a-release.apk"
       }
     ]
   }
