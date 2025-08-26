@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250823",
-    "body": "versionCode: 110\n\n### Whats New (08-23-25 Build)\n\n  - nighty.sh: bump default version\n  - build.gradle: bump versionName and versionCode\n  - build.gradle: revert \"revert build tools to 36.0.0\" (build tools version: 36.1.0-rc1)\n  - Revert \"changelogActivity: replace (jsonArray.size() == 0) with (jsonArray.isEmpty()) and same for assets\"\n  - Revert \"vehicle info fragment: replace length() == 0)  with isEmpty()\"",
+    "tag_name": "250825",
+    "body": "versionCode: 111\n\n### Whats New (08-25-25 Build)\n\n  - build.gradle: bump versionName and versionCode\n  - nightly.sh: bump default versionCode\n  - build.gradle: update JSOUP and Material libraries",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250823/ThunderDex-08-23-2025_1648-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250825/ThunderDex-08-25-2025_1702-arm64-v8a-release.apk"
       }
     ]
   }
