@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250827",
-    "body": "versionCode: 112\n\n### Whats New (08-27-25 Build)\n\n  - Improve bottom navigation design (increase card corner radius, increase stroke opacity, decrease button press ripple opacity)\n  - changelog layout: reduce texture alphas, localize dimens\n  - nightly.sh: increase default versionCode\n  - nightly.sh: use --reverse format in git log command, ensure (up to) 40 commits are parsed\n  - changelog: set fluid gradient animation to 100% opacity\n  - gradle: update versionName and versionCode\n  - nightly.sh: beautify",
+    "tag_name": "250828",
+    "body": "versionCode: 113\n\n### Whats New (08-28-25 Build)\n\n  - build.gradle: update Glide lib to 5.0.0 stable, update 3 Firebase libraries, and bump versionCode // versionName\n  - nightly.sh: bump default version code\n  - revert \"bump glide from 5.0.0-rc01 to 5.0.0 stable\" -- it cant fucking find it lol",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250827/ThunderDex-08-27-2025_2012-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250828/ThunderDex-08-28-2025_2202-arm64-v8a-release.apk"
       }
     ]
   }
