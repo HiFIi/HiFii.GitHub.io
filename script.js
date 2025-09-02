@@ -50,171 +50,188 @@ window.onload = () => {
     activateTab(document.getElementById("home-tab"));
   }
 
-  // ---- GRADIENT ANIMATION ----
   const originalGradientSets = [
-    [
-      "#000000",
-      "#050A0F",
-      "#003046",
-      "#006B8F",
-      "#00C4E1",
-      "#A3E8FF",
-      "#FFFFFF",
-    ],
-    [
-      "#12001A",
-      "#3B004D",
-      "#680085",
-      "#9A00B8",
-      "#CC3DFF",
-      "#E6B3FF",
-      "#FFFFFF",
-    ],
-    [
-      "#1A0010",
-      "#420034",
-      "#7D2E6F",
-      "#FF577F",
-      "#FF9A5E",
-      "#FFCE82",
-      "#FFF9E1",
-    ],
-    [
-      "#001A2B",
-      "#3A2E87",
-      "#FF5C5C",
-      "#FFAD6F",
-      "#FFD865",
-      "#FFFD9A",
-      "#FFF7E1",
-    ],
-    [
-      "#0A0B0F",
-      "#19202A",
-      "#398C85",
-      "#62D9DD",
-      "#B9F1EE",
-      "#E7FFFF",
-      "#FFFFFF",
-    ],
-    [
-      "#0E0E0E",
-      "#1F1F1F",
-      "#434343",
-      "#6B6B6B",
-      "#929292",
-      "#B9B9B9",
-      "#E0E0E0",
-    ],
-    [
-      "#2E0000",
-      "#600000",
-      "#9D0000",
-      "#CC2900",
-      "#FF5E00",
-      "#FF9133",
-      "#FFD766",
-    ],
-    [
-      "#000000",
-      "#003E40",
-      "#006873",
-      "#00A497",
-      "#42C4B6",
-      "#FF7A7A",
-      "#FFD455",
-    ],
-    [
-      "#150F34",
-      "#4A3572",
-      "#866EB0",
-      "#BDA1F8",
-      "#D9D1FF",
-      "#FBFAFF",
-      "#FFFFFF",
-    ],
-    [
-      "#000628",
-      "#005082",
-      "#00B2B7",
-      "#98CC5F",
-      "#D4FD7C",
-      "#F6FFD1",
-      "#FFFFFF",
-    ],
-    [
-      "#0D0029",
-      "#31005B",
-      "#741BA1",
-      "#A95BD7",
-      "#CD8DFF",
-      "#E3B6FF",
-      "#FFFFFF",
-    ],
-    [
-      "#12212B",
-      "#2C4651",
-      "#3E6D77",
-      "#63C6FF",
-      "#00FFD6",
-      "#00FF7F",
-      "#FFFFFF",
-    ],
-    [
-      "#000000",
-      "#24003E",
-      "#54008A",
-      "#8F00CE",
-      "#00FFFF",
-      "#7FFFD4",
-      "#FFFFFF",
-    ],
-    [
-      "#FFD4F7",
-      "#FFA3E6",
-      "#FF6ED1",
-      "#FF37B8",
-      "#FF0094",
-      "#CC007A",
-      "#99005C",
-    ],
-    [
-      "#4C0000",
-      "#800000",
-      "#D93900",
-      "#FF6C00",
-      "#FF9E33",
-      "#FFCD66",
-      "#FFFFCC",
-    ],
-    [
-      "#1F2123",
-      "#43494F",
-      "#6F7890",
-      "#A9B4CC",
-      "#D4DCE6",
-      "#F0F4F9",
-      "#FFFFFF",
-    ],
-    [
-      "#000016",
-      "#1E0043",
-      "#440077",
-      "#6F00B3",
-      "#9D00E0",
-      "#CD65FF",
-      "#F4E1FF",
-    ],
-    [
-      "#000000",
-      "#1F1F1F",
-      "#393939",
-      "#32FF18",
-      "#70FF6E",
-      "#D0FFD6",
-      "#FFFFFF",
-    ],
-  ];
+  // Original Blueish -> Deepened Blueish
+  [
+    "#000000", // Black
+    "#001A33", // Very Dark Blue
+    "#004060", // Deep Blue
+    "#007A9E", // Rich Teal
+    "#00CDEB", // Brighter Aqua
+    "#7CE1FF", // Lighter Sky Blue
+    "#FFFFFF", // White
+  ],
+  // Original Purple -> Deepened Purple
+  [
+    "#0F001A", // Very Dark Purple
+    "#300040", // Deep Plum
+    "#550070", // Rich Violet
+    "#80009C", // Dark Orchid
+    "#B020E0", // Vibrant Purple
+    "#E099FF", // Light Lavender
+    "#FFFFFF", // White
+  ],
+  // Original Red/Orange -> Deepened Red/Orange
+  [
+    "#1A000A", // Very Dark Red
+    "#40002A", // Deep Crimson
+    "#702050", // Rich Magenta-Brown
+    "#D03050", // Strong Red
+    "#FF6030", // Bright Orange-Red
+    "#FFB060", // Soft Peach
+    "#FFF5D0", // Cream
+  ],
+  // Original Blue/Orange/Yellow -> Deepened Blue/Orange/Yellow
+  [
+    "#001020", // Very Dark Navy
+    "#201860", // Deep Indigo
+    "#C03030", // Strong Red
+    "#FF8040", // Deep Orange
+    "#FFB030", // Golden Yellow
+    "#FFFD80", // Pale Yellow
+    "#FFF0D0", // Light Cream
+  ],
+  // Original Greenish/Aqua -> Deepened Greenish/Aqua
+  [
+    "#050B0F", // Dark almost Black
+    "#102028", // Deep Slate Blue
+    "#257065", // Dark Teal
+    "#40B0B5", // Bright Teal
+    "#90E0D8", // Light Aqua
+    "#D0FFFF", // Pale Cyan
+    "#FFFFFF", // White
+  ],
+  // Original Grey -> Deepened Grey (More Contrast)
+  [
+    "#080808", // Near Black
+    "#181818", // Very Dark Grey
+    "#282828", // Dark Grey
+    "#404040", // Mid-Dark Grey
+    "#606060", // Medium Grey
+    "#808080", // Light Grey
+    "#C0C0C0", // Silver
+  ],
+  // Original Red/Orange (Stronger) -> Deepened Red/Orange (More Saturated)
+  [
+    "#200000", // Deep Maroon
+    "#500000", // Dark Red
+    "#800000", // Classic Red
+    "#B02000", // Orange-Red
+    "#E05000", // Vibrant Orange
+    "#FF8020", // Golden Orange
+    "#FFC060", // Light Gold
+  ],
+  // Original Blue/Green/Red -> Deepened Blue/Green/Red
+  [
+    "#000000", // Black
+    "#003030", // Deep Dark Cyan
+    "#005060", // Dark Cyan
+    "#009080", // Medium Teal
+    "#30B0A0", // Bright Teal
+    "#FF6060", // Bright Red
+    "#FFC040", // Golden Yellow
+  ],
+  // Original Purple/Blue -> Deepened Purple/Blue
+  [
+    "#100C2C", // Very Dark Blue-Purple
+    "#402860", // Deep Violet
+    "#705090", // Medium Purple
+    "#A070E0", // Light Purple
+    "#C0B0FF", // Pale Lavender
+    "#E8E0FF", // Very Pale Purple
+    "#FFFFFF", // White
+  ],
+  // Original Blue/Green/Yellow -> Deepened Blue/Green/Yellow
+  [
+    "#000418", // Very Dark Blue
+    "#004060", // Deep Cyan-Blue
+    "#009090", // Vibrant Aqua
+    "#70A040", // Olive Green
+    "#C0F060", // Bright Yellow-Green
+    "#E0FFB0", // Pale Green-Yellow
+    "#FFFFFF", // White
+  ],
+  // Original Deep Purple -> Deepened Darker Purple
+  [
+    "#0A0020", // Near Black-Purple
+    "#200040", // Very Deep Purple
+    "#501080", // Dark Royal Purple
+    "#8030C0", // Bright Purple
+    "#B060E0", // Medium Orchid
+    "#D090FF", // Light Purple
+    "#E8C0FF", // Very Light Purple
+  ],
+  // Original Blue/Cyan/Green -> Deepened Blue/Cyan/Green
+  [
+    "#101820", // Dark Blue-Grey
+    "#203840", // Deep Teal-Grey
+    "#305060", // Medium Teal-Blue
+    "#50A0D0", // Sky Blue
+    "#00E0B0", // Bright Aqua Green
+    "#00E070", // Emerald Green
+    "#FFFFFF", // White
+  ],
+  // Original Dark Blue/Purple/Cyan -> Deepened and More Contrast
+  [
+    "#000000", // Black
+    "#100020", // Very Dark Purple
+    "#300050", // Deep Violet
+    "#600090", // Rich Indigo
+    "#00C0C0", // Bright Cyan
+    "#60FFFF", // Pale Cyan
+    "#FFFFFF", // White
+  ],
+  // Original Pink/Purple -> Deepened Pink/Purple
+  [
+    "#FFB0E0", // Light Pink
+    "#FF80D0", // Medium Pink
+    "#FF40B0", // Bright Pink
+    "#FF1090", // Deep Pink
+    "#E00070", // Dark Magenta
+    "#B00050", // Deep Red-Purple
+    "#800030", // Very Dark Red-Purple
+  ],
+  // Original Brown/Orange -> Deepened Brown/Orange
+  [
+    "#400000", // Very Dark Brown-Red
+    "#700000", // Deep Red-Brown
+    "#B02000", // Burnt Orange
+    "#E05000", // Vivid Orange
+    "#FF8020", // Golden Orange
+    "#FFB050", // Light Orange
+    "#FFFFC0", // Pale Yellow
+  ],
+  // Original Subtle Grey -> Deepened Contrast Grey
+  [
+    "#151718", // Very Dark almost Black
+    "#25282B", // Deep Grey
+    "#404550", // Medium Dark Grey
+    "#707885", // Medium Grey
+    "#A0A8B5", // Light Medium Grey
+    "#D0D5E0", // Very Light Grey
+    "#F0F2F5", // Off-White
+  ],
+  // Original Dark Purple/Pink -> Deepened and More Electric
+  [
+    "#000010", // Near Black
+    "#100030", // Deep Indigo
+    "#300060", // Dark Violet
+    "#500090", // Royal Purple
+    "#8000C0", // Bright Purple
+    "#B040FF", // Electric Purple
+    "#D0A0FF", // Light Electric Purple
+  ],
+  // Original Black/Green -> Deepened and More Vibrant Green
+  [
+    "#000000", // Black
+    "#101010", // Dark Grey
+    "#202020", // Medium Dark Grey
+    "#00B000", // Vibrant Green
+    "#30E030", // Bright Green
+    "#80FF80", // Light Green
+    "#D0FFD0", // Pale Green
+  ],
+];
 
   const hexToRgb = (hex) => {
     const bigint = parseInt(hex.slice(1), 16);
