@@ -132,41 +132,49 @@
         aria-labelledby="changelog-tab"
         hidden
       >
-        <h2 class="changelog-title">Build: 2025.2.0 (08-03-25)</h2>
+        <h2 class="changelog-title">Build: 2025.2.0 (09-02-25)</h2>
         <ul>
-  <li><strong>nightly.sh: bump character limit, increase number of pulled commits, reverse the order so it is newest to oldest, pull from the correct branch, remove html modifying code, improvements</strong></li>
-  <li><strong>nightly.sh: lots and lots of fixes. fixed json formatting, added untested html changing code to update my index.html, optimize, pull arm64 build, etc</strong></li>
-  <li><strong>nightly.sh: more fixes</strong></li>
-  <li><strong>Update nightly.sh</strong></li>
+  <li><strong>nightly.sh: use --reverse format in git log command, ensure (up to) 40 commits are parsed</strong></li>
+  <li><strong>changelog: set fluid gradient animation to 100% opacity</strong></li>
+  <li><strong>gradle: update versionName and versionCode</strong></li>
+  <li><strong>nightly.sh: beautify</strong></li>
+  <li><strong>build.gradle: update Glide lib to 5.0.0 stable, update 3 Firebase libraries, and bump versionCode // versionName</strong></li>
+  <li><strong>nightly.sh: bump default version code</strong></li>
+  <li><strong>revert "bump glide from 5.0.0-rc01 to 5.0.0 stable" -- it cant fucking find it lol</strong></li>
+  <li><strong>build.gradle: remove plugin org.jetbrains.kotlin.android, remove phased-out kotlin options</strong></li>
+  <li><strong>app.gradle: bump AGP</strong></li>
+  <li><strong>build.gradle: bump versionCode and versionName</strong></li>
+  <li><strong>nightly.sh: bump default version code</strong></li>
+  <li><strong>build.gradle: update Glide and Glide Compiler library from 5.0.0-rc01 to 5.0.4</strong></li>
+  <li><strong>app/build.gradle: bump versionName and versionCode</strong></li>
+  <li><strong>nightly.sh: bump default version code</strong></li>
+  <li><strong>nightly.sh: parse LAST_BUILD_DATE %m-%d-%Y, not %Y-%m-%d (before: Year-Month-Day || after: Month-Day-Year</strong></li>
+  <li><strong>nightly.sh improvements: fix formatting for release (untested), convert build time from seconds to minutes and seconds, rewrite what the script does for logic description</strong></li>
+  <li><strong>nightly.sh: beautify</strong></li>
+  <li><strong>settings: disable white foreground on "donation" setting</strong></li>
+  <li><strong>Settings: add "ThunderHub" section (notes: add custom code in webview to remove toolbar background and title, set custom top margin for back icon)</strong></li>
+  <li><strong>russian strings: add thunderhub title and summary strings</strong></li>
+  <li><strong>german strings: add thunderhub title and summary strings</strong></li>
   <li><strong>format code</strong></li>
-  <li><strong>build.gradle: update versionName too (( oops ))</strong></li>
-  <li><strong>nightly.sh: beautify</strong></li>
-  <li><strong>nightly.sh: add +1 to versioncode in the json file each successful build</strong></li>
-  <li><strong>build.gradle: bump versioncode to 102</strong></li>
-  <li><strong>Update nightly.sh</strong></li>
-  <li><strong>vehicle groups: reduce text size for grouped vehicles, grouped radar and grouped ammunition layouts from 16sp to 14sp</strong></li>
-  <li><strong>weaponry fragment group: add custom image instead of "tanks" image from vehicle groups</strong></li>
-  <li><strong>nightly.sh: beautify</strong></li>
-  <li><strong>nightly.sh: bump max commits to 30 lol</strong></li>
-  <li><strong>nightly: add explanation on how the script works: # Steps: set shell vars, cd repo root, set git remote with token, define Discord notifier, notify start, pull updates, set build dates/tags, gather commits, notify Discord changelog, update website changelog HTML, build APK, locate APK, tag & push git tag, create/get GitHub release, mark non-prerelease, delete old APK asset, upload new APK, notify Discord success, generate updates.json, commit & push changelog + updates.json</strong></li>
-  <li><strong>nightly.sh: add back accidentally removed discord changelog parsing, make LAST_BUILD_DATE a variable instead of hardcoded, various fixes</strong></li>
-  <li><strong>Update strings.xml</strong></li>
-  <li><strong>nightly.sh: dynamically parse json file as well in hifii.github.io/updates.json for streamlined automation of changelog  (untested)</strong></li>
-  <li><strong>nightly: set correct release tag on github so the current in-app updater picks it up</strong></li>
-  <li><strong>changelog.sh / changelog_menu.sh: beautify</strong></li>
-  <li><strong>nightly.sh: beautify</strong></li>
-  <li><strong>nightly.sh: Changelog parsing and custom formatting are now fully functional, with code optimized for efficiency. Authentication to the private GitHub repository has been enhanced using an alternate token login method. The last build date is manually set to 07-31 for initial history, while future builds will dynamically update the changelog by comparing the current date to the previous build date, ensuring proper changelog display and automatic daily updates.</strong></li>
-  <li><strong>Revert "nightly.sh:"</strong></li>
-  <li><strong>nightly.sh:</strong></li>
-  <li><strong>Merge pull request #19 from Mahmud0808/gradle-property-verify-test</strong></li>
-  <li><strong>bump gradle to 9.0.0</strong></li>
-  <li><strong>doing some cleanup from the code analyzer. WIP</strong></li>
-  <li><strong>create nightly.sh: # Compiles my apk, shows build status in discord, then auto-uploads to github releases with the tag for whatever date it is</strong></li>
-  <li><strong>update gradle to 9.0.0 stable</strong></li>
-  <li><strong>add some fonts in folder outside of app</strong></li>
-  <li><strong>Delete .selected_header</strong></li>
-  <li><strong>add some fonts</strong></li>
-        </ul>
+  <li><strong>ThunderHubWebViewFragment: remove code comments that totally werent chat gpt.... totally</strong></li>
+  <li><strong>ThunderHubWebViewFragment: more improvements, prevent potential null for toolbar which could cause a force close</strong></li>
+  <li><strong>format code</strong></li>
+  <li><strong>app/build.gradle: bump versionCode and versionName</strong></li>
+  <li><strong>nightly.sh: bump default versionCode</strong></li>
+  <li><strong>changelog xml: significantly reduce background textures for a cleaner appearance</strong></li>
+  <li><strong>changelog improvements: reduce exit button width and height, increase top margin to ensure the exit button doesnt overlap into the statusbar</strong></li>
+  <li><strong>UI improvement: switch "product sans" font with new google sans rounded (material design expressive font)</strong></li>
+  <li><strong>localize "app customization" string</strong></li>
+  <li><strong>settings: fix "clear app data & cache" text color and ensure text is solid white</strong></li>
+  <li><strong>styles: switch bottom navigation text to google sans rounded</strong></li>
+  <li><strong>UI: disable bold selected font for the bottom navigation since unselected tab text is hidden (part of UI philosophy, iconography is king)... itemTextAppearanceActiveBoldEnabled removed</strong></li>
+  <li><strong>styles: ensure bottom navigation text is google sans rounded</strong></li>
+  <li><strong>UI: improve changelog activity xml (dont bleed into statusbar, new google sans rounded font, etc)</strong></li>
+  <li><strong>format code</strong></li>
+  <li><strong>UI: improve news and updates news article fonts, remove useless layout modifiers, improve text sizes</strong></li>
+  <li><strong>nightly.sh: bump versionCode</strong></li>
+  <li><strong>app/build.gradle: bump versionCode</strong></li>
+</ul>
       </section>
 
       <section
