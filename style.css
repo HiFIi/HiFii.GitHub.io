@@ -6,45 +6,46 @@ Font Definitions
   Font Optimization:
   Review if all these fonts are strictly necessary. Each @font-face is a download.
   Consider using fewer custom fonts or serving them from your own domain in WOFF2 format.
+  Material Design 3 primarily uses Google Sans and Roboto. Consider consolidating.
 */
 @font-face {
-  font-family: "UberMoveBold";
+  font-family: "UberMoveBold"; /* Consider replacing with Google Sans Bold or Roboto Bold */
   src: url("fonts/cashsans_black.otf") format("opentype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "categories";
+  font-family: "categories"; /* Consider replacing with Google Sans Regular or Roboto Regular */
   src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "LyftProBold";
+  font-family: "LyftProBold"; /* Consider replacing with Google Sans Bold or Roboto Bold */
   src: url("fonts/UberMove-Bold.otf") format("opentype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "CustomFont";
+  font-family: "CustomFont"; /* Consider replacing with Google Sans or Roboto */
   src: url("fonts/ProductSans-Play.otf") format("opentype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "HeaderFontStyle";
+  font-family: "HeaderFontStyle"; /* Decorative font, keep if essential for brand */
   src: url("fonts/Tourner.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "HeaderSubtitleStyle";
+  font-family: "HeaderSubtitleStyle"; /* Decorative font, keep if essential for brand */
   src: url("fonts/MajorMonoDisplay-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "ImportantNotes";
+  font-family: "ImportantNotes"; /* Redundant with 'categories' if both use GoogleSans-Regular */
   src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
@@ -52,7 +53,7 @@ Font Definitions
 }
 
 @font-face {
-  font-family: "navTabs";
+  font-family: "navTabs"; /* Consider replacing with Google Sans Bold or Roboto Bold */
   src: url("fonts/google_sans_bold.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
@@ -60,16 +61,35 @@ Font Definitions
 }
 
 /* ==========================================================================
-Root Variables (Themes and Common)
+Root Variables (Themes and Common) - Aligned with Material Design 3 Color System
 ========================================================================== */
 :root {
   /* Common variables for both themes if they share values or structure */
-  --border-radius: 16px;
-  --box-shadow: 0 8px 20px var(--glass-shadow-color);
-  /* Simplified frosted glass effect for performance */
-  --frosted-glass-effect: blur(10px); /* Reduced blur amount */
-  --transition-duration: 0.01s;
-  --ripple-color: rgba(93, 46, 255, 0.15); /* Keep a consistent ripple */
+  --border-radius-sm: 8px; /* Smaller radius for buttons/inputs */
+  --border-radius-md: 16px; /* Medium radius for cards/panels - 16dp equivalent */
+  --border-radius-lg: 28px; /* Larger radius for sheets/dialogs - Material 3 standard */
+  --border-radius-xl: 48px; /* Extra large for specific components */
+
+  /* Material 3-like Elevation Shadows (tonal elevation) */
+  --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.3); /* For bottom nav */
+  --md-sys-elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15),
+    0px 4px 6px 0px rgba(0, 0, 0, 0.3);
+
+  /* Frosted glass effect - optimized for performance */
+  --frosted-glass-effect: blur(12px) saturate(1.8);
+  --transition-duration-short: 0.15s;
+  --transition-duration-medium: 0.3s;
+  --transition-duration-long: 0.5s;
+
+  /* Ripple color - Material 3 uses a slightly desaturated primary color often */
+  --ripple-color: rgba(93, 46, 255, 0.15);
 
   /* Decorative sparkles/noise palette - might vary by theme, but keep common for now */
   --color1: 93, 46, 255;
@@ -80,303 +100,460 @@ Root Variables (Themes and Common)
   --color-interactive: 93, 46, 255;
   --circle-size: 50%;
   --blending: color-dodge; /* Default blending mode, can be overridden by theme */
+
+  /* Helper for RGB extraction for rgba() functions - Default (will be overridden by themes) */
+  /* These will be defined per theme directly below */
+  --md-sys-color-primary-rgb: 0, 0, 0;
+  --md-sys-color-on-primary-rgb: 0, 0, 0;
+  --md-sys-color-primary-container-rgb: 0, 0, 0;
+  --md-sys-color-on-primary-container-rgb: 0, 0, 0;
+  --md-sys-color-secondary-rgb: 0, 0, 0;
+  --md-sys-color-on-secondary-rgb: 0, 0, 0;
+  --md-sys-color-secondary-container-rgb: 0, 0, 0;
+  --md-sys-color-on-secondary-container-rgb: 0, 0, 0;
+  --md-sys-color-tertiary-rgb: 0, 0, 0;
+  --md-sys-color-on-tertiary-rgb: 0, 0, 0;
+  --md-sys-color-tertiary-container-rgb: 0, 0, 0;
+  --md-sys-color-on-tertiary-container-rgb: 0, 0, 0;
+  --md-sys-color-error-rgb: 0, 0, 0;
+  --md-sys-color-on-error-rgb: 0, 0, 0;
+  --md-sys-color-error-container-rgb: 0, 0, 0;
+  --md-sys-color-on-error-container-rgb: 0, 0, 0;
+  --md-sys-color-background-rgb: 0, 0, 0;
+  --md-sys-color-on-background-rgb: 0, 0, 0;
+  --md-sys-color-surface-rgb: 0, 0, 0;
+  --md-sys-color-on-surface-rgb: 0, 0, 0;
+  --md-sys-color-surface-variant-rgb: 0, 0, 0;
+  --md-sys-color-on-surface-variant-rgb: 0, 0, 0;
+  --md-sys-color-outline-rgb: 0, 0, 0;
+  --md-sys-color-outline-variant-rgb: 0, 0, 0;
+  --md-sys-color-inverse-surface-rgb: 0, 0, 0;
+  --md-sys-color-inverse-on-surface-rgb: 0, 0, 0;
+  --md-sys-color-inverse-primary-rgb: 0, 0, 0;
+  --md-sys-color-surface-tint-rgb: 0, 0, 0;
+  --md-sys-color-surface-container-low-rgb: 0, 0, 0;
+  --md-sys-color-surface-container-high-rgb: 0, 0, 0;
 }
 
-/* Dark Theme Variables (default) */
+/* Material 3 Dark Theme Variables (default) - Semantic Color Naming */
 body[data-theme="dark"] {
-  --primary-background: #17171c;
-  --on-primary-background: #e0e0e0; /* Text on primary background */
+  /* Core Material 3 colors */
+  --md-sys-color-primary: #d0bcff;
+  --md-sys-color-on-primary: #381e72;
+  --md-sys-color-primary-container: #4f378a;
+  --md-sys-color-on-primary-container: #eaddff;
+  --md-sys-color-secondary: #ccc2dc;
+  --md-sys-color-on-secondary: #332d41;
+  --md-sys-color-secondary-container: #4a4458;
+  --md-sys-color-on-secondary-container: #e8def8;
+  --md-sys-color-tertiary: #efb8c8;
+  --md-sys-color-on-tertiary: #492532;
+  --md-sys-color-tertiary-container: #633b48;
+  --md-sys-color-on-tertiary-container: #ffdad9;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
+  --md-sys-color-background: #1c1b1f;
+  --md-sys-color-on-background: #e6e1e5;
+  --md-sys-color-surface: #1c1b1f;
+  --md-sys-color-on-surface: #e6e1e5;
+  --md-sys-color-surface-variant: #49454f;
+  --md-sys-color-on-surface-variant: #cac4d0;
+  --md-sys-color-outline: #948f99;
+  --md-sys-color-outline-variant: #49454f;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e6e1e5;
+  --md-sys-color-inverse-on-surface: #313033;
+  --md-sys-color-inverse-primary: #6750a4;
+  --md-sys-color-surface-tint: #d0bcff;
 
-  --md-sys-color-primary: #007178; /* Primary accent */
-  --md-sys-color-on-primary: #14151c; /* Text on primary accent */
+  /* Helper for RGB extraction for rgba() functions */
+  --md-sys-color-primary-rgb: 208, 188, 255;
+  --md-sys-color-on-primary-rgb: 56, 30, 114;
+  --md-sys-color-primary-container-rgb: 79, 55, 138;
+  --md-sys-color-on-primary-container-rgb: 234, 221, 255;
+  --md-sys-color-secondary-rgb: 204, 194, 220;
+  --md-sys-color-on-secondary-rgb: 51, 45, 65;
+  --md-sys-color-secondary-container-rgb: 74, 68, 88;
+  --md-sys-color-on-secondary-container-rgb: 232, 222, 248;
+  --md-sys-color-tertiary-rgb: 239, 184, 200;
+  --md-sys-color-on-tertiary-rgb: 73, 37, 50;
+  --md-sys-color-tertiary-container-rgb: 99, 59, 72;
+  --md-sys-color-on-tertiary-container-rgb: 255, 218, 217;
+  --md-sys-color-error-rgb: 255, 180, 171;
+  --md-sys-color-on-error-rgb: 105, 0, 5;
+  --md-sys-color-error-container-rgb: 147, 0, 10;
+  --md-sys-color-on-error-container-rgb: 255, 218, 214;
+  --md-sys-color-background-rgb: 28, 27, 31;
+  --md-sys-color-on-background-rgb: 230, 225, 229;
+  --md-sys-color-surface-rgb: 28, 27, 31;
+  --md-sys-color-on-surface-rgb: 230, 225, 229;
+  --md-sys-color-surface-variant-rgb: 73, 69, 79;
+  --md-sys-color-on-surface-variant-rgb: 202, 196, 208;
+  --md-sys-color-outline-rgb: 148, 143, 153;
+  --md-sys-color-outline-variant-rgb: 73, 69, 79;
+  --md-sys-color-inverse-surface-rgb: 230, 225, 229;
+  --md-sys-color-inverse-on-surface-rgb: 49, 48, 51;
+  --md-sys-color-inverse-primary-rgb: 103, 80, 164;
+  --md-sys-color-surface-tint-rgb: 208, 188, 255;
+  --md-sys-color-surface-container-low-rgb: 28, 27, 31;
+  --md-sys-color-surface-container-high-rgb: 43, 41, 46;
 
-  --md-sys-color-secondary: #e0e0ff; /* Secondary muted */
-  --md-sys-color-on-secondary: #1b1b1c; /* Text on secondary muted */
-
-  /* Adjusted glass colors to be slightly less complex if 'saturate' and 'brightness' are removed from blur */
-  --glass-blue-dark: rgba(
-    21,
-    22,
-    28,
-    0.7
-  ); /* Increased opacity for more solid look without complex filter */
-  --glass-blue-medium: rgba(245, 245, 255, 0.2);
-  --glass-border-color: rgba(255, 255, 255, 0.15);
+  /* Custom glassmorphism elements, now using Material 3 semantic colors */
+  --glass-surface: rgba(var(--md-sys-color-surface-rgb), 0.7);
+  --glass-border-color: rgba(var(--md-sys-color-outline-rgb), 0.3);
   --glass-shadow-color: rgba(0, 0, 0, 0.65);
 
-  --header-text-color: #e0e0e0;
-  --subtitle-color: #b0bec5;
-  --link-color: #90caf9;
-  --title-color-bright: #bbdefb; /* For titles inside sections */
-  --note-bg-color: var(--glass-blue-dark);
-  --note-text-color: #e0e0e0;
-  --button-bg-color: rgba(80, 150, 255, 0.2);
-  --button-border-color: rgba(255, 255, 255, 0.3);
-  --button-text-color: #e0e0e0;
-  --button-hover-bg-color: rgba(80, 150, 255, 0.4);
-  --button-hover-border-color: rgba(255, 255, 255, 0.7);
-  --active-tab-bg-color: rgba(93, 46, 255, 0.2);
-  --active-tab-text-color: var(--link-color);
-  --inactive-tab-text-color: #b0bec5;
+  /* Component specific colors using Material 3 palette */
+  --header-background: rgba(var(--md-sys-color-surface-rgb), 0.8);
+  --header-text-color: var(--md-sys-color-on-surface);
+  --subtitle-color: var(--md-sys-color-on-surface-variant);
+  --link-color: var(--md-sys-color-primary);
+  --title-color-bright: var(--md-sys-color-on-surface);
+
+  --note-bg-color: rgba(var(--md-sys-color-surface-container-low-rgb), 0.7);
+  --note-text-color: var(--md-sys-color-on-surface);
+
+  --button-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  --button-border-color: rgba(var(--md-sys-color-outline-rgb), 0.4);
+  --button-text-color: var(--md-sys-color-on-surface);
+  --button-hover-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --button-hover-border-color: rgba(var(--md-sys-color-outline-rgb), 0.6);
+
+  --active-tab-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --active-tab-text-color: var(--md-sys-color-primary);
+  --inactive-tab-text-color: var(--md-sys-color-on-surface-variant);
 
   --grain-opacity-main: 0.15;
   --grain-opacity-extra: 0.1;
   --base-opacity: 0.4;
-  --glow-color: rgba(0, 255, 255, 0.1); /* subtle cyan glow */
+  --glow-color: rgba(0, 255, 255, 0.1);
 }
 
-/* Light Theme Variables */
+/* Material 3 Light Theme Variables */
 body[data-theme="light"] {
-  --primary-background: rgba(
-    255,
-    255,
-    255,
-    0.4
-  ); /* Overall body background 40% opaque */
-  --on-primary-background: #1c1c1e; /* Dark text on light background */
+  /* Core Material 3 colors */
+  --md-sys-color-primary: #6750a4;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #eaddff;
+  --md-sys-color-on-primary-container: #21005d;
+  --md-sys-color-secondary: #625b71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #e8def8;
+  --md-sys-color-on-secondary-container: #1d192b;
+  --md-sys-color-tertiary: #7d5260;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #ffdad9;
+  --md-sys-color-on-tertiary-container: #31111d;
+  --md-sys-color-error: #b3261e;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #f9dedc;
+  --md-sys-color-on-error-container: #410e0b;
+  --md-sys-color-background: #fffbfe;
+  --md-sys-color-on-background: #1c1b1f;
+  --md-sys-color-surface: #fffbfe;
+  --md-sys-color-on-surface: #1c1b1f;
+  --md-sys-color-surface-variant: #e7e0ec;
+  --md-sys-color-on-surface-variant: #49454f;
+  --md-sys-color-outline: #7a757f;
+  --md-sys-color-outline-variant: #cac4d0;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #313033;
+  --md-sys-color-inverse-on-surface: #f4eff4;
+  --md-sys-color-inverse-primary: #d0bcff;
+  --md-sys-color-surface-tint: #6750a4;
 
-  --md-sys-color-primary: #164ca3; /* Primary accent */
-  --md-sys-color-on-primary: #ffffff; /* Text on primary accent */
+  /* Helper for RGB extraction for rgba() functions */
+  --md-sys-color-primary-rgb: 103, 80, 164;
+  --md-sys-color-on-primary-rgb: 255, 255, 255;
+  --md-sys-color-primary-container-rgb: 234, 221, 255;
+  --md-sys-color-on-primary-container-rgb: 33, 0, 93;
+  --md-sys-color-secondary-rgb: 98, 91, 113;
+  --md-sys-color-on-secondary-rgb: 255, 255, 255;
+  --md-sys-color-secondary-container-rgb: 232, 222, 248;
+  --md-sys-color-on-secondary-container-rgb: 29, 25, 43;
+  --md-sys-color-tertiary-rgb: 125, 82, 96;
+  --md-sys-color-on-tertiary-rgb: 255, 255, 255;
+  --md-sys-color-tertiary-container-rgb: 255, 218, 217;
+  --md-sys-color-on-tertiary-container-rgb: 49, 17, 29;
+  --md-sys-color-error-rgb: 179, 38, 30;
+  --md-sys-color-on-error-rgb: 255, 255, 255;
+  --md-sys-color-error-container-rgb: 249, 222, 220;
+  --md-sys-color-on-error-container-rgb: 65, 14, 11;
+  --md-sys-color-background-rgb: 255, 251, 254;
+  --md-sys-color-on-background-rgb: 28, 27, 31;
+  --md-sys-color-surface-rgb: 255, 251, 254;
+  --md-sys-color-on-surface-rgb: 28, 27, 31;
+  --md-sys-color-surface-variant-rgb: 231, 224, 236;
+  --md-sys-color-on-surface-variant-rgb: 73, 69, 79;
+  --md-sys-color-outline-rgb: 122, 117, 127;
+  --md-sys-color-outline-variant-rgb: 202, 196, 208;
+  --md-sys-color-inverse-surface-rgb: 49, 48, 51;
+  --md-sys-color-inverse-on-surface-rgb: 244, 239, 244;
+  --md-sys-color-inverse-primary-rgb: 208, 188, 255;
+  --md-sys-color-surface-tint-rgb: 103, 80, 164;
+  --md-sys-color-surface-container-low-rgb: 255, 251, 254;
+  --md-sys-color-surface-container-high-rgb: 243, 237, 247;
 
-  --md-sys-color-secondary: #7a818b; /* Secondary muted */
-  --md-sys-color-on-secondary: #ffffff; /* Text on secondary muted */
+  /* Custom glassmorphism elements, now using Material 3 semantic colors */
+  --glass-surface: rgba(var(--md-sys-color-surface-rgb), 0.7);
+  --glass-border-color: rgba(var(--md-sys-color-outline-rgb), 0.3);
+  --glass-shadow-color: rgba(0, 0, 0, 0.1);
 
-  /* Adjusted glass colors */
-  --glass-blue-dark: rgba(
-    255,
-    255,
-    255,
-    1
-  ); /* Full opaque for bottom nav, overridden for header/panels below */
-  --glass-blue-medium: rgba(
-    255,
-    255,
-    255,
-    0.4
-  ); /* 40% opaque for other glass elements */
-  --glass-border-color: rgba(0, 0, 0, 0.1); /* Darker border for light glass */
-  --glass-shadow-color: rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  /* Component specific colors using Material 3 palette */
+  --header-background: rgba(var(--md-sys-color-surface-rgb), 0.8);
+  --header-text-color: var(--md-sys-color-on-surface);
+  --subtitle-color: var(--md-sys-color-on-surface-variant);
+  --link-color: var(--md-sys-color-primary);
+  --title-color-bright: var(--md-sys-color-on-surface);
 
-  --header-text-color: white; /* "Thunderhub" text white */
-  --subtitle-color: #4a4a4a;
-  --link-color: #164ca3; /* Accent blue for links */
-  --title-color-bright: #164ca3; /* Accent blue for titles */
-  --note-bg-color: rgba(255, 255, 255, 0.4); /* 40% white for notes/cards */
-  --note-text-color: #333333;
-  --button-bg-color: rgba(220, 220, 220, 0.7);
-  --button-border-color: rgba(150, 150, 150, 0.3);
-  --button-text-color: #333333;
-  --button-hover-bg-color: rgba(200, 200, 200, 0.8);
-  --button-hover-border-color: rgba(100, 100, 100, 0.7);
-  --active-tab-bg-color: rgba(
-    22,
-    76,
-    163,
-    0.2
-  ); /* Accent color with transparency */
-  --active-tab-text-color: var(--link-color);
-  --inactive-tab-text-color: #555555; /* Darker inactive text */
+  --note-bg-color: rgba(var(--md-sys-color-surface-container-low-rgb), 0.7);
+  --note-text-color: var(--md-sys-color-on-surface);
+
+  --button-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  --button-border-color: rgba(var(--md-sys-color-outline-rgb), 0.4);
+  --button-text-color: var(--md-sys-color-on-surface);
+  --button-hover-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --button-hover-border-color: rgba(var(--md-sys-color-outline-rgb), 0.6);
+
+  --active-tab-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --active-tab-text-color: var(--md-sys-color-primary);
+  --inactive-tab-text-color: var(--md-sys-color-on-surface-variant);
 
   /* Adjust animated background opacity for light theme */
   --grain-opacity-main: 0.1 !important;
   --grain-opacity-extra: 0.08 !important;
   --base-opacity: 0.15 !important;
-  --glow-color: rgba(0, 255, 255, 0.05) !important; /* even more subtle glow */
+  --glow-color: rgba(0, 255, 255, 0.05) !important;
 
   .animated-background {
-    opacity: 0.45 !important;
-  } /* Less intrusive */
+    opacity: 0.55 !important;
+  }
   .animated-background::before {
-    opacity: 0.45 !important;
+    opacity: 0.25 !important;
     mix-blend-mode: soft-light !important;
-  } /* Adjust grain */
+  }
 }
 
-/* Grey Theme Variables (Material Dark Grey) */
+/* Material 3 Grey Theme Variables */
 body[data-theme="grey"] {
-  --primary-background: #212121; /* Google Material Dark Grey 900 */
-  --on-primary-background: #e0e0e0; /* Light text for contrast */
+  /* This theme tries to mimic a dark grey Material 3 aesthetic */
+  --md-sys-color-primary: #bb86fc;
+  --md-sys-color-on-primary: #000000;
+  --md-sys-color-primary-container: #3700b3;
+  --md-sys-color-on-primary-container: #ffffff;
+  --md-sys-color-secondary: #03dac6;
+  --md-sys-color-on-secondary: #000000;
+  --md-sys-color-secondary-container: #03dac6;
+  --md-sys-color-on-secondary-container: #000000;
+  --md-sys-color-background: #121212;
+  --md-sys-color-on-background: #ffffff;
+  --md-sys-color-surface: #1e1e1e;
+  --md-sys-color-on-surface: #ffffff;
+  --md-sys-color-surface-variant: #424242;
+  --md-sys-color-on-surface-variant: #e0e0e0;
+  --md-sys-color-outline: #616161;
+  --md-sys-color-outline-variant: #303030;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e0e0e0;
+  --md-sys-color-inverse-on-surface: #212121;
+  --md-sys-color-inverse-primary: #bb86fc;
+  --md-sys-color-surface-tint: #bb86fc;
 
-  --md-sys-color-primary: #bb86fc; /* Material Design purple for accent */
-  --md-sys-color-on-primary: #212121;
+  /* Helper for RGB extraction for rgba() functions */
+  --md-sys-color-primary-rgb: 187, 134, 252;
+  --md-sys-color-on-primary-rgb: 0, 0, 0;
+  --md-sys-color-primary-container-rgb: 55, 0, 179;
+  --md-sys-color-on-primary-container-rgb: 255, 255, 255;
+  --md-sys-color-secondary-rgb: 3, 218, 198;
+  --md-sys-color-on-secondary-rgb: 0, 0, 0;
+  --md-sys-color-secondary-container-rgb: 3, 218, 198;
+  --md-sys-color-on-secondary-container-rgb: 0, 0, 0;
+  --md-sys-color-background-rgb: 18, 18, 18;
+  --md-sys-color-on-background-rgb: 255, 255, 255;
+  --md-sys-color-surface-rgb: 30, 30, 30;
+  --md-sys-color-on-surface-rgb: 255, 255, 255;
+  --md-sys-color-surface-variant-rgb: 66, 66, 66;
+  --md-sys-color-on-surface-variant-rgb: 224, 224, 224;
+  --md-sys-color-outline-rgb: 97, 97, 97;
+  --md-sys-color-outline-variant-rgb: 48, 48, 48;
+  --md-sys-color-inverse-surface-rgb: 224, 224, 224;
+  --md-sys-color-inverse-on-surface-rgb: 33, 33, 33;
+  --md-sys-color-inverse-primary-rgb: 187, 134, 252;
+  --md-sys-color-surface-tint-rgb: 187, 134, 252;
+  --md-sys-color-surface-container-low-rgb: 30, 30, 30;
+  --md-sys-color-surface-container-high-rgb: 42, 42, 42;
 
-  --md-sys-color-secondary: #03dac6; /* Material Design teal for secondary */
-  --md-sys-color-on-secondary: #212121;
+  /* Custom glassmorphism elements */
+  --glass-surface: rgba(var(--md-sys-color-surface-rgb), 0.7);
+  --glass-border-color: rgba(var(--md-sys-color-outline-rgb), 0.3);
+  --glass-shadow-color: rgba(0, 0, 0, 0.7);
 
-  --glass-blue-dark: rgba(33, 33, 33, 0.8); /* Slightly transparent dark grey */
-  --glass-blue-medium: rgba(50, 50, 50, 0.5); /* Medium transparent grey */
-  --glass-border-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
-  --glass-shadow-color: rgba(0, 0, 0, 0.7); /* Darker shadow */
+  --header-background: rgba(var(--md-sys-color-surface-rgb), 0.8);
+  --header-text-color: var(--md-sys-color-on-surface);
+  --subtitle-color: var(--md-sys-color-on-surface-variant);
+  --link-color: var(--md-sys-color-primary);
+  --title-color-bright: var(--md-sys-color-on-surface);
 
-  --header-text-color: #e0e0e0;
-  --subtitle-color: #bdbdbd; /* Lighter grey for subtitles */
-  --link-color: #bb86fc; /* Primary accent for links */
-  --title-color-bright: #bb86fc; /* Primary accent for titles */
-  --note-bg-color: rgba(
-    50,
-    50,
-    50,
-    0.6
-  ); /* Slightly lighter grey for notes/cards */
-  --note-text-color: #e0e0e0;
-  --button-bg-color: rgba(97, 97, 97, 0.3); /* Grey 600 with transparency */
-  --button-border-color: rgba(
-    158,
-    158,
-    158,
-    0.4
-  ); /* Grey 500 with transparency */
-  --button-text-color: #e0e0e0;
-  --button-hover-bg-color: rgba(97, 97, 97, 0.5);
-  --button-hover-border-color: rgba(158, 158, 158, 0.7);
-  --active-tab-bg-color: rgba(
-    187,
-    134,
-    252,
-    0.2
-  ); /* Accent with transparency */
-  --active-tab-text-color: var(--link-color);
-  --inactive-tab-text-color: #9e9e9e; /* Grey 500 for inactive text */
+  --note-bg-color: rgba(var(--md-sys-color-surface-rgb), 0.6);
+  --note-text-color: var(--md-sys-color-on-surface);
 
-  /* These values were intended to hide/show grain and glow, now controlled by JS on tab change */
+  --button-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  --button-border-color: rgba(var(--md-sys-color-outline-rgb), 0.4);
+  --button-text-color: var(--md-sys-color-on-surface);
+  --button-hover-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --button-hover-border-color: rgba(var(--md-sys-color-outline-rgb), 0.6);
+
+  --active-tab-bg-color: rgba(var(--md-sys-color-primary-rgb), 0.2);
+  --active-tab-text-color: var(--md-sys-color-primary);
+  --inactive-tab-text-color: var(--md-sys-color-on-surface-variant);
+
   --grain-opacity-main: 0.12;
   --grain-opacity-extra: 0.09;
   --base-opacity: 0.35;
-  --glow-color: rgba(187, 134, 252, 0.08); /* subtle accent glow */
+  --glow-color: rgba(187, 134, 252, 0.08);
 
-  /* Specific overrides for animated background when this theme is active */
   .animated-background {
-    opacity: var(
-      --base-opacity
-    ) !important; /* Use theme variable for base opacity */
+    opacity: var(--base-opacity) !important;
   }
   .animated-background::before {
     opacity: var(--grain-opacity-main) !important;
-    mix-blend-mode: overlay !important; /* Revert to overlay for grain */
+    mix-blend-mode: overlay !important;
   }
   .animated-background::after {
-    opacity: 0.85 !important; /* Keep the underlay visible as per default */
+    opacity: 0.85 !important;
   }
   .animated-background .extra-grain {
     opacity: var(--grain-opacity-extra) !important;
   }
   .gradients-container {
-    filter: none !important; /* Remove blur from gooey gradients */
+    filter: none !important;
   }
 }
 
-/* Material Purple Theme Variables */
+/* Material Purple Theme Variables - Direct Material 3 values */
 body[data-theme="material-purple"] {
   /* Using specific Material Design 3 values for direct application */
-  --primary-background: rgb(20, 19, 23); /* md-sys-color-background */
-  --on-primary-background: rgb(230, 225, 231); /* md-sys-color-on-background */
-
-  --md-sys-color-primary: rgb(
-    206,
-    189,
-    255
-  ); /* primary-fixed-dim / surface-tint as primary accent */
+  --md-sys-color-primary: rgb(206, 189, 255);
   --md-sys-color-on-primary: rgb(53, 37, 99);
-
+  --md-sys-color-primary-container: rgb(76, 60, 127);
+  --md-sys-color-on-primary-container: rgb(235, 221, 255);
   --md-sys-color-secondary: rgb(203, 194, 226);
   --md-sys-color-on-secondary: rgb(51, 45, 69);
-
+  --md-sys-color-secondary-container: rgb(73, 67, 90);
+  --md-sys-color-on-secondary-container: rgb(235, 221, 255);
   --md-sys-color-tertiary: rgb(255, 204, 229);
   --md-sys-color-on-tertiary: rgb(84, 27, 63);
-
+  --md-sys-color-tertiary-container: rgb(112, 50, 89);
+  --md-sys-color-on-tertiary-container: rgb(255, 216, 237);
   --md-sys-color-error: rgb(255, 180, 171);
   --md-sys-color-on-error: rgb(105, 0, 5);
+  --md-sys-color-error-container: rgb(147, 0, 10);
+  --md-sys-color-on-error-container: rgb(255, 218, 214);
+  --md-sys-color-background: rgb(20, 19, 23);
+  --md-sys-color-on-background: rgb(230, 225, 231);
+  --md-sys-color-surface: rgb(20, 19, 23);
+  --md-sys-color-on-surface: rgb(230, 225, 231);
+  --md-sys-color-surface-variant: rgb(73, 69, 78);
+  --md-sys-color-on-surface-variant: rgb(202, 196, 209);
+  --md-sys-color-outline: rgb(147, 143, 154);
+  --md-sys-color-outline-variant: rgb(73, 69, 78);
+  --md-sys-color-shadow: rgb(0, 0, 0);
+  --md-sys-color-scrim: rgb(0, 0, 0);
+  --md-sys-color-inverse-surface: rgb(230, 225, 231);
+  --md-sys-color-inverse-on-surface: rgb(50, 47, 51);
+  --md-sys-color-inverse-primary: rgb(100, 84, 149);
+  --md-sys-color-surface-tint: rgb(206, 189, 255);
 
-  /* Glassmorphism elements */
-  --glass-blue-dark: rgba(
-    32,
-    31,
-    35,
-    0.9
-  ); /* md-sys-color-surface-container with high opacity */
-  --glass-blue-medium: rgba(
-    43,
-    41,
-    46,
-    0.6
-  ); /* md-sys-color-surface-container-high with medium opacity */
-  --glass-border-color: rgba(
-    147,
-    143,
-    154,
-    0.3
-  ); /* md-sys-color-outline with transparency */
-  --glass-shadow-color: rgba(0, 0, 0, 0.8); /* Dark shadow */
+  /* Helper for RGB extraction for rgba() functions */
+  --md-sys-color-primary-rgb: 206, 189, 255;
+  --md-sys-color-on-primary-rgb: 53, 37, 99;
+  --md-sys-color-primary-container-rgb: 76, 60, 127;
+  --md-sys-color-on-primary-container-rgb: 235, 221, 255;
+  --md-sys-color-secondary-rgb: 203, 194, 226;
+  --md-sys-color-on-secondary-rgb: 51, 45, 69;
+  --md-sys-color-secondary-container-rgb: 73, 67, 90;
+  --md-sys-color-on-secondary-container-rgb: 235, 221, 255;
+  --md-sys-color-tertiary-rgb: 255, 204, 229;
+  --md-sys-color-on-tertiary-rgb: 84, 27, 63;
+  --md-sys-color-tertiary-container-rgb: 112, 50, 89;
+  --md-sys-color-on-tertiary-container-rgb: 255, 216, 237;
+  --md-sys-color-error-rgb: 255, 180, 171;
+  --md-sys-color-on-error-rgb: 105, 0, 5;
+  --md-sys-color-error-container-rgb: 147, 0, 10;
+  --md-sys-color-on-error-container-rgb: 255, 218, 214;
+  --md-sys-color-background-rgb: 20, 19, 23;
+  --md-sys-color-on-background-rgb: 230, 225, 231;
+  --md-sys-color-surface-rgb: 20, 19, 23;
+  --md-sys-color-on-surface-rgb: 230, 225, 231;
+  --md-sys-color-surface-variant-rgb: 73, 69, 78;
+  --md-sys-color-on-surface-variant-rgb: 202, 196, 209;
+  --md-sys-color-outline-rgb: 147, 143, 154;
+  --md-sys-color-outline-variant-rgb: 73, 69, 78;
+  --md-sys-color-inverse-surface-rgb: 230, 225, 231;
+  --md-sys-color-inverse-on-surface-rgb: 50, 47, 51;
+  --md-sys-color-inverse-primary-rgb: 100, 84, 149;
+  --md-sys-color-surface-tint-rgb: 206, 189, 255;
+  --md-sys-color-surface-container-low-rgb: 28, 27, 31;
+  --md-sys-color-surface-container-rgb: 32, 31, 35;
+  --md-sys-color-surface-container-high-rgb: 43, 41, 46;
 
-  --header-text-color: var(--on-primary-background);
-  --subtitle-color: rgb(202, 196, 209); /* md-sys-color-on-surface-variant */
-  --link-color: rgb(100, 84, 149); /* md-sys-color-inverse-primary for links */
-  --title-color-bright: var(
-    --md-sys-color-primary
-  ); /* Primary accent for titles */
+  /* Custom glassmorphism elements */
+  --glass-surface: rgba(var(--md-sys-color-surface-container-rgb), 0.9);
+  --glass-border-color: rgba(var(--md-sys-color-outline-rgb), 0.3);
+  --glass-shadow-color: rgba(0, 0, 0, 0.8);
 
-  --note-bg-color: rgba(
-    28,
-    27,
-    31,
-    0.7
-  ); /* md-sys-color-surface-container-low with transparency */
-  --note-text-color: var(--on-primary-background);
+  --header-background: rgba(var(--md-sys-color-surface-container-rgb), 0.7);
+  --header-text-color: var(--md-sys-color-on-surface);
+  --subtitle-color: var(--md-sys-color-on-surface-variant);
+  --link-color: var(--md-sys-color-inverse-primary);
+  --title-color-bright: var(--md-sys-color-primary);
 
-  --button-bg-color: rgba(
-    76,
-    69,
-    95,
-    0.4
-  ); /* md-sys-color-secondary-container with transparency */
-  --button-border-color: rgba(
-    147,
-    143,
-    154,
-    0.5
-  ); /* md-sys-color-outline with transparency */
-  --button-text-color: var(--on-primary-background);
-  --button-hover-bg-color: rgba(76, 69, 95, 0.6);
-  --button-hover-border-color: rgba(147, 143, 154, 0.8);
+  --note-bg-color: rgba(var(--md-sys-color-surface-container-low-rgb), 0.7);
+  --note-text-color: var(--md-sys-color-on-surface);
 
-  --active-tab-bg-color: rgba(
-    100,
-    84,
-    149,
-    0.2
-  ); /* inverse-primary with transparency */
-  --active-tab-text-color: var(--link-color);
-  --inactive-tab-text-color: var(--subtitle-color);
+  --button-bg-color: rgba(var(--md-sys-color-secondary-container-rgb), 0.4);
+  --button-border-color: rgba(var(--md-sys-color-outline-rgb), 0.5);
+  --button-text-color: var(--md-sys-color-on-surface);
+  --button-hover-bg-color: rgba(var(--md-sys-color-secondary-container-rgb), 0.6);
+  --button-hover-border-color: rgba(var(--md-sys-color-outline-rgb), 0.8);
+
+  --active-tab-bg-color: rgba(var(--md-sys-color-inverse-primary-rgb), 0.2);
+  --active-tab-text-color: var(--md-sys-color-inverse-primary);
+  --inactive-tab-text-color: var(--md-sys-color-on-surface-variant);
 
   /* Specific adjustments for animated background */
-  --grain-opacity-main: 0; /* No grain */
-  --grain-opacity-extra: 0; /* No extra grain */
-  --base-opacity: 0; /* Hide the animated background */
-  --glow-color: rgba(0, 0, 0, 0); /* No glow if background is hidden */
+  --grain-opacity-main: 0;
+  --grain-opacity-extra: 0;
+  --base-opacity: 0;
+  --glow-color: rgba(0, 0, 0, 0);
 
   .animated-background {
-    opacity: 0 !important; /* Force hide animated background */
+    opacity: 0 !important;
   }
   .animated-background::before {
-    opacity: 0 !important; /* Force hide grain overlay */
+    opacity: 0 !important;
   }
   .animated-background::after {
-    opacity: 0 !important; /* Force hide underlay background */
+    opacity: 0 !important;
   }
   .animated-background .extra-grain {
-    opacity: 0 !important; /* Force hide extra grain layer */
+    opacity: 0 !important;
   }
   .gradients-container {
-    filter: none !important; /* Remove blur from gooey gradients */
+    filter: none !important;
   }
-  /* If you still want the gooey effect without the background, ensure the .g1-.g5 elements are visible */
   .g1,
   .g2,
   .g3,
   .g4,
   .g5 {
-    opacity: 0.6 !important; /* Adjust if too dim or bright */
-    mix-blend-mode: screen !important; /* Or 'lighten', 'plus-lighter', 'overlay' depending on desired effect */
+    opacity: 0.6 !important;
+    mix-blend-mode: screen !important;
   }
 }
 
@@ -386,7 +563,7 @@ Base Styles
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  height: 100%; /* Ensure html takes full viewport height */
+  height: 100%;
 }
 
 *,
@@ -396,21 +573,19 @@ html {
 }
 
 body {
-  font-family: "CustomFont", sans-serif;
+  font-family: "CustomFont", "Google Sans", "Roboto", sans-serif;
   font-size: 18px;
   line-height: 1.2;
   margin: 0;
-  color: var(--on-primary-background); /* Use theme-dependent text color */
+  color: var(--md-sys-color-on-background);
   display: flex;
-  flex-direction: column; /* Stack header, main, and footer vertically */
-  min-height: 100vh; /* Ensure body takes at least full viewport height */
+  flex-direction: column;
+  min-height: 100vh;
   position: relative;
-  background-color: var(
-    --primary-background
-  ); /* Use theme-dependent background */
+  background-color: var(--md-sys-color-background);
   width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll due to animations */
-  transition: background-color 0.5s ease-in-out; /* Smooth transition for background color */
+  overflow-x: hidden;
+  transition: background-color var(--transition-duration-medium) ease-in-out;
 }
 
 /* ==========================================================================
@@ -422,44 +597,44 @@ Splash Screen Styles
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--primary-background); /* Use theme background for splash */
+  background: var(--md-sys-color-background);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 999; /* Ensure it's on top of everything */
+  z-index: 999;
   opacity: 1;
-  transition: opacity 0.5s ease-out; /* For fade-out effect */
+  transition: opacity var(--transition-duration-medium) ease-out;
 }
 
 #splash-screen.fade-out {
   opacity: 0;
-  pointer-events: none; /* Disable interactions after fade out begins */
+  pointer-events: none;
 }
 
 .splash-logo {
   font-family: "HeaderFontStyle", sans-serif;
-  font-size: clamp(2rem, 8vw, 60px); /* Larger for splash */
+  font-size: clamp(2rem, 8vw, 60px);
   color: var(--header-text-color);
   text-shadow:
     0 4px 10px rgba(0, 0, 0, 0.6),
     0 0 10px rgba(136, 76, 255, 0.5),
     0 0 20px rgba(170, 102, 255, 0.4),
     0 0 40px rgba(200, 140, 255, 0.8);
-  margin-bottom: 10px; /* Space between logo and subtitle */
+  margin-bottom: 10px;
   opacity: 1;
-  animation: splashLogoFadeOut 0.5s ease-out 2.5s forwards; /* Fades out later than splash screen */
+  animation: splashLogoFadeOut var(--transition-duration-medium) ease-out 2.5s forwards;
 }
 
 .splash-text {
-  font-family: "categories", sans-serif;
-  font-size: clamp(1rem, 3vw, 25px); /* Larger for splash */
+  font-family: "categories", "Google Sans", "Roboto", sans-serif;
+  font-size: clamp(1rem, 3vw, 25px);
   color: var(--subtitle-color);
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(100, 255, 255, 0.15);
   opacity: 1;
-  animation: splashTextFadeOut 0.5s ease-out 2.5s forwards; /* Fades out later than splash screen */
+  animation: splashTextFadeOut var(--transition-duration-medium) ease-out 2.5s forwards;
 }
 
 /* ==========================================================================
@@ -480,12 +655,10 @@ Animated Background - OPTIMIZED
   transform-origin: center center;
   will-change: background-image, transform, filter;
   pointer-events: none;
-  /* subtle glow overlay */
   box-shadow: inset 0 0 150px var(--glow-color);
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity changes */
+  transition: opacity var(--transition-duration-medium) ease-in-out;
 }
 
-/* Underlay background, subtle secondary layer for depth */
 .animated-background::after {
   content: "";
   position: fixed;
@@ -506,7 +679,6 @@ Animated Background - OPTIMIZED
   filter: brightness(0.9);
 }
 
-/* Main grain overlay: subtle fractal noise */
 .animated-background::before {
   content: "";
   position: fixed;
@@ -531,7 +703,6 @@ Animated Background - OPTIMIZED
   filter: contrast(110%) brightness(110%);
 }
 
-/* Extra subtle grain layer: slower and finer detail */
 .animated-background .extra-grain {
   position: fixed;
   top: 0;
@@ -600,9 +771,7 @@ Animated Background - OPTIMIZED
   left: 0;
   width: 100%;
   height: 100%;
-  /* REMOVED: filter: blur(10px); */ /* This was a major lag source */
   pointer-events: none;
-  /* Add a transform to create a new compositing layer for better performance */
   transform: translateZ(0); /* Promotes to a composite layer */
   will-change: transform;
 }
@@ -617,15 +786,10 @@ Animated Background - OPTIMIZED
   mix-blend-mode: var(--blending);
   border-radius: 50%;
   background-repeat: no-repeat;
-  will-change: transform, opacity; /* Keep will-change */
-  /* Using radial-gradient directly on each blob,
-     consider simpler gradients if performance is still an issue */
-
-  /* Ensure hardware acceleration for individual blobs */
+  will-change: transform, opacity;
   transform: translateZ(0);
 }
 
-/* Each gradient blob uses black fade edges for dramatic effect */
 .g1 {
   background: radial-gradient(
       circle at center,
@@ -691,7 +855,7 @@ Animated Background - OPTIMIZED
   left: calc(50% - var(--circle-size) / 2);
   transform-origin: calc(50% - 200px);
   animation: moveHorizontal 40s ease infinite;
-  opacity: 1; /* Increased opacity */
+  opacity: 1;
 }
 
 .g5 {
@@ -715,36 +879,35 @@ Animated Background - OPTIMIZED
 Typography
 ========================================================================== */
 h1 {
-  font-family: "HeaderFontStyle", sans-serif;
-  font-size: clamp(2rem, 5vw, 35px); /* Responsive font size */
+  font-family: "HeaderFontStyle", "Google Sans", sans-serif;
+  font-size: clamp(2rem, 5vw, 35px);
   text-align: center;
   margin-left: 1rem;
   margin-right: 1rem;
-  /* Removed background property to make it transparent */
-  color: var(--header-text-color); /* Theme-dependent */
+  color: var(--header-text-color);
   text-shadow:
     0 4px 10px rgba(0, 0, 0, 0.6),
-    /* Darker shadow for contrast */ 0 0 10px rgba(136, 76, 255, 0.5),
+    0 0 10px rgba(136, 76, 255, 0.5),
     0 0 20px rgba(170, 102, 255, 0.4),
     0 0 40px rgba(200, 140, 255, 0.8);
 }
 
 .subtitle {
-  font-family: "categories", sans-serif;
-  font-size: clamp(1rem, 2.5vw, 20px); /* Responsive font size */
+  font-family: "categories", "Google Sans", "Roboto", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 20px);
   text-align: center;
   display: block;
-  color: var(--subtitle-color); /* Theme-dependent */
+  color: var(--subtitle-color);
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(100, 255, 255, 0.15);
 }
 
 .subtitleheader {
-  font-family: "HeaderSubtitleStyle", sans-serif;
-  font-size: clamp(2rem, 5vw, 35px); /* Responsive font size */
+  font-family: "HeaderSubtitleStyle", "Google Sans", "Roboto Mono", sans-serif;
+  font-size: clamp(2rem, 5vw, 35px);
   text-align: center;
-  color: var(--header-text-color); /* Theme-dependent */
+  color: var(--header-text-color);
   text-shadow:
     0 4px 10px rgba(0, 0, 0, 0.7),
     0 0 30px rgba(173, 216, 230, 0.4);
@@ -752,93 +915,49 @@ h1 {
 }
 
 /* ==========================================================================
-Layout & Sections
+Layout & Sections - Material Design 3 surfaces and elevation
 ========================================================================== */
 header {
   text-align: center;
   padding: 10px 0 20px;
   position: relative;
-  /* Apply frosted glass to header */
+  background-color: var(--header-background);
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
-  opacity: 1; /* Fully opaque header */
-  border-bottom-left-radius: var(--border-radius); /* Rounded bottom-left */
-  border-bottom-right-radius: var(--border-radius); /* Rounded bottom-right */
-  box-shadow: var(--box-shadow);
-  border: 4px solid var(--glass-border-color); /* Add border to header */
+  /* Changed to 16px radius all around for the "squared with corners" look */
+  border-radius: var(--border-radius-md); /* 16dp equivalent */
+  box-shadow: var(--md-sys-elevation-2);
+  border: 1px solid var(--glass-border-color);
   z-index: 2;
-  animation: fadeInDown 1s ease-out forwards;
-}
-
-body[data-theme="light"] header {
-  background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
-}
-
-body[data-theme="grey"] header {
-  background-color: rgba(
-    33,
-    33,
-    33,
-    0.7
-  ); /* Slightly transparent dark grey for header */
-}
-
-body[data-theme="material-purple"] header {
-  background-color: rgba(
-    32,
-    31,
-    35,
-    0.7
-  ); /* Match Material Purple glass-blue-dark with more opacity */
+  animation: fadeInDown var(--transition-duration-long) ease-out forwards;
+  margin: 20px 10px;
 }
 
 main {
-  flex: 1; /* Allows main content to grow and push navigation to bottom */
+  flex: 1;
   width: 100%;
-  max-width: 900px; /* Set a max-width for content */
-  margin: 20px auto; /* Center main content and add spacing */
+  max-width: 900px;
+  margin: 20px auto;
   padding: 0 25px;
   position: relative;
   z-index: 2;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1s ease-out 0.5s forwards; /* Add fade-in animation */
-  padding-bottom: 80px; /* Increased space for taller custom navigation */
+  animation: fadeInUp var(--transition-duration-long) ease-out 0.5s forwards;
+  padding-bottom: 80px;
 }
 
 section[role="tabpanel"] {
   padding: 24px;
-  /* Apply frosted glass to panels */
-  border-radius: var(--border-radius);
+  background-color: var(--note-bg-color);
+  border-radius: var(--border-radius-md);
   margin-bottom: 24px;
   display: none;
-  border: 1px solid var(--glass-border-color); /* Consistent border */
-  box-shadow: var(--box-shadow); /* Consistent shadow */
+  border: 1px solid var(--glass-border-color);
+  box-shadow: var(--md-sys-elevation-1);
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
-  color: var(--on-primary-background); /* Theme-dependent */
-}
-
-body[data-theme="light"] section[role="tabpanel"] {
-  background-color: rgba(255, 255, 255, 0.4); /* 40% opaque for light theme */
-}
-
-body[data-theme="grey"] section[role="tabpanel"] {
-  background-color: rgba(
-    33,
-    33,
-    33,
-    0.6
-  ); /* Slightly transparent dark grey for panels */
-}
-
-body[data-theme="material-purple"] section[role="tabpanel"] {
-  background-color: rgba(
-    28,
-    27,
-    31,
-    0.7
-  ); /* Match Material Purple note-bg-color for consistency */
+  color: var(--md-sys-color-on-surface);
 }
 
 section {
@@ -846,31 +965,37 @@ section {
   opacity: 0;
   transform: scale(0.98);
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+    opacity var(--transition-duration-medium) ease,
+    transform var(--transition-duration-medium) ease;
 }
 
 section.active {
   display: block;
   opacity: 1;
   transform: scale(1);
-  animation: fadeInScale 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation: fadeInScale var(--transition-duration-medium) cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
 .contribute-step {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid #add8e6;
-  border-radius: 12px;
+  background: rgba(var(--md-sys-color-surface-container-low-rgb), 0.05);
+  border-left: 4px solid var(--md-sys-color-primary);
+  border-radius: var(--border-radius-sm);
+  transition: transform var(--transition-duration-short) ease, box-shadow var(--transition-duration-short) ease; /* Added transition */
+}
+
+.contribute-step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-1); /* Subtle lift on hover */
 }
 
 .code-box {
-  background: #1e1e2e;
-  color: #00f7ff;
+  background: rgba(var(--md-sys-color-surface-container-high-rgb), 1);
+  color: var(--md-sys-color-on-surface);
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-family: monospace;
+  border-radius: var(--border-radius-sm);
+  font-family: "Roboto Mono", monospace;
   margin: 0.5rem 0;
   display: inline-block;
 }
@@ -879,7 +1004,7 @@ section.active {
   width: 100%;
   height: 100%;
   position: relative;
-  background: linear-gradient(135deg, var(--color-bg2), var(--color-bg1));
+  background: linear-gradient(135deg, var(--md-sys-color-background), var(--md-sys-color-surface));
   top: 0;
   left: 0;
 }
@@ -893,63 +1018,70 @@ section.active {
 }
 
 .important-notes-section {
-  font-family: "ImportantNotes", sans-serif;
-  font-size: clamp(1rem, 2vw, 16px); /* Responsive font size */
-  background-color: var(--note-bg-color); /* Theme-dependent */
-  color: var(--note-text-color); /* Theme-dependent */
+  font-family: "ImportantNotes", "Google Sans", "Roboto", sans-serif;
+  font-size: clamp(1rem, 2vw, 16px);
+  background-color: var(--note-bg-color);
+  color: var(--note-text-color);
   border: 1px solid var(--glass-border-color);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-md);
   padding: 30px;
   margin: 30px auto;
   list-style-type: none;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--md-sys-elevation-1);
   text-align: left;
   max-width: 100%;
   line-height: 1.7;
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
+  transition: transform var(--transition-duration-short) ease, box-shadow var(--transition-duration-short) ease; /* Added transition */
+}
+
+.important-notes-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-2); /* Slightly more pronounced lift on hover */
 }
 
 .important-notes-section strong {
-  font-family: "UberMoveBold", sans-serif;
-  font-size: clamp(1.2rem, 3vw, 24px); /* Responsive font size */
+  font-family: "UberMoveBold", "Google Sans Bold", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 24px);
   display: block;
   margin-bottom: 15px;
-  color: var(--title-color-bright); /* Theme-dependent */
+  color: var(--title-color-bright);
 }
 
 .important-notes-section hr.divider {
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lighter divider */
+  border-top: 1px solid rgba(var(--md-sys-color-outline-rgb), 0.2);
   margin: 20px 0;
 }
 
 .important-notes-section a {
   color: var(--link-color);
   text-decoration: underline;
+  transition: color var(--transition-duration-short) ease; /* Added transition */
 }
 
-/* Contribute Section Specific Styles */
+.important-notes-section a:hover {
+  color: var(--md-sys-color-on-background); /* More contrast on hover */
+}
+
+/* Contribute Section Specific Styles - Adapted to Material 3 */
 .contribute-section {
-  background-color: #0d1117; /* Keep specific GitHub dark background */
-  color: #c9d1d9;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
   padding: 2rem;
-  border-radius: 12px;
-  font-family: "Segoe UI", Roboto, sans-serif;
+  border-radius: var(--border-radius-md);
+  font-family: "Roboto", sans-serif;
 }
 
 .contribute-section h2 {
-  color: #58a6ff;
+  color: var(--md-sys-color-primary);
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
-.contribute-step {
-  margin: 2rem 0;
-}
-
 .contribute-step h3 {
-  color: #79c0ff;
+  color: var(--md-sys-color-secondary);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
@@ -966,33 +1098,44 @@ section.active {
 }
 
 .contribute-section a {
-  color: #58a6ff;
+  color: var(--md-sys-color-primary);
   text-decoration: underline;
+  transition: color var(--transition-duration-short) ease;
+}
+
+.contribute-section a:hover {
+  color: var(--md-sys-color-on-surface); /* More contrast on hover */
 }
 
 .code-box {
-  background-color: #161b22;
-  color: #c9d1d9;
-  border: 1px solid #30363d;
+  background-color: rgba(var(--md-sys-color-surface-container-high-rgb), 1);
+  color: var(--md-sys-color-on-surface-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
   padding: 0.75rem;
-  border-radius: 6px;
-  font-family: monospace;
+  border-radius: var(--border-radius-sm);
+  font-family: "Roboto Mono", monospace;
   font-size: 0.9rem;
   margin-top: 0.5rem;
-  white-space: pre-wrap; /* Ensures code wraps */
+  white-space: pre-wrap;
   word-break: break-all;
 }
 
 .note {
-  background-color: #1c1f26;
-  border-left: 4px solid #3fb950;
+  background-color: rgba(var(--md-sys-color-surface-container-low-rgb), 1);
+  border-left: 4px solid var(--md-sys-color-secondary);
   padding: 0.75rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius-sm);
   margin-top: 1rem;
+  transition: transform var(--transition-duration-short) ease, box-shadow var(--transition-duration-short) ease; /* Added transition */
+}
+
+.note:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-1);
 }
 
 /* ==========================================================================
-Animations
+Animations - Use defined transition durations
 ========================================================================== */
 @keyframes gradientFlow {
   0% {
@@ -1153,30 +1296,32 @@ Animations
 }
 
 /* ==========================================================================
-Navigation
+Navigation - Material Design 3 Bottom Navigation Bar
 ========================================================================== */
 .bottom-navigation {
   position: fixed;
   bottom: 0;
-  left: 50%; /* Center the bar */
-  transform: translateX(-50%); /* Adjust for centering */
-  width: 90%; /* Adjust width for smaller screen presence */
-  max-width: 450px; /* Max width for larger screens */
-  height: 70px; /* Taller height */
-  background-color: var(
-    --glass-blue-dark
-  ); /* Apply glass effect, theme-dependent */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 500px;
+  height: 75px;
+  /* Set to 55% opaque */
+  background-color: rgba(var(--md-sys-color-surface-rgb), 0.55);
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
-  border: 1px solid var(--glass-border-color); /* Full border, theme-dependent */
-  box-shadow: var(--box-shadow); /* Apply full box-shadow */
+  border: 1px solid var(--glass-border-color);
+  box-shadow: var(--md-sys-elevation-3);
   z-index: 100;
-  display: flex; /* Arrange tabs horizontally */
-  justify-content: space-evenly; /* Evenly space tabs within their constrained width */
-  align-items: center; /* Center items vertically */
-  padding: 0 10px; /* Horizontal padding */
-  border-radius: var(--border-radius); /* Apply radius for "pill" shape */
-  margin-bottom: 10px; /* Lift it slightly from the very bottom */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: var(--border-radius-xl);
+  margin-bottom: 15px;
+  transition:
+    background-color var(--transition-duration-medium) ease,
+    box-shadow var(--transition-duration-medium) ease;
 }
 
 .nav-tab {
@@ -1184,50 +1329,48 @@ Navigation
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px; /* Adjusted padding for larger size */
-  min-width: 70px; /* Ensure a minimum clickable area */
-  color: var(--inactive-tab-text-color); /* Theme-dependent */
-  font-family: "navTabs", sans-serif;
-  font-size: 15px; /* Slightly larger font size */
+  padding: 10px 15px;
+  min-width: 80px;
+  color: var(--inactive-tab-text-color);
+  font-family: "navTabs", "Google Sans Medium", sans-serif;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   transition:
-    color 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.2s ease;
-  border-radius: var(--border-radius); /* Apply border-radius */
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    color var(--transition-duration-short) ease,
+    background-color var(--transition-duration-short) ease,
+    transform var(--transition-duration-short) ease,
+    box-shadow var(--transition-duration-short) ease;
+  border-radius: var(--border-radius-lg);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-tab .material-symbols-outlined {
-  font-size: 26px; /* Larger icon size */
-  margin-bottom: 4px; /* Space between icon and label */
-  color: inherit; /* Inherit color from parent .nav-tab */
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: inherit;
+  transition: color var(--transition-duration-short) ease;
 }
 
 .nav-tab.active {
-  color: var(--active-tab-text-color); /* Theme-dependent */
-  background-color: var(--active-tab-bg-color); /* Theme-dependent */
-  transform: translateY(-2px); /* Slight lift for active tab */
+  color: var(--active-tab-text-color);
+  background-color: var(--active-tab-bg-color);
+  transform: translateY(-4px) scale(1.05);
+  margin: 0 8px;
+  box-shadow: var(--md-sys-elevation-2);
+  /* The active indicator is less round now, using the smaller radius */
+  border-radius: var(--border-radius-md);
 }
 
 .nav-tab:hover:not(.active) {
-  background-color: rgba(
-    93,
-    46,
-    255,
-    0.1
-  ); /* Consistent hover for now, can be theme-dependent */
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.1);
+  transform: translateY(-2px);
 }
 
 .nav-tab:active {
-  background-color: rgba(
-    93,
-    46,
-    255,
-    0.3
-  ); /* Consistent pressed for now, can be theme-dependent */
+  background-color: rgba(var(--md-sys-color-primary-rgb), 0.3);
+  transform: translateY(0);
 }
 
 /* Theme options styles */
@@ -1243,19 +1386,24 @@ Navigation
   flex-direction: column;
   gap: 10px;
   padding: 15px;
-  border: 1px solid var(--glass-border-color); /* Theme-dependent */
-  border-radius: var(--border-radius);
-  background-color: var(
-    --note-bg-color
-  ); /* Use note background for consistency, theme-dependent */
+  border: 1px solid var(--glass-border-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--note-bg-color);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--md-sys-elevation-1);
+  transition: transform var(--transition-duration-short) ease, box-shadow var(--transition-duration-short) ease; /* Added transition */
+}
+
+.theme-option-group:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-2);
 }
 
 .theme-option-group h3 {
-  font-family: "UberMoveBold", sans-serif;
-  font-size: clamp(1.1rem, 2.8vw, 22px); /* Responsive font size */
-  color: var(--title-color-bright); /* Theme-dependent */
+  font-family: "UberMoveBold", "Google Sans Bold", sans-serif;
+  font-size: clamp(1.1rem, 2.8vw, 22px);
+  color: var(--title-color-bright);
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -1267,17 +1415,18 @@ Navigation
 }
 
 .theme-button {
-  background-color: var(--button-bg-color); /* Theme-dependent */
-  border: 1px solid var(--button-border-color); /* Theme-dependent */
-  border-radius: 10px;
-  color: var(--button-text-color); /* Theme-dependent */
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--button-text-color);
   padding: 10px 15px;
-  font-size: clamp(0.9rem, 2vw, 16px); /* Responsive font size */
+  font-size: clamp(0.9rem, 2vw, 16px);
   cursor: pointer;
   transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.2s ease;
+    background-color var(--transition-duration-short) ease,
+    border-color var(--transition-duration-short) ease,
+    transform var(--transition-duration-short) ease,
+    box-shadow var(--transition-duration-short) ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1285,17 +1434,19 @@ Navigation
 }
 
 .theme-button:hover {
-  background-color: var(--button-hover-bg-color); /* Theme-dependent */
-  border-color: var(--button-hover-border-color); /* Theme-dependent */
+  background-color: var(--button-hover-bg-color);
+  border-color: var(--button-hover-border-color);
   transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-1);
 }
 
 .theme-button.active-theme {
-  background-color: rgba(255, 255, 255, 0.3); /* Highlight active theme */
-  color: var(--on-primary-background); /* Adjust text color for highlight */
-  border-color: var(--link-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-2);
   font-weight: bold;
+  transform: translateY(-2px) scale(1.02); /* Subtle pop for active theme */
 }
 
 /* ==========================================================================
@@ -1303,30 +1454,35 @@ Media Queries - Mobile Optimizations
 ========================================================================== */
 @media (max-width: 768px) {
   body {
-    padding-bottom: 80px; /* Adjusted padding for taller bottom navigation */
+    padding-bottom: 90px;
   }
 
   main {
-    padding: 0 15px 80px;
-  } /* Adjust main padding for mobile bottom nav */
+    padding: 0 15px 90px;
+  }
 
   .bottom-navigation {
-    height: 60px; /* Slightly smaller height on mobile for space */
-    padding: 0 8px;
-    gap: 6px; /* Smaller gap on mobile */
-    max-width: calc(
-      100% - 20px
-    ); /* Adjust max-width to consider body padding */
+    height: 65px;
+    padding: 0 10px;
+    gap: 8px;
+    max-width: calc(100% - 30px);
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-lg);
   }
 
   .nav-tab {
-    font-size: 12px; /* Smaller font for mobile tabs */
-    padding: 6px 10px; /* Adjust padding */
-    min-width: 60px;
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: 65px;
   }
 
   .nav-tab .material-symbols-outlined {
-    font-size: 22px; /* Slightly smaller icon size for mobile */
+    font-size: 24px;
+  }
+
+  .nav-tab.active {
+    margin: 0 4px;
+    border-radius: var(--border-radius-md);
   }
 
   .theme-option-group h3 {
@@ -1336,6 +1492,5 @@ Media Queries - Mobile Optimizations
   .theme-button {
     font-size: 14px;
     padding: 8px 12px;
-  }
   }
 }
