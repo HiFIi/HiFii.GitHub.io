@@ -1,12 +1,29 @@
 // script.js
 
 window.onload = () => {
-  // ---- SPLASH SCREEN CONTROL ----
+  // ---- CACHE DOM ELEMENTS ----
   const splash = document.getElementById("splash-screen");
   const mainHeader = document.querySelector("header");
   const mainContent = document.querySelector("main");
   const bottomNav = document.querySelector(".bottom-navigation");
+  const bg = document.querySelector(".animated-background"); // Cached
+  const tabs = document.querySelectorAll(".nav-tab");
+  const panels = {
+    "home-panel": document.getElementById("home-panel"),
+    "changelog-panel": document.getElementById("changelog-panel"),
+    "source-code-panel": document.getElementById("source-code-panel"),
+    "settings-panel": document.getElementById("settings-panel"),
+  };
+  const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
+  const textButtons = document.querySelectorAll(
+    ".theme-button[data-text-size]",
+  );
+  const blendingButtons = document.querySelectorAll(
+    ".theme-button[data-blending]",
+  );
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
+  // ---- SPLASH SCREEN CONTROL ----
   if (splash) {
     mainHeader.style.display = "none";
     mainContent.style.display = "none";
@@ -199,8 +216,6 @@ window.onload = () => {
     ],
   ];
 
-  const bg = document.querySelector(".animated-background");
-
   const hexToRgb = (hex) => {
     const bigint = parseInt(hex.slice(1), 16);
     return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
@@ -238,7 +253,9 @@ window.onload = () => {
 
   let currentColors = getRandomGradient();
   let currentAngle = Math.floor(Math.random() * 360);
-  let gradientTimer = 0;
+  // gradientTimer is removed, as we'll use time in requestAnimationFrame directly
+  const GRADIENT_FPS = 30; // Target FPS for gradient rotation
+  const GRADIENT_INTERVAL = 1000 / GRADIENT_FPS; // Milliseconds per frame
 
   const applyGradient = (colors = currentColors) => {
     if (bg) {
@@ -249,63 +266,69 @@ window.onload = () => {
   let isVisible = true;
   document.addEventListener("visibilitychange", () => {
     isVisible = !document.hidden;
+    if (isVisible) {
+      // Restart animation loop if it was paused
+      lastTime = performance.now(); // Reset lastTime to avoid huge dt when tab becomes visible
+      requestAnimationFrame(animate);
+    }
   });
 
   let lastTime = performance.now();
-
-  const rotateStep = (dt) => {
-    gradientTimer += dt;
-    if (gradientTimer < 1000 / 30) return;
-    gradientTimer = 0;
-    currentAngle = (currentAngle + dt * 0.0025) % 360;
-    applyGradient(currentColors);
-  };
+  let lastGradientRotateTime = performance.now(); // New: Track last time gradient angle was updated
 
   const animate = (time) => {
-    if (!isVisible) return requestAnimationFrame(animate);
+    if (!isVisible) {
+      // If not visible, just return; the visibilitychange listener will restart it
+      return;
+    }
+
     const dt = time - lastTime;
-    rotateStep(dt);
-    lastTime = time;
+    lastTime = time; // Update lastTime at the beginning of the loop
+
+    // Only update gradient angle and apply if enough time has passed for target FPS
+    if (time - lastGradientRotateTime > GRADIENT_INTERVAL) {
+      currentAngle = (currentAngle + dt * 0.0025) % 360;
+      applyGradient(currentColors);
+      lastGradientRotateTime = time; // Reset the timer for the next rotation update
+    }
+
     requestAnimationFrame(animate);
   };
 
   applyGradient();
   requestAnimationFrame(animate);
 
+  // Gradient color blending interval
   setInterval(() => {
     const nextColors = getRandomGradient(currentColors);
     const start = performance.now();
+    const DURATION = 3500; // Duration for color transition
 
-    const step = () => {
-      const t = Math.min((performance.now() - start) / 3500, 1);
+    const step = (blendTime) => {
+      const t = Math.min((blendTime - start) / DURATION, 1);
       const blended = currentColors.map((c, i) =>
         interpolateColor(c, nextColors[i] || nextColors.at(-1), t),
       );
-      applyGradient(blended);
-      if (t < 1) requestAnimationFrame(step);
-      else currentColors = nextColors;
+      applyGradient(blended); // Apply the blended colors
+
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else {
+        currentColors = nextColors; // Once blend is complete, update currentColors
+      }
     };
 
-    requestAnimationFrame(step);
+    requestAnimationFrame(step); // Start the blending animation
   }, 15000);
 
   // ---- NAVIGATION ----
-  const tabs = document.querySelectorAll(".nav-tab");
-  const panels = {
-    "home-panel": document.getElementById("home-panel"),
-    "changelog-panel": document.getElementById("changelog-panel"),
-    "source-code-panel": document.getElementById("source-code-panel"),
-    "settings-panel": document.getElementById("settings-panel"),
-  };
-
   const activateTab = (tab) => {
     if (!tab) return;
 
     // --- NEW LOGIC FOR "SOURCE" TAB ---
-    // If the clicked tab is the "source-tab", open the link and stop further execution
     if (tab.id === "source-tab") {
       window.open("https://github.com/hifii/hifii.github.io", "_blank");
-      return; // Stop activateTab from doing anything else for this specific tab
+      return;
     }
 
     // Normal tab activation logic for all *other* tabs
@@ -332,20 +355,16 @@ window.onload = () => {
 
     // --- LOGIC FOR GITHUB TAB BACKGROUND (for the internal "Contribute" panel) ---
     const body = document.body;
-    const animatedBackground = document.querySelector(".animated-background");
-
-    // This applies when the *internal* "Contribute" panel is activated
+    // Use cached 'bg'
     if (target === "source-code-panel") {
       body.style.backgroundColor = "#10101c";
-      if (animatedBackground) {
-        animatedBackground.style.opacity = "0";
+      if (bg) {
+        bg.style.opacity = "0";
       }
     } else {
-      // Revert to theme's primary background color if another tab is selected
       body.style.backgroundColor = "var(--primary-background)";
-      // Restore animated background opacity
-      if (animatedBackground) {
-        animatedBackground.style.opacity = "var(--base-opacity)";
+      if (bg) {
+        bg.style.opacity = "var(--base-opacity)";
       }
     }
   };
@@ -356,12 +375,13 @@ window.onload = () => {
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         e.preventDefault();
         const currentIndex = Array.from(tabs).indexOf(document.activeElement);
-        // Ensure that navigating with arrow keys doesn't try to activate the 'Source' tab as an internal panel
-        let nextIndex = (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
-        // Skip the 'Source' tab if navigating to it via arrow keys, unless that's the only option
+        let nextIndex =
+          (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
+          tabs.length;
         if (tabs[nextIndex].id === "source-tab" && tabs.length > 1) {
-             // If there's another tab to go to, skip this one
-             nextIndex = (nextIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+          nextIndex =
+            (nextIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
+            tabs.length;
         }
         activateTab(tabs[nextIndex]);
       }
@@ -369,12 +389,6 @@ window.onload = () => {
   });
 
   // ---- THEME ----
-  const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
-  const textButtons = document.querySelectorAll(
-    ".theme-button[data-text-size]",
-  );
-  const mq = window.matchMedia("(prefers-color-scheme: dark)");
-
   const applyTheme = (name) => {
     const mode = name === "system" ? (mq.matches ? "dark" : "light") : name;
     document.body.setAttribute("data-theme", mode);
@@ -416,18 +430,17 @@ window.onload = () => {
         break;
     }
     // Reapply background logic after theme change if the "Contribute" tab is active
-    // This part should be safe since it targets the internal "source-code-panel"
-    const currentActivePanel = document.querySelector('main section.active');
-    if (currentActivePanel && currentActivePanel.id === 'source-code-panel') {
-        document.body.style.backgroundColor = "#10101c";
-        if (document.querySelector(".animated-background")) {
-            document.querySelector(".animated-background").style.opacity = "0";
-        }
+    const currentActivePanel = document.querySelector("main section.active");
+    if (currentActivePanel && currentActivePanel.id === "source-code-panel") {
+      document.body.style.backgroundColor = "#10101c";
+      if (bg) {
+        bg.style.opacity = "0";
+      }
     } else {
-        document.body.style.backgroundColor = "var(--primary-background)";
-        if (document.querySelector(".animated-background")) {
-            document.querySelector(".animated-background").style.opacity = "var(--base-opacity)";
-        }
+      document.body.style.backgroundColor = "var(--primary-background)";
+      if (bg) {
+        bg.style.opacity = "var(--base-opacity)";
+      }
     }
   };
 
@@ -462,7 +475,6 @@ window.onload = () => {
       textButtons.forEach((b) => b.classList.remove("active-theme"));
       btn.classList.add("active-theme");
       localStorage.setItem("thunderhub-text-size", btn.dataset.textSize);
-      // You might want to add logic here to actually change text size
       document.body.setAttribute("data-text-size", btn.dataset.textSize);
     }),
   );
@@ -472,19 +484,14 @@ window.onload = () => {
     document
       .querySelector(`.theme-button[data-text-size="${savedSize}"]`)
       ?.classList.add("active-theme");
-    document.body.setAttribute("data-text-size", savedSize); // Apply on load
+    document.body.setAttribute("data-text-size", savedSize);
   } else {
-    // Default text size if none saved
     document.body.setAttribute("data-text-size", "medium");
   }
 
   // ---- BLENDING MODE ----
-  const blendingButtons = document.querySelectorAll(
-    ".theme-button[data-blending]",
-  );
-
   const applyBlending = (mode) => {
-    document.body.style.setProperty("--blending", mode);
+    document.body.setProperty("--blending", mode); // Changed to setProperty
   };
 
   blendingButtons.forEach((btn) =>
@@ -501,5 +508,4 @@ window.onload = () => {
     .querySelector(`.theme-button[data-blending="${savedBlend}"]`)
     ?.classList.add("active-theme");
   applyBlending(savedBlend);
-
 };
