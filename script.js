@@ -357,15 +357,11 @@ window.onload = () => {
         e.preventDefault();
         const currentIndex = Array.from(tabs).indexOf(document.activeElement);
         // Ensure that navigating with arrow keys doesn't try to activate the 'Source' tab as an internal panel
-        let nextIndex =
-          (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
-          tabs.length;
+        let nextIndex = (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
         // Skip the 'Source' tab if navigating to it via arrow keys, unless that's the only option
         if (tabs[nextIndex].id === "source-tab" && tabs.length > 1) {
-          // If there's another tab to go to, skip this one
-          nextIndex =
-            (nextIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
-            tabs.length;
+             // If there's another tab to go to, skip this one
+             nextIndex = (nextIndex + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
         }
         activateTab(tabs[nextIndex]);
       }
@@ -421,18 +417,17 @@ window.onload = () => {
     }
     // Reapply background logic after theme change if the "Contribute" tab is active
     // This part should be safe since it targets the internal "source-code-panel"
-    const currentActivePanel = document.querySelector("main section.active");
-    if (currentActivePanel && currentActivePanel.id === "source-code-panel") {
-      document.body.style.backgroundColor = "#10101c";
-      if (document.querySelector(".animated-background")) {
-        document.querySelector(".animated-background").style.opacity = "0";
-      }
+    const currentActivePanel = document.querySelector('main section.active');
+    if (currentActivePanel && currentActivePanel.id === 'source-code-panel') {
+        document.body.style.backgroundColor = "#10101c";
+        if (document.querySelector(".animated-background")) {
+            document.querySelector(".animated-background").style.opacity = "0";
+        }
     } else {
-      document.body.style.backgroundColor = "var(--primary-background)";
-      if (document.querySelector(".animated-background")) {
-        document.querySelector(".animated-background").style.opacity =
-          "var(--base-opacity)";
-      }
+        document.body.style.backgroundColor = "var(--primary-background)";
+        if (document.querySelector(".animated-background")) {
+            document.querySelector(".animated-background").style.opacity = "var(--base-opacity)";
+        }
     }
   };
 
@@ -506,4 +501,5 @@ window.onload = () => {
     .querySelector(`.theme-button[data-blending="${savedBlend}"]`)
     ?.classList.add("active-theme");
   applyBlending(savedBlend);
+
 };

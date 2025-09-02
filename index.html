@@ -6,38 +6,40 @@
     <title>ThunderDex Hub (ThunderHub)</title>
 
     <!-- Preload essential fonts -->
+    <!-- It's generally better to use woff2 for modern browsers as it offers better compression -->
     <link
       rel="preload"
-      href="fonts/ProductSans-Regular.ttf"
+      href="fonts/google_sans_rounded_regular.ttf"
       as="font"
-      type="font/ttf"
+      type="font/woff2"
       crossorigin="anonymous"
     />
     <link
       rel="preload"
-      href="fonts/ProductSans-Play.otf"
+      href="fonts/google_sans_rounded_regular.ttf"
       as="font"
-      type="font/otf"
+      type="font/woff2"
       crossorigin="anonymous"
     />
 
-    <!-- Material Symbols -->
+    <!-- Material Symbols - Prefer linking directly from Google Fonts for better caching and delivery -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
     />
 
     <!-- Material Design 3 Web Components -->
+    <!-- Use a specific version for stability, and defer if not immediately needed to avoid blocking rendering -->
     <script
       type="module"
       src="https://unpkg.com/@material/web@1.0.0/dist/all.js"
+      defer
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap"
-    />
+    <!-- Roboto font for Material Design 3 - already covered by Material Symbols link, but good to be explicit if only Roboto is needed -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" /> -->
 
     <!-- Optional: Use adoptive MD3 typography -->
+    <!-- This script is good, keep it as is. -->
     <script type="module">
       import { styles as typescaleStyles } from "https://esm.run/@material/web/typography/md-typescale-styles.js";
       document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
@@ -47,6 +49,7 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- Fade-in style for smooth startup -->
+    <!-- Keeping this inline is fine for a small, critical styling. -->
     <style>
       body {
         opacity: 0;
@@ -58,6 +61,7 @@
     </style>
 
     <!-- Script to trigger fade-in after DOM is ready -->
+    <!-- This script is good, keep it as is. -->
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(() => {
@@ -69,14 +73,17 @@
 
   <body data-theme="dark">
     <!-- Splash Screen -->
-    <div id="splash-screen">
+    <!-- Added aria-hidden for accessibility if this is purely presentational and disappears quickly -->
+    <div id="splash-screen" aria-hidden="true">
       <h1 class="splash-logo">T H U N D E R H U B</h1>
-      <span class="subtitle splash-text"></span>
+      <span class="subtitle splash-text">Loading...</span>
+      <!-- Added a descriptive text for accessibility, or consider removing if it's purely visual -->
     </div>
 
     <!-- Default to dark theme -->
     <div class="animated-background">
       <!-- REMOVED SVG FILTER DEFS FOR PERFORMANCE -->
+      <!-- Consider adding an ARIA role if these divs have a semantic meaning or interactive purpose -->
       <div class="g1"></div>
       <div class="g2"></div>
       <div class="g3"></div>
@@ -85,10 +92,13 @@
     </div>
 
     <header>
-      <h1>T H U N D E R H U B<span class="subtitle"></span></h1>
+      <!-- Removed duplicate subtitle span if it's not dynamic or needed here. If it is, consider adding content -->
+      <h1>T H U N D E R H U B</h1>
     </header>
 
     <main>
+      <!-- Ensure ARIA roles are correctly used. 'active' class on a section might not be enough for screen readers.
+           Consider using `aria-selected` on tabs and `aria-hidden` on inactive panels for better accessibility. -->
       <section
         id="home-panel"
         role="tabpanel"
@@ -103,27 +113,34 @@
         </p>
         <div class="build-status-container">
           <span class="build-status-label">Latest Build:</span>
-          <span class="build-status-value">2025.2.0 (08-03-25)</span>
+          <!-- Use <time> element for dates for semantic meaning and potential machine readability -->
+          <time class="build-status-value" datetime="2025-08-03"
+            >2025.2.0 (08-03-25)</time
+          >
         </div>
-        <ul class="important-notes-section">
-          <strong>Key Features:</strong>
-          <li>
-            Stay up-to-date with the latest app features and bug fixes in the
-            <b>Changelog</b>.
-          </li>
-          <li>
-            Learn how to help translate ThunderDex or contribute to the code on
-            the <b>Contribute</b> tab.
-          </li>
-          <li>
-            Adjust app preferences and appearance on the <b>Settings</b> tab.
-          </li>
-          <hr class="divider" />
-          <li>
-            ThunderDex is constantly evolving thanks to community support.
-            Explore and get involved!
-          </li>
-        </ul>
+        <!-- Changed <ul> to a more semantically appropriate structure if "Key Features" is a heading for the list.
+             Strong tag on its own isn't ideal for a heading. -->
+        <div class="important-notes-section">
+          <h3>Key Features:</h3>
+          <ul>
+            <li>
+              Stay up-to-date with the latest app features and bug fixes in the
+              <b>Changelog</b>.
+            </li>
+            <li>
+              Learn how to help translate ThunderDex or contribute to the code
+              on the <b>Contribute</b> tab.
+            </li>
+            <li>
+              Adjust app preferences and appearance on the <b>Settings</b> tab.
+            </li>
+            <hr class="divider" />
+            <li>
+              ThunderDex is constantly evolving thanks to community support.
+              Explore and get involved!
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section
@@ -132,169 +149,111 @@
         aria-labelledby="changelog-tab"
         hidden
       >
-        <h2 class="changelog-title">Build: 2025.2.0 (09-02-25)</h2>
+        <h2 class="changelog-title">
+          Build: 2025.2.0 (<time datetime="2025-09-02">09-02-25</time>)
+        </h2>
+        <!-- Consider using <dl> (description list) for changelog entries if each strong tag is a "term" and there's a description following.
+             For now, a list is acceptable, but removed redundant <strong> tags if the whole li is a log entry. -->
         <ul>
           <li>
-            <strong
-              >nightly.sh: use --reverse format in git log command, ensure (up
-              to) 40 commits are parsed</strong
-            >
+            nightly.sh: use --reverse format in git log command, ensure (up to)
+            40 commits are parsed
+          </li>
+          <li>changelog: set fluid gradient animation to 100% opacity</li>
+          <li>gradle: update versionName and versionCode</li>
+          <li>nightly.sh: beautify</li>
+          <li>
+            build.gradle: update Glide lib to 5.0.0 stable, update 3 Firebase
+            libraries, and bump versionCode // versionName
+          </li>
+          <li>nightly.sh: bump default version code</li>
+          <li>
+            revert "bump glide from 5.0.0-rc01 to 5.0.0 stable" -- it cant
+            fucking find it lol
           </li>
           <li>
-            <strong
-              >changelog: set fluid gradient animation to 100% opacity</strong
-            >
+            build.gradle: remove plugin org.jetbrains.kotlin.android, remove
+            phased-out kotlin options
           </li>
-          <li><strong>gradle: update versionName and versionCode</strong></li>
-          <li><strong>nightly.sh: beautify</strong></li>
+          <li>app.gradle: bump AGP</li>
+          <li>build.gradle: bump versionCode and versionName</li>
+          <li>nightly.sh: bump default version code</li>
           <li>
-            <strong
-              >build.gradle: update Glide lib to 5.0.0 stable, update 3 Firebase
-              libraries, and bump versionCode // versionName</strong
-            >
+            build.gradle: update Glide and Glide Compiler library from
+            5.0.0-rc01 to 5.0.4
           </li>
-          <li><strong>nightly.sh: bump default version code</strong></li>
+          <li>app/build.gradle: bump versionName and versionCode</li>
+          <li>nightly.sh: bump default version code</li>
           <li>
-            <strong
-              >revert "bump glide from 5.0.0-rc01 to 5.0.0 stable" -- it cant
-              fucking find it lol</strong
-            >
+            nightly.sh: parse LAST_BUILD_DATE %m-%d-%Y, not %Y-%m-%d (before:
+            Year-Month-Day || after: Month-Day-Year
           </li>
           <li>
-            <strong
-              >build.gradle: remove plugin org.jetbrains.kotlin.android, remove
-              phased-out kotlin options</strong
-            >
+            nightly.sh improvements: fix formatting for release (untested),
+            convert build time from seconds to minutes and seconds, rewrite what
+            the script does for logic description
           </li>
-          <li><strong>app.gradle: bump AGP</strong></li>
+          <li>nightly.sh: beautify</li>
+          <li>settings: disable white foreground on "donation" setting</li>
           <li>
-            <strong>build.gradle: bump versionCode and versionName</strong>
+            Settings: add "ThunderHub" section (notes: add custom code in
+            webview to remove toolbar background and title, set custom top
+            margin for back icon)
           </li>
-          <li><strong>nightly.sh: bump default version code</strong></li>
+          <li>russian strings: add thunderhub title and summary strings</li>
+          <li>german strings: add thunderhub title and summary strings</li>
+          <li>format code</li>
           <li>
-            <strong
-              >build.gradle: update Glide and Glide Compiler library from
-              5.0.0-rc01 to 5.0.4</strong
-            >
-          </li>
-          <li>
-            <strong>app/build.gradle: bump versionName and versionCode</strong>
-          </li>
-          <li><strong>nightly.sh: bump default version code</strong></li>
-          <li>
-            <strong
-              >nightly.sh: parse LAST_BUILD_DATE %m-%d-%Y, not %Y-%m-%d (before:
-              Year-Month-Day || after: Month-Day-Year</strong
-            >
+            ThunderHubWebViewFragment: remove code comments that totally werent
+            chat gpt.... totally
           </li>
           <li>
-            <strong
-              >nightly.sh improvements: fix formatting for release (untested),
-              convert build time from seconds to minutes and seconds, rewrite
-              what the script does for logic description</strong
-            >
+            ThunderHubWebViewFragment: more improvements, prevent potential null
+            for toolbar which could cause a force close
           </li>
-          <li><strong>nightly.sh: beautify</strong></li>
+          <li>format code</li>
+          <li>app/build.gradle: bump versionCode and versionName</li>
+          <li>nightly.sh: bump default versionCode</li>
           <li>
-            <strong
-              >settings: disable white foreground on "donation" setting</strong
-            >
+            changelog xml: significantly reduce background textures for a
+            cleaner appearance
           </li>
           <li>
-            <strong
-              >Settings: add "ThunderHub" section (notes: add custom code in
-              webview to remove toolbar background and title, set custom top
-              margin for back icon)</strong
-            >
+            changelog improvements: reduce exit button width and height,
+            increase top margin to ensure the exit button doesnt overlap into
+            the statusbar
           </li>
           <li>
-            <strong
-              >russian strings: add thunderhub title and summary strings</strong
-            >
+            UI improvement: switch "product sans" font with new google sans
+            rounded (material design expressive font)
+          </li>
+          <li>localize "app customization" string</li>
+          <li>
+            settings: fix "clear app data & cache" text color and ensure text is
+            solid white
           </li>
           <li>
-            <strong
-              >german strings: add thunderhub title and summary strings</strong
-            >
-          </li>
-          <li><strong>format code</strong></li>
-          <li>
-            <strong
-              >ThunderHubWebViewFragment: remove code comments that totally
-              werent chat gpt.... totally</strong
-            >
+            styles: switch bottom navigation text to google sans rounded
           </li>
           <li>
-            <strong
-              >ThunderHubWebViewFragment: more improvements, prevent potential
-              null for toolbar which could cause a force close</strong
-            >
-          </li>
-          <li><strong>format code</strong></li>
-          <li>
-            <strong>app/build.gradle: bump versionCode and versionName</strong>
-          </li>
-          <li><strong>nightly.sh: bump default versionCode</strong></li>
-          <li>
-            <strong
-              >changelog xml: significantly reduce background textures for a
-              cleaner appearance</strong
-            >
+            UI: disable bold selected font for the bottom navigation since
+            unselected tab text is hidden (part of UI philosophy, iconography is
+            king)... itemTextAppearanceActiveBoldEnabled removed
           </li>
           <li>
-            <strong
-              >changelog improvements: reduce exit button width and height,
-              increase top margin to ensure the exit button doesnt overlap into
-              the statusbar</strong
-            >
+            styles: ensure bottom navigation text is google sans rounded
           </li>
           <li>
-            <strong
-              >UI improvement: switch "product sans" font with new google sans
-              rounded (material design expressive font)</strong
-            >
+            UI: improve changelog activity xml (dont bleed into statusbar, new
+            google sans rounded font, etc)
           </li>
-          <li><strong>localize "app customization" string</strong></li>
+          <li>format code</li>
           <li>
-            <strong
-              >settings: fix "clear app data & cache" text color and ensure text
-              is solid white</strong
-            >
+            UI: improve news and updates news article fonts, remove useless
+            layout modifiers, improve text sizes
           </li>
-          <li>
-            <strong
-              >styles: switch bottom navigation text to google sans
-              rounded</strong
-            >
-          </li>
-          <li>
-            <strong
-              >UI: disable bold selected font for the bottom navigation since
-              unselected tab text is hidden (part of UI philosophy, iconography
-              is king)... itemTextAppearanceActiveBoldEnabled removed</strong
-            >
-          </li>
-          <li>
-            <strong
-              >styles: ensure bottom navigation text is google sans
-              rounded</strong
-            >
-          </li>
-          <li>
-            <strong
-              >UI: improve changelog activity xml (dont bleed into statusbar,
-              new google sans rounded font, etc)</strong
-            >
-          </li>
-          <li><strong>format code</strong></li>
-          <li>
-            <strong
-              >UI: improve news and updates news article fonts, remove useless
-              layout modifiers, improve text sizes</strong
-            >
-          </li>
-          <li><strong>nightly.sh: bump versionCode</strong></li>
-          <li><strong>app/build.gradle: bump versionCode</strong></li>
+          <li>nightly.sh: bump versionCode</li>
+          <li>app/build.gradle: bump versionCode</li>
         </ul>
       </section>
 
@@ -351,9 +310,9 @@
               Inside the project, translations live in Android-style folders
               like:
             </p>
-            <div class="code-box">app/src/main/res/values-ru/strings.xml</div>
+            <div class="code-box"><code>app/src/main/res/values-ru/strings.xml</code></div>
             <p>Make a new folder for your language using the format:</p>
-            <div class="code-box">values-xx</div>
+            <div class="code-box"><code>values-xx</code></div>
             <p>
               Replace <code>xx</code> with your language code, e.g.
               <code>values-fr</code> for French.
@@ -428,22 +387,25 @@
         <div class="theme-option-group">
           <h3>App Theme</h3>
           <p>Choose your preferred color scheme.</p>
-          <div class="theme-buttons-container">
-            <button class="theme-button active-theme" data-theme="dark">
-              <span class="material-symbols-outlined">dark_mode</span> Dark
+          <div class="theme-buttons-container" role="radiogroup" aria-label="App Theme">
+            <!-- Added role="radiogroup" and aria-label for accessibility.
+                 Buttons are not ideal for radio-like selection, consider actual radio inputs with visual styling.
+                 For now, adding ARIA roles helps. -->
+            <button class="theme-button active-theme" data-theme="dark" aria-checked="true" role="radio">
+              <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span> Dark
             </button>
-            <button class="theme-button" data-theme="light">
-              <span class="material-symbols-outlined">light_mode</span> Light
+            <button class="theme-button" data-theme="light" aria-checked="false" role="radio">
+              <span class="material-symbols-outlined" aria-hidden="true">light_mode</span> Light
             </button>
-            <button class="theme-button" data-theme="grey">
-              <span class="material-symbols-outlined">palette</span> Grey
+            <button class="theme-button" data-theme="grey" aria-checked="false" role="radio">
+              <span class="material-symbols-outlined" aria-hidden="true">palette</span> Grey
             </button>
-            <button class="theme-button" data-theme="material-purple">
-              <span class="material-symbols-outlined">palette</span> Material
+            <button class="theme-button" data-theme="material-purple" aria-checked="false" role="radio">
+              <span class="material-symbols-outlined" aria-hidden="true">palette</span> Material
               Purple
             </button>
-            <button class="theme-button" data-theme="system">
-              <span class="material-symbols-outlined">settings_brightness</span>
+            <button class="theme-button" data-theme="system" aria-checked="false" role="radio">
+              <span class="material-symbols-outlined" aria-hidden="true">settings_brightness</span>
               System Default
             </button>
           </div>
@@ -454,45 +416,45 @@
           <p>
             Choose how gradient blobs blend with each other and the background.
           </p>
-          <div class="theme-buttons-container">
-            <button class="theme-button active-theme" data-blending="screen">
+          <div class="theme-buttons-container" role="radiogroup" aria-label="Blending Mode">
+            <button class="theme-button active-theme" data-blending="screen" aria-checked="true" role="radio">
               Screen
             </button>
-            <button class="theme-button" data-blending="normal">Normal</button>
-            <button class="theme-button" data-blending="overlay">
+            <button class="theme-button" data-blending="normal" aria-checked="false" role="radio">Normal</button>
+            <button class="theme-button" data-blending="overlay" aria-checked="false" role="radio">
               Overlay
             </button>
-            <button class="theme-button" data-blending="multiply">
+            <button class="theme-button" data-blending="multiply" aria-checked="false" role="radio">
               Multiply
             </button>
-            <button class="theme-button" data-blending="lighten">
+            <button class="theme-button" data-blending="lighten" aria-checked="false" role="radio">
               Lighten
             </button>
-            <button class="theme-button" data-blending="darken">Darken</button>
-            <button class="theme-button" data-blending="difference">
+            <button class="theme-button" data-blending="darken" aria-checked="false" role="radio">Darken</button>
+            <button class="theme-button" data-blending="difference" aria-checked="false" role="radio">
               Difference
             </button>
-            <button class="theme-button" data-blending="exclusion">
+            <button class="theme-button" data-blending="exclusion" aria-checked="false" role="radio">
               Exclusion
             </button>
-            <button class="theme-button" data-blending="color-dodge">
+            <button class="theme-button" data-blending="color-dodge" aria-checked="false" role="radio">
               Color Dodge
             </button>
-            <button class="theme-button" data-blending="color-burn">
+            <button class="theme-button" data-blending="color-burn" aria-checked="false" role="radio">
               Color Burn
             </button>
-            <button class="theme-button" data-blending="hard-light">
+            <button class="theme-button" data-blending="hard-light" aria-checked="false" role="radio">
               Hard Light
             </button>
-            <button class="theme-button" data-blending="soft-light">
+            <button class="theme-button" data-blending="soft-light" aria-checked="false" role="radio">
               Soft Light
             </button>
-            <button class="theme-button" data-blending="hue">Hue</button>
-            <button class="theme-button" data-blending="saturation">
+            <button class="theme-button" data-blending="hue" aria-checked="false" role="radio">Hue</button>
+            <button class="theme-button" data-blending="saturation" aria-checked="false" role="radio">
               Saturation
             </button>
-            <button class="theme-button" data-blending="color">Color</button>
-            <button class="theme-button" data-blending="luminosity">
+            <button class="theme-button" data-blending="color" aria-checked="false" role="radio">Color</button>
+            <button class="theme-button" data-blending="luminosity" aria-checked="false" role="radio">
               Luminosity
             </button>
           </div>
@@ -501,11 +463,11 @@
         <div class="theme-option-group">
           <h3>Text Size</h3>
           <p>Adjust the font size for readability.</p>
-          <div class="theme-buttons-container">
-            <button class="theme-button active-theme" data-text-size="medium">
+          <div class="theme-buttons-container" role="radiogroup" aria-label="Text Size">
+            <button class="theme-button active-theme" data-text-size="medium" aria-checked="true" role="radio">
               Medium
             </button>
-            <button class="theme-button" data-text-size="large">Large</button>
+            <button class="theme-button" data-text-size="large" aria-checked="false" role="radio">Large</button>
           </div>
         </div>
 
@@ -513,33 +475,52 @@
       </section>
     </main>
 
-    <nav class="bottom-navigation" id="bottom-nav">
-      <div class="nav-tab" id="home-tab" data-target-panel="home-panel">
-        <span class="material-symbols-outlined">home</span>
+    <nav class="bottom-navigation" id="bottom-nav" role="tablist">
+      <!-- Added role="tablist" to the nav for accessibility -->
+      <div class="nav-tab" id="home-tab" data-target-panel="home-panel" role="tab" aria-controls="home-panel" aria-selected="true" tabindex="0">
+        <!-- Added role="tab", aria-controls, aria-selected, and tabindex -->
+        <span class="material-symbols-outlined" aria-hidden="true">home</span>
         <span>Home</span>
       </div>
       <div
         class="nav-tab"
         id="changelog-tab"
         data-target-panel="changelog-panel"
+        role="tab"
+        aria-controls="changelog-panel"
+        aria-selected="false"
+        tabindex="-1"
       >
-        <span class="material-symbols-outlined">history</span>
+        <span class="material-symbols-outlined" aria-hidden="true">history</span>
         <span>Changelog</span>
       </div>
       <div
         class="nav-tab"
         id="contribute-tab"
         data-target-panel="source-code-panel"
+        role="tab"
+        aria-controls="source-code-panel"
+        aria-selected="false"
+        tabindex="-1"
       >
-        <span class="material-symbols-outlined">code</span>
+        <span class="material-symbols-outlined" aria-hidden="true">code</span>
         <span>Contribute</span>
       </div>
-      <div class="nav-tab" id="settings-tab" data-target-panel="settings-panel">
-        <span class="material-symbols-outlined">settings</span>
+      <div
+        class="nav-tab"
+        id="settings-tab"
+        data-target-panel="settings-panel"
+        role="tab"
+        aria-controls="settings-panel"
+        aria-selected="false"
+        tabindex="-1"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
         <span>Settings</span>
       </div>
-      <div class="nav-tab" id="source-tab">
-        <span class="material-symbols-outlined">visibility</span>
+      <div class="nav-tab" id="source-tab" role="link">
+        <!-- If "Source" navigates externally, role="link" is more appropriate -->
+        <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
         <span>Source</span>
       </div>
     </nav>

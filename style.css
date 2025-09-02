@@ -15,7 +15,7 @@ Font Definitions
 
 @font-face {
   font-family: "categories";
-  src: url("fonts/google_sans_rounded_regular.ttf) format("truetype");
+  src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -27,7 +27,7 @@ Font Definitions
 
 @font-face {
   font-family: "CustomFont";
-  src: url("fonts/google_sans_rounded_regular.ttf") format("opentype");
+  src: url("fonts/ProductSans-Play.otf") format("opentype");
   font-display: swap;
 }
 
@@ -45,7 +45,7 @@ Font Definitions
 
 @font-face {
   font-family: "ImportantNotes";
-  src: url("fonts/google_sans_rounded_regular.ttf") format("truetype");
+  src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
   font-style: normal;
@@ -53,10 +53,10 @@ Font Definitions
 
 @font-face {
   font-family: "navTabs";
-  src: url("fonts/google_sans_rounded_regular.ttf") format("truetype");
+  src: url("fonts/google_sans_bold.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
-  font-style: bold;
+  font-style: normal;
 }
 
 /* ==========================================================================
@@ -1337,5 +1337,23 @@ Media Queries - Mobile Optimizations
     font-size: 14px;
     padding: 8px 12px;
   }
+
+  /* Specific elements you want to hide entirely if motion is reduced */
+  .animated-background,
+  .gradients-wrapper,
+  .gradients-container,
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .animated-background::before,
+  .animated-background::after,
+  .animated-background .extra-grain {
+    animation: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+    filter: none !important;
+    display: none !important; /* Hide them completely */
   }
 }
