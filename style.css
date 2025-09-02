@@ -15,7 +15,7 @@ Font Definitions
 
 @font-face {
   font-family: "categories";
-  src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
+  src: url("fonts/google_sans_rounded_regular.ttf) format("truetype");
   font-display: swap;
 }
 
@@ -27,7 +27,7 @@ Font Definitions
 
 @font-face {
   font-family: "CustomFont";
-  src: url("fonts/ProductSans-Play.otf") format("opentype");
+  src: url("fonts/google_sans_rounded_regular.ttf") format("opentype");
   font-display: swap;
 }
 
@@ -45,7 +45,7 @@ Font Definitions
 
 @font-face {
   font-family: "ImportantNotes";
-  src: url("fonts/GoogleSans-Regular.ttf") format("truetype");
+  src: url("fonts/google_sans_rounded_regular.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
   font-style: normal;
@@ -53,10 +53,10 @@ Font Definitions
 
 @font-face {
   font-family: "navTabs";
-  src: url("fonts/google_sans_bold.ttf") format("truetype");
+  src: url("fonts/google_sans_rounded_regular.ttf") format("truetype");
   font-display: swap;
   font-weight: normal;
-  font-style: normal;
+  font-style: bold;
 }
 
 /* ==========================================================================
