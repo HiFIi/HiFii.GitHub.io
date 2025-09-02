@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "250829",
-    "body": "versionCode: 114\n\n### Whats New (08-29-25 Build)\n\n  - build.gradle: remove plugin org.jetbrains.kotlin.android, remove phased-out kotlin options\n  - app.gradle: bump AGP\n  - build.gradle: bump versionCode and versionName\n  - nightly.sh: bump default version code",
+    "tag_name": "250901",
+    "body": "versionCode: 115\n\n### Whats New (09-01-25 Build)\n\n  - build.gradle: update Glide and Glide Compiler library from 5.0.0-rc01 to 5.0.4\n  - app/build.gradle: bump versionName and versionCode\n  - nightly.sh: bump default version code\n  - nightly.sh: parse LAST_BUILD_DATE %m-%d-%Y, not %Y-%m-%d (before: Year-Month-Day || after: Month-Day-Year",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250829/ThunderDex-08-29-2025_2208-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/250901/ThunderDex-09-01-2025_2103-arm64-v8a-release.apk"
       }
     ]
   }
