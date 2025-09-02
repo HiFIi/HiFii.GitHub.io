@@ -232,17 +232,13 @@
             settings: fix "clear app data & cache" text color and ensure text is
             solid white
           </li>
-          <li>
-            styles: switch bottom navigation text to google sans rounded
-          </li>
+          <li>styles: switch bottom navigation text to google sans rounded</li>
           <li>
             UI: disable bold selected font for the bottom navigation since
             unselected tab text is hidden (part of UI philosophy, iconography is
             king)... itemTextAppearanceActiveBoldEnabled removed
           </li>
-          <li>
-            styles: ensure bottom navigation text is google sans rounded
-          </li>
+          <li>styles: ensure bottom navigation text is google sans rounded</li>
           <li>
             UI: improve changelog activity xml (dont bleed into statusbar, new
             google sans rounded font, etc)
@@ -310,7 +306,9 @@
               Inside the project, translations live in Android-style folders
               like:
             </p>
-            <div class="code-box"><code>app/src/main/res/values-ru/strings.xml</code></div>
+            <div class="code-box">
+              <code>app/src/main/res/values-ru/strings.xml</code>
+            </div>
             <p>Make a new folder for your language using the format:</p>
             <div class="code-box"><code>values-xx</code></div>
             <p>
@@ -387,25 +385,67 @@
         <div class="theme-option-group">
           <h3>App Theme</h3>
           <p>Choose your preferred color scheme.</p>
-          <div class="theme-buttons-container" role="radiogroup" aria-label="App Theme">
+          <div
+            class="theme-buttons-container"
+            role="radiogroup"
+            aria-label="App Theme"
+          >
             <!-- Added role="radiogroup" and aria-label for accessibility.
                  Buttons are not ideal for radio-like selection, consider actual radio inputs with visual styling.
                  For now, adding ARIA roles helps. -->
-            <button class="theme-button active-theme" data-theme="dark" aria-checked="true" role="radio">
-              <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span> Dark
+            <button
+              class="theme-button active-theme"
+              data-theme="dark"
+              aria-checked="true"
+              role="radio"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >dark_mode</span
+              >
+              Dark
             </button>
-            <button class="theme-button" data-theme="light" aria-checked="false" role="radio">
-              <span class="material-symbols-outlined" aria-hidden="true">light_mode</span> Light
+            <button
+              class="theme-button"
+              data-theme="light"
+              aria-checked="false"
+              role="radio"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >light_mode</span
+              >
+              Light
             </button>
-            <button class="theme-button" data-theme="grey" aria-checked="false" role="radio">
-              <span class="material-symbols-outlined" aria-hidden="true">palette</span> Grey
+            <button
+              class="theme-button"
+              data-theme="grey"
+              aria-checked="false"
+              role="radio"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >palette</span
+              >
+              Grey
             </button>
-            <button class="theme-button" data-theme="material-purple" aria-checked="false" role="radio">
-              <span class="material-symbols-outlined" aria-hidden="true">palette</span> Material
-              Purple
+            <button
+              class="theme-button"
+              data-theme="material-purple"
+              aria-checked="false"
+              role="radio"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >palette</span
+              >
+              Material Purple
             </button>
-            <button class="theme-button" data-theme="system" aria-checked="false" role="radio">
-              <span class="material-symbols-outlined" aria-hidden="true">settings_brightness</span>
+            <button
+              class="theme-button"
+              data-theme="system"
+              aria-checked="false"
+              role="radio"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >settings_brightness</span
+              >
               System Default
             </button>
           </div>
@@ -416,45 +456,137 @@
           <p>
             Choose how gradient blobs blend with each other and the background.
           </p>
-          <div class="theme-buttons-container" role="radiogroup" aria-label="Blending Mode">
-            <button class="theme-button active-theme" data-blending="screen" aria-checked="true" role="radio">
+          <div
+            class="theme-buttons-container"
+            role="radiogroup"
+            aria-label="Blending Mode"
+          >
+            <button
+              class="theme-button active-theme"
+              data-blending="screen"
+              aria-checked="true"
+              role="radio"
+            >
               Screen
             </button>
-            <button class="theme-button" data-blending="normal" aria-checked="false" role="radio">Normal</button>
-            <button class="theme-button" data-blending="overlay" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="normal"
+              aria-checked="false"
+              role="radio"
+            >
+              Normal
+            </button>
+            <button
+              class="theme-button"
+              data-blending="overlay"
+              aria-checked="false"
+              role="radio"
+            >
               Overlay
             </button>
-            <button class="theme-button" data-blending="multiply" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="multiply"
+              aria-checked="false"
+              role="radio"
+            >
               Multiply
             </button>
-            <button class="theme-button" data-blending="lighten" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="lighten"
+              aria-checked="false"
+              role="radio"
+            >
               Lighten
             </button>
-            <button class="theme-button" data-blending="darken" aria-checked="false" role="radio">Darken</button>
-            <button class="theme-button" data-blending="difference" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="darken"
+              aria-checked="false"
+              role="radio"
+            >
+              Darken
+            </button>
+            <button
+              class="theme-button"
+              data-blending="difference"
+              aria-checked="false"
+              role="radio"
+            >
               Difference
             </button>
-            <button class="theme-button" data-blending="exclusion" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="exclusion"
+              aria-checked="false"
+              role="radio"
+            >
               Exclusion
             </button>
-            <button class="theme-button" data-blending="color-dodge" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="color-dodge"
+              aria-checked="false"
+              role="radio"
+            >
               Color Dodge
             </button>
-            <button class="theme-button" data-blending="color-burn" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="color-burn"
+              aria-checked="false"
+              role="radio"
+            >
               Color Burn
             </button>
-            <button class="theme-button" data-blending="hard-light" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="hard-light"
+              aria-checked="false"
+              role="radio"
+            >
               Hard Light
             </button>
-            <button class="theme-button" data-blending="soft-light" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="soft-light"
+              aria-checked="false"
+              role="radio"
+            >
               Soft Light
             </button>
-            <button class="theme-button" data-blending="hue" aria-checked="false" role="radio">Hue</button>
-            <button class="theme-button" data-blending="saturation" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="hue"
+              aria-checked="false"
+              role="radio"
+            >
+              Hue
+            </button>
+            <button
+              class="theme-button"
+              data-blending="saturation"
+              aria-checked="false"
+              role="radio"
+            >
               Saturation
             </button>
-            <button class="theme-button" data-blending="color" aria-checked="false" role="radio">Color</button>
-            <button class="theme-button" data-blending="luminosity" aria-checked="false" role="radio">
+            <button
+              class="theme-button"
+              data-blending="color"
+              aria-checked="false"
+              role="radio"
+            >
+              Color
+            </button>
+            <button
+              class="theme-button"
+              data-blending="luminosity"
+              aria-checked="false"
+              role="radio"
+            >
               Luminosity
             </button>
           </div>
@@ -463,11 +595,27 @@
         <div class="theme-option-group">
           <h3>Text Size</h3>
           <p>Adjust the font size for readability.</p>
-          <div class="theme-buttons-container" role="radiogroup" aria-label="Text Size">
-            <button class="theme-button active-theme" data-text-size="medium" aria-checked="true" role="radio">
+          <div
+            class="theme-buttons-container"
+            role="radiogroup"
+            aria-label="Text Size"
+          >
+            <button
+              class="theme-button active-theme"
+              data-text-size="medium"
+              aria-checked="true"
+              role="radio"
+            >
               Medium
             </button>
-            <button class="theme-button" data-text-size="large" aria-checked="false" role="radio">Large</button>
+            <button
+              class="theme-button"
+              data-text-size="large"
+              aria-checked="false"
+              role="radio"
+            >
+              Large
+            </button>
           </div>
         </div>
 
@@ -477,7 +625,15 @@
 
     <nav class="bottom-navigation" id="bottom-nav" role="tablist">
       <!-- Added role="tablist" to the nav for accessibility -->
-      <div class="nav-tab" id="home-tab" data-target-panel="home-panel" role="tab" aria-controls="home-panel" aria-selected="true" tabindex="0">
+      <div
+        class="nav-tab"
+        id="home-tab"
+        data-target-panel="home-panel"
+        role="tab"
+        aria-controls="home-panel"
+        aria-selected="true"
+        tabindex="0"
+      >
         <!-- Added role="tab", aria-controls, aria-selected, and tabindex -->
         <span class="material-symbols-outlined" aria-hidden="true">home</span>
         <span>Home</span>
@@ -491,7 +647,9 @@
         aria-selected="false"
         tabindex="-1"
       >
-        <span class="material-symbols-outlined" aria-hidden="true">history</span>
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >history</span
+        >
         <span>Changelog</span>
       </div>
       <div
@@ -515,12 +673,16 @@
         aria-selected="false"
         tabindex="-1"
       >
-        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >settings</span
+        >
         <span>Settings</span>
       </div>
       <div class="nav-tab" id="source-tab" role="link">
         <!-- If "Source" navigates externally, role="link" is more appropriate -->
-        <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >visibility</span
+        >
         <span>Source</span>
       </div>
     </nav>
