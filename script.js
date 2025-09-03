@@ -24,82 +24,210 @@ window.onload = () => {
   let positionBuffer;
   let uTimeLocation;
   let uResolutionLocation;
+
+  // New uniform locations for color interpolation
+  let uBackgroundColor1StartLocation;
+  let uBackgroundColor1TargetLocation;
+  let uBackgroundColor2StartLocation;
+  let uBackgroundColor2TargetLocation;
+  let uCircle1ColorInnerStartLocation;
+  let uCircle1ColorInnerTargetLocation;
+  let uCircle1ColorOuterStartLocation;
+  let uCircle1ColorOuterTargetLocation;
+  let uCircle2ColorInnerStartLocation;
+  let uCircle2ColorInnerTargetLocation;
+  let uCircle2ColorOuterStartLocation;
+  let uCircle2ColorOuterTargetLocation;
+  let uCircle3ColorInnerStartLocation;
+  let uCircle3ColorInnerTargetLocation;
+  let uCircle3ColorOuterStartLocation;
+  let uCircle3ColorOuterTargetLocation;
+  let uCircle4ColorInnerStartLocation;
+  let uCircle4ColorInnerTargetLocation;
+  let uCircle4ColorOuterStartLocation;
+  let uCircle4ColorOuterTargetLocation;
+  let uColorTransitionFactorLocation; // Factor for GLSL mix function
+
   let animationFrameId;
 
+  // Color transition settings
+  const COLOR_TRANSITION_DURATION = 8500; // milliseconds
+  let colorTransitionStartTime = 0;
+
+  // Store current and target colors for shader interpolation
+  let shaderColors = {
+    background1: { start: [0.804, 0.584, 0.380, 1.000], target: [0, 0, 0, 1] }, // Will be randomized on init
+    background2: { start: [0.376, 0.408, 0.678, 1.000], target: [0, 0, 0, 1] },
+    circle1Inner: { start: [0.784, 0.424, 0.761, 1.000], target: [0, 0, 0, 1] },
+    circle1Outer: { start: [0.733, 0.404, 0.757, 1.000], target: [0, 0, 0, 1] },
+    circle2Inner: { start: [0.325, 0.235, 0.902, 1.000], target: [0, 0, 0, 1] },
+    circle2Outer: { start: [0.596, 0.463, 1.000, 1.000], target: [0, 0, 0, 1] },
+    circle3Inner: { start: [0.000, 1.000, 0.102, 1.000], target: [0, 0, 0, 1] },
+    circle3Outer: { start: [0.518, 1.000, 0.325, 1.000], target: [0, 0, 0, 1] },
+    circle4Inner: { start: [0.184, 0.184, 0.184, 1.000], target: [0, 0, 0, 1] },
+    circle4Outer: { start: [0.239, 0.239, 0.239, 1.000], target: [0, 0, 0, 1] },
+  };
+
+  const getRandomColor = () => {
+    return [Math.random(), Math.random(), Math.random(), 1.0]; // RGBA with full opacity [1, 2, 6, 9, 11]
+  };
+
+  const updateTargetColors = () => {
+    for (const key in shaderColors) {
+      if (shaderColors.hasOwnProperty(key)) {
+        shaderColors[key].start = [...shaderColors[key].target]; // Current target becomes new start
+        shaderColors[key].target = getRandomColor(); // Generate new random target [5, 22]
+      }
+    }
+    colorTransitionStartTime = performance.now(); // Reset transition time
+  };
+
+  const setShaderColorsUniforms = () => {
+    if (!gl || !program) return;
+
+    gl.uniform4fv(uBackgroundColor1StartLocation, shaderColors.background1.start);
+    gl.uniform4fv(uBackgroundColor1TargetLocation, shaderColors.background1.target);
+    gl.uniform4fv(uBackgroundColor2StartLocation, shaderColors.background2.start);
+    gl.uniform4fv(uBackgroundColor2TargetLocation, shaderColors.background2.target);
+    gl.uniform4fv(uCircle1ColorInnerStartLocation, shaderColors.circle1Inner.start);
+    gl.uniform4fv(uCircle1ColorInnerTargetLocation, shaderColors.circle1Inner.target);
+    gl.uniform4fv(uCircle1ColorOuterStartLocation, shaderColors.circle1Outer.start);
+    gl.uniform4fv(uCircle1ColorOuterTargetLocation, shaderColors.circle1Outer.target);
+    gl.uniform4fv(uCircle2ColorInnerStartLocation, shaderColors.circle2Inner.start);
+    gl.uniform4fv(uCircle2ColorInnerTargetLocation, shaderColors.circle2Inner.target);
+    gl.uniform4fv(uCircle2ColorOuterStartLocation, shaderColors.circle2Outer.start);
+    gl.uniform4fv(uCircle2ColorOuterTargetLocation, shaderColors.circle2Outer.target);
+    gl.uniform4fv(uCircle3ColorInnerStartLocation, shaderColors.circle3Inner.start);
+    gl.uniform4fv(uCircle3ColorInnerTargetLocation, shaderColors.circle3Inner.target);
+    gl.uniform4fv(uCircle3ColorOuterStartLocation, shaderColors.circle3Outer.start);
+    gl.uniform4fv(uCircle3ColorOuterTargetLocation, shaderColors.circle3Outer.target);
+    gl.uniform4fv(uCircle4ColorInnerStartLocation, shaderColors.circle4Inner.start);
+    gl.uniform4fv(uCircle4ColorInnerTargetLocation, shaderColors.circle4Inner.target);
+    gl.uniform4fv(uCircle4ColorOuterStartLocation, shaderColors.circle4Outer.start);
+    gl.uniform4fv(uCircle4ColorOuterTargetLocation, shaderColors.circle4Outer.target);
+  };
+
+
   const initWebGL = (canvas) => {
-          if (gl) return; // Prevent re-initialization
+    if (gl) return; // Prevent re-initialization
 
-          canvas.style.display = ""; // Resets display to its default value from CSS
+    canvas.style.display = ""; // Resets display to its default value from CSS
 
-          gl = canvas.getContext("webgl");
-          if (!gl) {
-               console.error("WebGL not supported");
-               return;
-          }
+    gl = canvas.getContext("webgl");
+    if (!gl) {
+      console.error("WebGL not supported");
+      return;
+    }
 
-          const compileShader = (source, type) => {
-               const shader = gl.createShader(type);
-               gl.shaderSource(shader, source);
-               gl.compileShader(shader);
-               if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                    console.error("Shader failed to compile: " + gl.getShaderInfoLog(shader));
-                    gl.deleteShader(shader);
-                    return null;
-               }
-               return shader;
-          };
+    const compileShader = (source, type) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error("Shader failed to compile: " + gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
 
-          const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-          const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+    const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
+    const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
 
-          program = gl.createProgram();
-          gl.attachShader(program, vertexShader);
-          gl.attachShader(program, fragmentShader);
-          gl.linkProgram(program);
-          if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-               console.error("Program failed to link: " + gl.getProgramInfoLog(program));
-               gl.deleteProgram(program);
-               return;
-          }
+    program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error("Program failed to link: " + gl.getProgramInfoLog(program));
+      gl.deleteProgram(program);
+      return;
+    }
 
-          gl.deleteShader(vertexShader);
-          gl.deleteShader(fragmentShader);
+    gl.deleteShader(vertexShader);
+    gl.deleteShader(fragmentShader);
 
-          gl.useProgram(program);
+    gl.useProgram(program);
 
-          uTimeLocation = gl.getUniformLocation(program, "u_time");
-          uResolutionLocation = gl.getUniformLocation(program, "u_resolution");
+    uTimeLocation = gl.getUniformLocation(program, "u_time");
+    uResolutionLocation = gl.getUniformLocation(program, "u_resolution");
+    uColorTransitionFactorLocation = gl.getUniformLocation(program, "u_colorTransitionFactor");
 
-          positionBuffer = gl.createBuffer();
-          gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-          const positions = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0];
-          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+    // Get locations for all start and target color uniforms
+    uBackgroundColor1StartLocation = gl.getUniformLocation(program, "u_backgroundColor1Start");
+    uBackgroundColor1TargetLocation = gl.getUniformLocation(program, "u_backgroundColor1Target");
+    uBackgroundColor2StartLocation = gl.getUniformLocation(program, "u_backgroundColor2Start");
+    uBackgroundColor2TargetLocation = gl.getUniformLocation(program, "u_backgroundColor2Target");
+    uCircle1ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle1ColorInnerStart");
+    uCircle1ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle1ColorInnerTarget");
+    uCircle1ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle1ColorOuterStart");
+    uCircle1ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle1ColorOuterTarget");
+    uCircle2ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle2ColorInnerStart");
+    uCircle2ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle2ColorInnerTarget");
+    uCircle2ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle2ColorOuterStart");
+    uCircle2ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle2ColorOuterTarget");
+    uCircle3ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle3ColorInnerStart");
+    uCircle3ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle3ColorInnerTarget");
+    uCircle3ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle3ColorOuterStart");
+    uCircle3ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle3ColorOuterTarget");
+    uCircle4ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle4ColorInnerStart");
+    uCircle4ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle4ColorInnerTarget");
+    uCircle4ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle4ColorOuterStart");
+    uCircle4ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle4ColorOuterTarget");
 
-          const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-          gl.enableVertexAttribArray(positionAttributeLocation);
-          gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+    positionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    const positions = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0];
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
-          render(0);
-     };
+    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    gl.enableVertexAttribArray(positionAttributeLocation);
+    gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
-     const deinitWebGL = () => {
-          if (!gl) return;
+    updateTargetColors(); // Set initial random target colors
+    setShaderColorsUniforms(); // Send them to the shader
+    render(0);
+  };
 
-          shaderCanvas.style.display = "none";
+  const deinitWebGL = () => {
+    if (!gl) return;
 
-          if (animationFrameId) {
-               cancelAnimationFrame(animationFrameId);
-               animationFrameId = null;
-          }
+    shaderCanvas.style.display = "none";
 
-          gl.deleteProgram(program);
-          gl.deleteBuffer(positionBuffer);
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
 
-          gl = null;
-          program = null;
-          positionBuffer = null;
-          console.log("WebGL resources released.");
-     };
+    gl.deleteProgram(program);
+    gl.deleteBuffer(positionBuffer);
+
+    gl = null;
+    program = null;
+    positionBuffer = null;
+    uBackgroundColor1StartLocation = null;
+    uBackgroundColor1TargetLocation = null;
+    uBackgroundColor2StartLocation = null;
+    uBackgroundColor2TargetLocation = null;
+    uCircle1ColorInnerStartLocation = null;
+    uCircle1ColorInnerTargetLocation = null;
+    uCircle1ColorOuterStartLocation = null;
+    uCircle1ColorOuterTargetLocation = null;
+    uCircle2ColorInnerStartLocation = null;
+    uCircle2ColorInnerTargetLocation = null;
+    uCircle2ColorOuterStartLocation = null;
+    uCircle2ColorOuterTargetLocation = null;
+    uCircle3ColorInnerStartLocation = null;
+    uCircle3ColorInnerTargetLocation = null;
+    uCircle3ColorOuterStartLocation = null;
+    uCircle3ColorOuterTargetLocation = null;
+    uCircle4ColorInnerStartLocation = null;
+    uCircle4ColorInnerTargetLocation = null;
+    uCircle4ColorOuterStartLocation = null;
+    uCircle4ColorOuterTargetLocation = null;
+    uColorTransitionFactorLocation = null;
+    console.log("WebGL resources released.");
+  };
 
   const render = (time) => {
     if (!gl) return;
@@ -108,14 +236,25 @@ window.onload = () => {
     const canvas = gl.canvas;
 
     if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-        gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+
+    // Calculate color transition factor
+    let transitionProgress = (time - colorTransitionStartTime) / COLOR_TRANSITION_DURATION;
+    if (transitionProgress >= 1.0) {
+      updateTargetColors(); // Generate new target colors
+      transitionProgress = 0; // Reset progress for the new transition
     }
 
     gl.uniform1f(uTimeLocation, timeInSeconds);
     gl.uniform2f(uResolutionLocation, gl.canvas.width, gl.canvas.height);
+    gl.uniform1f(uColorTransitionFactorLocation, transitionProgress); // Pass to shader
+
+    // Always send the current start and target colors
+    setShaderColorsUniforms();
 
     gl.drawArrays(gl.TRIANGLES, 0, 6);
 
@@ -189,11 +328,14 @@ window.onload = () => {
       if (bg) {
         bg.style.opacity = "0";
       }
+      deinitWebGL(); // Deinitialize WebGL if on source code panel
     } else {
       body.style.backgroundColor = "var(--primary-background)";
       if (bg) {
         bg.style.opacity = "var(--base-opacity)";
       }
+      initWebGL(shaderCanvas); // Initialize WebGL if not on source code panel
+      updateTargetColors(); // Trigger new random colors on tab switch
     }
   };
 
@@ -229,6 +371,7 @@ window.onload = () => {
           "rgba(0, 255, 255, 0.8)",
         );
         initWebGL(shaderCanvas);
+        updateTargetColors(); // Trigger new random colors on theme change
         break;
       case "light":
         document.body.style.setProperty("--base-opacity", "0.15");
@@ -237,6 +380,7 @@ window.onload = () => {
           "rgba(0, 255, 255, 0.05)",
         );
         initWebGL(shaderCanvas);
+        updateTargetColors(); // Trigger new random colors on theme change
         break;
       case "grey":
         document.body.style.setProperty("--base-opacity", "0.35");
@@ -245,6 +389,7 @@ window.onload = () => {
           "rgba(187, 134, 252, 0.08)",
         );
         initWebGL(shaderCanvas);
+        updateTargetColors(); // Trigger new random colors on theme change
         break;
       case "material-purple":
         document.body.style.setProperty("--base-opacity", "0.3");
@@ -260,6 +405,8 @@ window.onload = () => {
           "--glow-color",
           "rgba(0, 255, 255, 0.1)",
         );
+        initWebGL(shaderCanvas);
+        updateTargetColors(); // Trigger new random colors on theme change
         break;
     }
 
@@ -335,6 +482,38 @@ precision mediump float;
 
 uniform vec2  u_resolution;
 uniform float u_time;
+uniform float u_colorTransitionFactor; // New uniform for blend factor
+
+// Start colors for background gradient
+uniform vec4  u_backgroundColor1Start;
+uniform vec4  u_backgroundColor1Target;
+uniform vec4  u_backgroundColor2Start;
+uniform vec4  u_backgroundColor2Target;
+
+// Start colors for circle 1
+uniform vec4  u_circle1ColorInnerStart;
+uniform vec4  u_circle1ColorInnerTarget;
+uniform vec4  u_circle1ColorOuterStart;
+uniform vec4  u_circle1ColorOuterTarget;
+
+// Start colors for circle 2
+uniform vec4  u_circle2ColorInnerStart;
+uniform vec4  u_circle2ColorInnerTarget;
+uniform vec4  u_circle2ColorOuterStart;
+uniform vec4  u_circle2ColorOuterTarget;
+
+// Start colors for circle 3
+uniform vec4  u_circle3ColorInnerStart;
+uniform vec4  u_circle3ColorInnerTarget;
+uniform vec4  u_circle3ColorOuterStart;
+uniform vec4  u_circle3ColorOuterTarget;
+
+// Start colors for circle 4
+uniform vec4  u_circle4ColorInnerStart;
+uniform vec4  u_circle4ColorInnerTarget;
+uniform vec4  u_circle4ColorOuterStart;
+uniform vec4  u_circle4ColorOuterTarget;
+
 
 #define PI 3.14159265359
 #define DEG_TO_RAD (PI / 180.0)
@@ -348,8 +527,6 @@ uniform float u_time;
 
 #define BACKGROUND_GRADIENT_ROTATION_SPEED 0.01
 #define BACKGROUND_GRADIENT_OFFSET_SPEED   0.03
-#define BACKGROUND_FIRST_COLOR  vec4(0.804, 0.584, 0.380, 1.000)
-#define BACKGROUND_SECOND_COLOR vec4(0.376, 0.408, 0.678, 1.000)
 
 #define BASE_BLUR_WIDTH 0.17
 
@@ -397,8 +574,10 @@ void renderAndCompositeCircle(
     vec2 offsetSpeed,
     vec2 offsetAmplitude,
     float blurMultiplier,
-    vec4 colorInner, vec4 colorOuter,
+    vec4 colorInnerStart, vec4 colorInnerTarget,
+    vec4 colorOuterStart, vec4 colorOuterTarget,
     float time,
+    float transitionFactor, // Passed to mix colors
     int blendMode
 ){
     vec2 positionOffset = offsetBase + vec2(
@@ -408,9 +587,13 @@ void renderAndCompositeCircle(
 
     vec2 circleCenter = vec2(0.5) + positionOffset;
 
+    // Interpolate colors based on the transition factor
+    vec4 currentInnerColor = mix(colorInnerStart, colorInnerTarget, transitionFactor);
+    vec4 currentOuterColor = mix(colorOuterStart, colorOuterTarget, transitionFactor);
+
     vec4 newCircleColor = drawCircle(
         normalizedCoordinates, circleCenter, radius,
-        colorInner, colorOuter, BASE_BLUR_WIDTH * blurMultiplier
+        currentInnerColor, currentOuterColor, BASE_BLUR_WIDTH * blurMultiplier
     );
 
     vec3 blended;
@@ -436,8 +619,13 @@ void mainImage(out vec4 outputColor, in vec2 fragmentCoordinates) {
     float time = iTime * TIME_SCALE;
     float directionCosine = cos(time * BACKGROUND_GRADIENT_ROTATION_SPEED);
     float directionSine = sin(time * BACKGROUND_GRADIENT_ROTATION_SPEED);
+
+    // Interpolate background colors
+    vec4 currentBackgroundColor1 = mix(u_backgroundColor1Start, u_backgroundColor1Target, u_colorTransitionFactor);
+    vec4 currentBackgroundColor2 = mix(u_backgroundColor2Start, u_backgroundColor2Target, u_colorTransitionFactor);
+
     vec4 finalColor = createBackgroundGradient(normalizedCoordinates, vec2(directionCosine, directionSine), time * BACKGROUND_GRADIENT_OFFSET_SPEED,
-                          BACKGROUND_FIRST_COLOR, BACKGROUND_SECOND_COLOR);
+                          currentBackgroundColor1, currentBackgroundColor2);
 
     renderAndCompositeCircle(
         /* accumulatedColor */ finalColor,
@@ -447,9 +635,12 @@ void mainImage(out vec4 outputColor, in vec2 fragmentCoordinates) {
         /* offsetSpeed */ vec2(0.10),
         /* offsetAmplitude */ vec2(0.45, 0.2),
         /* blurMultiplier */ 1.0,
-        /* colorInner */ vec4(0.784, 0.424, 0.761, 1.000),
-        /* colorOuter */ vec4(0.733, 0.404, 0.757, 1.000),
+        /* colorInnerStart */ u_circle1ColorInnerStart,
+        /* colorInnerTarget */ u_circle1ColorInnerTarget,
+        /* colorOuterStart */ u_circle1ColorOuterStart,
+        /* colorOuterTarget */ u_circle1ColorOuterTarget,
         /* time */ time,
+        /* transitionFactor */ u_colorTransitionFactor,
         /* blendMode */ 0
     );
 
@@ -461,9 +652,12 @@ void mainImage(out vec4 outputColor, in vec2 fragmentCoordinates) {
         /* offsetSpeed */ vec2(-0.20),
         /* offsetAmplitude */ vec2(0.25, 0.62),
         /* blurMultiplier */ 2.0,
-        /* colorInner */ vec4(0.325, 0.235, 0.902, 1.000),
-        /* colorOuter */ vec4(0.596, 0.463, 1.000, 1.000),
+        /* colorInnerStart */ u_circle2ColorInnerStart,
+        /* colorInnerTarget */ u_circle2ColorInnerTarget,
+        /* colorOuterStart */ u_circle2ColorOuterStart,
+        /* colorOuterTarget */ u_circle2ColorOuterTarget,
         /* time */ time,
+        /* transitionFactor */ u_colorTransitionFactor,
         /* blendMode */ 0
     );
 
@@ -475,9 +669,12 @@ void mainImage(out vec4 outputColor, in vec2 fragmentCoordinates) {
         /* offsetSpeed */ vec2(-0.30),
         /* offsetAmplitude */ vec2(0.425, 0.1),
         /* blurMultiplier */ 3.0,
-        /* colorInner */ vec4(0.000, 1.000, 0.102, 1.000),
-        /* colorOuter */ vec4(0.518, 1.000, 0.325, 1.000),
+        /* colorInnerStart */ u_circle3ColorInnerStart,
+        /* colorInnerTarget */ u_circle3ColorInnerTarget,
+        /* colorOuterStart */ u_circle3ColorOuterStart,
+        /* colorOuterTarget */ u_circle3ColorOuterTarget,
         /* time */ time,
+        /* transitionFactor */ u_colorTransitionFactor,
         /* blendMode */ 0
     );
 
@@ -490,9 +687,12 @@ void mainImage(out vec4 outputColor, in vec2 fragmentCoordinates) {
         /* offsetSpeed */ vec2(-0.01),
         /* offsetAmplitude */ vec2(4, 0.0),
         /* blurMultiplier */ 7.0,
-        /* colorInner */ vec4(0.184, 0.184, 0.184, 1.000),
-        /* colorOuter */ vec4(0.239, 0.239, 0.239, 1.000),
+        /* colorInnerStart */ u_circle4ColorInnerStart,
+        /* colorInnerTarget */ u_circle4ColorInnerTarget,
+        /* colorOuterStart */ u_circle4ColorOuterStart,
+        /* colorOuterTarget */ u_circle4ColorOuterTarget,
         /* time */ time,
+        /* transitionFactor */ u_colorTransitionFactor,
         /* blendMode */ 1
     );
 
@@ -505,208 +705,3 @@ void main() {
   gl_FragColor = fragColor;
 }
   `;
-
-// can add gradient preset random pick
-
-//  const getRandomGradient = (exclude) => {
-//    let pick;
-//    do {
-//      pick =
-//        originalGradientSets[
-//          Math.floor(Math.random() * originalGradientSets.length)
-//        ];
-//    } while (exclude && JSON.stringify(pick) === JSON.stringify(exclude));
-//    return [...pick];
-//  };
-
-//  const hexToRgb = (hex) => {
-//    const bigint = parseInt(hex.slice(1), 16);
-//    return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
-//  };
-//
-//  const rgbToHex = (r, g, b) =>
-//    "#" +
-//    ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-
-//const originalGradientSets = [
-//  // Original Blueish -> Deepened Blueish
-//  [
-//    "#000000", // Black
-//    "#001A33", // Very Dark Blue
-//    "#004060", // Deep Blue
-//    "#007A9E", // Rich Teal
-//    "#00CDEB", // Brighter Aqua
-//    "#7CE1FF", // Lighter Sky Blue
-//    "#FFFFFF", // White
-//  ],
-//  // Original Purple -> Deepened Purple
-//  [
-//    "#0F001A", // Very Dark Purple
-//    "#300040", // Deep Plum
-//    "#550070", // Rich Violet
-//    "#80009C", // Dark Orchid
-//    "#B020E0", // Vibrant Purple
-//    "#E099FF", // Light Lavender
-//    "#FFFFFF", // White
-//  ],
-//  // Original Red/Orange -> Deepened Red/Orange
-//  [
-//    "#1A000A", // Very Dark Red
-//    "#40002A", // Deep Crimson
-//    "#702050", // Rich Magenta-Brown
-//    "#D03050", // Strong Red
-//    "#FF6030", // Bright Orange-Red
-//    "#FFB060", // Soft Peach
-//    "#FFF5D0", // Cream
-//  ],
-//  // Original Blue/Orange/Yellow -> Deepened Blue/Orange/Yellow
-//  [
-//    "#001020", // Very Dark Navy
-//    "#201860", // Deep Indigo
-//    "#C03030", // Strong Red
-//    "#FF8040", // Deep Orange
-//    "#FFB030", // Golden Yellow
-//    "#FFFD80", // Pale Yellow
-//    "#FFF0D0", // Light Cream
-//  ],
-//  // Original Greenish/Aqua -> Deepened Greenish/Aqua
-//  [
-//    "#050B0F", // Dark almost Black
-//    "#102028", // Deep Slate Blue
-//    "#257065", // Dark Teal
-//    "#40B0B5", // Bright Teal
-//    "#90E0D8", // Light Aqua
-//    "#D0FFFF", // Pale Cyan
-//    "#FFFFFF", // White
-//  ],
-//  // Original Grey -> Deepened Grey (More Contrast)
-//  [
-//    "#080808", // Near Black
-//    "#181818", // Very Dark Grey
-//    "#282828", // Dark Grey
-//    "#404040", // Mid-Dark Grey
-//    "#606060", // Medium Grey
-//    "#808080", // Light Grey
-//    "#C0C0C0", // Silver
-//  ],
-//  // Original Red/Orange (Stronger) -> Deepened Red/Orange (More Saturated)
-//  [
-//    "#200000", // Deep Maroon
-//    "#500000", // Dark Red
-//    "#800000", // Classic Red
-//    "#B02000", // Orange-Red
-//    "#E05000", // Vibrant Orange
-//    "#FF8020", // Golden Orange
-//    "#FFC060", // Light Gold
-//  ],
-//  // Original Blue/Green/Red -> Deepened Blue/Green/Red
-//  [
-//    "#000000", // Black
-//    "#003030", // Deep Dark Cyan
-//    "#005060", // Dark Cyan
-//    "#009080", // Medium Teal
-//    "#30B0A0", // Bright Teal
-//    "#FF6060", // Bright Red
-//    "#FFC040", // Golden Yellow
-//  ],
-//  // Original Purple/Blue -> Deepened Purple/Blue
-//  [
-//    "#100C2C", // Very Dark Blue-Purple
-//    "#402860", // Deep Violet
-//    "#705090", // Medium Purple
-//    "#A070E0", // Light Purple
-//    "#C0B0FF", // Pale Lavender
-//    "#E8E0FF", // Very Pale Purple
-//    "#FFFFFF", // White
-//  ],
-//  // Original Blue/Green/Yellow -> Deepened Blue/Green/Yellow
-//  [
-//    "#000418", // Very Dark Blue
-//    "#004060", // Deep Cyan-Blue
-//    "#009090", // Vibrant Aqua
-//    "#70A040", // Olive Green
-//    "#C0F060", // Bright Yellow-Green
-//    "#E0FFB0", // Pale Green-Yellow
-//    "#FFFFFF", // White
-//  ],
-//  // Original Deep Purple -> Deepened Darker Purple
-//  [
-//    "#0A0020", // Near Black-Purple
-//    "#200040", // Very Deep Purple
-//    "#501080", // Dark Royal Purple
-//    "#8030C0", // Bright Purple
-//    "#B060E0", // Medium Orchid
-//    "#D090FF", // Light Purple
-//    "#E8C0FF", // Very Light Purple
-//  ],
-//  // Original Blue/Cyan/Green -> Deepened Blue/Cyan/Green
-//  [
-//    "#101820", // Dark Blue-Grey
-//    "#203840", // Deep Teal-Grey
-//    "#305060", // Medium Teal-Blue
-//    "#50A0D0", // Sky Blue
-//    "#00E0B0", // Bright Aqua Green
-//    "#00E070", // Emerald Green
-//    "#FFFFFF", // White
-//  ],
-//  // Original Dark Blue/Purple/Cyan -> Deepened and More Contrast
-//  [
-//    "#000000", // Black
-//    "#100020", // Very Dark Purple
-//    "#300050", // Deep Violet
-//    "#600090", // Rich Indigo
-//    "#00C0C0", // Bright Cyan
-//    "#60FFFF", // Pale Cyan
-//    "#FFFFFF", // White
-//  ],
-//  // Original Pink/Purple -> Deepened Pink/Purple
-//  [
-//    "#FFB0E0", // Light Pink
-//    "#FF80D0", // Medium Pink
-//    "#FF40B0", // Bright Pink
-//    "#FF1090", // Deep Pink
-//    "#E00070", // Dark Magenta
-//    "#B00050", // Deep Red-Purple
-//    "#800030", // Very Dark Red-Purple
-//  ],
-//  // Original Brown/Orange -> Deepened Brown/Orange
-//  [
-//    "#400000", // Very Dark Brown-Red
-//    "#700000", // Deep Red-Brown
-//    "#B02000", // Burnt Orange
-//    "#E05000", // Vivid Orange
-//    "#FF8020", // Golden Orange
-//    "#FFB050", // Light Orange
-//    "#FFFFC0", // Pale Yellow
-//  ],
-//  // Original Subtle Grey -> Deepened Contrast Grey
-//  [
-//    "#151718", // Very Dark almost Black
-//    "#25282B", // Deep Grey
-//    "#404550", // Medium Dark Grey
-//    "#707885", // Medium Grey
-//    "#A0A8B5", // Light Medium Grey
-//    "#D0D5E0", // Very Light Grey
-//    "#F0F2F5", // Off-White
-//  ],
-//  // Original Dark Purple/Pink -> Deepened and More Electric
-//  [
-//    "#000010", // Near Black
-//    "#100030", // Deep Indigo
-//    "#300060", // Dark Violet
-//    "#500090", // Royal Purple
-//    "#8000C0", // Bright Purple
-//    "#B040FF", // Electric Purple
-//    "#D0A0FF", // Light Electric Purple
-//  ],
-//  // Original Black/Green -> Deepened and More Vibrant Green
-//  [
-//    "#000000", // Black
-//    "#101010", // Dark Grey
-//    "#202020", // Medium Dark Grey
-//    "#00B000", // Vibrant Green
-//    "#30E030", // Bright Green
-//    "#80FF80", // Light Green
-//    "#D0FFD0", // Pale Green
-//  ],
-//];
