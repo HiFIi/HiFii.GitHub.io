@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+  <canvas id="shader-canvas"></canvas>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -78,17 +80,6 @@
       <h1 class="splash-logo">T H U N D E R H U B</h1>
       <span class="subtitle splash-text">Loading...</span>
       <!-- Added a descriptive text for accessibility, or consider removing if it's purely visual -->
-    </div>
-
-    <!-- Default to dark theme -->
-    <div class="animated-background">
-      <!-- REMOVED SVG FILTER DEFS FOR PERFORMANCE -->
-      <!-- Consider adding an ARIA role if these divs have a semantic meaning or interactive purpose -->
-      <div class="g1"></div>
-      <div class="g2"></div>
-      <div class="g3"></div>
-      <div class="g4"></div>
-      <div class="g5"></div>
     </div>
 
     <header>
@@ -447,147 +438,6 @@
                 >settings_brightness</span
               >
               System Default
-            </button>
-          </div>
-        </div>
-
-        <div class="theme-option-group">
-          <h3>Blending Mode</h3>
-          <p>
-            Choose how gradient blobs blend with each other and the background.
-          </p>
-          <div
-            class="theme-buttons-container"
-            role="radiogroup"
-            aria-label="Blending Mode"
-          >
-            <button
-              class="theme-button active-theme"
-              data-blending="screen"
-              aria-checked="true"
-              role="radio"
-            >
-              Screen
-            </button>
-            <button
-              class="theme-button"
-              data-blending="normal"
-              aria-checked="false"
-              role="radio"
-            >
-              Normal
-            </button>
-            <button
-              class="theme-button"
-              data-blending="overlay"
-              aria-checked="false"
-              role="radio"
-            >
-              Overlay
-            </button>
-            <button
-              class="theme-button"
-              data-blending="multiply"
-              aria-checked="false"
-              role="radio"
-            >
-              Multiply
-            </button>
-            <button
-              class="theme-button"
-              data-blending="lighten"
-              aria-checked="false"
-              role="radio"
-            >
-              Lighten
-            </button>
-            <button
-              class="theme-button"
-              data-blending="darken"
-              aria-checked="false"
-              role="radio"
-            >
-              Darken
-            </button>
-            <button
-              class="theme-button"
-              data-blending="difference"
-              aria-checked="false"
-              role="radio"
-            >
-              Difference
-            </button>
-            <button
-              class="theme-button"
-              data-blending="exclusion"
-              aria-checked="false"
-              role="radio"
-            >
-              Exclusion
-            </button>
-            <button
-              class="theme-button"
-              data-blending="color-dodge"
-              aria-checked="false"
-              role="radio"
-            >
-              Color Dodge
-            </button>
-            <button
-              class="theme-button"
-              data-blending="color-burn"
-              aria-checked="false"
-              role="radio"
-            >
-              Color Burn
-            </button>
-            <button
-              class="theme-button"
-              data-blending="hard-light"
-              aria-checked="false"
-              role="radio"
-            >
-              Hard Light
-            </button>
-            <button
-              class="theme-button"
-              data-blending="soft-light"
-              aria-checked="false"
-              role="radio"
-            >
-              Soft Light
-            </button>
-            <button
-              class="theme-button"
-              data-blending="hue"
-              aria-checked="false"
-              role="radio"
-            >
-              Hue
-            </button>
-            <button
-              class="theme-button"
-              data-blending="saturation"
-              aria-checked="false"
-              role="radio"
-            >
-              Saturation
-            </button>
-            <button
-              class="theme-button"
-              data-blending="color"
-              aria-checked="false"
-              role="radio"
-            >
-              Color
-            </button>
-            <button
-              class="theme-button"
-              data-blending="luminosity"
-              aria-checked="false"
-              role="radio"
-            >
-              Luminosity
             </button>
           </div>
         </div>
