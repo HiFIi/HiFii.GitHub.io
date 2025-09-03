@@ -1319,10 +1319,10 @@ Media Queries - Mobile Optimizations
   }
 
   .bottom-navigation {
-    height: 65px;
+    height: 100px;
     padding: 0 10px;
-    gap: 8px;
-    max-width: calc(100% - 30px);
+    gap: 10px;
+    max-width: calc(100% - 15px);
     margin-bottom: 10px;
     border-radius: var(--border-radius-lg);
   }
