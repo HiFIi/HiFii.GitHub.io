@@ -1159,19 +1159,19 @@ Navigation - Material Design 3 Bottom Navigation Bar
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  max-width: 500px;
-  height: 75px;
+  max-width: 615px;
+  height: 120px;
   /* Set to 55% opaque */
   background-color: rgba(var(--md-sys-color-surface-rgb), 0.55);
   backdrop-filter: var(--frosted-glass-effect);
   -webkit-backdrop-filter: var(--frosted-glass-effect);
-  border: 1px solid var(--glass-border-color);
+  border: 0.25px solid var(--glass-border-color);
   box-shadow: var(--md-sys-elevation-3);
   z-index: 100;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 25px;
   border-radius: var(--border-radius-xl);
   margin-bottom: 15px;
   transition:
