@@ -56,16 +56,16 @@ window.onload = () => {
 
   // Store current and target colors for shader interpolation
   let shaderColors = {
-    background1: { start: [0.804, 0.584, 0.380, 1.000], target: [0, 0, 0, 1] }, // Will be randomized on init
-    background2: { start: [0.376, 0.408, 0.678, 1.000], target: [0, 0, 0, 1] },
-    circle1Inner: { start: [0.784, 0.424, 0.761, 1.000], target: [0, 0, 0, 1] },
-    circle1Outer: { start: [0.733, 0.404, 0.757, 1.000], target: [0, 0, 0, 1] },
-    circle2Inner: { start: [0.325, 0.235, 0.902, 1.000], target: [0, 0, 0, 1] },
-    circle2Outer: { start: [0.596, 0.463, 1.000, 1.000], target: [0, 0, 0, 1] },
-    circle3Inner: { start: [0.000, 1.000, 0.102, 1.000], target: [0, 0, 0, 1] },
-    circle3Outer: { start: [0.518, 1.000, 0.325, 1.000], target: [0, 0, 0, 1] },
-    circle4Inner: { start: [0.184, 0.184, 0.184, 1.000], target: [0, 0, 0, 1] },
-    circle4Outer: { start: [0.239, 0.239, 0.239, 1.000], target: [0, 0, 0, 1] },
+    background1: { start: [0.804, 0.584, 0.38, 1.0], target: [0, 0, 0, 1] }, // Will be randomized on init
+    background2: { start: [0.376, 0.408, 0.678, 1.0], target: [0, 0, 0, 1] },
+    circle1Inner: { start: [0.784, 0.424, 0.761, 1.0], target: [0, 0, 0, 1] },
+    circle1Outer: { start: [0.733, 0.404, 0.757, 1.0], target: [0, 0, 0, 1] },
+    circle2Inner: { start: [0.325, 0.235, 0.902, 1.0], target: [0, 0, 0, 1] },
+    circle2Outer: { start: [0.596, 0.463, 1.0, 1.0], target: [0, 0, 0, 1] },
+    circle3Inner: { start: [0.0, 1.0, 0.102, 1.0], target: [0, 0, 0, 1] },
+    circle3Outer: { start: [0.518, 1.0, 0.325, 1.0], target: [0, 0, 0, 1] },
+    circle4Inner: { start: [0.184, 0.184, 0.184, 1.0], target: [0, 0, 0, 1] },
+    circle4Outer: { start: [0.239, 0.239, 0.239, 1.0], target: [0, 0, 0, 1] },
   };
 
   const getRandomColor = () => {
@@ -85,28 +85,87 @@ window.onload = () => {
   const setShaderColorsUniforms = () => {
     if (!gl || !program) return;
 
-    gl.uniform4fv(uBackgroundColor1StartLocation, shaderColors.background1.start);
-    gl.uniform4fv(uBackgroundColor1TargetLocation, shaderColors.background1.target);
-    gl.uniform4fv(uBackgroundColor2StartLocation, shaderColors.background2.start);
-    gl.uniform4fv(uBackgroundColor2TargetLocation, shaderColors.background2.target);
-    gl.uniform4fv(uCircle1ColorInnerStartLocation, shaderColors.circle1Inner.start);
-    gl.uniform4fv(uCircle1ColorInnerTargetLocation, shaderColors.circle1Inner.target);
-    gl.uniform4fv(uCircle1ColorOuterStartLocation, shaderColors.circle1Outer.start);
-    gl.uniform4fv(uCircle1ColorOuterTargetLocation, shaderColors.circle1Outer.target);
-    gl.uniform4fv(uCircle2ColorInnerStartLocation, shaderColors.circle2Inner.start);
-    gl.uniform4fv(uCircle2ColorInnerTargetLocation, shaderColors.circle2Inner.target);
-    gl.uniform4fv(uCircle2ColorOuterStartLocation, shaderColors.circle2Outer.start);
-    gl.uniform4fv(uCircle2ColorOuterTargetLocation, shaderColors.circle2Outer.target);
-    gl.uniform4fv(uCircle3ColorInnerStartLocation, shaderColors.circle3Inner.start);
-    gl.uniform4fv(uCircle3ColorInnerTargetLocation, shaderColors.circle3Inner.target);
-    gl.uniform4fv(uCircle3ColorOuterStartLocation, shaderColors.circle3Outer.start);
-    gl.uniform4fv(uCircle3ColorOuterTargetLocation, shaderColors.circle3Outer.target);
-    gl.uniform4fv(uCircle4ColorInnerStartLocation, shaderColors.circle4Inner.start);
-    gl.uniform4fv(uCircle4ColorInnerTargetLocation, shaderColors.circle4Inner.target);
-    gl.uniform4fv(uCircle4ColorOuterStartLocation, shaderColors.circle4Outer.start);
-    gl.uniform4fv(uCircle4ColorOuterTargetLocation, shaderColors.circle4Outer.target);
+    gl.uniform4fv(
+      uBackgroundColor1StartLocation,
+      shaderColors.background1.start,
+    );
+    gl.uniform4fv(
+      uBackgroundColor1TargetLocation,
+      shaderColors.background1.target,
+    );
+    gl.uniform4fv(
+      uBackgroundColor2StartLocation,
+      shaderColors.background2.start,
+    );
+    gl.uniform4fv(
+      uBackgroundColor2TargetLocation,
+      shaderColors.background2.target,
+    );
+    gl.uniform4fv(
+      uCircle1ColorInnerStartLocation,
+      shaderColors.circle1Inner.start,
+    );
+    gl.uniform4fv(
+      uCircle1ColorInnerTargetLocation,
+      shaderColors.circle1Inner.target,
+    );
+    gl.uniform4fv(
+      uCircle1ColorOuterStartLocation,
+      shaderColors.circle1Outer.start,
+    );
+    gl.uniform4fv(
+      uCircle1ColorOuterTargetLocation,
+      shaderColors.circle1Outer.target,
+    );
+    gl.uniform4fv(
+      uCircle2ColorInnerStartLocation,
+      shaderColors.circle2Inner.start,
+    );
+    gl.uniform4fv(
+      uCircle2ColorInnerTargetLocation,
+      shaderColors.circle2Inner.target,
+    );
+    gl.uniform4fv(
+      uCircle2ColorOuterStartLocation,
+      shaderColors.circle2Outer.start,
+    );
+    gl.uniform4fv(
+      uCircle2ColorOuterTargetLocation,
+      shaderColors.circle2Outer.target,
+    );
+    gl.uniform4fv(
+      uCircle3ColorInnerStartLocation,
+      shaderColors.circle3Inner.start,
+    );
+    gl.uniform4fv(
+      uCircle3ColorInnerTargetLocation,
+      shaderColors.circle3Inner.target,
+    );
+    gl.uniform4fv(
+      uCircle3ColorOuterStartLocation,
+      shaderColors.circle3Outer.start,
+    );
+    gl.uniform4fv(
+      uCircle3ColorOuterTargetLocation,
+      shaderColors.circle3Outer.target,
+    );
+    gl.uniform4fv(
+      uCircle4ColorInnerStartLocation,
+      shaderColors.circle4Inner.start,
+    );
+    gl.uniform4fv(
+      uCircle4ColorInnerTargetLocation,
+      shaderColors.circle4Inner.target,
+    );
+    gl.uniform4fv(
+      uCircle4ColorOuterStartLocation,
+      shaderColors.circle4Outer.start,
+    );
+    gl.uniform4fv(
+      uCircle4ColorOuterTargetLocation,
+      shaderColors.circle4Outer.target,
+    );
   };
-
 
   const initWebGL = (canvas) => {
     if (gl) return; // Prevent re-initialization
@@ -124,7 +183,9 @@ window.onload = () => {
       gl.shaderSource(shader, source);
       gl.compileShader(shader);
       if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error("Shader failed to compile: " + gl.getShaderInfoLog(shader));
+        console.error(
+          "Shader failed to compile: " + gl.getShaderInfoLog(shader),
+        );
         gl.deleteShader(shader);
         return null;
       }
@@ -132,7 +193,10 @@ window.onload = () => {
     };
 
     const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-    const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+    const fragmentShader = compileShader(
+      fragmentShaderSource,
+      gl.FRAGMENT_SHADER,
+    );
 
     program = gl.createProgram();
     gl.attachShader(program, vertexShader);
@@ -151,36 +215,104 @@ window.onload = () => {
 
     uTimeLocation = gl.getUniformLocation(program, "u_time");
     uResolutionLocation = gl.getUniformLocation(program, "u_resolution");
-    uColorTransitionFactorLocation = gl.getUniformLocation(program, "u_colorTransitionFactor");
+    uColorTransitionFactorLocation = gl.getUniformLocation(
+      program,
+      "u_colorTransitionFactor",
+    );
 
     // Get locations for all start and target color uniforms
-    uBackgroundColor1StartLocation = gl.getUniformLocation(program, "u_backgroundColor1Start");
-    uBackgroundColor1TargetLocation = gl.getUniformLocation(program, "u_backgroundColor1Target");
-    uBackgroundColor2StartLocation = gl.getUniformLocation(program, "u_backgroundColor2Start");
-    uBackgroundColor2TargetLocation = gl.getUniformLocation(program, "u_backgroundColor2Target");
-    uCircle1ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle1ColorInnerStart");
-    uCircle1ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle1ColorInnerTarget");
-    uCircle1ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle1ColorOuterStart");
-    uCircle1ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle1ColorOuterTarget");
-    uCircle2ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle2ColorInnerStart");
-    uCircle2ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle2ColorInnerTarget");
-    uCircle2ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle2ColorOuterStart");
-    uCircle2ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle2ColorOuterTarget");
-    uCircle3ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle3ColorInnerStart");
-    uCircle3ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle3ColorInnerTarget");
-    uCircle3ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle3ColorOuterStart");
-    uCircle3ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle3ColorOuterTarget");
-    uCircle4ColorInnerStartLocation = gl.getUniformLocation(program, "u_circle4ColorInnerStart");
-    uCircle4ColorInnerTargetLocation = gl.getUniformLocation(program, "u_circle4ColorInnerTarget");
-    uCircle4ColorOuterStartLocation = gl.getUniformLocation(program, "u_circle4ColorOuterStart");
-    uCircle4ColorOuterTargetLocation = gl.getUniformLocation(program, "u_circle4ColorOuterTarget");
+    uBackgroundColor1StartLocation = gl.getUniformLocation(
+      program,
+      "u_backgroundColor1Start",
+    );
+    uBackgroundColor1TargetLocation = gl.getUniformLocation(
+      program,
+      "u_backgroundColor1Target",
+    );
+    uBackgroundColor2StartLocation = gl.getUniformLocation(
+      program,
+      "u_backgroundColor2Start",
+    );
+    uBackgroundColor2TargetLocation = gl.getUniformLocation(
+      program,
+      "u_backgroundColor2Target",
+    );
+    uCircle1ColorInnerStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle1ColorInnerStart",
+    );
+    uCircle1ColorInnerTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle1ColorInnerTarget",
+    );
+    uCircle1ColorOuterStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle1ColorOuterStart",
+    );
+    uCircle1ColorOuterTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle1ColorOuterTarget",
+    );
+    uCircle2ColorInnerStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle2ColorInnerStart",
+    );
+    uCircle2ColorInnerTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle2ColorInnerTarget",
+    );
+    uCircle2ColorOuterStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle2ColorOuterStart",
+    );
+    uCircle2ColorOuterTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle2ColorOuterTarget",
+    );
+    uCircle3ColorInnerStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle3ColorInnerStart",
+    );
+    uCircle3ColorInnerTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle3ColorInnerTarget",
+    );
+    uCircle3ColorOuterStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle3ColorOuterStart",
+    );
+    uCircle3ColorOuterTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle3ColorOuterTarget",
+    );
+    uCircle4ColorInnerStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle4ColorInnerStart",
+    );
+    uCircle4ColorInnerTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle4ColorInnerTarget",
+    );
+    uCircle4ColorOuterStartLocation = gl.getUniformLocation(
+      program,
+      "u_circle4ColorOuterStart",
+    );
+    uCircle4ColorOuterTargetLocation = gl.getUniformLocation(
+      program,
+      "u_circle4ColorOuterTarget",
+    );
 
     positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    const positions = [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0];
+    const positions = [
+      -1.0, -1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0,
+    ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
-    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    const positionAttributeLocation = gl.getAttribLocation(
+      program,
+      "a_position",
+    );
     gl.enableVertexAttribArray(positionAttributeLocation);
     gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
@@ -235,7 +367,10 @@ window.onload = () => {
     const timeInSeconds = time * 0.001;
     const canvas = gl.canvas;
 
-    if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+    if (
+      canvas.width !== window.innerWidth ||
+      canvas.height !== window.innerHeight
+    ) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
@@ -243,7 +378,8 @@ window.onload = () => {
     }
 
     // Calculate color transition factor
-    let transitionProgress = (time - colorTransitionStartTime) / COLOR_TRANSITION_DURATION;
+    let transitionProgress =
+      (time - colorTransitionStartTime) / COLOR_TRANSITION_DURATION;
     if (transitionProgress >= 1.0) {
       updateTargetColors(); // Generate new target colors
       transitionProgress = 0; // Reset progress for the new transition
@@ -283,8 +419,9 @@ window.onload = () => {
           requestAnimationFrame(() => {
             activateTab(document.getElementById("home-tab"));
           });
-        }, {
-          once: true
+        },
+        {
+          once: true,
         },
       );
     }, 1600);
@@ -397,7 +534,7 @@ window.onload = () => {
           "--glow-color",
           "rgba(206, 189, 255, 0.15)",
         );
-        deinitWebGL()
+        deinitWebGL();
         break;
       default:
         document.body.style.setProperty("--base-opacity", "0.40");
@@ -447,7 +584,6 @@ window.onload = () => {
     .querySelector(`.theme-button[data-theme="${savedTheme}"]`)
     ?.classList.add("active-theme");
   applyTheme(savedTheme);
-
 
   // ---- TEXT SIZE ----
   textButtons.forEach((btn) =>
