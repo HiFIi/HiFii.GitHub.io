@@ -1,13 +1,4 @@
 /* style.css - Keep your existing styles and add Material Design 3 specific overrides */
-canvas#shader-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Puts the canvas behind everything else */
-}
-
 /* ==========================================================================
 Font Definitions
 ========================================================================== */
@@ -439,6 +430,9 @@ body[data-theme="grey"] {
   .animated-background .extra-grain {
     opacity: var(--grain-opacity-extra) !important;
   }
+  .gradients-container {
+    filter: none !important;
+  }
 }
 
 /* Material Purple Theme Variables - Direct Material 3 values */
@@ -535,8 +529,6 @@ body[data-theme="material-purple"] {
   --active-tab-text-color: var(--md-sys-color-inverse-primary);
   --inactive-tab-text-color: var(--md-sys-color-on-surface-variant);
 
-  --primary-background: var(--md-sys-color-surface);
-
   /* Specific adjustments for animated background */
   --grain-opacity-main: 0;
   --grain-opacity-extra: 0;
@@ -554,6 +546,17 @@ body[data-theme="material-purple"] {
   }
   .animated-background .extra-grain {
     opacity: 0 !important;
+  }
+  .gradients-container {
+    filter: none !important;
+  }
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5 {
+    opacity: 0.6 !important;
+    mix-blend-mode: screen !important;
   }
 }
 
@@ -642,6 +645,45 @@ Splash Screen Styles
 /* ==========================================================================
 Animated Background - OPTIMIZED
 ========================================================================== */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background-size: cover;
+  opacity: var(--base-opacity);
+  animation:
+    gradientFlow 20s ease-in-out infinite alternate,
+    zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
+  transform-origin: center center;
+  will-change: background-image, transform, filter;
+  pointer-events: none;
+  box-shadow: inset 0 0 150px var(--glow-color);
+  transition: opacity var(--transition-duration-medium) ease-in-out;
+}
+
+.animated-background::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation:
+    gradientFlow 20s ease-in-out infinite alternate,
+    zoomPulse 25s cubic-bezier(0.75, 0.25, 0.55, 0.95) infinite alternate;
+  z-index: -11;
+  opacity: 0.85;
+  pointer-events: none;
+  will-change: opacity, background-image;
+  filter: brightness(0.9);
+}
+
 .animated-background::before {
   content: "";
   position: fixed;
@@ -715,6 +757,127 @@ Animated Background - OPTIMIZED
   100% {
     transform: translate(0, 0);
   }
+}
+
+/* Safe container */
+.gradients-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Gooey + blur - OPTIMIZED: Removed filter: blur from container for performance */
+.gradients-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: translateZ(0); /* Promotes to a composite layer */
+  will-change: transform;
+}
+
+/* Shared style for blobs */
+.g1,
+.g2,
+.g3,
+.g4,
+.g5 {
+  position: absolute;
+  mix-blend-mode: var(--blending);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.g1 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
+    )
+    no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+  opacity: 1;
+}
+
+.g2 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
+    )
+    no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+
+.g3 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
+    )
+    no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: 1;
+}
+
+.g4 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
+    )
+    no-repeat;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: 1;
+}
+
+.g5 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 1) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0) 70%
+    )
+    no-repeat;
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: 1;
 }
 
 /* ==========================================================================
