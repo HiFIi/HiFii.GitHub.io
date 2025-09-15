@@ -1,10 +1,10 @@
 [
   {
     "tag_name": "nightly-250914",
-    "body": "versionCode: 130\n\n### Whats New (09-14-25 Build)\n\n  - format code\n  - update default verionCode and versionName for nightly\n  - nightly.sh: reduce pulled commits from 25 to 10 to not overwhelm user. drop max character limit from 3500 to 1500\n  - nightly.sh: improve \"check out my website\" wording\n  - nightly.sh: adjust wording for nightly github\n  - bump versionCode and versionName\n  - Merge pull request #20 from nxoim/dev\n  - update 6 libraries\n  - cleanup, added view model for data retention, edits to the usage of the vehicle info fragment lifecycle\n  - Update last_successful_build_date.txt",
+    "body": "versionCode: 131\n\n### Whats New (09-14-25 Build)\n\n  - Revert \"Update last_successful_build_date.txt\"\n  - Revert \"vehicleInfoFragment: add potential new method to reliably extract vehicle rankings and more, TODO: convert universally\"\n  - vehicleInfoFragment: add potential new method to reliably extract vehicle rankings and more, TODO: convert universally\n  - bumpversionCode and versionName\n  - Update last_successful_build_date.txt\n  - Merge pull request #21 from nxoim/dev\n  - fetching some data from new wiki\n  - format code\n  - update default verionCode and versionName for nightly\n  - nightly.sh: reduce pulled commits from 25 to 10 to not overwhelm user. drop max character limit from 3500 to 1500",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250914/ThunderDex-09-14-2025_0245-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250914/ThunderDex-09-14-2025_2201-arm64-v8a-release.apk"
       }
     ]
   }
