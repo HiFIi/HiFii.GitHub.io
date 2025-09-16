@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "nightly-250914",
-    "body": "versionCode: 131\n\n### Whats New (09-14-25 Build)\n\n  - Revert \"Update last_successful_build_date.txt\"\n  - Revert \"vehicleInfoFragment: add potential new method to reliably extract vehicle rankings and more, TODO: convert universally\"\n  - vehicleInfoFragment: add potential new method to reliably extract vehicle rankings and more, TODO: convert universally\n  - bumpversionCode and versionName\n  - Update last_successful_build_date.txt\n  - Merge pull request #21 from nxoim/dev\n  - fetching some data from new wiki\n  - format code\n  - update default verionCode and versionName for nightly\n  - nightly.sh: reduce pulled commits from 25 to 10 to not overwhelm user. drop max character limit from 3500 to 1500",
+    "tag_name": "nightly-250915",
+    "body": "versionCode: 132\n\n### Whats New (09-15-25 Build)\n\n  - Revert \"Update last_successful_build_date.txt\"\n  - bump default versionName and versionCode\n  - update gradle\n  - format code\n  - Const: maybe dont make SLATE_GREY theme 112th on the list xD\n  - Update Const.java\n  - ThemeUtils: remove all traces of emerald theme\n  - Const: remove Emerald Shadows theme, should fix theme loading order\n  - Themes: revert \"Remove Dull Blue\" Theme\n  - Themes: Remove \"Dull Blue\"",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250914/ThunderDex-09-14-2025_2201-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250915/ThunderDex-09-15-2025_1952-arm64-v8a-release.apk"
       }
     ]
   }
