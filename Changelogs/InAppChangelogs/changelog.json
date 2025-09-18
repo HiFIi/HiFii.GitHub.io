@@ -1,10 +1,10 @@
 [
   {
     "tag_name": "nightly-250917",
-    "body": "versionCode: 133\n\n### Whats New (09-17-25 Build)\n\n  - nightly.sh: ensure sed -i \"s|^LAST_BUILD_DATE_MM_DD_YY=\\\".*\\\"|LAST_BUILD_DATE_MM_DD_YY=\\\"${BUILD_DATE}\\\"|\" \"$0\"\n  - nightly.sh: fix \"invalid date MM-DD-YY\"\n  - nightly.sh: beautify\n  - nightly.sh improvement: set LAST_SUCCESFUL_BUILD_DATE as variable inside of script instead of reading from text file\n  - Delete last_successful_build_date.txt\n  - nightly.sh: fix last_succesful_build_date parsing\n  - Bump default versionCode and versionName\n  - format code\n  - Update German strings (Thanks Flitzepipe)\n  - nightly.sh: bump pulled commits to 20\n  - build.gradle: update lottie, glide and glide compiler libraries\n  - Update gradle to 9.2.0 milestone 1\n  - update Lithuanian strings\n  - Update last_successful_build_date.txt\n  - Revert \"Update last_successful_build_date.txt\"\n  - bump default versionName and versionCode\n  - update gradle",
+    "body": "versionCode: 134\n\n### Whats New (09-17-25 Build)\n\n  - bump default versionCode and versionName\n  - app/build.gradle: update Build Tools, enable MultiDex for Debug, set compileSdkMinor to 1\n  - Merge pull request #22 from nxoim/dev -- added rc and pc parsing, rank is now visible, battle rating parsing improvement\n  - Update nightly.sh\n  - battle rating parsing improvement\n  - added rc and pc parsing, rank is now visible\n  - nightly.sh: ensure sed -i \"s|^LAST_BUILD_DATE_MM_DD_YY=\\\".*\\\"|LAST_BUILD_DATE_MM_DD_YY=\\\"${BUILD_DATE}\\\"|\" \"$0\"\n  - nightly.sh: fix \"invalid date MM-DD-YY\"\n  - nightly.sh: beautify\n  - nightly.sh improvement: set LAST_SUCCESFUL_BUILD_DATE as variable inside of script instead of reading from text file\n  - Delete last_successful_build_date.txt\n  - nightly.sh: fix last_succesful_build_date parsing\n  - Bump default versionCode and versionName\n  - format code\n  - Update German strings (Thanks Flitzepipe)\n  - nightly.sh: bump pulled commits to 20\n  - build.gradle: update lottie, glide and glide compiler libraries\n  - Update gradle to 9.2.0 milestone 1",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250917/ThunderDex-09-17-2025_0640-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-250917/ThunderDex-09-17-2025_2209-arm64-v8a-release.apk"
       }
     ]
   }
