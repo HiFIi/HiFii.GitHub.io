@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "nightly-251006",
-    "body": "versionCode: 146\n\n### Whats New (10-06-25 Build)\n\n  - bump versionCode and versionName\n  - Update NewsUpdateAdapter.java\n  - Revert \"news and updates list xml: reduce article title and body preview text size\"\n  - news and updates list xml: reduce article title and body preview text size\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesAdapter: punch up the vibrance for extracted palette colors\n  - news and updates list xml: increase date height, increase small poster stroke width and elevation\n  - NewsUpdatesAdapter: use more accurate colors for palette extraction\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesFragment: attempt to fix force close for some users when exiting changelog, need to monitor this as onDestroy(); was removed and can possibly cause issues. needs testing from users\n  - update Lottie lib\n  - format code\n  - Bump Gradle\n  - Bump AGP\n  - Update nightly.sh\n  - Update NewsUpdatesFragment.java",
+    "tag_name": "nightly-251007",
+    "body": "versionCode: 147\n\n### Whats New (10-07-25 Build)\n\n  - bump versionCode and versionName\n  - reformat code\n  - update more libraries\n  - fixes via the android code analyzer\n  - Adjust Dialog body and title font\n  - Update nightly.sh\n  - bump versionCode and versionName\n  - Update NewsUpdateAdapter.java\n  - Revert \"news and updates list xml: reduce article title and body preview text size\"\n  - news and updates list xml: reduce article title and body preview text size\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesAdapter: punch up the vibrance for extracted palette colors\n  - news and updates list xml: increase date height, increase small poster stroke width and elevation\n  - NewsUpdatesAdapter: use more accurate colors for palette extraction\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesFragment: attempt to fix force close for some users when exiting changelog, need to monitor this as onDestroy(); was removed and can possibly cause issues. needs testing from users\n  - update Lottie lib\n  - format code",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-251006/ThunderDex-10-06-2025_2329-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-251007/ThunderDex-10-07-2025_1151-arm64-v8a-release.apk"
       }
     ]
   }
