@@ -1,10 +1,10 @@
 [
   {
-    "tag_name": "nightly-251002",
-    "body": "versionCode: 145\n\n### Whats New (10-02-25 Build)\n\n  - NewsUpdatesAdapter: more code to try and fix the small article images not loading. this is caused by Glide and RecyclerView, along with the animations added in the last few days. TO DO: fix (duh, lol)\n  - NewsUpdatesAdapter: Fix dull palette colors from last commit\n  - reformat code\n  - bump versionCode and versionName\n  - News/Updates xml improvements: tighten up the design, tighten up the margins and text sizes, add a gradient foreground to the blurred article image, simplify layout to improve performance\n  - NewsUpdatesFragment: as per request, slightly reduce blur for the image article\n  - NewsUpdatesAdapter: use date palette to generate small article stroke, improve loading, reduce likelihood of small article images not loading on scrolling up, and other small improvements to improve performance and loading\n  - Update nightly.sh\n  - Revert \"News updates fragment: fix force close error (cannot load a view on a a destroyedView)\"\n  - News updates fragment: fix force close error (cannot load a view on a a destroyedView)",
+    "tag_name": "nightly-251006",
+    "body": "versionCode: 146\n\n### Whats New (10-06-25 Build)\n\n  - bump versionCode and versionName\n  - Update NewsUpdateAdapter.java\n  - Revert \"news and updates list xml: reduce article title and body preview text size\"\n  - news and updates list xml: reduce article title and body preview text size\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesAdapter: punch up the vibrance for extracted palette colors\n  - news and updates list xml: increase date height, increase small poster stroke width and elevation\n  - NewsUpdatesAdapter: use more accurate colors for palette extraction\n  - Update NewsUpdatesFragment.java\n  - NewsUpdatesFragment: attempt to fix force close for some users when exiting changelog, need to monitor this as onDestroy(); was removed and can possibly cause issues. needs testing from users\n  - update Lottie lib\n  - format code\n  - Bump Gradle\n  - Bump AGP\n  - Update nightly.sh\n  - Update NewsUpdatesFragment.java",
     "assets": [
       {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-251002/ThunderDex-10-02-2025_1028-arm64-v8a-release.apk"
+        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-251006/ThunderDex-10-06-2025_2329-arm64-v8a-release.apk"
       }
     ]
   }
