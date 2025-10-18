@@ -1,3 +1,4 @@
+// script.js
 window.onload = () => {
   // ---- CACHE DOM ELEMENTS ----
   const splash = document.getElementById("splash-screen");
@@ -11,6 +12,7 @@ window.onload = () => {
     "changelog-panel": document.getElementById("changelog-panel"),
     "source-code-panel": document.getElementById("source-code-panel"),
     "settings-panel": document.getElementById("settings-panel"),
+    "showcase-panel": document.getElementById("showcase-panel"), // Added Showcase panel
   };
   const themeButtons = document.querySelectorAll(".theme-button[data-theme]");
   const textButtons = document.querySelectorAll(
@@ -69,14 +71,14 @@ window.onload = () => {
   };
 
   const getRandomColor = () => {
-    return [Math.random(), Math.random(), Math.random(), 1.0]; // RGBA with full opacity [1, 2, 6, 9, 11]
+    return [Math.random(), Math.random(), Math.random(), 1.0]; // RGBA with full opacity
   };
 
   const updateTargetColors = () => {
     for (const key in shaderColors) {
       if (shaderColors.hasOwnProperty(key)) {
         shaderColors[key].start = [...shaderColors[key].target]; // Current target becomes new start
-        shaderColors[key].target = getRandomColor(); // Generate new random target [5, 22]
+        shaderColors[key].target = getRandomColor(); // Generate new random target
       }
     }
     colorTransitionStartTime = performance.now(); // Reset transition time
@@ -401,6 +403,24 @@ window.onload = () => {
   shaderCanvas.width = window.innerWidth;
   shaderCanvas.height = window.innerHeight;
 
+  // ---- TAB ACTIVATION FROM URL PARAMETER ----
+  const activateTabFromUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get("tab"); // Get the 'tab' parameter from the URL
+
+    if (tabParam) {
+      const targetTabId = tabParam + "-tab"; // e.g., 'showcase' -> 'showcase-tab'
+      const tabToActivate = document.getElementById(targetTabId);
+
+      if (tabToActivate) {
+        activateTab(tabToActivate, false); // Pass false to prevent pushing state again
+      }
+    } else {
+      // If no tab parameter, activate the home tab by default
+      activateTab(document.getElementById("home-tab"), false); // Pass false
+    }
+  };
+
   // ---- SPLASH SCREEN CONTROL ----
   if (splash) {
     mainHeader.style.display = "none";
@@ -413,11 +433,11 @@ window.onload = () => {
         "transitionend",
         () => {
           splash.remove();
-          mainHeader.style.display = "";
+          mainHeader.style.display = ""; // Will be controlled by activateTab now
           mainContent.style.display = "";
-          bottomNav.style.display = "";
+          bottomNav.style.display = ""; // Will be controlled by activateTab now
           requestAnimationFrame(() => {
-            activateTab(document.getElementById("home-tab"));
+            activateTabFromUrl(); // Call the new function here
           });
         },
         {
@@ -426,16 +446,26 @@ window.onload = () => {
       );
     }, 1600);
   } else {
-    activateTab(document.getElementById("home-tab"));
+    activateTabFromUrl(); // Call the new function here if no splash screen
   }
 
   // ---- NAVIGATION ----
-  const activateTab = (tab) => {
+  const activateTab = (tab, pushState = true) => {
     if (!tab) return;
 
-    if (tab.id === "source-tab") {
+    const tabId = tab.id;
+    const tabName = tabId.replace("-tab", ""); // e.g., 'home-tab' -> 'home'
+
+    // Handle external link for "Source" tab
+    if (tabId === "source-tab") {
       window.open("https://github.com/hifii/hifii.github.io", "_blank");
       return;
+    }
+
+    // Update URL if pushState is true (i.e., not activated from URL initially)
+    if (pushState) {
+      const newUrl = `${window.location.pathname}?tab=${tabName}`;
+      history.pushState({ tab: tabName }, "", newUrl);
     }
 
     tabs.forEach((t) => {
@@ -460,18 +490,34 @@ window.onload = () => {
     tab.focus();
 
     const body = document.body;
-    if (target === "source-code-panel") {
+
+    // --- UI Visibility Logic based on Tab ---
+    if (target === "showcase-panel") {
+      mainHeader.style.display = "none";
+      bottomNav.style.display = "none";
+      // For showcase, you might want to keep the background or not
+      body.style.backgroundColor = "var(--primary-background)"; // Or a specific color for showcase
+      if (bg) {
+        bg.style.opacity = "var(--base-opacity)";
+      }
+      initWebGL(shaderCanvas); // Keep WebGL background for showcase
+      updateTargetColors();
+    } else if (target === "source-code-panel") {
+      mainHeader.style.display = ""; // Show header
+      bottomNav.style.display = ""; // Show bottom nav
       body.style.backgroundColor = "#10101c";
       if (bg) {
         bg.style.opacity = "0";
       }
       deinitWebGL(); // Deinitialize WebGL if on source code panel
     } else {
+      mainHeader.style.display = ""; // Show header
+      bottomNav.style.display = ""; // Show bottom nav
       body.style.backgroundColor = "var(--primary-background)";
       if (bg) {
         bg.style.opacity = "var(--base-opacity)";
       }
-      initWebGL(shaderCanvas); // Initialize WebGL if not on source code panel
+      initWebGL(shaderCanvas); // Initialize WebGL for other tabs
       updateTargetColors(); // Trigger new random colors on tab switch
     }
   };
@@ -493,6 +539,20 @@ window.onload = () => {
         activateTab(tabs[nextIndex]);
       }
     });
+  });
+
+  // Handle browser's back/forward buttons
+  window.addEventListener("popstate", (event) => {
+    if (event.state && event.state.tab) {
+      const tabId = event.state.tab + "-tab";
+      const tabToActivate = document.getElementById(tabId);
+      if (tabToActivate) {
+        activateTab(tabToActivate, false); // Do not push state again
+      }
+    } else {
+      // If no state or initial load without a tab parameter, default to home
+      activateTab(document.getElementById("home-tab"), false);
+    }
   });
 
   // ---- THEME ----
@@ -534,7 +594,7 @@ window.onload = () => {
           "--glow-color",
           "rgba(206, 189, 255, 0.15)",
         );
-        deinitWebGL();
+        deinitWebGL(); // Material purple theme deinitializes WebGL based on your original code
         break;
       default:
         document.body.style.setProperty("--base-opacity", "0.40");
@@ -559,6 +619,15 @@ window.onload = () => {
       if (bg) {
         bg.style.opacity = "var(--base-opacity)";
       }
+    }
+
+    // Reapply UI visibility logic after theme change (important if theme changes affect the active tab's visibility logic)
+    if (currentActivePanel && currentActivePanel.id === "showcase-panel") {
+      mainHeader.style.display = "none";
+      bottomNav.style.display = "none";
+    } else {
+      mainHeader.style.display = "";
+      bottomNav.style.display = "";
     }
   };
 
