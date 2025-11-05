@@ -1,0 +1,2640 @@
+[
+{
+  "hash": "44fc23aba6887644c50ff8f5f2b936b74088bc54",
+  "shortHash": "44fc23ab",
+  "author": "HiFii",
+  "date": "2025-11-05 07:03:18 -0700",
+  "message": "fix"
+},
+{
+  "hash": "e42da7e822b7df9662eacf17b3ca8e7ef764e77f",
+  "shortHash": "e42da7e8",
+  "author": "HiFii",
+  "date": "2025-11-05 07:02:20 -0700",
+  "message": "add custom negative button for cache dialog, fix hardcoded text"
+},
+{
+  "hash": "9744c34849bf56261de681eef416e66afb8a52af",
+  "shortHash": "9744c348",
+  "author": "HiFii",
+  "date": "2025-11-05 06:55:37 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "839787840c170bc6799b0a4c12225762a7e0db71",
+  "shortHash": "83978784",
+  "author": "HiFii",
+  "date": "2025-11-05 06:55:33 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "d4df44aba2838f649ef37ea2902c567fedeedf01",
+  "shortHash": "d4df44ab",
+  "author": "HiFii",
+  "date": "2025-11-05 06:53:05 -0700",
+  "message": "format code"
+},
+{
+  "hash": "872702666095b0060c59cfd0ce84c8f15e994467",
+  "shortHash": "87270266",
+  "author": "HiFii",
+  "date": "2025-11-05 06:52:51 -0700",
+  "message": "Add vibration to dialog clicks on clear cache dialog"
+},
+{
+  "hash": "37e4b17198879e6fe4f354e1a80c7379933bcd74",
+  "shortHash": "37e4b171",
+  "author": "HiFii",
+  "date": "2025-11-05 06:51:25 -0700",
+  "message": "Add a dialog to confirm clearing app data and cache"
+},
+{
+  "hash": "72bf8f28e19540367bed270dd8a3ba4df60fe118",
+  "shortHash": "72bf8f28",
+  "author": "HiFii",
+  "date": "2025-11-05 06:42:45 -0700",
+  "message": "format code"
+},
+{
+  "hash": "9087ec88b72e871571996065597859c20ea316d7",
+  "shortHash": "9087ec88",
+  "author": "HiFii",
+  "date": "2025-11-05 06:41:38 -0700",
+  "message": "Update view_toolbar_vehicle_info.xml"
+},
+{
+  "hash": "20c27277e881dfd858ca5df7374c84626c6811a9",
+  "shortHash": "20c27277",
+  "author": "HiFii",
+  "date": "2025-11-05 06:40:59 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "a9fcfb5c36b4cb8daa4566e75fd6b55c78372f41",
+  "shortHash": "a9fcfb5c",
+  "author": "HiFii",
+  "date": "2025-11-05 06:40:57 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "bfcbf50f886623caa83861a0922328450fe36a47",
+  "shortHash": "bfcbf50f",
+  "author": "HiFii",
+  "date": "2025-11-05 06:35:25 -0700",
+  "message": "Update VehicleInfoFragment.java"
+},
+{
+  "hash": "97771161c540bbbf16ff031447a75bd4c49c4c44",
+  "shortHash": "97771161",
+  "author": "HiFii",
+  "date": "2025-11-05 06:29:42 -0700",
+  "message": "VehicleInfo: redesign header to more closely resemble wiki 3.0 (1/??)"
+},
+{
+  "hash": "b8da835087be571893b1bd7fe1e9051217ce8a88",
+  "shortHash": "b8da8350",
+  "author": "HiFii",
+  "date": "2025-11-05 06:08:28 -0700",
+  "message": "fix random ass build error"
+},
+{
+  "hash": "305ebfb7c5960dcbfb849c429bd4ed4864736536",
+  "shortHash": "305ebfb7",
+  "author": "HiFii",
+  "date": "2025-11-05 06:01:24 -0700",
+  "message": "Format code"
+},
+{
+  "hash": "e14e8dd4235e71dc5269a95075436b5466586a7a",
+  "shortHash": "e14e8dd4",
+  "author": "HiFii",
+  "date": "2025-11-05 05:50:56 -0700",
+  "message": "part 2 of previous commit"
+},
+{
+  "hash": "099c49734cb60f0b6edb7c3469a9744917f33597",
+  "shortHash": "099c4973",
+  "author": "HiFii",
+  "date": "2025-11-05 05:50:46 -0700",
+  "message": "fix backNav vibrate not working for the ammo sections"
+},
+{
+  "hash": "438043effcf6bb2cbf3ce25af76ef2433b848518",
+  "shortHash": "438043ef",
+  "author": "HiFii",
+  "date": "2025-11-05 05:39:44 -0700",
+  "message": "upgrade widget to material textview"
+},
+{
+  "hash": "7bc8f02d6c26e89efb882f4be1894b3b0d5c9236",
+  "shortHash": "7bc8f02d",
+  "author": "HiFii",
+  "date": "2025-11-05 05:38:37 -0700",
+  "message": "upgrade/update chevron icon"
+},
+{
+  "hash": "a34757f0b25bfa5a2fe4efd1081d6b5b1d623d55",
+  "shortHash": "a34757f0",
+  "author": "HiFii",
+  "date": "2025-11-05 05:34:52 -0700",
+  "message": "format code"
+},
+{
+  "hash": "9b1056752277d0b105add088ca71a70d62f5f8e5",
+  "shortHash": "9b105675",
+  "author": "HiFii",
+  "date": "2025-11-05 05:03:08 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "b6a88982b4213c5ca8b13cbab85ef2a95d587334",
+  "shortHash": "b6a88982",
+  "author": "HiFii",
+  "date": "2025-11-05 05:02:33 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "58aa80c782aa06d1f7ed765d9726514a0f71193c",
+  "shortHash": "58aa80c7",
+  "author": "HiFii",
+  "date": "2025-11-05 05:02:10 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "eeea96198160662f1af03864251a464c79fd9b9c",
+  "shortHash": "eeea9619",
+  "author": "HiFii",
+  "date": "2025-11-05 05:02:08 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "37c922a97d9bd34da1d660591de3a0b8c378afcc",
+  "shortHash": "37c922a9",
+  "author": "HiFii",
+  "date": "2025-11-05 05:01:18 -0700",
+  "message": "vehicle info: improve font size"
+},
+{
+  "hash": "77da19b1b7d9eff167488a7d491e7e3da62a4063",
+  "shortHash": "77da19b1",
+  "author": "HiFii",
+  "date": "2025-11-05 04:59:30 -0700",
+  "message": "Update fragment_vehicle_info.xml"
+},
+{
+  "hash": "8202d1d043b5b8e5e57feed94490ca676ade6e4e",
+  "shortHash": "8202d1d0",
+  "author": "HiFii",
+  "date": "2025-11-05 04:48:59 -0700",
+  "message": "Create countCode.sh"
+},
+{
+  "hash": "c026e97b20cb60a6c407766bf4ac50d290daf7cd",
+  "shortHash": "c026e97b",
+  "author": "HiFii",
+  "date": "2025-11-05 04:48:56 -0700",
+  "message": "Delete countKotlin.bat"
+},
+{
+  "hash": "965133e758b94586dd190c706886f291e28a3d6b",
+  "shortHash": "965133e7",
+  "author": "HiFii",
+  "date": "2025-11-05 04:45:24 -0700",
+  "message": "Add a fragment to show material shapes"
+},
+{
+  "hash": "e1a7d3315b0b247a32aba66b781a874df38330e1",
+  "shortHash": "e1a7d331",
+  "author": "HiFii",
+  "date": "2025-11-05 04:30:58 -0700",
+  "message": "nother fc fix from linearlayout conversion earlier"
+},
+{
+  "hash": "124dc26fbe013bc6839858b5ace04915ec517e7b",
+  "shortHash": "124dc26f",
+  "author": "HiFii",
+  "date": "2025-11-05 04:30:21 -0700",
+  "message": "remove ambient shadow from vehicle groups"
+},
+{
+  "hash": "87d710a7def6065ed43662bb32c0009845cba3b2",
+  "shortHash": "87d710a7",
+  "author": "HiFii",
+  "date": "2025-11-05 04:30:12 -0700",
+  "message": "fix fc"
+},
+{
+  "hash": "277c786bb68b43dc715b676c6b982540a1ff0c60",
+  "shortHash": "277c786b",
+  "author": "HiFii",
+  "date": "2025-11-05 04:27:07 -0700",
+  "message": "Revert "Update view_toolbar_tabs.xml""
+},
+{
+  "hash": "f5f03bd788196ede266f324ad65b078ad4f073f7",
+  "shortHash": "f5f03bd7",
+  "author": "HiFii",
+  "date": "2025-11-05 04:27:05 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "fd1bdb2234112b0fd1bfad8b2e160727e2a84de0",
+  "shortHash": "fd1bdb22",
+  "author": "HiFii",
+  "date": "2025-11-05 04:26:50 -0700",
+  "message": "Update rounded_corners_top.xml"
+},
+{
+  "hash": "926fde42229ca01b71704dc9ef8737b997e2e7dc",
+  "shortHash": "926fde42",
+  "author": "HiFii",
+  "date": "2025-11-05 04:26:48 -0700",
+  "message": "fix force close"
+},
+{
+  "hash": "e6de8e2e1c8496060348fad1b23ceb03fd551bc2",
+  "shortHash": "e6de8e2e",
+  "author": "HiFii",
+  "date": "2025-11-05 04:18:18 -0700",
+  "message": "Update vehicle_info_shade_gradient.xml"
+},
+{
+  "hash": "63d59eacf316b06d1e539b95d1edb49fa7fc3e16",
+  "shortHash": "63d59eac",
+  "author": "HiFii",
+  "date": "2025-11-05 04:12:56 -0700",
+  "message": "Update fragment_webpage.xml"
+},
+{
+  "hash": "232e7d7593d3870ae8d03d9e8f27b9a1ecab33d6",
+  "shortHash": "232e7d75",
+  "author": "HiFii",
+  "date": "2025-11-05 04:12:54 -0700",
+  "message": "Update WebpageFragment.java"
+},
+{
+  "hash": "66b778ab11eabec3798004b295b486e87563ae52",
+  "shortHash": "66b778ab",
+  "author": "HiFii",
+  "date": "2025-11-05 04:08:24 -0700",
+  "message": "webpage: use md3 circular indicator"
+},
+{
+  "hash": "ab9d1b3b49d8f3c5134405b289dc5a3dcd17d90e",
+  "shortHash": "ab9d1b3b",
+  "author": "HiFii",
+  "date": "2025-11-05 03:53:31 -0700",
+  "message": "improve toolbar_tabs"
+},
+{
+  "hash": "129ec79c709b41ea61a4615d45d26cb2ef34a72d",
+  "shortHash": "129ec79c",
+  "author": "HiFii",
+  "date": "2025-11-05 03:48:49 -0700",
+  "message": "Revert "Update view_toolbar_tabs.xml""
+},
+{
+  "hash": "98170e9b5d342322ffeeaf4a111020bd7cfbb60b",
+  "shortHash": "98170e9b",
+  "author": "HiFii",
+  "date": "2025-11-05 03:48:44 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "7e40b7df32449f10957e15f2e4029c726a870783",
+  "shortHash": "7e40b7df",
+  "author": "HiFii",
+  "date": "2025-11-05 03:40:53 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "a6fcea1a4d7e47cb9c1ac48305028bb1776edf36",
+  "shortHash": "a6fcea1a",
+  "author": "HiFii",
+  "date": "2025-11-05 03:40:49 -0700",
+  "message": "convert groups to LinearLayout"
+},
+{
+  "hash": "d721990be0d6632ee9d1ed371fe69f02bcb98759",
+  "shortHash": "d721990b",
+  "author": "HiFii",
+  "date": "2025-11-05 03:39:09 -0700",
+  "message": "convert vehicle group layout to linearlayout"
+},
+{
+  "hash": "8f1e556afbeeee58756010c0de7a4493fbe493c6",
+  "shortHash": "8f1e556a",
+  "author": "HiFii",
+  "date": "2025-11-05 03:18:26 -0700",
+  "message": "fixes"
+},
+{
+  "hash": "35ea1a981942cef01114c0095cc9dfc918076987",
+  "shortHash": "35ea1a98",
+  "author": "HiFii",
+  "date": "2025-11-05 03:06:01 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "c65979ec44aceea70c003e35b833f0c327b20891",
+  "shortHash": "c65979ec",
+  "author": "HiFii",
+  "date": "2025-11-05 03:05:59 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "708e5543c4ada4cb084b1406d93bdd6e0022cebc",
+  "shortHash": "708e5543",
+  "author": "HiFii",
+  "date": "2025-11-05 03:05:56 -0700",
+  "message": "New Theme"
+},
+{
+  "hash": "cf3d490736205182ee9a13fe706bdd775b7a04fd",
+  "shortHash": "cf3d4907",
+  "author": "HiFii",
+  "date": "2025-11-05 01:58:55 -0700",
+  "message": "VehicleInfo: darken background by 85%"
+},
+{
+  "hash": "d00e1cd95f81f6609b0400eff48904a6e00780fc",
+  "shortHash": "d00e1cd9",
+  "author": "HiFii",
+  "date": "2025-11-05 01:58:43 -0700",
+  "message": "WebPageFragment: dont show save icon if article already saved"
+},
+{
+  "hash": "a0dd5e768a8046da1d6a6329c91829478f2d7212",
+  "shortHash": "a0dd5e76",
+  "author": "HiFii",
+  "date": "2025-11-05 01:53:58 -0700",
+  "message": "Theme Selection Fragment: FINALLY made the navbar transparent"
+},
+{
+  "hash": "de566cdfa396826c0a49783113cb2561799a2eaf",
+  "shortHash": "de566cdf",
+  "author": "HiFii",
+  "date": "2025-11-05 01:53:41 -0700",
+  "message": "Vehicle info: spruce up dynamic palette color, improve shadow, set vehicle name to fade in after scroll to fix the ugly text offset thing"
+},
+{
+  "hash": "ef8f845fa1384495f4e6a0b196b3fa37722d8927",
+  "shortHash": "ef8f845f",
+  "author": "HiFii",
+  "date": "2025-11-05 01:31:09 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "1794d6351517ba2d87898109834fdf997ea00dce",
+  "shortHash": "1794d635",
+  "author": "HiFii",
+  "date": "2025-11-05 01:31:06 -0700",
+  "message": "add snow in cardview background for christmas theme + other improvements"
+},
+{
+  "hash": "960b34ca31058a93b9bd2c20277a72d8f856959f",
+  "shortHash": "960b34ca",
+  "author": "HiFii",
+  "date": "2025-11-05 01:28:09 -0700",
+  "message": "add"
+},
+{
+  "hash": "14d0bae80e4d5ab844f074c115c2fc2acfa76725",
+  "shortHash": "14d0bae8",
+  "author": "HiFii",
+  "date": "2025-11-05 01:28:04 -0700",
+  "message": "Dynamic background color for vehicle info section, add a space before and after the vehicle name, fixed shadow in layout"
+},
+{
+  "hash": "107d6358490903dffb9723629939fb19b3bb3dfa",
+  "shortHash": "107d6358",
+  "author": "HiFii",
+  "date": "2025-11-05 01:14:59 -0700",
+  "message": "fix another build error"
+},
+{
+  "hash": "e5298021250898f5a474ce47bc76d372d255c5b7",
+  "shortHash": "e5298021",
+  "author": "HiFii",
+  "date": "2025-11-05 01:12:50 -0700",
+  "message": "fix typo and build error"
+},
+{
+  "hash": "d35ab09f0f826a9162efea6986c80a6d75d04b14",
+  "shortHash": "d35ab09f",
+  "author": "HiFii",
+  "date": "2025-11-04 21:50:11 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "e170cdfecd7d984f15da964fcdd6f1808bc9487f",
+  "shortHash": "e170cdfe",
+  "author": "HiFii",
+  "date": "2025-11-04 19:14:05 -0700",
+  "message": "2025.4.0 release prep"
+},
+{
+  "hash": "40f3256d2c1ef1b73fc2c3fced47c2646a64b512",
+  "shortHash": "40f3256d",
+  "author": "HiFii",
+  "date": "2025-11-04 18:11:53 -0700",
+  "message": "-_-"
+},
+{
+  "hash": "98cf7b689a99bc8e68c32b73b128111d30efbe00",
+  "shortHash": "98cf7b68",
+  "author": "HiFii",
+  "date": "2025-11-04 17:58:57 -0700",
+  "message": "Update strings.xml"
+},
+{
+  "hash": "86c8a4eeccf7f4794916e924adac6893c7756824",
+  "shortHash": "86c8a4ee",
+  "author": "HiFii",
+  "date": "2025-11-04 17:57:20 -0700",
+  "message": "rewrite theme descriptions"
+},
+{
+  "hash": "0e49f4a190522e5b05f54483ced908472e01a5b7",
+  "shortHash": "0e49f4a1",
+  "author": "HiFii",
+  "date": "2025-11-04 17:38:42 -0700",
+  "message": "bump gradle"
+},
+{
+  "hash": "7c6b617c80e24a706ccd77ac4132a4bbf2963829",
+  "shortHash": "7c6b617c",
+  "author": "HiFii",
+  "date": "2025-11-04 17:38:35 -0700",
+  "message": "string tweaks"
+},
+{
+  "hash": "733a0ca077b134c5903b9ab946b4f5b0060cfe62",
+  "shortHash": "733a0ca0",
+  "author": "HiFii",
+  "date": "2025-11-03 15:00:14 -0700",
+  "message": "too drunk lol"
+},
+{
+  "hash": "3a09f1c8344c56f0678a627777b8a92984fb82d4",
+  "shortHash": "3a09f1c8",
+  "author": "HiFii",
+  "date": "2025-11-03 13:57:45 -0700",
+  "message": "Update view_news_update_list.xml"
+},
+{
+  "hash": "54551564b21e694bc162bc33a4053f142dab5add",
+  "shortHash": "54551564",
+  "author": "HiFii",
+  "date": "2025-11-03 13:57:42 -0700",
+  "message": "update more icons"
+},
+{
+  "hash": "484e15d2b8f7e73a129c37d4c27c8fa96ca390d1",
+  "shortHash": "484e15d2",
+  "author": "HiFii",
+  "date": "2025-11-03 13:52:46 -0700",
+  "message": "Update BubbleEmitterView.kt"
+},
+{
+  "hash": "4a1429e9aea3c773f483d2d0bfd111f1add39fe1",
+  "shortHash": "4a1429e9",
+  "author": "HiFii",
+  "date": "2025-11-03 13:50:38 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "90b5008f7cc931b6bd568a4ba1ebfac1f6d3535f",
+  "shortHash": "90b5008f",
+  "author": "HiFii",
+  "date": "2025-11-03 13:50:34 -0700",
+  "message": "new iconography"
+},
+{
+  "hash": "9949d74b50965decde15f8a6da17e96873ea3976",
+  "shortHash": "9949d74b",
+  "author": "HiFii",
+  "date": "2025-11-03 13:34:00 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "159053a76c60c92696f885256beef70338b0a5b6",
+  "shortHash": "159053a7",
+  "author": "HiFii",
+  "date": "2025-11-03 13:33:58 -0700",
+  "message": "Update fragment_settings.xml"
+},
+{
+  "hash": "468cab4e5edb3940d2101f190f1c4a89b856e123",
+  "shortHash": "468cab4e",
+  "author": "HiFii",
+  "date": "2025-11-03 13:33:52 -0700",
+  "message": "new icons"
+},
+{
+  "hash": "4ff1931ddbbe977acb9b1e7527a97f471f7a54f6",
+  "shortHash": "4ff1931d",
+  "author": "HiFii",
+  "date": "2025-11-03 12:38:51 -0700",
+  "message": "format code"
+},
+{
+  "hash": "88346523915fde8a0f46a79e41ca9e9edebe98b3",
+  "shortHash": "88346523",
+  "author": "HiFii",
+  "date": "2025-11-03 12:36:46 -0700",
+  "message": "Update webpage_toolbar_menu.xml"
+},
+{
+  "hash": "e82532b9de98b0524e8353152ac00065594a647f",
+  "shortHash": "e82532b9",
+  "author": "HiFii",
+  "date": "2025-11-03 12:36:43 -0700",
+  "message": "lots and lots of improvements to webpage article saving"
+},
+{
+  "hash": "114eae7eb2777583e00b0411ce2c81aa45fe25e1",
+  "shortHash": "114eae7e",
+  "author": "HiFii",
+  "date": "2025-11-03 08:31:23 -0700",
+  "message": "Format code"
+},
+{
+  "hash": "38e1b6b687df3231c3bca6438fd797223a094b1a",
+  "shortHash": "38e1b6b6",
+  "author": "HiFii",
+  "date": "2025-11-03 08:29:43 -0700",
+  "message": "Create dialog_download_preview.xml"
+},
+{
+  "hash": "5f21c553274618543ed6d0151fc6001dfd2159a5",
+  "shortHash": "5f21c553",
+  "author": "HiFii",
+  "date": "2025-11-03 08:29:42 -0700",
+  "message": "Update WebpageFragment.java"
+},
+{
+  "hash": "3a0ba0672dfbc0c4d19c4d442f529ae20d56f8fb",
+  "shortHash": "3a0ba067",
+  "author": "HiFii",
+  "date": "2025-11-03 08:08:49 -0700",
+  "message": "dialog string adjustment"
+},
+{
+  "hash": "ac023920d6ae79066714d2583b5e2c4a50046b3d",
+  "shortHash": "ac023920",
+  "author": "HiFii",
+  "date": "2025-11-03 08:05:12 -0700",
+  "message": "string change"
+},
+{
+  "hash": "d513eb828f9529a9220558dd532c04d0e8317980",
+  "shortHash": "d513eb82",
+  "author": "HiFii",
+  "date": "2025-11-03 07:49:45 -0700",
+  "message": "update strings"
+},
+{
+  "hash": "53f1858f13badeb596c7031990e687bd81c83c3a",
+  "shortHash": "53f1858f",
+  "author": "HiFii",
+  "date": "2025-11-03 07:48:14 -0700",
+  "message": "Update NewsUpdateAdapter.java"
+},
+{
+  "hash": "e063f4f0712698ee350a5737b4fbc5446f6ad743",
+  "shortHash": "e063f4f0",
+  "author": "HiFii",
+  "date": "2025-11-03 07:48:10 -0700",
+  "message": "settings: ensure we clear article data as well when clearing data/cache"
+},
+{
+  "hash": "b971e17e72fc81c95c439a6eba53326736081eda",
+  "shortHash": "b971e17e",
+  "author": "HiFii",
+  "date": "2025-11-03 07:47:49 -0700",
+  "message": "Webpage improvement"
+},
+{
+  "hash": "f548e7e336b136e2032ac2ae93aaaa29c46cb91d",
+  "shortHash": "f548e7e3",
+  "author": "HiFii",
+  "date": "2025-11-03 06:27:46 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "9dbc307c520689ddec3c52acdd9a4fecd1674164",
+  "shortHash": "9dbc307c",
+  "author": "HiFii",
+  "date": "2025-11-03 06:27:44 -0700",
+  "message": "Update view_news_update_list.xml"
+},
+{
+  "hash": "51fa6cafb721a8702b0a15c0ebca328a3ae3df5f",
+  "shortHash": "51fa6caf",
+  "author": "HiFii",
+  "date": "2025-11-03 06:27:40 -0700",
+  "message": "add the fluid motion theme stuff"
+},
+{
+  "hash": "50568342654ddc4cfbc8b1afd1bfd168fee17a6a",
+  "shortHash": "50568342",
+  "author": "HiFii",
+  "date": "2025-11-03 06:27:26 -0700",
+  "message": "Feature: ability to save news articles for offline, add a symbol in news/updates list to indicate offline articles"
+},
+{
+  "hash": "218b88f7c38d8bbc15aee04c3bc77a3b61a498fd",
+  "shortHash": "218b88f7",
+  "author": "HiFii",
+  "date": "2025-11-03 06:26:40 -0700",
+  "message": "fixup settings theme, hook in animated theme"
+},
+{
+  "hash": "471c8ee995e78853918f7593d5de88ee5aa91a53",
+  "shortHash": "471c8ee9",
+  "author": "HiFii",
+  "date": "2025-11-03 06:26:12 -0700",
+  "message": "new theme"
+},
+{
+  "hash": "7457ea1be2d7e86b0b610e558f5f0ed9947c409d",
+  "shortHash": "7457ea1b",
+  "author": "HiFii",
+  "date": "2025-11-03 05:00:57 -0700",
+  "message": "Delete thundersplash_splash_video.mp4"
+},
+{
+  "hash": "a5f04e49de54804e934e5d25ba5ece4d715953d7",
+  "shortHash": "a5f04e49",
+  "author": "HiFii",
+  "date": "2025-11-03 05:00:48 -0700",
+  "message": "Update activity_splash.xml"
+},
+{
+  "hash": "c8e1819eb85f1afb8aa9a25161e70a405640fa81",
+  "shortHash": "c8e1819e",
+  "author": "HiFii",
+  "date": "2025-11-03 05:00:44 -0700",
+  "message": "localize war thunder theme"
+},
+{
+  "hash": "fb80b3fb97e23633dc450b301ecc7182e3f94c63",
+  "shortHash": "fb80b3fb",
+  "author": "HiFii",
+  "date": "2025-11-03 05:00:17 -0700",
+  "message": "improve FAST DYNAMIC FLUID"
+},
+{
+  "hash": "a3fdafa4a74d7d36bb704fbb18d7472447b9ebd8",
+  "shortHash": "a3fdafa4",
+  "author": "HiFii",
+  "date": "2025-11-03 04:00:17 -0700",
+  "message": "Update view_news_update_list.xml"
+},
+{
+  "hash": "c4839cb486ae99bb805e88ce29e03eac57aed348",
+  "shortHash": "c4839cb4",
+  "author": "HiFii",
+  "date": "2025-11-03 04:00:15 -0700",
+  "message": "Update theme_item_layout.xml"
+},
+{
+  "hash": "7b7f38491ef03bee9c03bae1edaebe89228790d1",
+  "shortHash": "7b7f3849",
+  "author": "HiFii",
+  "date": "2025-11-03 04:00:13 -0700",
+  "message": "news/updates: tweak some card designs for certain themes"
+},
+{
+  "hash": "f248a53a7af21501f70f9af71d2f3713a6015db3",
+  "shortHash": "f248a53a",
+  "author": "HiFii",
+  "date": "2025-11-03 03:37:38 -0700",
+  "message": "Update themes.xml"
+},
+{
+  "hash": "03eb0384c02f21e9b52f5e8c69af2ebccbb4feff",
+  "shortHash": "03eb0384",
+  "author": "HiFii",
+  "date": "2025-11-03 03:37:33 -0700",
+  "message": "theme selection improvements"
+},
+{
+  "hash": "2a8fe28761d2964a3944cf9198a00de1ead8bfdf",
+  "shortHash": "2a8fe287",
+  "author": "HiFii",
+  "date": "2025-11-03 03:37:19 -0700",
+  "message": "Update top_shade_gradient.xml"
+},
+{
+  "hash": "ceb344151c50ead7fe3e66ab78781e5fd9700b2d",
+  "shortHash": "ceb34415",
+  "author": "HiFii",
+  "date": "2025-11-03 03:37:16 -0700",
+  "message": "fix lag on scrolling for adapter. removed list animation and much more"
+},
+{
+  "hash": "99c1da15a07770de51bd2cc510208995326620a8",
+  "shortHash": "99c1da15",
+  "author": "HiFii",
+  "date": "2025-11-03 03:36:52 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "47b60e0e8c2897435e293f04398f45a180d8e277",
+  "shortHash": "47b60e0e",
+  "author": "HiFii",
+  "date": "2025-11-03 01:45:02 -0700",
+  "message": "News/Updates Fragment: fixed article date parsing and not showing up"
+},
+{
+  "hash": "5c8c7575412fbb0792981b47ccbe0819c610053b",
+  "shortHash": "5c8c7575",
+  "author": "HiFii",
+  "date": "2025-11-03 01:23:01 -0700",
+  "message": "Update view_news_update_list.xml"
+},
+{
+  "hash": "fa5ed54434c39d2d6d9e107f78333b4a135b62fc",
+  "shortHash": "fa5ed544",
+  "author": "HiFii",
+  "date": "2025-11-03 01:22:54 -0700",
+  "message": "Create bungee_regular.ttf"
+},
+{
+  "hash": "2ac987c62e4cf60a479a4d29c536a84855e42d2c",
+  "shortHash": "2ac987c6",
+  "author": "HiFii",
+  "date": "2025-11-03 01:22:52 -0700",
+  "message": "Reduce lag on news/updates"
+},
+{
+  "hash": "11372879676afc72ba4b5234d91baf8e94d62b1a",
+  "shortHash": "11372879",
+  "author": "HiFii",
+  "date": "2025-11-03 01:19:15 -0700",
+  "message": "Revert "Update NewsUpdateAdapter.java""
+},
+{
+  "hash": "bc9f7898147f0744b9073e1ba6ce58b720c65875",
+  "shortHash": "bc9f7898",
+  "author": "HiFii",
+  "date": "2025-11-03 01:19:08 -0700",
+  "message": "Update NewsUpdateAdapter.java"
+},
+{
+  "hash": "d10ace423d0390283b23abe7c37ff2dd5bd856a2",
+  "shortHash": "d10ace42",
+  "author": "HiFii",
+  "date": "2025-11-03 00:45:07 -0700",
+  "message": "reduce splash screen text size due to wrapping issues on some devices, tighten up margins or remove them.. you know how it goes"
+},
+{
+  "hash": "c4f41fe8af2b55349f34e698c199c45c11b6f561",
+  "shortHash": "c4f41fe8",
+  "author": "HiFii",
+  "date": "2025-11-03 00:44:22 -0700",
+  "message": "New Material carousel theme chooser"
+},
+{
+  "hash": "a9afd0fba8c73fcb9eb67164aae89a36884e6d78",
+  "shortHash": "a9afd0fb",
+  "author": "HiFii",
+  "date": "2025-11-03 00:44:01 -0700",
+  "message": "Update NewsUpdateAdapter.java"
+},
+{
+  "hash": "0fd7116bfe6355024d4592034da92670a4fc4bfc",
+  "shortHash": "0fd7116b",
+  "author": "HiFii",
+  "date": "2025-11-03 00:43:56 -0700",
+  "message": "Remove settings fragment animation"
+},
+{
+  "hash": "474e2564a3a69f576eb14be731bc3311034a4526",
+  "shortHash": "474e2564",
+  "author": "HiFii",
+  "date": "2025-11-02 20:46:04 -0700",
+  "message": "Delete arrays.xml"
+},
+{
+  "hash": "0df22a534f015848ca7f021f0564b06950c8dc2b",
+  "shortHash": "0df22a53",
+  "author": "HiFii",
+  "date": "2025-11-02 20:45:49 -0700",
+  "message": "Delete theme_swatch_background.xml"
+},
+{
+  "hash": "a785508d6e0778e407d0f7036ec89fcf3180874b",
+  "shortHash": "a785508d",
+  "author": "HiFii",
+  "date": "2025-11-02 20:45:15 -0700",
+  "message": "revert the new theme chooser ui (i wanna do something else)"
+},
+{
+  "hash": "5c54f4adc4fc9d0c024420d5b8f0a347e8b033c8",
+  "shortHash": "5c54f4ad",
+  "author": "HiFii",
+  "date": "2025-11-02 07:32:53 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "a66cc7d036f16cefa50d2076e0e58e56228c9b25",
+  "shortHash": "a66cc7d0",
+  "author": "HiFii",
+  "date": "2025-11-02 07:31:57 -0700",
+  "message": "MultiLayer24HrStarView: fix "cannot find symbol hourlyUpdateRunnable""
+},
+{
+  "hash": "cc7c147b89b99643886362a65b1d6ec538d6ef26",
+  "shortHash": "cc7c147b",
+  "author": "HiFii",
+  "date": "2025-11-02 07:24:39 -0700",
+  "message": "format code"
+},
+{
+  "hash": "6db63194df49f48579cc7a487b749d061f1dfb8d",
+  "shortHash": "6db63194",
+  "author": "HiFii",
+  "date": "2025-11-02 07:18:59 -0700",
+  "message": "revert the fleshed theme selection stuff"
+},
+{
+  "hash": "35636cf17e4b2763c241316724c8139f8c137abe",
+  "shortHash": "35636cf1",
+  "author": "HiFii",
+  "date": "2025-11-02 07:09:39 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "c62960f5a842736483bea3d09b404687642af26a",
+  "shortHash": "c62960f5",
+  "author": "HiFii",
+  "date": "2025-11-02 07:09:32 -0700",
+  "message": "updated icons for news / updates"
+},
+{
+  "hash": "b2fb55d92ddd405219d34a08cd42d3e6a63a604e",
+  "shortHash": "b2fb55d9",
+  "author": "HiFii",
+  "date": "2025-11-02 07:09:09 -0700",
+  "message": "Revert "Update ic_nav_home.png""
+},
+{
+  "hash": "4efe040010910e096375dc892333fe0fee7cde28",
+  "shortHash": "4efe0400",
+  "author": "HiFii",
+  "date": "2025-11-02 07:09:06 -0700",
+  "message": "Update ic_nav_home.png"
+},
+{
+  "hash": "e72b0dd1a9715909fb45a0c0be2394933414fb85",
+  "shortHash": "e72b0dd1",
+  "author": "HiFii",
+  "date": "2025-11-02 07:02:18 -0700",
+  "message": "Revert "Update ic_nav_home.png""
+},
+{
+  "hash": "58d84e3cae689f1c852c76f88fddd31928e65c4f",
+  "shortHash": "58d84e3c",
+  "author": "HiFii",
+  "date": "2025-11-02 07:02:13 -0700",
+  "message": "Update ic_nav_home.png"
+},
+{
+  "hash": "9c551b2347ee1bcde0a43e30bf98587544ca41ef",
+  "shortHash": "9c551b23",
+  "author": "HiFii",
+  "date": "2025-11-02 06:31:42 -0700",
+  "message": "Update view_toolbar_vehicle_info.xml"
+},
+{
+  "hash": "d9dc14cd59d898b28acf9278698d2a86c8484820",
+  "shortHash": "d9dc14cd",
+  "author": "HiFii",
+  "date": "2025-11-02 06:31:40 -0700",
+  "message": "Update vehicle_info_shade_gradient.xml"
+},
+{
+  "hash": "036e521f374a982ed516c9e67da48027c40597a9",
+  "shortHash": "036e521f",
+  "author": "HiFii",
+  "date": "2025-11-02 06:27:23 -0700",
+  "message": "Change and improve header text"
+},
+{
+  "hash": "aedf84d562078e55cc0cac3c1140105c91453343",
+  "shortHash": "aedf84d5",
+  "author": "HiFii",
+  "date": "2025-11-02 06:18:44 -0700",
+  "message": "Improve textured background"
+},
+{
+  "hash": "7a344fb90f7d1b6964e04ff26ae542bb666724ae",
+  "shortHash": "7a344fb9",
+  "author": "HiFii",
+  "date": "2025-11-02 06:10:10 -0700",
+  "message": "Revert "Update MultiLayerStarFieldView.java""
+},
+{
+  "hash": "7c45855670f01b1ee2d512ad1d1db4371be9a4df",
+  "shortHash": "7c458556",
+  "author": "HiFii",
+  "date": "2025-11-02 06:10:04 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "fc5a4aea4873f985694136d5ebf82faed7736e79",
+  "shortHash": "fc5a4aea",
+  "author": "HiFii",
+  "date": "2025-11-02 06:10:01 -0700",
+  "message": "fix stargaze lag"
+},
+{
+  "hash": "99c1025e4558c9a2048d720c4d56867d0f2104f8",
+  "shortHash": "99c1025e",
+  "author": "HiFii",
+  "date": "2025-11-02 06:05:47 -0700",
+  "message": "Flesh out theme categories more"
+},
+{
+  "hash": "ad6bd40ce60db0ccafe2631c0117c5a1648c35bf",
+  "shortHash": "ad6bd40c",
+  "author": "HiFii",
+  "date": "2025-11-02 05:55:32 -0700",
+  "message": "remove bg texture for almost black theme"
+},
+{
+  "hash": "f53eff57ff1b182ce1ad4df020b50b5a8c7731a5",
+  "shortHash": "f53eff57",
+  "author": "HiFii",
+  "date": "2025-11-02 05:54:33 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "ce59f226e329309f2a57590360307e59fb208616",
+  "shortHash": "ce59f226",
+  "author": "HiFii",
+  "date": "2025-11-02 05:54:25 -0700",
+  "message": "WIP new changelog UI"
+},
+{
+  "hash": "84bc40be857f4a09c84235fe420fb81373a17768",
+  "shortHash": "84bc40be",
+  "author": "HiFii",
+  "date": "2025-11-02 05:24:10 -0700",
+  "message": "Reformat code"
+},
+{
+  "hash": "4cf39b495027a1d329cb9a7333eb533ba9fd15d5",
+  "shortHash": "4cf39b49",
+  "author": "HiFii",
+  "date": "2025-11-02 05:22:01 -0700",
+  "message": "convert texture views to imageviews with correct cropping"
+},
+{
+  "hash": "b9aa97d96f6e5373b8ee5db22c79963b298391c8",
+  "shortHash": "b9aa97d9",
+  "author": "HiFii",
+  "date": "2025-11-02 05:15:55 -0700",
+  "message": "Add textured background"
+},
+{
+  "hash": "03a6994a55b4a26df8b6f4a8aac6a81952479aaa",
+  "shortHash": "03a6994a",
+  "author": "HiFii",
+  "date": "2025-11-02 04:41:49 -0700",
+  "message": "more bottom nav ui tweaks"
+},
+{
+  "hash": "182abc992a5ec14967ea4f393072e40f6e4935ae",
+  "shortHash": "182abc99",
+  "author": "HiFii",
+  "date": "2025-11-02 04:40:18 -0700",
+  "message": "Update activity_main.xml"
+},
+{
+  "hash": "a4304ac32e9ff4e9e745ceab8e632ee132797103",
+  "shortHash": "a4304ac3",
+  "author": "HiFii",
+  "date": "2025-11-02 04:39:03 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "6b0980793693b4a7f795fcc03a25d29c67ceef48",
+  "shortHash": "6b098079",
+  "author": "HiFii",
+  "date": "2025-11-02 04:38:59 -0700",
+  "message": "lets set bottom nav bar height to wrap parent and see how testers react"
+},
+{
+  "hash": "10d948d4d707c40b62ad87a741e22964eef34562",
+  "shortHash": "10d948d4",
+  "author": "HiFii",
+  "date": "2025-11-02 04:30:09 -0700",
+  "message": "adjust LiquidRipple Fluid Gradient time"
+},
+{
+  "hash": "9e6780da94ddff3d00ab94cb7a0dbe7c574b06f6",
+  "shortHash": "9e6780da",
+  "author": "HiFii",
+  "date": "2025-11-02 04:27:56 -0700",
+  "message": "Update RadarViewForCardView.java"
+},
+{
+  "hash": "37d7b4613a793f5109f573bb99eb79c0ea489083",
+  "shortHash": "37d7b461",
+  "author": "HiFii",
+  "date": "2025-11-02 04:05:06 -0700",
+  "message": "Update fragment_home.xml"
+},
+{
+  "hash": "69dd7a561e09894c5742e006ae1daad0d462ac68",
+  "shortHash": "69dd7a56",
+  "author": "HiFii",
+  "date": "2025-11-02 04:04:42 -0700",
+  "message": "set textured bg alpha to 0"
+},
+{
+  "hash": "3daae47d6a7571c2aeec7f3c4922bdae447d0e25",
+  "shortHash": "3daae47d",
+  "author": "HiFii",
+  "date": "2025-11-02 04:04:04 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "1d53011a47343a97249dd3fd5807591cd0cb117b",
+  "shortHash": "1d53011a",
+  "author": "HiFii",
+  "date": "2025-11-02 03:54:09 -0700",
+  "message": "News/Updates: further improve and try to fix images disappearing"
+},
+{
+  "hash": "291c2c1b7f97040ffe4680466c979b7d7d7656ad",
+  "shortHash": "291c2c1b",
+  "author": "HiFii",
+  "date": "2025-11-02 03:45:20 -0700",
+  "message": "Update activity_main.xml"
+},
+{
+  "hash": "5452af1664ae08f61510b6dae92ada02dd1117a3",
+  "shortHash": "5452af16",
+  "author": "HiFii",
+  "date": "2025-11-02 03:45:18 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "eb1135811510711dc58f08405b110a2a8a0fa4e3",
+  "shortHash": "eb113581",
+  "author": "HiFii",
+  "date": "2025-11-02 03:45:15 -0700",
+  "message": "Update NewsUpdateAdapter.java"
+},
+{
+  "hash": "906d4ba6fed13385e549d5f472ef33b0466a82ea",
+  "shortHash": "906d4ba6",
+  "author": "HiFii",
+  "date": "2025-11-02 03:45:13 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "5def359a702e40739690eaade91b96f84bc7c02b",
+  "shortHash": "5def359a",
+  "author": "HiFii",
+  "date": "2025-11-02 03:21:24 -0700",
+  "message": "home: reduce textured bg"
+},
+{
+  "hash": "5e41e639e1a7fa6e103d765115e4c7a56b978ba2",
+  "shortHash": "5e41e639",
+  "author": "HiFii",
+  "date": "2025-11-02 03:21:13 -0700",
+  "message": "easteregg: add textured bg"
+},
+{
+  "hash": "41808acc261b154c2c5c815f602385ea363fea41",
+  "shortHash": "41808acc",
+  "author": "HiFii",
+  "date": "2025-11-02 03:12:55 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "9d11bbb3768acc8c43c2937a1681d0150cafda80",
+  "shortHash": "9d11bbb3",
+  "author": "HiFii",
+  "date": "2025-11-02 03:11:54 -0700",
+  "message": "NewsUpdatesAdapter improvements: fix scroll lag for the most part, fix images disappearing on scrollUp, simplify code, adjust values, etc"
+},
+{
+  "hash": "d77bae9289b725434acefd47392d6fa0ebf9ec9e",
+  "shortHash": "d77bae92",
+  "author": "HiFii",
+  "date": "2025-11-02 02:50:41 -0700",
+  "message": "ThemeSelectionFragment: change radar theme cardview background to radar green from black"
+},
+{
+  "hash": "1de02d2a02cb4fb8778077cfadf34461840b5c9a",
+  "shortHash": "1de02d2a",
+  "author": "HiFii",
+  "date": "2025-11-02 02:50:19 -0700",
+  "message": "Update strings.xml"
+},
+{
+  "hash": "5a420d6a4f01717784e5ba0d3e2cd0a0abb8577a",
+  "shortHash": "5a420d6a",
+  "author": "HiFii",
+  "date": "2025-11-02 02:44:50 -0700",
+  "message": "Add Sparkles code for later usage"
+},
+{
+  "hash": "b509c18daa6db561a88c2f9b310a72ecca0b9a06",
+  "shortHash": "b509c18d",
+  "author": "HiFii",
+  "date": "2025-11-02 02:26:29 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "ab2bbefc460004325fc8687d3faae36efbd2ceba",
+  "shortHash": "ab2bbefc",
+  "author": "HiFii",
+  "date": "2025-11-02 02:25:55 -0700",
+  "message": "SnowFallView: improvements to the snow"
+},
+{
+  "hash": "77ad6eb9d9ef9b3afb2d9f5301fb7a79b83bf0fe",
+  "shortHash": "77ad6eb9",
+  "author": "HiFii",
+  "date": "2025-11-02 02:23:57 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "55880e9222eac3431d477ddc9303297ac85c7abe",
+  "shortHash": "55880e92",
+  "author": "HiFii",
+  "date": "2025-11-02 02:23:02 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "83a520be56c36c5b7c0c28dbcc68c4b32761f490",
+  "shortHash": "83a520be",
+  "author": "HiFii",
+  "date": "2025-11-02 02:22:44 -0700",
+  "message": "StarGaze: re-enable using real time"
+},
+{
+  "hash": "5c5ce87aef3bf8578250535e78f5143821c42ea1",
+  "shortHash": "5c5ce87a",
+  "author": "HiFii",
+  "date": "2025-11-02 02:22:30 -0700",
+  "message": "New animated Radar theme"
+},
+{
+  "hash": "b340a63d6453a156595b70dab32039a426871b85",
+  "shortHash": "b340a63d",
+  "author": "HiFii",
+  "date": "2025-11-02 01:19:54 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "9cead50ba97c09359c12377eef61603e9e91e617",
+  "shortHash": "9cead50b",
+  "author": "HiFii",
+  "date": "2025-11-02 01:19:52 -0700",
+  "message": "HomeFragment: enable clouds for header, remove for BG. fixeslag"
+},
+{
+  "hash": "0dfd0e0ea193e31ccda6b9fc9c9500c0d91cda05",
+  "shortHash": "0dfd0e0e",
+  "author": "HiFii",
+  "date": "2025-11-02 00:53:20 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "898e474762d13e9a4a9ae0b72f9adc23db6e1745",
+  "shortHash": "898e4747",
+  "author": "HiFii",
+  "date": "2025-11-02 00:52:42 -0700",
+  "message": "StarGazeView: improvements, disable clouds for now because it's laggy as shit"
+},
+{
+  "hash": "36e57a3ddb8dad408ee467bb601a4867a96daede",
+  "shortHash": "36e57a3d",
+  "author": "HiFii",
+  "date": "2025-11-02 00:49:00 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "aba49df098e72bf0c2a109215799b80e3120b1a3",
+  "shortHash": "aba49df0",
+  "author": "HiFii",
+  "date": "2025-11-02 00:48:52 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "26bc61e4652afe5c418135495f00476f590d8805",
+  "shortHash": "26bc61e4",
+  "author": "HiFii",
+  "date": "2025-11-02 00:43:15 -0700",
+  "message": "Revert "revert""
+},
+{
+  "hash": "6d06f2211795f5d837599cc15e9c2759a59fa4a9",
+  "shortHash": "6d06f221",
+  "author": "HiFii",
+  "date": "2025-11-02 00:43:10 -0700",
+  "message": "revert"
+},
+{
+  "hash": "1e4b1da3cff6124c786eefd027af3c099e574e2e",
+  "shortHash": "1e4b1da3",
+  "author": "HiFii",
+  "date": "2025-11-01 00:14:40 -0700",
+  "message": "New and updated Cash* Fonts"
+},
+{
+  "hash": "926b9122faccba32e9a560811e4a095095f48179",
+  "shortHash": "926b9122",
+  "author": "HiFii",
+  "date": "2025-10-31 04:04:02 -0700",
+  "message": "HomeFragment: add back animated background underneath news/updates"
+},
+{
+  "hash": "2c36f5eb6219408ed785210931746beb99c11649",
+  "shortHash": "2c36f5eb",
+  "author": "HiFii",
+  "date": "2025-10-31 04:03:38 -0700",
+  "message": "Fix StarGaze not showing in WikiFragment"
+},
+{
+  "hash": "f8695e2de1b5d5edad04ddb990dfcfd1a10144bd",
+  "shortHash": "f8695e2d",
+  "author": "HiFii",
+  "date": "2025-10-31 04:00:09 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "ffbb81c2f8c767069ec8b4bbef22530a59ab80ca",
+  "shortHash": "ffbb81c2",
+  "author": "HiFii",
+  "date": "2025-10-31 03:48:50 -0700",
+  "message": "EasterEgg: added more sky types"
+},
+{
+  "hash": "81081635b8c5f8928b59522c2ec7141bfba33a42",
+  "shortHash": "81081635",
+  "author": "HiFii",
+  "date": "2025-10-31 03:41:23 -0700",
+  "message": "make the easter egg a bit easier"
+},
+{
+  "hash": "9b1b1ffb648fd643104495f5f559e83bc49f4281",
+  "shortHash": "9b1b1ffb",
+  "author": "HiFii",
+  "date": "2025-10-31 02:29:07 -0700",
+  "message": "StarGaze: add some color back to the stars"
+},
+{
+  "hash": "c1c33f18daf245893d04e17c523d65c3950f57fe",
+  "shortHash": "c1c33f18",
+  "author": "HiFii",
+  "date": "2025-10-31 02:23:26 -0700",
+  "message": "StarGaze: adjust some values to improve the view"
+},
+{
+  "hash": "6bdb3ce19349a9ef773085609ff891bf938d199a",
+  "shortHash": "6bdb3ce1",
+  "author": "HiFii",
+  "date": "2025-10-31 02:22:12 -0700",
+  "message": "StarGaze: remove logo text"
+},
+{
+  "hash": "363835b14ca2f1af8ec8d680f7ff54b50aa343bb",
+  "shortHash": "363835b1",
+  "author": "HiFii",
+  "date": "2025-10-31 02:22:00 -0700",
+  "message": "StarGaze: 24 hours of colors"
+},
+{
+  "hash": "b73b96ef32c67a1be13b2d2b5ba85798f61f9d58",
+  "shortHash": "b73b96ef",
+  "author": "HiFii",
+  "date": "2025-10-31 02:05:11 -0700",
+  "message": "Improve StarGaze theme: moving stars, better shooting stars, better gradients for the sky, etc"
+},
+{
+  "hash": "4891ce0ec7695e03aa0b431188419ffa15163e52",
+  "shortHash": "4891ce0e",
+  "author": "HiFii",
+  "date": "2025-10-31 02:04:47 -0700",
+  "message": "remove header text for StarGaze live time theme"
+},
+{
+  "hash": "5228aa490bdfc160c374d384c05c4dfa1cc851ca",
+  "shortHash": "5228aa49",
+  "author": "HiFii",
+  "date": "2025-10-30 01:09:07 -0700",
+  "message": "Update German translations (thanks Flitzepipe)"
+},
+{
+  "hash": "8a47fdaf437ac5e623d88982981b27ef39b4f045",
+  "shortHash": "8a47fdaf",
+  "author": "HiFii",
+  "date": "2025-10-30 00:59:36 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "ed48bfdd6886184a4f431fc154d4aca8c396ed77",
+  "shortHash": "ed48bfdd",
+  "author": "HiFii",
+  "date": "2025-10-30 00:49:36 -0700",
+  "message": "Fixes via Android Code Analyzer (potentially increase app performance)"
+},
+{
+  "hash": "2f4180aa3452b3e7b0299ab025a06b2f6bb093a4",
+  "shortHash": "2f4180aa",
+  "author": "HiFii",
+  "date": "2025-10-30 00:40:11 -0700",
+  "message": "Revert "revert""
+},
+{
+  "hash": "dc6d6c7585914ba1adb75c54f718744f1ddf5f1b",
+  "shortHash": "dc6d6c75",
+  "author": "HiFii",
+  "date": "2025-10-30 00:40:02 -0700",
+  "message": "revert"
+},
+{
+  "hash": "f35c0028bedf84f8e0b5fb2270358a9cc1f99f79",
+  "shortHash": "f35c0028",
+  "author": "HiFii",
+  "date": "2025-10-30 00:38:51 -0700",
+  "message": "Reformat code"
+},
+{
+  "hash": "60188c19fcb22abcc886c8578ed411caada17ca5",
+  "shortHash": "60188c19",
+  "author": "HiFii",
+  "date": "2025-10-30 00:37:41 -0700",
+  "message": "StarGazeView: add clouds, add boolean to enable/disable clouds, improve the code via the Android Code Analyzer (simplified code, made a few statements and variables final, etc)"
+},
+{
+  "hash": "9af63759667762105af1bb1cc0a8663ecbf0ef3b",
+  "shortHash": "9af63759",
+  "author": "HiFii",
+  "date": "2025-10-30 00:36:56 -0700",
+  "message": "Update fragment_settings.xml"
+},
+{
+  "hash": "2921b9b2bedd1e9451061a0de654a537c717ca08",
+  "shortHash": "2921b9b2",
+  "author": "HiFii",
+  "date": "2025-10-30 00:36:51 -0700",
+  "message": "app header: add some clouds (visibility=gone) to potentially test for StarGaze theme live weather"
+},
+{
+  "hash": "f33dac3da7946bf3cdf3ba3c0db8b4ebd0394bed",
+  "shortHash": "f33dac3d",
+  "author": "HiFii",
+  "date": "2025-10-30 00:31:56 -0700",
+  "message": "bump a couple libraries (including ksp and kotlin) to newer versions"
+},
+{
+  "hash": "9b544411e7660d95297aec76ab44d20594b25429",
+  "shortHash": "9b544411",
+  "author": "HiFii",
+  "date": "2025-10-30 00:24:17 -0700",
+  "message": "Update gradle.properties"
+},
+{
+  "hash": "a52e8f15e928f2cce466260be8990f587e2d0e15",
+  "shortHash": "a52e8f15",
+  "author": "HiFii",
+  "date": "2025-10-30 00:24:14 -0700",
+  "message": "update gradle"
+},
+{
+  "hash": "26a32447600412ebcb859932eb699d2d35222c4a",
+  "shortHash": "26a32447",
+  "author": "HiFii",
+  "date": "2025-10-28 16:40:08 -0700",
+  "message": "update some libraries and bump versioncode and versionname for upcoming release"
+},
+{
+  "hash": "1648601e8d5e56006b2cd3d67845f400c38689bd",
+  "shortHash": "1648601e",
+  "author": "HiFii",
+  "date": "2025-10-27 18:15:58 -0700",
+  "message": "Reformat code after updating google java format plugin"
+},
+{
+  "hash": "e6e10674e238a521ee3af45795d366b80288d0e5",
+  "shortHash": "e6e10674",
+  "author": "HiFii",
+  "date": "2025-10-26 01:06:17 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "2f2c254a4d9e3d1804ce4d800a3c08e1e269b2d8",
+  "shortHash": "2f2c254a",
+  "author": "HiFii",
+  "date": "2025-10-26 01:05:36 -0700",
+  "message": "Reformat code"
+},
+{
+  "hash": "e6e1fc54d3adcb312049a05199c0c9725e30ba77",
+  "shortHash": "e6e1fc54",
+  "author": "HiFii",
+  "date": "2025-10-26 00:33:07 -0700",
+  "message": "VehicleInfo: navigating up now directs back to the vehicle list instead of Home (user reported bug)"
+},
+{
+  "hash": "5ef9537d5dd3d9b240b5f439c8d7f03416cdc886",
+  "shortHash": "5ef9537d",
+  "author": "HiFii",
+  "date": "2025-10-24 18:43:48 -0700",
+  "message": "update gradle"
+},
+{
+  "hash": "417ca796d01578c8593df7e77bdaa8f4099b247a",
+  "shortHash": "417ca796",
+  "author": "HiFii",
+  "date": "2025-10-23 17:39:08 -0700",
+  "message": "Update MultiLayerStarFieldView.java"
+},
+{
+  "hash": "1c6f20bb30a928e483a33342b04f841cd86812e5",
+  "shortHash": "1c6f20bb",
+  "author": "HiFii",
+  "date": "2025-10-23 00:54:06 -0700",
+  "message": "MultiLayerStarField: slightly increase shooting star chances!"
+},
+{
+  "hash": "01b013f601d74f113b34c165ae812649995b61fa",
+  "shortHash": "01b013f6",
+  "author": "HiFii",
+  "date": "2025-10-23 00:51:26 -0700",
+  "message": "MultiLayerStarField: reduce chances of shooting stars to 0 during daytime"
+},
+{
+  "hash": "a5290daa043418fdedbefb9712b93cd7505a6fdb",
+  "shortHash": "a5290daa",
+  "author": "HiFii",
+  "date": "2025-10-22 00:33:51 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "0570d8e9e787bee4a1c5c48624a86d25b5b55876",
+  "shortHash": "0570d8e9",
+  "author": "HiFii",
+  "date": "2025-10-22 00:33:49 -0700",
+  "message": "MultiLayerStarFieldView: reduce star count for better perf"
+},
+{
+  "hash": "82a2bb4a53d4b3ade730f4e5c15e3a5d961877c7",
+  "shortHash": "82a2bb4a",
+  "author": "HiFii",
+  "date": "2025-10-22 00:28:20 -0700",
+  "message": "Update view_toolbar_tabs.xml"
+},
+{
+  "hash": "0b987f55cc3682683f4b081b7562c64f1327bc20",
+  "shortHash": "0b987f55",
+  "author": "HiFii",
+  "date": "2025-10-22 00:28:18 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "dc04020654551fbf8e799ff525396c444e56ed4d",
+  "shortHash": "dc040206",
+  "author": "HiFii",
+  "date": "2025-10-22 00:26:58 -0700",
+  "message": "Reformat code, add current time to 24hr stargaze theme"
+},
+{
+  "hash": "480d4fcc510482b276269c1e0a00da89915ae9f4",
+  "shortHash": "480d4fcc",
+  "author": "HiFii",
+  "date": "2025-10-22 00:12:25 -0700",
+  "message": "reduce header text size"
+},
+{
+  "hash": "fcc27b0b2490411e44f70dc5d444788f3b16dae7",
+  "shortHash": "fcc27b0b",
+  "author": "HiFii",
+  "date": "2025-10-22 00:12:14 -0700",
+  "message": "NEW THEME: StarGaze: 24-hour live theme"
+},
+{
+  "hash": "12c743494bd0f992434bf586b3a45e24663e66ee",
+  "shortHash": "12c74349",
+  "author": "HiFii",
+  "date": "2025-10-21 22:45:19 -0700",
+  "message": "WikiFragment: fix animated themes not being full screen"
+},
+{
+  "hash": "18049262dedeb392d9077ed0e6669b50c69f96d5",
+  "shortHash": "18049262",
+  "author": "HiFii",
+  "date": "2025-10-21 22:17:13 -0700",
+  "message": "slightly increase splash screen logo size"
+},
+{
+  "hash": "9934dc590403a2b55e4004645cd57ae8471e07fc",
+  "shortHash": "9934dc59",
+  "author": "HiFii",
+  "date": "2025-10-21 22:16:29 -0700",
+  "message": "Create assets_fonts_flightdeckblack.otf"
+},
+{
+  "hash": "34808d6400da9dc8c3e1fe7648f603331396153f",
+  "shortHash": "34808d64",
+  "author": "HiFii",
+  "date": "2025-10-21 22:16:02 -0700",
+  "message": "slightly reduce text size for splash"
+},
+{
+  "hash": "46f76f7cf6c7fa5f59c60d35899fb7b843360d56",
+  "shortHash": "46f76f7c",
+  "author": "HiFii",
+  "date": "2025-10-21 22:15:44 -0700",
+  "message": "Create assets_fonts_flightdeckblack.otf"
+},
+{
+  "hash": "bd6816742b9629e6f2c8853e2be981a964ac10df",
+  "shortHash": "bd681674",
+  "author": "HiFii",
+  "date": "2025-10-21 21:11:25 -0700",
+  "message": "ADD 3 NEW THEMES! Nocturne, Vortex, and Electric Tide"
+},
+{
+  "hash": "5234a7967f5680a3e3775efc55d3903099b16958",
+  "shortHash": "5234a796",
+  "author": "HiFii",
+  "date": "2025-10-20 22:06:43 -0700",
+  "message": "improve bottom navigation icon resolution"
+},
+{
+  "hash": "fb7914dc30fdb059aa7d8098ae690a65103658c3",
+  "shortHash": "fb7914dc",
+  "author": "HiFii",
+  "date": "2025-10-20 22:06:29 -0700",
+  "message": "new "home" tab icon"
+},
+{
+  "hash": "e5d334c8b3149b22bac83673e9ef731485f96415",
+  "shortHash": "e5d334c8",
+  "author": "HiFii",
+  "date": "2025-10-20 22:01:28 -0700",
+  "message": "set slight opacity for AMOLED black theme (bottom nav bar)"
+},
+{
+  "hash": "6825fe13759a19a236bb18d25d18ddf48e232e0b",
+  "shortHash": "6825fe13",
+  "author": "HiFii",
+  "date": "2025-10-20 21:58:56 -0700",
+  "message": "fix for halloween theme"
+},
+{
+  "hash": "561eace3470edb1bd5e245ca681d4d27ecdee558",
+  "shortHash": "561eace3",
+  "author": "HiFii",
+  "date": "2025-10-20 21:52:24 -0700",
+  "message": "Improve themes"
+},
+{
+  "hash": "9b70e3e56739bdb64906a972d588f21fb3ebd138",
+  "shortHash": "9b70e3e5",
+  "author": "HiFii",
+  "date": "2025-10-20 21:52:16 -0700",
+  "message": "improve hallloween color"
+},
+{
+  "hash": "1c57d0a7b5cbc8bc231d24426ee27677a014049b",
+  "shortHash": "1c57d0a7",
+  "author": "HiFii",
+  "date": "2025-10-20 21:52:06 -0700",
+  "message": "Update AirborneRadarFragment.java"
+},
+{
+  "hash": "33e83a9e2ec68bc49cdad7af6db30ca863f9563c",
+  "shortHash": "33e83a9e",
+  "author": "HiFii",
+  "date": "2025-10-20 21:51:59 -0700",
+  "message": "Update Const.java"
+},
+{
+  "hash": "7ad6a819d0605650e2b99f26339cc8923a992a7d",
+  "shortHash": "7ad6a819",
+  "author": "HiFii",
+  "date": "2025-10-20 21:51:52 -0700",
+  "message": "Revert "Update fragment_settings.xml""
+},
+{
+  "hash": "016315f912c63f1f0ec7d4cb97f3f915cd2ffac8",
+  "shortHash": "016315f9",
+  "author": "HiFii",
+  "date": "2025-10-20 21:51:44 -0700",
+  "message": "Update fragment_settings.xml"
+},
+{
+  "hash": "8c0915b04d128869dff8de03baeeb755a5d60e36",
+  "shortHash": "8c0915b0",
+  "author": "HiFii",
+  "date": "2025-10-19 15:30:36 -0700",
+  "message": "fix shadow cutoff for holiday headers + add a sad face to a string lol"
+},
+{
+  "hash": "d442bc264a59ad6e894c75c5fbdd07a0113cf3c2",
+  "shortHash": "d442bc26",
+  "author": "HiFii",
+  "date": "2025-10-19 00:07:31 -0700",
+  "message": "reduce app size by 2-3MB"
+},
+{
+  "hash": "00a2992418eac9aef766b8fd5511fc2e8085098a",
+  "shortHash": "00a29924",
+  "author": "HiFii",
+  "date": "2025-10-18 23:40:47 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "9c9fbc70d29765b3408891d205ec326a0250a26f",
+  "shortHash": "9c9fbc70",
+  "author": "HiFii",
+  "date": "2025-10-18 23:40:32 -0700",
+  "message": "set unique opacities per theme in main activity (experimental)"
+},
+{
+  "hash": "6c411e604c5f44190b2c9becc79def99bf5576f0",
+  "shortHash": "6c411e60",
+  "author": "HiFii",
+  "date": "2025-10-18 23:19:26 -0700",
+  "message": "TEST: Take control of more  elements under certain themes"
+},
+{
+  "hash": "5d8213b6a1b67feaf956d02ebf3db9614594d8f9",
+  "shortHash": "5d8213b6",
+  "author": "HiFii",
+  "date": "2025-10-18 22:44:36 -0700",
+  "message": "Revert "organize german and english strings""
+},
+{
+  "hash": "7ea6b3b0bdd9d1306406a446ef02e5eef277c85f",
+  "shortHash": "7ea6b3b0",
+  "author": "HiFii",
+  "date": "2025-10-18 22:38:47 -0700",
+  "message": "improve v31 colors"
+},
+{
+  "hash": "2a3ad881fb2e78f74cee9005e706819ef46f2e82",
+  "shortHash": "2a3ad881",
+  "author": "HiFii",
+  "date": "2025-10-18 22:37:20 -0700",
+  "message": "organize colors"
+},
+{
+  "hash": "e080c3dc23f17451a3abc762564b523b2c60ae27",
+  "shortHash": "e080c3dc",
+  "author": "HiFii",
+  "date": "2025-10-18 22:37:12 -0700",
+  "message": "organize german and english strings"
+},
+{
+  "hash": "4e16a23a9b97ae0ef3b393a46250aeb42e547ac3",
+  "shortHash": "4e16a23a",
+  "author": "HiFii",
+  "date": "2025-10-18 22:08:06 -0700",
+  "message": "bump to 2025.3.0 and release to play store"
+},
+{
+  "hash": "0c1ec3f78143e2128a26dcdaa5a2bc877cc743ad",
+  "shortHash": "0c1ec3f7",
+  "author": "HiFii",
+  "date": "2025-10-18 21:55:49 -0700",
+  "message": "release 2025.2.2"
+},
+{
+  "hash": "8650cf6cb5587a6ecb8c727f3a3ac304e4801b5a",
+  "shortHash": "8650cf6c",
+  "author": "HiFii",
+  "date": "2025-10-18 21:55:33 -0700",
+  "message": "format code"
+},
+{
+  "hash": "47d23ad32fac73d874e4b5fe5e863918d6d7da47",
+  "shortHash": "47d23ad3",
+  "author": "HiFii",
+  "date": "2025-10-18 21:54:32 -0700",
+  "message": "Update dependencies, code cleanup and bug fixes"
+},
+{
+  "hash": "28f84f1e95947a34d210be316a62fc2aceed2839",
+  "shortHash": "28f84f1e",
+  "author": "HiFii",
+  "date": "2025-10-18 21:49:59 -0700",
+  "message": "format code"
+},
+{
+  "hash": "fb816a26d6c2d30e984d94a23f4cf886b15f6161",
+  "shortHash": "fb816a26",
+  "author": "HiFii",
+  "date": "2025-10-18 21:47:54 -0700",
+  "message": "improve changelog ui"
+},
+{
+  "hash": "32439bacfd64bf54a540fc984bbe945035eb121f",
+  "shortHash": "32439bac",
+  "author": "HiFii",
+  "date": "2025-10-18 21:44:40 -0700",
+  "message": "new cutting edge gradle properties"
+},
+{
+  "hash": "a95405e5afc375db6ea54de7ffafc3e2dc163a4e",
+  "shortHash": "a95405e5",
+  "author": "HiFii",
+  "date": "2025-10-18 21:38:30 -0700",
+  "message": "Format code"
+},
+{
+  "hash": "e87cd23c89c219df4b6809bbb27f57ce26370022",
+  "shortHash": "e87cd23c",
+  "author": "HiFii",
+  "date": "2025-10-18 21:36:55 -0700",
+  "message": "Changelogs: fix UI, fix force close on back nav, toolbar wasnt instantiated lol. classic"
+},
+{
+  "hash": "c9864a95ae9344f3db66eda8585fa5afb7abb871",
+  "shortHash": "c9864a95",
+  "author": "HiFii",
+  "date": "2025-10-18 21:13:58 -0700",
+  "message": "Update view_toolbar_vehicle_info.xml"
+},
+{
+  "hash": "8b6e024987acf886505d4f26aec03b071a0f3076",
+  "shortHash": "8b6e0249",
+  "author": "HiFii",
+  "date": "2025-10-18 21:13:56 -0700",
+  "message": "vibrate on vehicle favorited and unfavorited"
+},
+{
+  "hash": "d12dcde86e9c80232dd8e7e1c291309baaf03b03",
+  "shortHash": "d12dcde8",
+  "author": "HiFii",
+  "date": "2025-10-18 20:57:03 -0700",
+  "message": "more backnav and haptics stuff"
+},
+{
+  "hash": "6801e69272839a7641a1f51d1bc0f74c395db7a0",
+  "shortHash": "6801e692",
+  "author": "HiFii",
+  "date": "2025-10-18 20:56:51 -0700",
+  "message": "improve vehicle info"
+},
+{
+  "hash": "56db8b373c4e8b4347b06eccc40f26c3056cd965",
+  "shortHash": "56db8b37",
+  "author": "HiFii",
+  "date": "2025-10-18 20:19:21 -0700",
+  "message": "Update activity_splash.xml"
+},
+{
+  "hash": "b5688e35b97f475dd504f1b14f0e2bf99df97c38",
+  "shortHash": "b5688e35",
+  "author": "HiFii",
+  "date": "2025-10-18 20:05:39 -0700",
+  "message": "remove video view for splash, improve UI"
+},
+{
+  "hash": "e15e730cd8be710eb7ee095650e4190b0f6bcf70",
+  "shortHash": "e15e730c",
+  "author": "HiFii",
+  "date": "2025-10-18 20:05:26 -0700",
+  "message": "fix notification fragment lag"
+},
+{
+  "hash": "1e033731179b44bd5fb6c4093c70f078e6600050",
+  "shortHash": "1e033731",
+  "author": "HiFii",
+  "date": "2025-10-18 19:42:24 -0700",
+  "message": "add experimental (non functioning basically) app customization section in about"
+},
+{
+  "hash": "dfa2bb76798f209889711b1e559c1942ef6f3b39",
+  "shortHash": "dfa2bb76",
+  "author": "HiFii",
+  "date": "2025-10-18 19:36:49 -0700",
+  "message": "improve splash screen UI"
+},
+{
+  "hash": "66a6a0161c6eb08f222115ca269527a1d1945b29",
+  "shortHash": "66a6a016",
+  "author": "HiFii",
+  "date": "2025-10-18 19:21:07 -0700",
+  "message": "Add haptics and rounded back nav to more fragments, that should be about everything"
+},
+{
+  "hash": "e43ac36d3898288d29fb411c24597b76cfe0db47",
+  "shortHash": "e43ac36d",
+  "author": "HiFii",
+  "date": "2025-10-18 19:10:30 -0700",
+  "message": "update splash to  an AspectRatioVideoView! (might revert)"
+},
+{
+  "hash": "85467fab6f49640ada95ef211d8f3d661e1550ad",
+  "shortHash": "85467fab",
+  "author": "HiFii",
+  "date": "2025-10-18 18:37:40 -0700",
+  "message": "more quick older fragment changes"
+},
+{
+  "hash": "8721f93c70616187a2e0a904e913df737c1050f0",
+  "shortHash": "8721f93c",
+  "author": "HiFii",
+  "date": "2025-10-18 18:36:14 -0700",
+  "message": "Update ThunderHubWebViewFragment.java"
+},
+{
+  "hash": "8e80c5f98332725e3883f0af230ee29cf37b733d",
+  "shortHash": "8e80c5f9",
+  "author": "HiFii",
+  "date": "2025-10-18 18:36:11 -0700",
+  "message": "improve older changelogs fragment"
+},
+{
+  "hash": "4151d968cfaa4b0035de7212a2f9fec5ce2f6f4f",
+  "shortHash": "4151d968",
+  "author": "HiFii",
+  "date": "2025-10-18 18:28:22 -0700",
+  "message": "changelog: beautify texts"
+},
+{
+  "hash": "5ba9019c70293ab89f980acfbbfca450a353281e",
+  "shortHash": "5ba9019c",
+  "author": "HiFii",
+  "date": "2025-10-18 18:23:47 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "a61c4c735b4569b45affa508358ab61ba90419da",
+  "shortHash": "a61c4c73",
+  "author": "HiFii",
+  "date": "2025-10-18 18:23:44 -0700",
+  "message": "more vibrations throughout the app"
+},
+{
+  "hash": "da3b7dddfe62b6c5e1b56a0160426a631a699aed",
+  "shortHash": "da3b7ddd",
+  "author": "HiFii",
+  "date": "2025-10-18 18:02:13 -0700",
+  "message": "Fix barely blue theme not applying, fix header, UI improvements"
+},
+{
+  "hash": "0e6852ff14d2b12d3911d2f0c6c152c8da3aa967",
+  "shortHash": "0e6852ff",
+  "author": "HiFii",
+  "date": "2025-10-18 17:43:25 -0700",
+  "message": "slightly layout improvements"
+},
+{
+  "hash": "427e88c80a1c0848f379bab9b996abca40410cd4",
+  "shortHash": "427e88c8",
+  "author": "HiFii",
+  "date": "2025-10-18 17:39:37 -0700",
+  "message": "Themes Fragment:  add vibration on back press"
+},
+{
+  "hash": "3ade0a767eb98d4d828204d2d0d68bf41c7a0d21",
+  "shortHash": "3ade0a76",
+  "author": "HiFii",
+  "date": "2025-10-18 17:35:34 -0700",
+  "message": "Update fragment_thunderdex_social.xml"
+},
+{
+  "hash": "a9e33ba4b05211921a5b4b64bb5ae38bbc45a034",
+  "shortHash": "a9e33ba4",
+  "author": "HiFii",
+  "date": "2025-10-18 17:31:26 -0700",
+  "message": "Update attrs.xml"
+},
+{
+  "hash": "6d9856af73854bc1048df662352fca7dca761a0e",
+  "shortHash": "6d9856af",
+  "author": "HiFii",
+  "date": "2025-10-18 17:31:18 -0700",
+  "message": "Various fixes:"
+},
+{
+  "hash": "931eadbf0659e246a6a747e2cac85dc8326366d6",
+  "shortHash": "931eadbf",
+  "author": "HiFii",
+  "date": "2025-10-18 16:10:41 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "f3408a1bbaf54862987c82cc3917ca813267dc38",
+  "shortHash": "f3408a1b",
+  "author": "HiFii",
+  "date": "2025-10-18 16:09:40 -0700",
+  "message": "Redesign Changelog to separate the last few versions recently released"
+},
+{
+  "hash": "247cba28f4218f4dbe6dd68edc2fc8e1eada563c",
+  "shortHash": "247cba28",
+  "author": "HiFii",
+  "date": "2025-10-18 11:51:49 -0700",
+  "message": "Update SettingsFragment.java"
+},
+{
+  "hash": "437b4b6618e942669adaab9de0e012284ba93632",
+  "shortHash": "437b4b66",
+  "author": "HiFii",
+  "date": "2025-10-18 09:33:40 -0700",
+  "message": "MIGHT REVERT: Add Bubble Emitter animation to Settings header (checking compatibilty for android 8-11)"
+},
+{
+  "hash": "e2175fdfde71bd3a3cb6bdbb281930bb6efc52b6",
+  "shortHash": "e2175fdf",
+  "author": "HiFii",
+  "date": "2025-10-18 09:33:09 -0700",
+  "message": "add contributor to about, improve UI"
+},
+{
+  "hash": "4b10803b57dadc49836181ddd71863b518379a62",
+  "shortHash": "4b10803b",
+  "author": "HiFii",
+  "date": "2025-10-18 07:41:04 -0700",
+  "message": "Update GroupedRadarFragment.java"
+},
+{
+  "hash": "9419f5b42a0b616dd8fc28ab28cf7793f10850dd",
+  "shortHash": "9419f5b4",
+  "author": "HiFii",
+  "date": "2025-10-18 07:39:47 -0700",
+  "message": "remove home animation, settings slide up animation only"
+},
+{
+  "hash": "e332759bcb1795e41fc85f466b31478a0e5cdbaa",
+  "shortHash": "e332759b",
+  "author": "HiFii",
+  "date": "2025-10-18 07:37:38 -0700",
+  "message": "Update fragment_vehicles_group.xml"
+},
+{
+  "hash": "30e5c754751543a2cb46a0ec90361d7aec0710a7",
+  "shortHash": "30e5c754",
+  "author": "HiFii",
+  "date": "2025-10-18 07:37:36 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "09edf9fbc133cbea80d8167eebc3009be8d12df1",
+  "shortHash": "09edf9fb",
+  "author": "HiFii",
+  "date": "2025-10-18 07:24:42 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "01a99122f2d70073a98be7341c8d36113b90fcb7",
+  "shortHash": "01a99122",
+  "author": "HiFii",
+  "date": "2025-10-18 07:23:28 -0700",
+  "message": "remove animations for sections of the app (buggy)"
+},
+{
+  "hash": "61acd8ee843ba73ed3b8bd834c76722a67ced4de",
+  "shortHash": "61acd8ee",
+  "author": "HiFii",
+  "date": "2025-10-18 07:17:30 -0700",
+  "message": "Improve animations"
+},
+{
+  "hash": "705d2923fe57df2d6f41047ecd899f7e02ec325f",
+  "shortHash": "705d2923",
+  "author": "HiFii",
+  "date": "2025-10-18 07:08:51 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "857de20a3399fe738e5cd418dde7de11a56a9dfd",
+  "shortHash": "857de20a",
+  "author": "HiFii",
+  "date": "2025-10-18 07:08:43 -0700",
+  "message": "Add animations in a few main segments of the app"
+},
+{
+  "hash": "7c097c40224bc5d00e9cfdd53d192a576aebf226",
+  "shortHash": "7c097c40",
+  "author": "HiFii",
+  "date": "2025-10-18 07:08:12 -0700",
+  "message": "improve fade in and out animations"
+},
+{
+  "hash": "dd00da6460e645ab37364bcfb6b68a891035215a",
+  "shortHash": "dd00da64",
+  "author": "HiFii",
+  "date": "2025-10-18 06:54:03 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "7aec0307b6032419434a4dbd7479ddfa9617bdcb",
+  "shortHash": "7aec0307",
+  "author": "HiFii",
+  "date": "2025-10-18 06:53:58 -0700",
+  "message": "Revert "Update MainActivity.java""
+},
+{
+  "hash": "7f7e4cc76e0c7de3326c87e9816ff4c10b0f21ee",
+  "shortHash": "7f7e4cc7",
+  "author": "HiFii",
+  "date": "2025-10-18 06:53:49 -0700",
+  "message": "Update MainActivity.java"
+},
+{
+  "hash": "9dbce925b66d2387f3ce7b2c638e06e6b281f787",
+  "shortHash": "9dbce925",
+  "author": "HiFii",
+  "date": "2025-10-18 06:39:48 -0700",
+  "message": "improve colors"
+},
+{
+  "hash": "5244fd5182796e82dea457c049b91131928cb16d",
+  "shortHash": "5244fd51",
+  "author": "HiFii",
+  "date": "2025-10-18 06:37:28 -0700",
+  "message": "More accurate theme colors"
+},
+{
+  "hash": "2eb46d288c958c6a027e0a789616bd57d36f4e25",
+  "shortHash": "2eb46d28",
+  "author": "HiFii",
+  "date": "2025-10-18 06:24:37 -0700",
+  "message": "Adjust various dimensions to reflect Material Design 3 Expressive spec"
+},
+{
+  "hash": "345955eb1bf5d4872c5e7ce985feb8997bf52ea3",
+  "shortHash": "345955eb",
+  "author": "HiFii",
+  "date": "2025-10-18 06:19:33 -0700",
+  "message": "Show "Almost Black" header inside of the title header when Almost Black theme is enabled"
+},
+{
+  "hash": "fb26063fbc3bdd42b7cf9833207740e4a6a551cc",
+  "shortHash": "fb26063f",
+  "author": "HiFii",
+  "date": "2025-10-18 06:04:41 -0700",
+  "message": "Improve theme section"
+},
+{
+  "hash": "6f39f011cf9f5390ba8ce918d509caa216445e9f",
+  "shortHash": "6f39f011",
+  "author": "HiFii",
+  "date": "2025-10-18 05:35:09 -0700",
+  "message": "Update view_toolbar_vehicle_info.xml"
+},
+{
+  "hash": "6672021bce399a115397821b1bf05a90102dcb12",
+  "shortHash": "6672021b",
+  "author": "HiFii",
+  "date": "2025-10-18 05:29:32 -0700",
+  "message": "Improve the EasterEgg, activated by long press of app version in settings header with a neat vibration pattern"
+},
+{
+  "hash": "b894792287cfe33fe981f02013b0580b8e3825e6",
+  "shortHash": "b8947922",
+  "author": "HiFii",
+  "date": "2025-10-18 05:28:48 -0700",
+  "message": "Fix StrongerVibration logic"
+},
+{
+  "hash": "3d3b057b00f86a176f5cf07f7482090d645cc241",
+  "shortHash": "3d3b057b",
+  "author": "HiFii",
+  "date": "2025-10-18 05:08:45 -0700",
+  "message": "Revert "Update ThunderDexEasterEgg.java""
+},
+{
+  "hash": "25a55d3912822b60bc6d1bd1920d89dd19fcbe3c",
+  "shortHash": "25a55d39",
+  "author": "HiFii",
+  "date": "2025-10-18 05:08:38 -0700",
+  "message": "Update ThunderDexEasterEgg.java"
+},
+{
+  "hash": "7e42dcade57d571ad03c24a83001058767d025f9",
+  "shortHash": "7e42dcad",
+  "author": "HiFii",
+  "date": "2025-10-18 04:40:43 -0700",
+  "message": "notification permission customizable fluid gradient alpha tweak (what a mouthful)"
+},
+{
+  "hash": "3638d7dd758a25d579a33e8fc614f2ca9556ea87",
+  "shortHash": "3638d7dd",
+  "author": "HiFii",
+  "date": "2025-10-18 04:39:54 -0700",
+  "message": "Update fragment_notification_permission.xml"
+},
+{
+  "hash": "a7c735ef7998a88bd275f26b302b411bebc0f05f",
+  "shortHash": "a7c735ef",
+  "author": "HiFii",
+  "date": "2025-10-18 04:39:03 -0700",
+  "message": "Improve Notification Permission UI"
+},
+{
+  "hash": "ea8769e507f1f16ccb2f557fcb709be754655ecf",
+  "shortHash": "ea8769e5",
+  "author": "HiFii",
+  "date": "2025-10-18 04:38:49 -0700",
+  "message": "Reduce app size"
+},
+{
+  "hash": "74bb60acb236a5c0be2ae6a06dc17b142bb1b69d",
+  "shortHash": "74bb60ac",
+  "author": "HiFii",
+  "date": "2025-10-18 01:07:17 -0700",
+  "message": "Create thunderdex_anim_two.mp4"
+},
+{
+  "hash": "c9214f8cd9dd8daf44f1a0aa2a8c6a4c23bdc7f3",
+  "shortHash": "c9214f8c",
+  "author": "HiFii",
+  "date": "2025-10-18 01:07:15 -0700",
+  "message": "Create thunderdex_anim_one.mp4"
+},
+{
+  "hash": "25ed39b498226b150ebc14f43ff9ae7bd5e75814",
+  "shortHash": "25ed39b4",
+  "author": "HiFii",
+  "date": "2025-10-18 01:07:13 -0700",
+  "message": "Update HomeFragment.java"
+},
+{
+  "hash": "7a227962629354b9a861dc41bfcc65ffbf600855",
+  "shortHash": "7a227962",
+  "author": "HiFii",
+  "date": "2025-10-17 22:51:27 -0700",
+  "message": "Add Blur behind app version pill in settings header"
+},
+{
+  "hash": "b63115bbb76fd6eba08810964b1d8e1ca37e3f81",
+  "shortHash": "b63115bb",
+  "author": "HiFii",
+  "date": "2025-10-17 22:39:02 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "b3670a30714e7957d8d9a6462d03609aaa7d94af",
+  "shortHash": "b3670a30",
+  "author": "HiFii",
+  "date": "2025-10-17 22:38:31 -0700",
+  "message": "Reformat code"
+},
+{
+  "hash": "46a54050d620c18e9776d145e7f5513c760459b6",
+  "shortHash": "46a54050",
+  "author": "HiFii",
+  "date": "2025-10-17 22:37:18 -0700",
+  "message": "Release 2025.2.1"
+},
+{
+  "hash": "25ad105fab3af60e967b9224480e9ad7483b08ee",
+  "shortHash": "25ad105f",
+  "author": "HiFii",
+  "date": "2025-10-17 22:34:29 -0700",
+  "message": "Adjust black colors for "almost black" theme"
+},
+{
+  "hash": "77cdef40f4a6593f9039ef5792a63f18f8c8ebff",
+  "shortHash": "77cdef40",
+  "author": "HiFii",
+  "date": "2025-10-17 22:32:28 -0700",
+  "message": "News/Updates: Improved zoom parameters"
+},
+{
+  "hash": "03dfe380eadc3face5ebab49e91bafcb7d5ddbbd",
+  "shortHash": "03dfe380",
+  "author": "HiFii",
+  "date": "2025-10-17 22:22:39 -0700",
+  "message": "Update SettingsFragment.java"
+},
+{
+  "hash": "aa8b2b8df9d90d2b88d172768bfaacdec64daf34",
+  "shortHash": "aa8b2b8d",
+  "author": "HiFii",
+  "date": "2025-10-17 22:22:26 -0700",
+  "message": "Add versionCode at top right of settings header card"
+},
+{
+  "hash": "047c094ac73a15454077039e91863e268dd3e05c",
+  "shortHash": "047c094a",
+  "author": "HiFii",
+  "date": "2025-10-17 22:15:29 -0700",
+  "message": "bruh"
+},
+{
+  "hash": "829daffc4ea1e6e4e0f9edaba1a7e64cf0d8c4d9",
+  "shortHash": "829daffc",
+  "author": "HiFii",
+  "date": "2025-10-17 22:14:10 -0700",
+  "message": "Update fragment_settings.xml"
+},
+{
+  "hash": "c10ea68065f7aa61a8352fd11490387bf67f1466",
+  "shortHash": "c10ea680",
+  "author": "HiFii",
+  "date": "2025-10-17 22:11:59 -0700",
+  "message": "settings: combine language chooser with other settings, improve UI"
+},
+{
+  "hash": "a51574d43ce38fb1783a00fa4e0a9cf5bb1ffb4d",
+  "shortHash": "a51574d4",
+  "author": "HiFii",
+  "date": "2025-10-17 21:59:15 -0700",
+  "message": "Adjust "Clear cache" button height"
+},
+{
+  "hash": "05a85f9a1814b3290ac6549fa4e3b4933caf11b8",
+  "shortHash": "05a85f9a",
+  "author": "HiFii",
+  "date": "2025-10-17 21:55:34 -0700",
+  "message": "Delete test.webp"
+},
+{
+  "hash": "ab742d196b8444fd81d675de2dfee53b79b2d8f2",
+  "shortHash": "ab742d19",
+  "author": "HiFii",
+  "date": "2025-10-17 21:48:01 -0700",
+  "message": "Update SparklingGradientShowcaseFragment.java"
+},
+{
+  "hash": "71dc55cc3aa857e0549a663c336438397f502723",
+  "shortHash": "71dc55cc",
+  "author": "HiFii",
+  "date": "2025-10-17 21:39:30 -0700",
+  "message": "Sparkling Gradient Showcase: add back navigation"
+},
+{
+  "hash": "14532758ce008d990a6489941f97ea185fc98439",
+  "shortHash": "14532758",
+  "author": "HiFii",
+  "date": "2025-10-17 21:09:29 -0700",
+  "message": "Improve Vehicle List UI"
+},
+{
+  "hash": "3fc8eef21842e57db0f76af65d1aebf13d3c39b0",
+  "shortHash": "3fc8eef2",
+  "author": "HiFii",
+  "date": "2025-10-17 21:09:11 -0700",
+  "message": "Update TankAmmoFragment.java"
+},
+{
+  "hash": "bc4121fa48c22f8dd84610258cfbdc1a07449dd7",
+  "shortHash": "bc4121fa",
+  "author": "HiFii",
+  "date": "2025-10-17 21:09:06 -0700",
+  "message": "News/Updates adapter: add staggered zoom animation"
+},
+{
+  "hash": "d3c8204e49fb54972891bd28f73423448dd49063",
+  "shortHash": "d3c8204e",
+  "author": "HiFii",
+  "date": "2025-10-17 20:07:16 -0700",
+  "message": "TankAmmo: Fixed bug where upon navigating back in the Tank Ammunition section, the Bottom Navigation wouldn't show"
+},
+{
+  "hash": "35e9b5b57e53e42ad55fe4a5e0adf933094bd62c",
+  "shortHash": "35e9b5b5",
+  "author": "HiFii",
+  "date": "2025-10-17 20:01:52 -0700",
+  "message": "fix cash app icon"
+},
+{
+  "hash": "3f519c11ff2b7107e43d01d3617c622bb5c3e4c6",
+  "shortHash": "3f519c11",
+  "author": "HiFii",
+  "date": "2025-10-17 19:14:08 -0700",
+  "message": "Update activity_changelog.xml"
+},
+{
+  "hash": "b52a333c8e30d752f94c22bfe0ac18a25e34ad05",
+  "shortHash": "b52a333c",
+  "author": "HiFii",
+  "date": "2025-10-17 19:13:08 -0700",
+  "message": "improve changelog xml"
+},
+{
+  "hash": "5ed3dd09e302d76d7f85e6710705fc783a489dee",
+  "shortHash": "5ed3dd09",
+  "author": "HiFii",
+  "date": "2025-10-17 19:12:55 -0700",
+  "message": "Theme improvements"
+},
+{
+  "hash": "083b36b8fb6aab1bb2ed2c45baeeeef7d8f5cd44",
+  "shortHash": "083b36b8",
+  "author": "HiFii",
+  "date": "2025-10-17 19:12:38 -0700",
+  "message": "update support / experimental settings xml"
+},
+{
+  "hash": "518f4ca1722d6a37d3ff10da45e39e1c1290c366",
+  "shortHash": "518f4ca1",
+  "author": "HiFii",
+  "date": "2025-10-17 19:12:21 -0700",
+  "message": "Vibrate on pressing Clear Cache"
+},
+{
+  "hash": "453255269546c85a682ebaa786e34a5cf4df7a68",
+  "shortHash": "45325526",
+  "author": "HiFii",
+  "date": "2025-10-17 19:12:06 -0700",
+  "message": "Update CustomizableFluidGradient.java"
+},
+{
+  "hash": "4ef43810aabe17288254c2d18cd0f4b2dd2f5fc9",
+  "shortHash": "4ef43810",
+  "author": "HiFii",
+  "date": "2025-10-17 18:40:21 -0700",
+  "message": "Improve "Classic" (Default) Theme"
+},
+{
+  "hash": "359688c27ae86db01779d636ca3bf7d89cdb255a",
+  "shortHash": "359688c2",
+  "author": "HiFii",
+  "date": "2025-10-17 18:28:37 -0700",
+  "message": "fix oversize vehicle name in the vehicle info section"
+},
+{
+  "hash": "c473086fbf45c031249c6a51239b4430c8fbba64",
+  "shortHash": "c473086f",
+  "author": "HiFii",
+  "date": "2025-10-17 18:28:21 -0700",
+  "message": "fix home header text margin"
+},
+{
+  "hash": "393859af5c89b54b6a62ad854d5940dcc0e0900d",
+  "shortHash": "393859af",
+  "author": "HiFii",
+  "date": "2025-10-17 18:28:00 -0700",
+  "message": "War Thunder theme: use new wt blue"
+},
+{
+  "hash": "f9e60781442e919c009a4f494f6a06f3cb2b9ad7",
+  "shortHash": "f9e60781",
+  "author": "HiFii",
+  "date": "2025-10-17 17:48:49 -0700",
+  "message": "Revert "Update VehiclesGroupFragment.java""
+},
+{
+  "hash": "1520c6ae629bf0e04fef4b0b0bcd602a626eb0e5",
+  "shortHash": "1520c6ae",
+  "author": "HiFii",
+  "date": "2025-10-17 17:48:45 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "20b0677565693dfb7c5e28b01cb2919e3bdec24b",
+  "shortHash": "20b06775",
+  "author": "HiFii",
+  "date": "2025-10-17 17:35:50 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "b649b3a3b68e2679671e241ae0ca7b9a37af8977",
+  "shortHash": "b649b3a3",
+  "author": "HiFii",
+  "date": "2025-10-17 17:35:39 -0700",
+  "message": "add color palette for Vehicle Group section"
+},
+{
+  "hash": "47de281cd80aa8c5862c82ddfa3c2abb4e41a5c7",
+  "shortHash": "47de281c",
+  "author": "HiFii",
+  "date": "2025-10-17 17:33:48 -0700",
+  "message": "improve vehicle group sections"
+},
+{
+  "hash": "a7524cc888531a64de68d12c2d249379ead8877f",
+  "shortHash": "a7524cc8",
+  "author": "HiFii",
+  "date": "2025-10-17 17:21:22 -0700",
+  "message": "fix build error"
+},
+{
+  "hash": "b6838bd125ea8f24467f8268412b26eb25f66d3c",
+  "shortHash": "b6838bd1",
+  "author": "HiFii",
+  "date": "2025-10-17 17:17:09 -0700",
+  "message": "improve and streamline developer support and experimental settings"
+},
+{
+  "hash": "85ad803c7a8d9efc840ead2fdc1d9958fd647bed",
+  "shortHash": "85ad803c",
+  "author": "HiFii",
+  "date": "2025-10-17 17:07:45 -0700",
+  "message": "Set custom cardview colors for war thunder theme"
+},
+{
+  "hash": "c4e9d82617bffd4aafb7c625718c15dda9f08532",
+  "shortHash": "c4e9d826",
+  "author": "HiFii",
+  "date": "2025-10-17 17:07:24 -0700",
+  "message": "Improve the About section"
+},
+{
+  "hash": "d99f83353116649986b3e9d2104ec8a1f7838e75",
+  "shortHash": "d99f8335",
+  "author": "HiFii",
+  "date": "2025-10-17 17:07:12 -0700",
+  "message": "Improve news and updates list"
+},
+{
+  "hash": "87d15d6fb7cc14de1973eb294eadd26435165c8e",
+  "shortHash": "87d15d6f",
+  "author": "HiFii",
+  "date": "2025-10-17 16:28:04 -0700",
+  "message": "Fix "War Thunder" Theme"
+},
+{
+  "hash": "90d14749642a62b0cbac7c666f99b024a009b58a",
+  "shortHash": "90d14749",
+  "author": "HiFii",
+  "date": "2025-10-17 16:27:47 -0700",
+  "message": "add a new contributor"
+},
+{
+  "hash": "7333690d13b16889ad8541a2a691fff7706224bf",
+  "shortHash": "7333690d",
+  "author": "HiFii",
+  "date": "2025-10-17 16:27:27 -0700",
+  "message": "News/Updates adapter: increase palette saturation"
+},
+{
+  "hash": "ed1264391954da150dc237d3f67785df06766026",
+  "shortHash": "ed126439",
+  "author": "HiFii",
+  "date": "2025-10-17 13:07:05 -0700",
+  "message": "fix german string"
+},
+{
+  "hash": "853553606db74449fd683f345496e1f9a9bcb72f",
+  "shortHash": "85355360",
+  "author": "HiFii",
+  "date": "2025-10-17 13:04:53 -0700",
+  "message": "Update build.gradle"
+},
+{
+  "hash": "13a25663c60b5d9d5bbdda8e41cae565812d232b",
+  "shortHash": "13a25663",
+  "author": "HiFii",
+  "date": "2025-10-17 12:54:32 -0700",
+  "message": "Update AndroidManifest.xml"
+},
+{
+  "hash": "4d05478c146291e248da2d5eac1a9cf7e11876c2",
+  "shortHash": "4d05478c",
+  "author": "HiFii",
+  "date": "2025-10-17 12:46:22 -0700",
+  "message": "Update changelog.txt"
+},
+{
+  "hash": "87308498d1c55c9a75280d1e647b0321149e5ca7",
+  "shortHash": "87308498",
+  "author": "HiFii",
+  "date": "2025-10-17 12:46:20 -0700",
+  "message": "Update strings.xml"
+},
+{
+  "hash": "4c3a081545d204771f66d496d1df7322a4ee564c",
+  "shortHash": "4c3a0815",
+  "author": "HiFii",
+  "date": "2025-10-17 12:43:34 -0700",
+  "message": "RELEASE 25.2.0"
+},
+{
+  "hash": "9409b572cf07c510366d31cdb639f9b993da957e",
+  "shortHash": "9409b572",
+  "author": "HiFii",
+  "date": "2025-10-17 12:22:05 -0700",
+  "message": "Update fragment_notification_permission.xml"
+},
+{
+  "hash": "a3c3c86a4f1f18a2369ac6fea986d30834e51694",
+  "shortHash": "a3c3c86a",
+  "author": "HiFii",
+  "date": "2025-10-17 12:09:26 -0700",
+  "message": "16kb page size"
+},
+{
+  "hash": "d5d15661301df446400a491f070273750698faf9",
+  "shortHash": "d5d15661",
+  "author": "HiFii",
+  "date": "2025-10-17 12:03:13 -0700",
+  "message": "add 16kb page support"
+},
+{
+  "hash": "8959ae858ff1bcd303b4c139382158ac7f15ae30",
+  "shortHash": "8959ae85",
+  "author": "HiFii",
+  "date": "2025-10-17 11:56:12 -0700",
+  "message": "Update VehiclesGroupFragment.java"
+},
+{
+  "hash": "42e81d3eb9bd16bac622f7de63b38276c6a64d76",
+  "shortHash": "42e81d3e",
+  "author": "HiFii",
+  "date": "2025-10-17 11:56:10 -0700",
+  "message": "Remove github updater (violates play store policy)"
+},
+{
+  "hash": "37668779f83d69ddf246197c1f33d0ee1884c555",
+  "shortHash": "37668779",
+  "author": "HiFii",
+  "date": "2025-10-17 11:41:09 -0700",
+  "message": "Various changes and fixes to prepare for upcoming release"
+},
+{
+  "hash": "f2179667b8f4d9c06d3f08f74aeb626aeedfa2f9",
+  "shortHash": "f2179667",
+  "author": "HiFii",
+  "date": "2025-10-16 16:44:41 -0700",
+  "message": "bump versionCode and versionName"
+},
+{
+  "hash": "58c97c09aa1b0093a8064e3a407d0461372b48ae",
+  "shortHash": "58c97c09",
+  "author": "HiFii",
+  "date": "2025-10-16 16:43:30 -0700",
+  "message": "Update German translations (Thanks Flitzepipe)"
+},
+{
+  "hash": "fae7541fbc1c036144934934c7230f24f42a4fcb",
+  "shortHash": "fae7541f",
+  "author": "HiFii",
+  "date": "2025-10-16 16:38:20 -0700",
+  "message": "Update strings.xml"
+},
+{
+  "hash": "53cf9c7955270067874937426499928be97631e5",
+  "shortHash": "53cf9c79",
+  "author": "HiFii",
+  "date": "2025-10-16 16:36:10 -0700",
+  "message": "capitalize"
+},
+{
+  "hash": "d6a29ccc3c9e9c106afc1316505fb964cabba0fb",
+  "shortHash": "d6a29ccc",
+  "author": "HiFii",
+  "date": "2025-10-16 14:36:20 -0700",
+  "message": "build.gradle: bump versionCode and versionName"
+},
+{
+  "hash": "08690af3e16f2bff7b7adeb81a7bfb6cf513b2e3",
+  "shortHash": "08690af3",
+  "author": "HiFii",
+  "date": "2025-10-16 14:36:06 -0700",
+  "message": "reformat code"
+},
+{
+  "hash": "112ebcf053baa44b5a3d42b0a3c849f64fc41e8b",
+  "shortHash": "112ebcf0",
+  "author": "HiFii",
+  "date": "2025-10-16 14:34:50 -0700",
+  "message": "Merge pull request #24 from nxoim/dev"
+},
+{
+  "hash": "d2f6880439c44a1368d0da0834fd63c98fc0bf26",
+  "shortHash": "d2f68804",
+  "author": "HiFii",
+  "date": "2025-10-16 14:30:07 -0700",
+  "message": "Notification Fragment and XML: further design improvements, change some shapes, adjust animation"
+},
+{
+  "hash": "8187c55ad2dfc21dc2021949722f6df71e91dc86",
+  "shortHash": "8187c55a",
+  "author": "HiFii",
+  "date": "2025-10-16 14:17:44 -0700",
+  "message": "nightly.sh: fix JSON output parsing on build success"
+},
+{
+  "hash": "feb1422369c410b2548bec5816aca8db7c412d96",
+  "shortHash": "feb14223",
+  "author": "HiFii",
+  "date": "2025-10-16 14:13:45 -0700",
+  "message": "Notification Fragment: Improve design for Android 8-11, and 12+"
+},
+{
+  "hash": "230b2ebcf03fd78abde309e863d58bb65ff18848",
+  "shortHash": "230b2ebc",
+  "author": "HiFii",
+  "date": "2025-10-16 14:08:11 -0700",
+  "message": "build.gradle: bump AGP"
+},
+{
+  "hash": "e0197cc169904a75c24ee650bcae75e9ffd49cb1",
+  "shortHash": "e0197cc1",
+  "author": "HiFii",
+  "date": "2025-10-16 14:07:59 -0700",
+  "message": "gradle.properties: remove deprecated flags"
+}]
