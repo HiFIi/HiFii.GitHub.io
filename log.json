@@ -1,6 +1,46 @@
 [
 {
   "author": "HiFii",
+  "date": "2025-11-09 06:24:59 -0700",
+  "message": "Add strings for offline webpage stuff for translation",
+  "filesChanged": 7,
+  "additions": 35,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-09 06:24:06 -0700",
+  "message": "Format code",
+  "filesChanged": 72,
+  "additions": 3616,
+  "deletions": 3317
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-09 06:21:38 -0700",
+  "message": "settings: temporarily remove the animations for faster loading time",
+  "filesChanged": 1,
+  "additions": 3,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-09 06:20:26 -0700",
+  "message": "Update changelog.txt",
+  "filesChanged": 1,
+  "additions": 5,
+  "deletions": 3
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-09 06:20:25 -0700",
+  "message": "Update activity_changelog.xml",
+  "filesChanged": 1,
+  "additions": 10,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
   "date": "2025-11-09 06:16:04 -0700",
   "message": "hide save webpage icon for now",
   "filesChanged": 1,
@@ -1262,12 +1302,4 @@
   "filesChanged": 2,
   "additions": 10,
   "deletions": 10
-},
-{
-  "author": "HiFii",
-  "date": "2025-11-02 06:18:44 -0700",
-  "message": "Improve textured background",
-  "filesChanged": 2,
-  "additions": 74,
-  "deletions": 6
 }]
