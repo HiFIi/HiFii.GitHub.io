@@ -1,6 +1,62 @@
 [
 {
   "author": "HiFii",
+  "date": "2025-11-18 10:38:24 -0700",
+  "message": "Thorough reformatting of code using google-java-format",
+  "filesChanged": 106,
+  "additions": 4039,
+  "deletions": 4086
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:30:14 -0700",
+  "message": "Update gradle.properties",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:30:12 -0700",
+  "message": "reformat code",
+  "filesChanged": 3,
+  "additions": 105,
+  "deletions": 85
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:27:44 -0700",
+  "message": "gradle.properties: add a significant amount of new properties for increased build performance, app performance, reduced app size and better memory handling",
+  "filesChanged": 1,
+  "additions": 56,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:27:17 -0700",
+  "message": "Update gitLogToJson.sh",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 02:43:49 -0700",
+  "message": "Reapply Commit entries: fix performance issues (might revert)",
+  "filesChanged": 3,
+  "additions": 92,
+  "deletions": 98
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 02:42:39 -0700",
+  "message": "Revert Commit entries: fix performance issues (might revert)",
+  "filesChanged": 3,
+  "additions": 98,
+  "deletions": 92
+},
+{
+  "author": "HiFii",
   "date": "2025-11-18 02:35:09 -0700",
   "message": "First pass at adding Polish translations, strings.xml needs work. thanks Magik on Discord",
   "filesChanged": 12,
