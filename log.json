@@ -1,6 +1,30 @@
 [
 {
   "author": "HiFii",
+  "date": "2025-11-18 10:50:54 -0700",
+  "message": "gitLogToJson.sh: triple the time it takes to pull, optimize code",
+  "filesChanged": 1,
+  "additions": 35,
+  "deletions": 52
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:49:02 -0700",
+  "message": "fix 2 random ass build errors from previous code format",
+  "filesChanged": 2,
+  "additions": 2,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:39:57 -0700",
+  "message": "Update gradle.properties",
+  "filesChanged": 1,
+  "additions": 0,
+  "deletions": 18
+},
+{
+  "author": "HiFii",
   "date": "2025-11-18 10:38:24 -0700",
   "message": "Thorough reformatting of code using google-java-format",
   "filesChanged": 106,
@@ -74,7 +98,7 @@
 {
   "author": "HiFii",
   "date": "2025-11-18 01:34:05 -0700",
-  "message": "app/build.gradle: add back GIT_HASH to prevent: private static final String TOKEN = BuildConfig.GITHUB_TOKEN",
+  "message": "app/build.gradle: add back GIT_HASH to prevent: private static final String TOKEN = BuildConfig.GITHUB_TOKEN; not being found",
   "filesChanged": 1,
   "additions": 17,
   "deletions": 0
@@ -2046,4 +2070,5 @@
   "filesChanged": 1,
   "additions": 27,
   "deletions": 23
-}]
+}
+]
