@@ -1,6 +1,166 @@
 [
 {
   "author": "HiFii",
+  "date": "2025-11-23 20:35:09 -0700",
+  "message": "Format code with google-java-format",
+  "filesChanged": 62,
+  "additions": 462,
+  "deletions": 629
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:34:53 -0700",
+  "message": "fix build error",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:28:06 -0700",
+  "message": "replace all instances of google sounded rounded with google sans flex to perperly reflect MD3",
+  "filesChanged": 27,
+  "additions": 65,
+  "deletions": 65
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:23:41 -0700",
+  "message": "Revert Update view_news_update_list.xml",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:23:37 -0700",
+  "message": "Update view_news_update_list.xml",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:18:52 -0700",
+  "message": "news/updates: replade body with MD3 google sans",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:16:54 -0700",
+  "message": "Splash: only show the first time on installation cold start launch",
+  "filesChanged": 1,
+  "additions": 56,
+  "deletions": 30
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:14:25 -0700",
+  "message": "Splash: Fix could not connect error, show splash screen for minimum of 2 seconds",
+  "filesChanged": 1,
+  "additions": 53,
+  "deletions": 41
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:13:59 -0700",
+  "message": "Replace some product sans fonts with official Google Sans",
+  "filesChanged": 3,
+  "additions": 29,
+  "deletions": 29
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:09:48 -0700",
+  "message": "MainActivity: first pass at universal threaded animations",
+  "filesChanged": 1,
+  "additions": 134,
+  "deletions": 129
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 20:09:31 -0700",
+  "message": "changelog: replace typface with MD3 font",
+  "filesChanged": 3,
+  "additions": 21,
+  "deletions": 21
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-23 06:47:24 -0700",
+  "message": "bump gradle to latest milestone",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-21 12:48:27 -0700",
+  "message": "Revert Fix could not connect to server error on cold, fresh start",
+  "filesChanged": 1,
+  "additions": 3,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-21 12:32:41 -0700",
+  "message": "Fix could not connect to server error on cold, fresh start",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 3
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-20 10:36:57 -0700",
+  "message": "add some new fonts",
+  "filesChanged": 4,
+  "additions": 0,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-20 04:06:58 -0700",
+  "message": "bump gradle",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 3
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 17:34:53 -0700",
+  "message": "build.gradle: update 3 libraries",
+  "filesChanged": 1,
+  "additions": 3,
+  "deletions": 3
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:56:25 -0700",
+  "message": "Update activity_changelog.xml",
+  "filesChanged": 1,
+  "additions": 12,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:56:22 -0700",
+  "message": "Update changelog.txt",
+  "filesChanged": 1,
+  "additions": 4,
+  "deletions": 4
+},
+{
+  "author": "HiFii",
+  "date": "2025-11-18 10:52:21 -0700",
+  "message": "Update build.gradle",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
   "date": "2025-11-18 10:50:54 -0700",
   "message": "gitLogToJson.sh: triple the time it takes to pull, optimize code",
   "filesChanged": 1,
@@ -2070,5 +2230,173 @@
   "filesChanged": 1,
   "additions": 27,
   "deletions": 23
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-27 18:15:58 -0700",
+  "message": "Reformat code after updating google java format plugin",
+  "filesChanged": 2,
+  "additions": 296,
+  "deletions": 293
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-26 01:06:17 -0700",
+  "message": "Update MainActivity.java",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-26 01:05:36 -0700",
+  "message": "Reformat code",
+  "filesChanged": 4,
+  "additions": 2323,
+  "deletions": 2315
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-26 00:33:07 -0700",
+  "message": "VehicleInfo: navigating up now directs back to the vehicle list instead of Home (user reported bug)",
+  "filesChanged": 2,
+  "additions": 2066,
+  "deletions": 2038
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-24 18:43:48 -0700",
+  "message": "update gradle",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-23 17:39:08 -0700",
+  "message": "Update MultiLayerStarFieldView.java",
+  "filesChanged": 1,
+  "additions": 51,
+  "deletions": 77
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-23 00:54:06 -0700",
+  "message": "MultiLayerStarField: slightly increase shooting star chances!",
+  "filesChanged": 1,
+  "additions": 7,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-23 00:51:26 -0700",
+  "message": "MultiLayerStarField: reduce chances of shooting stars to 0 during daytime",
+  "filesChanged": 1,
+  "additions": 2,
+  "deletions": 2
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:33:51 -0700",
+  "message": "Update activity_changelog.xml",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:33:49 -0700",
+  "message": "MultiLayerStarFieldView: reduce star count for better perf",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:28:20 -0700",
+  "message": "Update view_toolbar_tabs.xml",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:28:18 -0700",
+  "message": "Update HomeFragment.java",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:26:58 -0700",
+  "message": "Reformat code, add current time to 24hr stargaze theme",
+  "filesChanged": 24,
+  "additions": 1842,
+  "deletions": 1923
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:12:25 -0700",
+  "message": "reduce header text size",
+  "filesChanged": 1,
+  "additions": 3,
+  "deletions": 5
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-22 00:12:14 -0700",
+  "message": "NEW THEME: StarGaze: 24-hour live theme",
+  "filesChanged": 22,
+  "additions": 509,
+  "deletions": 308
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 22:45:19 -0700",
+  "message": "WikiFragment: fix animated themes not being full screen",
+  "filesChanged": 1,
+  "additions": 3,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 22:17:13 -0700",
+  "message": "slightly increase splash screen logo size",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 22:16:29 -0700",
+  "message": "Create assets_fonts_flightdeckblack.otf",
+  "filesChanged": 1,
+  "additions": 0,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 22:16:02 -0700",
+  "message": "slightly reduce text size for splash",
+  "filesChanged": 1,
+  "additions": 1,
+  "deletions": 1
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 22:15:44 -0700",
+  "message": "Create assets_fonts_flightdeckblack.otf",
+  "filesChanged": 1,
+  "additions": 0,
+  "deletions": 0
+},
+{
+  "author": "HiFii",
+  "date": "2025-10-21 21:11:25 -0700",
+  "message": "ADD 3 NEW THEMES! Nocturne, Vortex, and Electric Tide",
+  "filesChanged": 18,
+  "additions": 476,
+  "deletions": 20
 }
 ]
