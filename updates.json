@@ -1,11 +1,9 @@
 [
   {
-    "tag_name": "nightly-251016",
-    "body": "versionCode: 152\nWhats New (10-16-25)\n\n  - bump versionCode and versionName\n  - Update German translations (Thanks Flitzepipe)\n  - Update strings.xml\n  - capitalize\n  - build.gradle: bump versionCode and versionName\n  - reformat code\n  - Merge pull request #24 from nxoim/dev\n  - Notification Fragment and XML: further design improvements, change some shapes, adjust animation\n  - nightly.sh: fix JSON output parsing on build success\n  - Notification Fragment: Improve design for Android 8-11, and 12+\n  - build.gradle: bump AGP\n  - gradle.properties: remove deprecated flags\n  - fixed icon overlapping on some golden eagle purchase costs\n  - format code\n  - Add a whole bunch of MaterialShape drawables for future animations in the app, taken from material design catalog\n  - Format code\n  - Redesign the About section, improve performance, add more contributors, reorganize cards, improve fonts and texts, simplify layout\n  - build.gradle: Update 4 libraries. OKHTTP, firebase crashlytics and BOM, GMS Play Services\n  - Update nightly.sh\n  - bump versionCode and versionName\n  - changelog xml: streamline title text padding to match padding for cardview (aka changelog body text)\n  - Revert \"changelog xml: mathematically align close button\"\n  - changelog xml: mathematically align close button\n  - Changelog xml: align exit button better, align changelog title text better\n  - Update nightly.sh\n  - Revert \"Update nightly.sh\"\n  - Update nightly.sh\n  - nightly.sh: hopefully fix messed up json output from bash script\n  - bump versionCode and versionName for new Update Dialog test",
-    "assets": [
-      {
-        "browser_download_url": "https://github.com/HiFIi/HiFii.GitHub.io/releases/download/nightly-251016/ThunderDex-10-16-2025_1646-arm64-v8a-release.apk"
-      }
-    ]
+    "name": "DexDrop",
+    "versionCode": 1,
+    "versionName": "2026.1.0",
+    "apkUrl": "https://github.com/hifii/hifii.github.io/releases/download/v2026.1.0/DexDrop-release.apk",
+    "changelog": "Initial stable release with GitHub sync."
   }
 ]
